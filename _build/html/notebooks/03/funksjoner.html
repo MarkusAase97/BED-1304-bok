@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -189,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3 - Funksjoner</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
 
 
@@ -419,6 +420,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3 - Funksjoner</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bruke-funksjoner">Å bruke funksjoner</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innebygde-funksjoner">Innebygde funksjoner</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
@@ -442,8 +444,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-om-funksjoner">Litt mer om funksjoner</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mer-om-funksjoner">Mer om funksjoner</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-vi-skal-lage-en-funksjon-for-her-er">Det vi skal lage en funksjon for her er:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
@@ -455,6 +460,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forelesningseksempel-og-pseudokode">Forelesningseksempel og pseudokode</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2:</a></li>
@@ -467,6 +475,9 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -482,7 +493,7 @@ document.write(`
 <section id="a-bruke-funksjoner">
 <h2>Å bruke funksjoner<a class="headerlink" href="#a-bruke-funksjoner" title="Link to this heading">#</a></h2>
 <p>Funksjoner er helt sentralt i all slags programmering. Et program uten egendefinerte funksjoner er bare en liste med kommandoer, og det er svært begrenset hva du kan få til med det. Heldigvis er det ekstremt enkelt å lage egne funksjoner i Python.</p>
-<p>En vanlig nybegynnerfeil i programmering er å ikke utnytte muligheten til å lage egne funksjoner tilstrekkelig. Hovedregelen er at om det er noe av koden din som repeteres, så skal du lage en ny funksjon som håndterer dette. Målet er at antall linjer i hver funksjon skal være så lite som mulig. Men før vi lærer å lage egne funksjoner, skal vi se litt på hvordan funksjoner brukes.</p>
+<p>En vanlig nybegynnerfeil i programmering er å ikke utnytte muligheten til å lage egne funksjoner tilstrekkelig. Hovedregelen er at om det er noe av koden din som repeteres, så skal du lage en ny funksjon som håndterer dette. Målet er at antall linjer i hver funksjon skal være så lite som mulig. Men før vi lærer å lage egne funksjoner, skal vi se litt på hvordan noen innebygde funksjoner i Python brukes.</p>
 </section>
 <section id="innebygde-funksjoner">
 <h2>Innebygde funksjoner<a class="headerlink" href="#innebygde-funksjoner" title="Link to this heading">#</a></h2>
@@ -491,30 +502,49 @@ document.write(`
 <h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="mf">2.4</span><span class="p">,</span><span class="mf">2.0</span><span class="p">)</span>   <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="nb">min</span><span class="p">(</span><span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>  <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mf">2.4</span><span class="p">)</span>      <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">)</span>   <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner maksimum av to tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span>
+
+<span class="c1"># Finner minimum av to tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+
+<span class="c1"># Finner absoluttverdien av et tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mf">2.4</span><span class="p">))</span>
+
+<span class="c1"># Finner lengden av en string.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;156&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 2.0
 2.4
-5
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Markus Aase&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 </div>
@@ -526,17 +556,18 @@ document.write(`
 <h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mf">50.8</span>
-<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;hei&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">])</span>
-<span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;hei&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="n">min_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;hei&#39;</span><span class="p">,</span><span class="n">alder</span><span class="p">,</span> <span class="s1">&#39;hallo&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_liste</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">min_liste</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, &#39;hei&#39;, 50.8]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, &#39;hei&#39;, 27, &#39;hallo&#39;]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -553,7 +584,37 @@ document.write(`
 <h3>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install numpy</span>
+<span class="o">%</span><span class="k">pip</span> install numpy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in c:\users\daniel\appdata\local\programs\python\python311\lib\site-packages (1.26.0)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.2 -&gt; 25.3
+[notice] To update, run: C:\Users\Daniel\AppData\Local\Programs\Python\Python311\python.exe -m pip install --upgrade pip
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.26.0
 </pre></div>
 </div>
 </div>
@@ -564,12 +625,12 @@ document.write(`
 <h3>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.38905609893065
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.718281828459045
 </pre></div>
 </div>
 </div>
@@ -590,7 +651,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Eksponenten til 5 er for eksempel 2.71828 opphøyet i 5:</p>
+<p>Vi kan for eksempel skrive 2.71828 opphøyet i 5:</p>
 </section>
 <section id="eksempel-6">
 <h3>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h3>
@@ -620,27 +681,136 @@ document.write(`
 </div>
 <p>For å opphøye noe bruker vi altså dobbelt gangetegn <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
 <p><em>Logartimen</em> er det eksakt motsatte av eksponentialfunksjonen. Tar vi logaritmen av eksponentialfunksjon, får vi argumentet til sistnevnte. Tar vi eksponentialfunksjonen av logartimen får vi også argumentet til logartimen. I en av oppgavene under skal du vise dette.</p>
+<p>Her har vi bare vist noen eksempler av <code class="docutils literal notranslate"><span class="pre">exp</span></code>-funksjonen til biblioteket <em>Numpy</em>. Vi skal komme tilbake til Numpy senere i kurset, nå forsetter vi med å se på hvordan vi kan lage egne funksjoner.</p>
 </section>
 </section>
 <section id="lage-egne-funksjoner-renteregning">
 <h2>Lage egne funksjoner - renteregning<a class="headerlink" href="#lage-egne-funksjoner-renteregning" title="Link to this heading">#</a></h2>
-<p>Vi skal her se hvordan vi kan lage egne funksjoner for renteregning.</p>
-<p>La oss starte med å lage en funksjon for et lån uten avdrag. Om banken legger til renten én gang i året og renten er r, så er lånet på x om T år gitt som <span class="math notranslate nohighlight">\(x\cdot (1+r)^{T}\)</span>. Dette kan vi programmere som følgende funksjon:</p>
+<p>Vi har til nå sett på noen inneebygde-funksjoner i Python, nå skal vi se hvordan vi kan lage <em>egne</em> funksjoner.</p>
+<p>La oss ta for oss et eksempel med renteregning.</p>
+<p>La oss starte med å lage en funksjon for et lån <em>uten</em> avdrag. Om banken legger til renten én gang i året og renten er <code class="docutils literal notranslate"><span class="pre">r</span></code>, så er lånet på <code class="docutils literal notranslate"><span class="pre">x</span></code> kr om <code class="docutils literal notranslate"><span class="pre">T</span></code> år gitt som <span class="math notranslate nohighlight">\(x\cdot (1+r)^{T}\)</span>. Dette kan vi programmere som følgende funksjon:</p>
 <section id="eksempel-7">
 <h3>Eksempel 7:<a class="headerlink" href="#eksempel-7" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">account_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi kan &quot;hardkode&quot; dette på følgende vis, med noen eksempelverdier</span>
+
+<span class="c1"># Lån = 300000</span>
+<span class="c1"># r = 0.1</span>
+<span class="c1"># T = 3 år</span>
+
+<span class="mi">300000</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="mi">40000</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53240.000000000015
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_0</span> <span class="o">=</span> <span class="mi">300000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">K_T</span> <span class="o">=</span> <span class="n">K_0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="n">T</span>
+<span class="n">K_T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>399300.0000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her er det effektivt å lage en funksjon i stedet!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funksjonen &#39;account_balance&#39; regner ut rente for lån uten avdrag</span>
+<span class="c1"># K_0 = lån</span>
+<span class="c1"># r = rente</span>
+<span class="c1"># T = år</span>
+
+<span class="c1"># Funksjonene account_balance gjør blablabla</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">account_balance</span><span class="p">(</span><span class="n">K_0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">K_0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer jeg min_funksjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">min_funksjon</span><span class="p">():</span>
+    <span class="n">tekst</span> <span class="o">=</span> <span class="s2">&quot;Hei på deg&quot;</span>
+    <span class="k">return</span> <span class="n">tekst</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Her kaller jeg på min_funksjon</span>
+<span class="n">min_funksjon</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hei på deg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Her kaller jeg på min_funksjon</span>
+<span class="n">min_funksjon</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hei på deg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">account_balance</span><span class="p">(</span><span class="mi">300000</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>399300.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">account_balance</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">300000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2700027000090000.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her er <code class="docutils literal notranslate"><span class="pre">account_balance</span></code> <em>navnet</em> til funksjonen vår, og den tar inn tre <em>parametere</em> (nemlig <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code> og <code class="docutils literal notranslate"><span class="pre">T</span></code>).</p>
 <p>Nøkkelordet <code class="docutils literal notranslate"><span class="pre">return</span></code>sørger for at det som står etter <code class="docutils literal notranslate"><span class="pre">return</span></code> returneres av funksjonen. Dersom funksjonen ikke har <code class="docutils literal notranslate"><span class="pre">return</span></code>i seg, returneres <code class="docutils literal notranslate"><span class="pre">None</span></code>, som representerer “ingenting” i Python.</p>
-<p>Om renten på lånet er 20%=0.2 og innskuddet er 100, så er beløpet om to år dermed:</p>
+<p>Om renten på lånet er <span class="math notranslate nohighlight">\(20\)</span>% <span class="math notranslate nohighlight">\(= 0.2\)</span> og innskuddet er <span class="math notranslate nohighlight">\(100\)</span>, så er beløpet om to år dermed:</p>
 </section>
 <section id="eksempel-8">
 <h3>Eksempel 8:<a class="headerlink" href="#eksempel-8" title="Link to this heading">#</a></h3>
+<p>Når vi gir disse <em>parameterene</em> verdier, så kaller vi det for <em>argument</em>.</p>
+<p>Så parameterene her er: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code> og <code class="docutils literal notranslate"><span class="pre">T</span></code></p>
+<p>og argumentene i cellen under er: <span class="math notranslate nohighlight">\(100\)</span>, <span class="math notranslate nohighlight">\(0.2\)</span> og <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -653,7 +823,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>La oss nå tenke oss at banken legger til renter n ganger i året. Om for eksempel n=12, så legger banken til renter måndedlig. Vi kan da regne ut lånet ved ulik antall forrentninger per år. Formelen for dette er <span class="math notranslate nohighlight">\(x\cdot (1+\frac{r}{n})^{T\cdot n}\)</span>.</p>
+<p>Det betyr altså at når innskuddet er <span class="math notranslate nohighlight">\(100\)</span> og renta er på <span class="math notranslate nohighlight">\(20\)</span>% over <span class="math notranslate nohighlight">\(2\)</span> år, øker lånet til <span class="math notranslate nohighlight">\(144\)</span>.</p>
+<p>La oss nå tenke oss at banken legger til renter n ganger i året. Om for eksempel <span class="math notranslate nohighlight">\(n=12\)</span>, så legger banken til renter måndedlig. Vi kan da regne ut lånet ved ulik antall forrentninger per år. Formelen for dette er <span class="math notranslate nohighlight">\(x\cdot (1+\frac{r}{n})^{T\cdot n}\)</span>.</p>
 <p>Formelen har en enkel og intuitiv forklaring: Vi deler rentesatsen på antall perioder, samtidig som renten legges til i hver periode. Renten i hver periode er dermed <span class="math notranslate nohighlight">\(\frac{r}{n}\)</span>, og dette forrentes totalt <span class="math notranslate nohighlight">\(T\cdot n\)</span> ganger. Dette kan programmeres i pyton som</p>
 </section>
 <section id="eksempel-9">
@@ -732,15 +903,37 @@ document.write(`
 <p>Årsaken til at vi ofte bruker logaritmen og eksponentialfunksjonen istedet for å legge til veksten hvert sekund, ar et det er veldig mye enklere å regne med logartimer enn vanlig prosentregning.</p>
 </section>
 </section>
-<section id="litt-mer-om-funksjoner">
-<h2>Litt mer om funksjoner<a class="headerlink" href="#litt-mer-om-funksjoner" title="Link to this heading">#</a></h2>
+<section id="mer-om-funksjoner">
+<h2>Mer om funksjoner<a class="headerlink" href="#mer-om-funksjoner" title="Link to this heading">#</a></h2>
 <p>La oss definere en enkel funksjon som dobler et tall:</p>
 <section id="eksempel-14">
 <h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
+<section id="det-vi-skal-lage-en-funksjon-for-her-er">
+<h4>Det vi skal lage en funksjon for her er:<a class="headerlink" href="#det-vi-skal-lage-en-funksjon-for-her-er" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(f(x) = 2x\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multiplikasjon</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">multiplikasjon</span><span class="si">}</span><span class="s1"> brukte funksjonen f&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 brukte funksjonen f
 </pre></div>
 </div>
 </div>
@@ -752,8 +945,33 @@ document.write(`
 <li><p>Hva slags objekt returnerer funksjonen?</p></li>
 </ol>
 </section>
+</section>
 <section id="eksempel-15">
 <h3>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">account_balance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">account_balance</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;function&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>            <span class="c1"># printer resultatet av funksjonen når argumentet er 8</span>
@@ -770,6 +988,18 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>      <span class="c1"># printer hvilken type resultate av funksjonen er</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <p>Funksjonen dobler argumentet, så med 8 som argument blir resultatet 16. Symbolet <code class="docutils literal notranslate"><span class="pre">f</span></code> representerer nå en funksjon (<code class="docutils literal notranslate"><span class="pre">function</span></code>), som vi ser er resultatet av <code class="docutils literal notranslate"><span class="pre">print(type(f))</span></code>. Men dersom vi <em>kaller</em> funksjonen med for eksemple argumentet 5, får vi resultatet av funksjonen, som er av type <code class="docutils literal notranslate"><span class="pre">int</span></code>. Funksjoner trenger imidlertid ikke retunere noe. Dette er også en funksjon:</p>
 </section>
 <section id="eksempel-16">
@@ -777,14 +1007,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
 
 <span class="n">hello</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
 </pre></div>
 </div>
 </div>
@@ -803,7 +1033,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
 </pre></div>
 </div>
 </div>
@@ -812,6 +1042,7 @@ document.write(`
 </section>
 <section id="eksempel-18">
 <h3>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(1.02 \cdot 10^2\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">1.02e+2</span><span class="p">):</span>
@@ -827,6 +1058,19 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innehaveren krevde i utgangspunkltet 510.0 kroner for fem epler.
 Det var alt for mye, så jeg tilbydde 0.051000000000000004 kroner.
 Vi ble til slutt enige om 51.0 kroner.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -857,7 +1101,27 @@ Vi ble til slutt enige om 51.0 kroner.
 <h3>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Creating a function that returns total demand given a price p</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_func</span><span class="p">():</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_func</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a function that returns total demand given a price p</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">125</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -880,6 +1144,44 @@ Vi ble til slutt enige om 51.0 kroner.
 </div>
 </section>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="forelesningseksempel-og-pseudokode">
+<h1>Forelesningseksempel og pseudokode<a class="headerlink" href="#forelesningseksempel-og-pseudokode" title="Link to this heading">#</a></h1>
+<p>Hvis du har en leilighet, og ønsker å leie den ut. så er det noen regler.</p>
+<p>De første 10.000,- er skattefrie.
+Det du tjener etterpå skattes 22%</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skattefri_grense</span> <span class="o">=</span> <span class="mi">15000</span> <span class="c1"># De første 10.000,- er skattefri</span>
+<span class="n">skattesats</span> <span class="o">=</span> <span class="mf">0.25</span>        <span class="c1"># Skattesats, etter tjente 10.000,-, er 22%</span>
+
+<span class="c1"># Definerer skattefunksjonen</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">skatte_funksjon</span><span class="p">(</span><span class="n">inntekt</span><span class="p">,</span> <span class="n">skattesats</span><span class="p">,</span> <span class="n">skattefri_grense</span><span class="p">):</span>
+
+    <span class="c1"># Hvis inntekt er mindre eller lik skattefri grense</span>
+    <span class="c1"># returner at skatten er lik 0.</span>
+    <span class="k">if</span> <span class="n">inntekt</span> <span class="o">&lt;=</span> <span class="n">skattefri_grense</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">skattepliktig_beløp</span> <span class="o">=</span> <span class="n">inntekt</span> <span class="o">-</span> <span class="n">skattefri_grense</span>
+        <span class="n">skatt</span> <span class="o">=</span> <span class="n">skattepliktig_beløp</span> <span class="o">*</span> <span class="n">skattesats</span>
+        <span class="k">return</span> <span class="n">skatt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skatte_funksjon</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="n">skattesats</span><span class="p">,</span> <span class="n">skattefri_grense</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21250.0
+</pre></div>
+</div>
+</div>
+</div>
 <section id="oppgaver">
 <h2>Oppgaver:<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h2>
 <section id="oppgave-1">
@@ -1033,7 +1335,7 @@ Når du har brukt 100 kr, har du
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dyr&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;lav&#39;
 </pre></div>
 </div>
 </div>
@@ -1115,7 +1417,12 @@ i %: 19.999999999999996, i log: 18.232155679395458
 <section id="oppgave-5">
 <h3>Oppgave 5:<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h3>
 <p>Lag en funksjon som returnerer det høyeste av funksjonene <code class="docutils literal notranslate"><span class="pre">account_balance_exponential</span></code> og <code class="docutils literal notranslate"><span class="pre">account_balance</span></code>. Er dette en nyttig funksjon?</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">higest_account_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">((</span>
@@ -1128,6 +1435,7 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>222.55409284924679
 </pre></div>
@@ -1141,7 +1449,12 @@ i %: 19.999999999999996, i log: 18.232155679395458
 <section id="oppgave-6">
 <h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h3>
 <p>a) Bruk innebygde Python-funksjoner til å finne maksimum, minimum, absoluttverdi og lengden av teksten “1, -5, 10”. Bruk funksjonen <code class="docutils literal notranslate"><span class="pre">eval</span></code> til å konvertere verdiene til en tallrekke</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;1, -5, 10&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
@@ -1152,6 +1465,7 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
 10
@@ -1166,7 +1480,12 @@ i %: 19.999999999999996, i log: 18.232155679395458
 <section id="lengden-kan-enten-vaere-lengden-av-strengen-eller-lengden-av-listen">
 <h3>Lengden kan enten være lengden av strengen eller lengden av listen<a class="headerlink" href="#lengden-kan-enten-vaere-lengden-av-strengen-eller-lengden-av-listen" title="Link to this heading">#</a></h3>
 <p>b) Nåverdien til et beløp er det en trenger å sette i banken i dag for å få beløpet i fremtiden. Formelen for dette er <code class="docutils literal notranslate"><span class="pre">X/((1+r)**T)</span></code>. Lag en funksjon som retuner nåverdien av et beløp. Lag også en funksjon som returnerer nåverdien med kontinuerlig forrentning.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">present_value</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
@@ -1176,10 +1495,16 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>c) Lag en funkson som returnerer nåverdi eller sluttverdi avhengig av hva argumentene er. Sluttverdi er det som er beregnet i avsnittet “Lage egne funksjoner - renteregning”. Funksjonen skal ha antall forrentninger per år som argument, og skal returnere kontinuerlig forrentning dersom antall forrentninger er høyere enn 100</p>
 <p>Du kan bruke en <code class="docutils literal notranslate"><span class="pre">if</span></code>- betingelse til å velge hva en funksjon skal gjøre slik:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pv_or_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">return_pv</span> <span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1201,6 +1526,7 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.932896411722155
 222.55409284924679
@@ -1213,7 +1539,12 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </section>
 <section id="men-vi-kan-ogsa-bruke-at-med-negativ-tid-t-far-vi-naverdi-slik-at-vi-slipper-et-eget-argument-for-det">
 <h3>Men vi kan også bruke at med negativ tid T får vi nåverdi, slik at vi slipper et eget argument for det<a class="headerlink" href="#men-vi-kan-ogsa-bruke-at-med-negativ-tid-t-far-vi-naverdi-slik-at-vi-slipper-et-eget-argument-for-det" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pv_or_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span> <span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1229,6 +1560,7 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.932896411722155
 222.55409284924679
@@ -1306,6 +1638,7 @@ i %: 19.999999999999996, i log: 18.232155679395458
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3 - Funksjoner</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bruke-funksjoner">Å bruke funksjoner</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innebygde-funksjoner">Innebygde funksjoner</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
@@ -1329,8 +1662,11 @@ i %: 19.999999999999996, i log: 18.232155679395458
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-om-funksjoner">Litt mer om funksjoner</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mer-om-funksjoner">Mer om funksjoner</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-vi-skal-lage-en-funksjon-for-her-er">Det vi skal lage en funksjon for her er:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
@@ -1342,6 +1678,9 @@ i %: 19.999999999999996, i log: 18.232155679395458
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forelesningseksempel-og-pseudokode">Forelesningseksempel og pseudokode</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2:</a></li>
@@ -1354,6 +1693,9 @@ i %: 19.999999999999996, i log: 18.232155679395458
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
