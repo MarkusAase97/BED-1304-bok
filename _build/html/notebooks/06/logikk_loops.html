@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7 - Matplotlib" href="../07/matplotlib.html" />
-    <link rel="prev" title="5 - Pandas og databehandling" href="../05/pandas_og_databehandling.html" />
+    <link rel="prev" title="Pandas - et verktøy for behandling og lasting av data" href="../05/pandas_og_databehandling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,12 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +209,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -426,21 +425,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-i-python">If/else Statements i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elif-statements">elif-statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-elif-og-betingelser"><strong>Eksempel med elif og betingelser</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-liten-oversikt-av-if-else-statements-i-python">En liten oversikt av If/Else Statements i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-setninger-og-lister">If/else setninger og lister</a><ul class="nav section-nav flex-column">
@@ -453,16 +448,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaks">Syntaks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-nyttig-tilfelle-av-for-lokke-i-databehandling">Et nyttig tilfelle av for-løkke i databehandling.</a></li>
@@ -554,8 +545,9 @@ document.write(`
 </div>
 <p>Hvor det er viktig at det brukes kolon (:) og inntrykk!</p>
 <p>Vanligvis vil <code class="docutils literal notranslate"><span class="pre">if</span></code>-setningen inneholde en test som ikke er helt åpenbar, og som avhenger av input i en funksjon eller en variabel som er definert et annet sted i koden. Her er et eksempel på det første:</p>
+</section>
 <section id="eskempel-2">
-<h4>Eskempel 2:<a class="headerlink" href="#eskempel-2" title="Link to this heading">#</a></h4>
+<h3>Eskempel 2:<a class="headerlink" href="#eskempel-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -584,7 +576,6 @@ You won!
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="elif-statements">
@@ -670,8 +661,9 @@ You won!
 <section id="ofte-vil-vi-teste-andre-ting">
 <h3>Ofte vil vi teste andre ting!<a class="headerlink" href="#ofte-vil-vi-teste-andre-ting" title="Link to this heading">#</a></h3>
 <p>Ofte vil du ønske å sammenligne ulike datasett, for eksempel to numpy-rekker. Dersom du skal ha en <code class="docutils literal notranslate"><span class="pre">if</span></code>-betingelse, må du imidlertid huske på at for å få ett svar på en sammenligning mellom to numpy-rekker, så må du angi på hvilken måte de skal sammenlignes. I utgangspunktet vil en slik sammenligning bare gi resultatet fra en sammenligning av hvert element i de to rekkene. Resultatet av sammenligningen er altså ikke en bolsk verdi (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) men en ny rekke. En slik sammenligning vil derfor føre til en feil:</p>
+</section>
 <section id="eksempel-2">
-<h4>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h4>
+<h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
@@ -703,7 +695,7 @@ You won!
 <p>I stedet må vi angi hvordan den elementvise sammenligningen skal sammenfattes i et sant/usant-resultat. Vi kan da velge mellom å kreve at alle elementene er sanne med numpyfunksjonen <code class="docutils literal notranslate"><span class="pre">all()</span></code>, eller at minst ett av elementene er sanne med<code class="docutils literal notranslate"><span class="pre">any()</span></code>.</p>
 </section>
 <section id="eksempel-3">
-<h4>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h4>
+<h3>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">):</span>
@@ -723,7 +715,6 @@ All elements in a was bigger than the corresponding element in b
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="if-else-setninger-og-lister">
@@ -848,8 +839,9 @@ All elements in a was bigger than the corresponding element in b
 </section>
 <section id="litt-mer-avanserte-eksempler">
 <h3>Litt mer avanserte eksempler<a class="headerlink" href="#litt-mer-avanserte-eksempler" title="Link to this heading">#</a></h3>
+</section>
 <section id="eksempel-6-beregning-av-total-inntekt">
-<h4>Eksempel 6 - Beregning av total inntekt<a class="headerlink" href="#eksempel-6-beregning-av-total-inntekt" title="Link to this heading">#</a></h4>
+<h3>Eksempel 6 - Beregning av total inntekt<a class="headerlink" href="#eksempel-6-beregning-av-total-inntekt" title="Link to this heading">#</a></h3>
 <p>Anta at vi har en liste over månedlig inntekt og vi ønsker å finne den totale inntekten for året.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,12 +862,12 @@ All elements in a was bigger than the corresponding element in b
 </div>
 </div>
 </section>
-</section>
 <section id="bruk-av-i-python">
 <h3>Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python<a class="headerlink" href="#bruk-av-i-python" title="Link to this heading">#</a></h3>
 <p>I Python er <code class="docutils literal notranslate"><span class="pre">+=</span></code> en operator som gjør det lettere å oppdatere verdien av en variabel ved å legge til en annen verdi til den. Dette er en praktisk og effektiv måte å akkumulerer verdier på uten å måtte skrive hele uttrykket.</p>
+</section>
 <section id="eksempel-7-beregning-av-gjennomsnittlig-inntekt">
-<h4>Eksempel 7 - Beregning av gjennomsnittlig inntekt<a class="headerlink" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt" title="Link to this heading">#</a></h4>
+<h3>Eksempel 7 - Beregning av gjennomsnittlig inntekt<a class="headerlink" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt" title="Link to this heading">#</a></h3>
 <p>Du kan også bruke en for-løkke til å beregne gjennomsnittlig inntekt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -897,7 +889,7 @@ All elements in a was bigger than the corresponding element in b
 </div>
 </section>
 <section id="eksempel-7-beregning-av-rente-pa-en-investering">
-<h4>Eksempel 7 - Beregning av rente på en investering<a class="headerlink" href="#eksempel-7-beregning-av-rente-pa-en-investering" title="Link to this heading">#</a></h4>
+<h3>Eksempel 7 - Beregning av rente på en investering<a class="headerlink" href="#eksempel-7-beregning-av-rente-pa-en-investering" title="Link to this heading">#</a></h3>
 <p>La oss si at du har en investering som vokser med en fast rente over en periode. Du kan bruke en for-løkke for å beregne verdien av investeringen over tid.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -922,7 +914,7 @@ All elements in a was bigger than the corresponding element in b
 </div>
 </section>
 <section id="eksempel-8-beregning-av-skatt-pa-inntekt">
-<h4>Eksempel 8 - Beregning av skatt på inntekt<a class="headerlink" href="#eksempel-8-beregning-av-skatt-pa-inntekt" title="Link to this heading">#</a></h4>
+<h3>Eksempel 8 - Beregning av skatt på inntekt<a class="headerlink" href="#eksempel-8-beregning-av-skatt-pa-inntekt" title="Link to this heading">#</a></h3>
 <p>Anta at vi har en skattesats, og vi ønsker å beregne skatten for hver måned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,7 +938,6 @@ Skatt for inntekt på 90000 kr i måneden: 31500 kr
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="et-nyttig-tilfelle-av-for-lokke-i-databehandling">
@@ -1225,7 +1216,7 @@ Frukt: Druer, Kalorier: 69
 </section>
 <section id="oppgave-1">
 <h2>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h2>
-<p>Les inn csv.-filen, <code class="docutils literal notranslate"><span class="pre">'schooling-gdp.csv'</span></code>, som en dataframe ved hjelp av Pandas.</p>
+<p>Les inn csv.-filen, <code class="docutils literal notranslate"><span class="pre">'bilparken_ssb.csv'</span></code>, som en dataframe ved hjelp av Pandas.</p>
 </section>
 <section id="oppgave-2-skriv-ut-bilmerker">
 <h2>Oppgave 2 - Skriv ut bilmerker<a class="headerlink" href="#oppgave-2-skriv-ut-bilmerker" title="Link to this heading">#</a></h2>
@@ -1328,7 +1319,7 @@ Frukt: Druer, Kalorier: 69
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5 - Pandas og databehandling</p>
+        <p class="prev-next-title"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1362,21 +1353,17 @@ Frukt: Druer, Kalorier: 69
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-i-python">If/else Statements i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elif-statements">elif-statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-elif-og-betingelser"><strong>Eksempel med elif og betingelser</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-liten-oversikt-av-if-else-statements-i-python">En liten oversikt av If/Else Statements i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-setninger-og-lister">If/else setninger og lister</a><ul class="nav section-nav flex-column">
@@ -1389,16 +1376,12 @@ Frukt: Druer, Kalorier: 69
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaks">Syntaks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-nyttig-tilfelle-av-for-lokke-i-databehandling">Et nyttig tilfelle av for-løkke i databehandling.</a></li>

@@ -191,12 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +209,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -436,10 +435,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float-desimaltall"><code class="docutils literal notranslate"><span class="pre">float</span></code> (desimaltall)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
 </ul>
@@ -464,17 +461,19 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d">Hipphipp du er ferdig med disse oppgavene :D</a></li>
 </ul>
 </li>
@@ -763,8 +762,9 @@ selv om aldri ofte er bedre enn <em>akkurat</em> nå.</p></li>
 <p><code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> betyr dermed <span class="math notranslate nohighlight">\(1.02\cdot 10^{2}=102\)</span>. På samme kan <span class="math notranslate nohighlight">\(0.0102\)</span> skrives <code class="docutils literal notranslate"><span class="pre">1.02e-2</span></code>,  eller  <span class="math notranslate nohighlight">\(1.02\cdot 10^{-2}=102\)</span>.</p>
 <p>Legg også merke til at funksjonen <code class="docutils literal notranslate"><span class="pre">print()</span></code>er brukt her. Det er ofte bedre å printe eksplisitt med printfunksjonen. Dersom det du ønsker å se ikke står sist i koden er det også nødvendig å bruke <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
 <p>Her er et eksemple med et lite flyttall:</p>
+</section>
 <section id="eksempel-9">
-<h4>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h4>
+<h3>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">really_cheap_apple_price</span> <span class="o">=</span> <span class="mf">1.02e-2</span>
@@ -780,7 +780,6 @@ selv om aldri ofte er bedre enn <em>akkurat</em> nå.</p></li>
 </div>
 <p>Når vi skriver ut resultatet får vi det altså ut som <code class="docutils literal notranslate"><span class="pre">102.0</span></code> eller <code class="docutils literal notranslate"><span class="pre">0.0102</span></code> i stedet for det vitenskapelige flyttallformatet. Det er fordi Python skjønner at <code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> og  <code class="docutils literal notranslate"><span class="pre">1.02e-2</span></code> ikke ser så pent ut for oss. Python formaterer derfor tallet til et mer lesbart format før det skrives ut.</p>
 <p>Det er enkelt å regne med både <code class="docutils literal notranslate"><span class="pre">float</span></code> og  <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
-</section>
 </section>
 <section id="eksempel-10">
 <h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
@@ -1079,13 +1078,13 @@ Det ble 1.6 epler per person.
 </div>
 </div>
 </div>
-</section>
 <section id="hva-skjer-nar-vi-fjerner-n">
-<h2>🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?<a class="headerlink" href="#hva-skjer-nar-vi-fjerner-n" title="Link to this heading">#</a></h2>
+<h3>🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?<a class="headerlink" href="#hva-skjer-nar-vi-fjerner-n" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code> betyr linjeskift, så når vi fjerner det, blir all teksten skrevet ut på én lang linje i stedet for å være pent formatert på flere linjer.</p></li>
 <li><p>Det blir altså mye vanskeligere å lese outputtet.</p></li>
 </ul>
+</section>
 </section>
 <section id="oppgave-2">
 <h2>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h2>
@@ -1125,15 +1124,15 @@ Det var en flott dag i parken!
 </div>
 </div>
 </div>
-</section>
 <section id="hva-har-vi-gjort">
-<h2>🔍 Hva har vi gjort?<a class="headerlink" href="#hva-har-vi-gjort" title="Link to this heading">#</a></h2>
+<h3>🔍 Hva har vi gjort?<a class="headerlink" href="#hva-har-vi-gjort" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Variablene lagrer informasjon som kan endres til andre verdier senere.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">f&quot;&quot;</span></code> brukes for å sette variabler inn i en streng.</p></li>
 <li><p>Koden lager en enkel historie som kan tilpasses ved å endre variablene.</p></li>
 </ul>
 <p>🚀 Nå kan du endre slik du måtte ønske selv!</p>
+</section>
 </section>
 <section id="oppgave-3">
 <h2>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h2>
@@ -1613,94 +1612,18 @@ Denne representasjonen tillater lagring av både veldig store og veldig små tal
 </div>
 </div>
 </div>
+</section>
 <section id="oppgave-6">
-<h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h3>
+<h2>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Skriv en Python-kode som definerer variablene: name, age, og city med dine egne detaljer. Bruk deretter en f-string for å skrive en setning som kombinerer disse detaljene.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer variablene med egne detaljer</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
-<span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;Oslo&quot;</span>
-
-<span class="c1"># Bruker en f-string for å kombinere detaljene</span>
-<span class="n">setning</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hei, jeg heter </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, jeg er </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> år gammel, og jeg bor i </span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">.&quot;</span>
-
-<span class="c1"># Skriver ut setningen</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">setning</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, jeg heter John, jeg er 30 år gammel, og jeg bor i Oslo.
-</pre></div>
-</div>
-</div>
-</div>
 <ol class="arabic simple" start="2">
 <li><p>Lag en kalkulator ved å definere to variabler <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code>først. Koden skal viser summen, differansen, produktet, forholdet og <code class="docutils literal notranslate"><span class="pre">x</span></code> i potens av <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer variablene</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="c1"># Beregner operasjonene</span>
-<span class="n">sum_resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="n">differanse_resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
-<span class="n">produkt_resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-<span class="n">forhold_resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-<span class="n">potens_resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
-
-<span class="c1"># Skriver ut resultatene</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Summen av </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er: </span><span class="si">{</span><span class="n">sum_resultat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Differansen mellom </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er: </span><span class="si">{</span><span class="n">differanse_resultat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Produktet av </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er: </span><span class="si">{</span><span class="n">produkt_resultat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forholdet av </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er: </span><span class="si">{</span><span class="n">forhold_resultat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> hevet til </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er: </span><span class="si">{</span><span class="n">potens_resultat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen av 10 og 2 er: 12
-Differansen mellom 10 og 2 er: 8
-Produktet av 10 og 2 er: 20
-Forholdet av 10 og 2 er: 5.0
-10 hevet til 2 er: 100
-</pre></div>
-</div>
-</div>
-</div>
 <ol class="arabic simple" start="3">
 <li><p>Bruk boolske verdier for å avgjøre om et tall er oddetall eller partall, og skriv ut resultatet for tallet 15.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer tallet</span>
-<span class="n">tall</span> <span class="o">=</span> <span class="mi">15</span>
-
-<span class="c1"># Sjekker om tallet er partall eller oddetall ved hjelp av modulo</span>
-<span class="c1"># modulo (%) sjekker om det er delelig på to (altså partall) eller ikke (altså oddetall)</span>
-<span class="n">er_partall</span> <span class="o">=</span> <span class="p">(</span><span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">er_oddetall</span> <span class="o">=</span> <span class="p">(</span><span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># Skriver ut resultatene</span>
-<span class="k">if</span> <span class="n">er_partall</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> er et partall.&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">er_oddetall</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> er et oddetall.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15 er et oddetall.
-</pre></div>
-</div>
-</div>
-</div>
 <ol class="arabic simple" start="5">
 <li><p>Skriv en kode som definerer to variabler <code class="docutils literal notranslate"><span class="pre">var_type</span></code> og <code class="docutils literal notranslate"><span class="pre">x</span></code>. Du skal sette <code class="docutils literal notranslate"><span class="pre">var_type</span></code> til en datatype og <code class="docutils literal notranslate"><span class="pre">x</span></code> til en verdi, for eksempel slik som under. Koden skal konvertere <code class="docutils literal notranslate"><span class="pre">x</span></code> til datatypen angitt av <code class="docutils literal notranslate"><span class="pre">var_type</span></code>, og printe ut type og verdi før og etter konverering. Forsøkt så med ulike verdier for <code class="docutils literal notranslate"><span class="pre">x</span></code> og ulike datatyper i <code class="docutils literal notranslate"><span class="pre">var_type</span></code>.</p></li>
 </ol>
@@ -1713,27 +1636,6 @@ Forholdet av 10 og 2 er: 5.0
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skriv ut type og verdi før konvertering</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Før konvertering: type(x) = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">, verdi(x) = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Konverterer x til den angitte datatypen</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">var_type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Skriv ut type og verdi etter konvertering</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Etter konvertering: type(x) = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">, verdi(x) = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Før konvertering: type(x) = &lt;class &#39;str&#39;&gt;, verdi(x) = 123.45
-Etter konvertering: type(x) = &lt;class &#39;float&#39;&gt;, verdi(x) = 123.45
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="hipphipp-du-er-ferdig-med-disse-oppgavene-d">
 <h2>Hipphipp du er ferdig med disse oppgavene :D<a class="headerlink" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d" title="Link to this heading">#</a></h2>
@@ -1822,10 +1724,8 @@ Etter konvertering: type(x) = &lt;class &#39;float&#39;&gt;, verdi(x) = 123.45
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float-desimaltall"><code class="docutils literal notranslate"><span class="pre">float</span></code> (desimaltall)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
 </ul>
@@ -1850,17 +1750,19 @@ Etter konvertering: type(x) = &lt;class &#39;float&#39;&gt;, verdi(x) = 123.45
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d">Hipphipp du er ferdig med disse oppgavene :D</a></li>
 </ul>
 </li>

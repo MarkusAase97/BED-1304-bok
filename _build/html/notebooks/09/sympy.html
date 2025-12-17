@@ -194,9 +194,27 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +232,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -462,14 +484,31 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver"><strong>Oppgaver</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-sympy">Oppgave 1 - SymPy</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likningssett-faktoriseringsmetoden-klikk-her-for-a-laste-ned-oppgavene">Likningssett - faktoriseringsmetoden (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-derivasjonsregler-klikk-her-for-a-laste-ned-oppgavene">Grunnleggende derivasjonsregler (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produkt-og-brokregelen-klikk-her-for-a-laste-ned-oppgavene">Produkt- og brøkregelen (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kjerneregelen-klikk-her-for-a-laste-ned-oppgavene">Kjerneregelen (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivasjon-av-logaritme-og-eksponentialfunksjoner-klikk-her-for-a-laste-ned-oppgavene">Derivasjon av logaritme og eksponentialfunksjoner (klikk her for å laste ned oppgavene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-los-likningssett">1a) Løs likningssett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-los-likningssett">1b) Løs likningssett</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraoppgaver">Ekstraoppgaver</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-deriver-uttrykket">2a) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deriver-uttrykket">2b) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deriver-uttrykket">2c) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-deriver-uttrykket">2d) Deriver uttrykket</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-produktregelen">3a) produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-produktregelen">3b) produktregelen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-kjerneregel">Oppgave 4 - Kjerneregel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-lag-funksjonen">4a) Lag funksjonen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-test-funksjonen">4b) Test funksjonen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-derivasjon-av-logaritme">Oppgave 5 - Derivasjon av logaritme</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5a">Oppgave 5a</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -538,7 +577,13 @@ document.write(`
 <h2>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># L er arbeidskraft</span>
+<span class="c1"># a er produktivitet</span>
+<span class="c1"># w er lønn</span>
+<span class="c1"># p er pris på varen</span>
+<span class="c1"># K er kapital/investering for oppstart</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">p</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="n">K</span>
 </pre></div>
 </div>
@@ -553,14 +598,14 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Creating the plot</span>
+<span class="c1"># Lager plottet</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;kroner&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Antall ansatte&#39;</span><span class="p">)</span>
 
 
-<span class="c1"># Plotting the function</span>
+<span class="c1"># Plotting av kostnader, inntekter og profitt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">profit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">300000</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fortjeneste&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -805,7 +850,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="eksempel-med-tilbud-og-ettersporsel">
 <h1>Eksempel med tilbud og etterspørsel<a class="headerlink" href="#eksempel-med-tilbud-og-ettersporsel" title="Link to this heading">#</a></h1>
-<p>I forelesning 3 definerte vi disse tilbuds og etterspørselsfunksjonene:</p>
+<p>I forelesning 7 definerte vi disse tilbuds og etterspørselsfunksjonene:</p>
 <section id="eksempel-17">
 <h2>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -825,23 +870,22 @@ document.write(`
 <h2>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drawing 100 points in the interval 0.0 to 100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Får hundre punkter mellom 1 og 100</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="c1"># Creating the plot</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># PLotter</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pris&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Enheter&#39;</span><span class="p">)</span>
 
 
-<span class="c1"># Drawing supply</span>
+<span class="c1"># Plotter funksjonen supply</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">supply</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
 
-<span class="c1"># Drawing demand</span>
+<span class="c1"># Plotter funksjonen demand</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">demand</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
 
-<span class="c1"># Adding legend:</span>
+<span class="c1"># Legger til legend</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -849,10 +893,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d6a9b1c37eba664dabadb6a9e76c56a2b848f14b12df290b130cc2b3e0507521.png" src="../../_images/d6a9b1c37eba664dabadb6a9e76c56a2b848f14b12df290b130cc2b3e0507521.png" />
+<img alt="../../_images/5019d0e9ad7377853f941beb54383416e2f08c604f806004d523f07ebd4137c2.png" src="../../_images/5019d0e9ad7377853f941beb54383416e2f08c604f806004d523f07ebd4137c2.png" />
 </div>
 </div>
-<p>Vi løste da likevekten grafisk, ved å se sånn cirka hvor tilbud er lik etterspørsel. Med sympy kan vi la python regne ut dette, og konsument og produsentoverskudd. Vi gjør dette ved å definere mengde <code class="docutils literal notranslate"><span class="pre">x</span></code> som en eksogen variabel, og sette opp ligningen vi trenger, altså at tilbud skal være lik etterspørsel:</p>
+<p>Vi løste da likevekten grafisk, ved å se sånn cirka hvor tilbud er lik etterspørsel. Med sympy kan vi la python regne ut dette, og konsument og produsentoverskudd. Vi gjør dette ved å definere mengde <code class="docutils literal notranslate"><span class="pre">x</span></code> som en eksogen variabel (variabel som bestemmes utenfor modellen), og sette opp ligningen vi trenger, altså at tilbud skal være lik etterspørsel:</p>
 </section>
 <section id="eksempel-19">
 <h2>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h2>
@@ -876,7 +920,7 @@ document.write(`
 <h2>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_eq</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq_cond</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq_cond</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -935,10 +979,10 @@ Likevektskvantum er 67.0125415064549
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9dc95f4a97446bffbd06ed02ca31d145d6e63371984bb27f6a816038b4aa9221.png" src="../../_images/9dc95f4a97446bffbd06ed02ca31d145d6e63371984bb27f6a816038b4aa9221.png" />
+<img alt="../../_images/7b58c619ca6557483e05ecced0314414cac9b8f14def902240b901c524b34605.png" src="../../_images/7b58c619ca6557483e05ecced0314414cac9b8f14def902240b901c524b34605.png" />
 </div>
 </div>
-<p>Akkrat som at vi kan regnet ut skjæringspunktet med sympy, så kan vi regne ut det skraverte konsumentoverskuddet. Vi bruker da det vi har lært i matematikkurset; arealet under en funksjon er integralet til funksjonen. Vi skal finne arealet under etterspørselsfunksjonen <code class="docutils literal notranslate"><span class="pre">demand(x)</span></code>, men kun ned til prisen <code class="docutils literal notranslate"><span class="pre">p_eq</span></code>, så vi integrer differansen <code class="docutils literal notranslate"><span class="pre">demand(x)-p_eq</span></code>. Dette gjør vi for alle omsatte enheter, altså frem til omsatt kvantum <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>.</p>
+<p>Akkurat som at vi kan regnet ut skjæringspunktet med sympy, så kan vi regne ut det skraverte konsumentoverskuddet. Vi bruker da det vi har lært i matematikkurset; arealet under en funksjon er integralet til funksjonen. Vi skal finne arealet under etterspørselsfunksjonen <code class="docutils literal notranslate"><span class="pre">demand(x)</span></code>, men kun ned til prisen <code class="docutils literal notranslate"><span class="pre">p_eq</span></code>, så vi integrer differansen <code class="docutils literal notranslate"><span class="pre">demand(x)-p_eq</span></code>. Dette gjør vi for alle omsatte enheter, altså frem til omsatt kvantum <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>.</p>
 <p>Vi skal altså integrere  <code class="docutils literal notranslate"><span class="pre">demand(x)-p_eq</span></code> i intervalet 0 til <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>. Det kan vi gjøre i sympy slik:</p>
 </section>
 <section id="eksempel-23">
@@ -969,7 +1013,7 @@ Likevektskvantum er 67.0125415064549
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/386e55d97b5fec61872f85a0039248302a32fb13c54203dcca8a75e50efbfa29.png" src="../../_images/386e55d97b5fec61872f85a0039248302a32fb13c54203dcca8a75e50efbfa29.png" />
+<img alt="../../_images/22207d47a9749068faf2ef8c576398136f15119a72fb63b45efcc470e1449ea4.png" src="../../_images/22207d47a9749068faf2ef8c576398136f15119a72fb63b45efcc470e1449ea4.png" />
 </div>
 </div>
 <p>Vi kan regne ut dette område også, som altså er integralet av differansen mellom prisen og tilbudskruven, frem til  <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>.</p>
@@ -1094,51 +1138,175 @@ Likevektskvantum er 67.0125415064549
 <section class="tex2jax_ignore mathjax_ignore" id="oppgave-1-sympy">
 <h1>Oppgave 1 - SymPy<a class="headerlink" href="#oppgave-1-sympy" title="Link to this heading">#</a></h1>
 <p>Her skal dere løse matematikkoppgaver med Sympy, og bruke fordelene som programmering gir til å løse oppgavene så effektivt som mulig. I stedet for å løse hver oppgave individuelt, skal dere derfor lage funksjoner som tar uttrykkene som argumenter, og så løse hver oppgave.</p>
-<section id="likningssett-faktoriseringsmetoden-klikk-her-for-a-laste-ned-oppgavene">
-<h2><a class="reference external" href="https://github.com/uit-bed-1504-h25/uit-bed-1504-h25.github.io/blob/main/docs/17_Likningssett_faktoriseringsmetoden_oppgaver.pdf">Likningssett - faktoriseringsmetoden (klikk her for å laste ned oppgavene)</a><a class="headerlink" href="#likningssett-faktoriseringsmetoden-klikk-her-for-a-laste-ned-oppgavene" title="Link to this heading">#</a></h2>
-<p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">test_solve(eqs)</span></code> der <code class="docutils literal notranslate"><span class="pre">eqs</span></code> er et Sympy ligningssett, og der du bruker <code class="docutils literal notranslate"><span class="pre">solve(f)</span></code> til å finne løsning på likhetene. Lag en test i funksjonen, ved å sette løsningen inn i likheten.</p>
-<p>Funksjonen skal returnere både svaret og resultatet av løsningen.</p>
+<section id="a-los-likningssett">
+<h2>1a) Løs likningssett<a class="headerlink" href="#a-los-likningssett" title="Link to this heading">#</a></h2>
+<p>Løs ligningssettet</p>
+<div class="math notranslate nohighlight">
+\[xy^2 -x = 0\]</div>
+<div class="math notranslate nohighlight">
+\[x+y^2 = 16\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="grunnleggende-derivasjonsregler-klikk-her-for-a-laste-ned-oppgavene">
-<h2><a class="reference external" href="https://github.com/uit-bed-1504-h25/uit-bed-1504-h25.github.io/blob/main/docs/19_Grunnleggende_derivasjonsregler_oppgaver.pdf">Grunnleggende derivasjonsregler (klikk her for å laste ned oppgavene)</a><a class="headerlink" href="#grunnleggende-derivasjonsregler-klikk-her-for-a-laste-ned-oppgavene" title="Link to this heading">#</a></h2>
-<p>Løs alle oppgavene med Sympy i én celle. Bruk diff()-funksjonen for å derivere, og gjør koden så kort som mulig (i antall tegn, ikke antall linjer).</p>
+<section id="b-los-likningssett">
+<h2>1b) Løs likningssett<a class="headerlink" href="#b-los-likningssett" title="Link to this heading">#</a></h2>
+<p>Løs ligningssettet</p>
+<div class="math notranslate nohighlight">
+\[xy^2 + y^2 = 100\]</div>
+<div class="math notranslate nohighlight">
+\[x^2y - 36y = 0\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="produkt-og-brokregelen-klikk-her-for-a-laste-ned-oppgavene">
-<h2><a class="reference external" href="https://github.com/uit-bed-1504-h25/uit-bed-1504-h25.github.io/blob/main/docs/20_Produkt_og_brokregelen_oppgaver.pdf">Produkt- og brøkregelen (klikk her for å laste ned oppgavene)</a><a class="headerlink" href="#produkt-og-brokregelen-klikk-her-for-a-laste-ned-oppgavene" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Forenkle uttrykkene i Oppgavene 1 a)-d) med færrest mulig tegn. Kommenter hvilke av oppgavene som lar seg forenkle.</p></li>
-</ol>
-<ol class="arabic simple" start="2">
-<li><p>Lag to funksjoner <code class="docutils literal notranslate"><span class="pre">f_deriv_prod(f,</span> <span class="pre">g)</span></code> og <code class="docutils literal notranslate"><span class="pre">f_deriv_frac(f,</span> <span class="pre">g)</span></code> som bruker henholdsvis produktregelen og brøkregelen til å derivere et uttrykk. Argumenter skal være de to delene i produktet. Om produktet for eksempel er <span class="math notranslate nohighlight">\(\sqrt{(3x-1)} * (1+x)\)</span> skal argumentene være <span class="math notranslate nohighlight">\(\sqrt{(3x-1)}\)</span> og <span class="math notranslate nohighlight">\((1+x)\)</span>. Funksjonen skal returnere den deriverte av produktet.</p></li>
-</ol>
-<p>Deriver alle utrykene i Oppgave 1e, 1f, …, 1m med disse funksjonene, men velg først ut alle produktene og deriver de, før du i neste omgang deriverer brøkene.</p>
-<ol class="arabic simple" start="3">
-<li><p>Test at produktregelen fungerer ved å printe differansen mellom funksjonene over og derivering av hele uttrykket med sp.diff(). Du kan sette dette inn i koden over om du vil.</p></li>
-</ol>
 </section>
-<section id="kjerneregelen-klikk-her-for-a-laste-ned-oppgavene">
-<h2><a class="reference external" href="https://github.com/uit-bed-1504-h25/uit-bed-1504-h25.github.io/blob/main/docs/21_Kjerneregelen_oppgaver.pdf">Kjerneregelen (klikk her for å laste ned oppgavene)</a><a class="headerlink" href="#kjerneregelen-klikk-her-for-a-laste-ned-oppgavene" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li></li>
-</ol>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-2">
+<h1>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h1>
+<p>Nå skal dere derivere ved hjelp av SymPy.</p>
+<section id="a-deriver-uttrykket">
+<h2>2a) Deriver uttrykket<a class="headerlink" href="#a-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x^5\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-deriver-uttrykket">
+<h2>2b) Deriver uttrykket<a class="headerlink" href="#b-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x + 12\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-deriver-uttrykket">
+<h2>2c) Deriver uttrykket<a class="headerlink" href="#c-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x^3 + \frac{1}{x}\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-deriver-uttrykket">
+<h2>2d) Deriver uttrykket<a class="headerlink" href="#d-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x(x^2+2x-3)\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-3">
+<h1>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h1>
+<p>Nå skal dere derivere ved hjelp av produktregelen.</p>
+<p>Produktregelen (derivasjon av et produkt) sier at for funksjonene <span class="math notranslate nohighlight">\(f(x)\)</span> og <span class="math notranslate nohighlight">\(g(x)\)</span> gjelder.</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx}[f(x)g(x)] = f^{\prime}(x)g(x) + f(x)g^{\prime}(x)\]</div>
+<section id="a-produktregelen">
+<h2>3a) produktregelen<a class="headerlink" href="#a-produktregelen" title="Link to this heading">#</a></h2>
+<p>Deriver uttrykket <span class="math notranslate nohighlight">\(h(x)\)</span> hvor</p>
+<div class="math notranslate nohighlight">
+\[h(x) = f(x)g(x)\]</div>
+<p>og <span class="math notranslate nohighlight">\(f(x) = x^4\)</span> og <span class="math notranslate nohighlight">\(g(x) = x^5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-produktregelen">
+<h2>3b) produktregelen<a class="headerlink" href="#b-produktregelen" title="Link to this heading">#</a></h2>
+<p>Deriver uttrykket <span class="math notranslate nohighlight">\(h(x)\)</span> hvor</p>
+<div class="math notranslate nohighlight">
+\[h(x) = \frac{x^3-2x}{x^2-1}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-4-kjerneregel">
+<h1>Oppgave 4 - Kjerneregel<a class="headerlink" href="#oppgave-4-kjerneregel" title="Link to this heading">#</a></h1>
+<section id="a-lag-funksjonen">
+<h2>4a) Lag funksjonen<a class="headerlink" href="#a-lag-funksjonen" title="Link to this heading">#</a></h2>
 <p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">f_deriv_chain(f,</span> <span class="pre">g)</span></code> som bruker kjerneregelen til å derivere et uttrykk av typen <span class="math notranslate nohighlight">\(f\left(g(x)\right)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Har du for eksempel et uttrykk <span class="math notranslate nohighlight">\(\sqrt{(3x-1)}\)</span>, så er <span class="math notranslate nohighlight">\(f(y) = \sqrt{y}\)</span> og <span class="math notranslate nohighlight">\(g(x) = 3x-1\)</span>. Funksjonen skal da returnere <span class="math notranslate nohighlight">\(f'\left(g(x)\right) \cdot g'(x)= \frac{1}{2}\frac{1}{\sqrt{(3x-1)}} \cdot 3\)</span></p>
 <p>Husk å bytt ut <span class="math notranslate nohighlight">\(y\)</span> med <span class="math notranslate nohighlight">\(g(x)\)</span> (i dette tilfelle ) før svaret returneres.</p>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<p>a) Bruk <code class="docutils literal notranslate"><span class="pre">f_deriv_chain(f,</span> <span class="pre">g)</span></code> på uttrykkene i Oppgave 1 a), b), d), e) og Oppgave 2 a) og e).</p>
-<p>b) Bruk <code class="docutils literal notranslate"><span class="pre">f_deriv_prod(f,</span> <span class="pre">g)</span></code> i kombinasjon med <code class="docutils literal notranslate"><span class="pre">f_deriv_chain(f(y),</span> <span class="pre">g(x))</span></code> og løs Oppgave 1 h) og Oppgave 2 b)</p>
-<p>Test samtidig resultatene med <code class="docutils literal notranslate"><span class="pre">sp.diff()</span></code>, der du stter inn kjernen i funksjonen før du deriverer.</p>
 </section>
-<section id="derivasjon-av-logaritme-og-eksponentialfunksjoner-klikk-her-for-a-laste-ned-oppgavene">
-<h2><a class="reference external" href="https://github.com/uit-bed-1504-h25/uit-bed-1504-h25.github.io/blob/main/docs/22_Derivasjon_av_logaritme_og_eksponentialfunksjoner_oppgaver.pdf">Derivasjon av logaritme og eksponentialfunksjoner (klikk her for å laste ned oppgavene)</a><a class="headerlink" href="#derivasjon-av-logaritme-og-eksponentialfunksjoner-klikk-her-for-a-laste-ned-oppgavene" title="Link to this heading">#</a></h2>
-<p>Løs følgende oppgaver: Oppgave 1 a), b), f) og Oppgave 2 a) og b). Lag koden med så få tegn som mulig.</p>
+<section id="b-test-funksjonen">
+<h2>4b) Test funksjonen<a class="headerlink" href="#b-test-funksjonen" title="Link to this heading">#</a></h2>
+<p>Test funksjonen på funksjonen
+$<span class="math notranslate nohighlight">\(f(x) = \sqrt{2x^2 + 5}\)</span><span class="math notranslate nohighlight">\(
+og 
+\)</span><span class="math notranslate nohighlight">\(f(x) = \left(x^3 + 6x\right)^5\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ekstraoppgaver">
-<h1>Ekstraoppgaver<a class="headerlink" href="#ekstraoppgaver" title="Link to this heading">#</a></h1>
-<p>Det vil være god trening, mot eksamen, å gå igjennom <strong>alle</strong> oppgavene fra SymPy-arkene over :-)</p>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-5-derivasjon-av-logaritme">
+<h1>Oppgave 5 - Derivasjon av logaritme<a class="headerlink" href="#oppgave-5-derivasjon-av-logaritme" title="Link to this heading">#</a></h1>
+<section id="oppgave-5a">
+<h2>Oppgave 5a<a class="headerlink" href="#oppgave-5a" title="Link to this heading">#</a></h2>
+<p>Finn <span class="math notranslate nohighlight">\(f^{\prime}(x)\)</span> av funksjonene
+$<span class="math notranslate nohighlight">\(f(x) = ln 5x\)</span><span class="math notranslate nohighlight">\(
+og 
+\)</span><span class="math notranslate nohighlight">\(f(x) = e^{-2x}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1247,14 +1415,31 @@ Likevektskvantum er 67.0125415064549
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver"><strong>Oppgaver</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-sympy">Oppgave 1 - SymPy</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likningssett-faktoriseringsmetoden-klikk-her-for-a-laste-ned-oppgavene">Likningssett - faktoriseringsmetoden (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-derivasjonsregler-klikk-her-for-a-laste-ned-oppgavene">Grunnleggende derivasjonsregler (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produkt-og-brokregelen-klikk-her-for-a-laste-ned-oppgavene">Produkt- og brøkregelen (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kjerneregelen-klikk-her-for-a-laste-ned-oppgavene">Kjerneregelen (klikk her for å laste ned oppgavene)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivasjon-av-logaritme-og-eksponentialfunksjoner-klikk-her-for-a-laste-ned-oppgavene">Derivasjon av logaritme og eksponentialfunksjoner (klikk her for å laste ned oppgavene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-los-likningssett">1a) Løs likningssett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-los-likningssett">1b) Løs likningssett</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraoppgaver">Ekstraoppgaver</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-deriver-uttrykket">2a) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deriver-uttrykket">2b) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deriver-uttrykket">2c) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-deriver-uttrykket">2d) Deriver uttrykket</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-produktregelen">3a) produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-produktregelen">3b) produktregelen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-kjerneregel">Oppgave 4 - Kjerneregel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-lag-funksjonen">4a) Lag funksjonen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-test-funksjonen">4b) Test funksjonen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-derivasjon-av-logaritme">Oppgave 5 - Derivasjon av logaritme</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5a">Oppgave 5a</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

@@ -194,9 +194,27 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +232,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -1188,92 +1210,10 @@ Det du tjener etterpå skattes 22%</p>
 <h3>Oppgave 1:<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h3>
 <p>Sjekk med nummeriske eksempler at tilbudskurven faktisk er økende og etterspørselskurven faktisk er fallende.</p>
 <p><em>Du lager en ny celle du kan kjøre kode i, ved å trykke “b” mens denne cellen er markert (enkeltklikk på denne cellen, ikke dobbelklikk)</em></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">supply</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-<span class="n">check</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-4
-9
-16
-25
-36
-49
-64
-81
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="oppgave-2">
 <h3>Oppgave 2:<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h3>
 <p>Finn med prøving og feiling eller på annen måte hvilket kvantum som gir likhet mellom tilbud og etterspørsel. Hvilken pris gir slik kvantum?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">supply</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">demand</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-
-<span class="n">check</span><span class="p">()</span>
-
-<span class="c1">### En mer sofistikert måte å løse dette på er</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span> 
-
-<span class="k">def</span><span class="w"> </span><span class="nf">difference</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Bruk SymPy for å finne roten til differansefunksjonen</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">difference_expr</span> <span class="o">=</span> <span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">difference_expr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Finn en reell og positiv løsning</span>
-<span class="n">quantum</span> <span class="o">=</span> <span class="p">[</span><span class="n">sol</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span> <span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">solution</span> <span class="k">if</span> <span class="n">sol</span><span class="o">.</span><span class="n">is_real</span> <span class="ow">and</span> <span class="n">sol</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">price</span> <span class="o">=</span> <span class="n">demand</span><span class="p">(</span><span class="n">quantum</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kvantum som gir likhet mellom tilbud og etterspørsel: </span><span class="si">{</span><span class="n">quantum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prisen ved dette kvantumet: </span><span class="si">{</span><span class="n">price</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-4
-9
-16
-25
-36
-49
-64
-81
-20.833333333333332
-17.857142857142858
-15.625
-13.88888888888889
-12.5
-11.363636363636363
-10.416666666666666
-9.615384615384615
-8.928571428571429
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kvantum som gir likhet mellom tilbud og etterspørsel: 3.77438833123346
-Prisen ved dette kvantumet: 14.2460072749513
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="oppgave-3">
 <h3>Oppgave 3:<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h3>
@@ -1282,26 +1222,6 @@ Prisen ved dette kvantumet: 14.2460072749513
 <li><p>Lag en funksjon som returnerer hvor mye parkeringen kostet når du har stått en tidsperiode angitt av argumentet <code class="docutils literal notranslate"><span class="pre">time_period</span></code>, og en pris per time angitt av argumentet <code class="docutils literal notranslate"><span class="pre">p</span></code>. Funksjonen skal forvente at time_period er på formatet “hh:mm:ss” (en streng). Du kan trekke ut timer, minutter og sekunder fra en tekstreng på det foreslåtte formatet, ved å bruke koden <code class="docutils literal notranslate"><span class="pre">hh,mm,ss=int(timestr[0:2]),int(timestr[3:5]),int(timestr[6:])</span></code>. Du må  konvertere tiden til timer på desimalform for å regne ut kostnad. Det kan du gjøre med denne formelen: <code class="docutils literal notranslate"><span class="pre">tt_dec=hh+mm/60+ss/(60*60)</span></code>.</p></li>
 <li><p>Lag en funksjon som tar en liste med adjektiv som argument. Kall argumentet for  <code class="docutils literal notranslate"><span class="pre">adj_list</span></code>. Funksjonen skal returnere et tilfeldig element fra listen. Du kan for eksempel teste funksjonen med denne listen <code class="docutils literal notranslate"><span class="pre">['dyr',</span> <span class="pre">'billig',</span> <span class="pre">'pareto</span> <span class="pre">optimal',</span> <span class="pre">'høy',</span> <span class="pre">'lav',</span> <span class="pre">'ineffektiv']</span></code>. For å plukke et tilfeldig element fra en liste <code class="docutils literal notranslate"><span class="pre">adj_list</span></code> med <code class="docutils literal notranslate"><span class="pre">4</span></code>elementer, skriver du <code class="docutils literal notranslate"><span class="pre">adj_list[np.random.randint(4)]</span></code>.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funksjon for budsjett</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">budget</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Du har </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> kr i budsjett&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Når du har brukt </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> kr, har du&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">b</span><span class="o">-</span><span class="n">x</span><span class="si">}</span><span class="s1"> kr igjen.&#39;</span><span class="p">)</span>
-
-<span class="n">budget</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du har 1000 kr i budsjett
-Når du har brukt 100 kr, har du
-900 kr igjen.
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parking_cost</span><span class="p">(</span><span class="n">time_period</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -1322,254 +1242,28 @@ Når du har brukt 100 kr, har du
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">get_adjective</span><span class="p">(</span><span class="n">adj_list</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adj_list</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">adj_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-
-<span class="n">get_adjective</span><span class="p">([</span><span class="s1">&#39;dyr&#39;</span><span class="p">,</span> <span class="s1">&#39;billig&#39;</span><span class="p">,</span> <span class="s1">&#39;pareto optimal&#39;</span><span class="p">,</span> <span class="s1">&#39;høy&#39;</span><span class="p">,</span> <span class="s1">&#39;lav&#39;</span><span class="p">,</span> <span class="s1">&#39;ineffektiv&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;lav&#39;
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="oppgave-4">
 <h3>Oppgave 4:<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h3>
 <p>a) Bruk eksponentialfunksjonen og log-funksjonen i numpy til å vise at log-funksjonen er det motsatte av eksponentialfunksjoenn.</p>
 <p>b) Regn ut hvor mange prosent 205,210,220,230 og 240 er av 200. Regn også ut logaritmen av 205/200, 210/200 … osv. og kommenter resultatet.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Oppgave 4a ###</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Lager en array av tall</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-
-<span class="c1"># Bruker exponential function (exp) på array&#39;en kalt &#39;x&#39;</span>
-<span class="n">exp_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Bruker logarithmic function (log) på variabelen &#39;exp_values&#39;</span>
-<span class="n">log_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">exp_values</span><span class="p">)</span>
-
-<span class="c1"># Sjekker om log_values er det samme som de orginale &#39;x&#39; verdiene</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">log_values</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-
-<span class="c1"># Kan også sjekkes ved å printe hver array</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">log_values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-[1 2 3 4 5]
-[1. 2. 3. 4. 5.]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Oppgave 4b ###</span>
-
-<span class="c1"># Lager en funksjon som skal ta inn en liste av formen &quot;[x, y, z, ...]&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">percentage_of_two_hundred</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    
-    <span class="c1"># Oppretter en tom liste, som vi skal legge til prosentverdiene til etterpå.</span>
-    <span class="n">liste</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="c1"># Vi skal iterere gjennom lista med innput &#39;x&#39;, fra 0&#39;te element til i&#39;te element.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="n">decimal_perc</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
-        <span class="n">perc</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">decimal_perc</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perc</span><span class="p">)</span>
-        
-    <span class="n">log_liste</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="n">log_liste</span><span class="p">)</span>
-
-<span class="n">percentage_of_two_hundred</span><span class="p">([</span><span class="mi">205</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">240</span><span class="p">])</span>
-
-<span class="c1">### Alernativ løsning ###</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">205</span><span class="p">,</span><span class="mi">210</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">230</span><span class="p">,</span> <span class="mi">240</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i %: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">200</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">, i log: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i %: 2.499999999999991, i log: 2.4692612590371414
-i %: 5.000000000000004, i log: 4.879016416943204
-i %: 10.000000000000009, i log: 9.531017980432493
-i %: 14.999999999999991, i log: 13.976194237515863
-i %: 19.999999999999996, i log: 18.232155679395458
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="oppgave-5">
 <h3>Oppgave 5:<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h3>
 <p>Lag en funksjon som returnerer det høyeste av funksjonene <code class="docutils literal notranslate"><span class="pre">account_balance_exponential</span></code> og <code class="docutils literal notranslate"><span class="pre">account_balance</span></code>. Er dette en nyttig funksjon?</p>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">higest_account_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">max</span><span class="p">((</span>
-        <span class="n">account_balance_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">),</span>
-        <span class="n">account_balance_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-    <span class="p">))</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="n">higest_account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">account_balance_exponential</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>222.55409284924679
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>222.55409284924679
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="oppgave-6">
 <h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h3>
 <p>a) Bruk innebygde Python-funksjoner til å finne maksimum, minimum, absoluttverdi og lengden av teksten “1, -5, 10”. Bruk funksjonen <code class="docutils literal notranslate"><span class="pre">eval</span></code> til å konvertere verdiene til en tallrekke</p>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;1, -5, 10&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;1, -5, 10&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-10
-[ 1  5 10]
-3
-9
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="lengden-kan-enten-vaere-lengden-av-strengen-eller-lengden-av-listen">
 <h3>Lengden kan enten være lengden av strengen eller lengden av listen<a class="headerlink" href="#lengden-kan-enten-vaere-lengden-av-strengen-eller-lengden-av-listen" title="Link to this heading">#</a></h3>
 <p>b) Nåverdien til et beløp er det en trenger å sette i banken i dag for å få beløpet i fremtiden. Formelen for dette er <code class="docutils literal notranslate"><span class="pre">X/((1+r)**T)</span></code>. Lag en funksjon som retuner nåverdien av et beløp. Lag også en funksjon som returnerer nåverdien med kontinuerlig forrentning.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">present_value</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">present_value_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
 <p>c) Lag en funkson som returnerer nåverdi eller sluttverdi avhengig av hva argumentene er. Sluttverdi er det som er beregnet i avsnittet “Lage egne funksjoner - renteregning”. Funksjonen skal ha antall forrentninger per år som argument, og skal returnere kontinuerlig forrentning dersom antall forrentninger er høyere enn 100</p>
 <p>Du kan bruke en <code class="docutils literal notranslate"><span class="pre">if</span></code>- betingelse til å velge hva en funksjon skal gjøre slik:</p>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pv_or_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">return_pv</span> <span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">return_pv</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">present_value_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">account_balance_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">return_pv</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">present_value</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">account_balance_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-
-        
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.932896411722155
-222.55409284924679
-48.22530864197532
-207.35999999999999
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="men-vi-kan-ogsa-bruke-at-med-negativ-tid-t-far-vi-naverdi-slik-at-vi-slipper-et-eget-argument-for-det">
 <h3>Men vi kan også bruke at med negativ tid T får vi nåverdi, slik at vi slipper et eget argument for det<a class="headerlink" href="#men-vi-kan-ogsa-bruke-at-med-negativ-tid-t-far-vi-naverdi-slik-at-vi-slipper-et-eget-argument-for-det" title="Link to this heading">#</a></h3>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pv_or_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span> <span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">account_balance_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">account_balance_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-
-    
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pv_or_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.932896411722155
-222.55409284924679
-48.22530864197532
-207.35999999999999
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 </section>

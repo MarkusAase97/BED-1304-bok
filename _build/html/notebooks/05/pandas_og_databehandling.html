@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5 - Pandas og databehandling &#8212; Bed-1304 Python-lab</title>
+    <title>Pandas - et verktøy for behandling og lasting av data &#8212; Bed-1304 Python-lab</title>
   
   
   
@@ -191,12 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +209,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -410,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5 - Pandas og databehandling</h1>
+    <h1>Pandas - et verktøy for behandling og lasting av data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,7 +419,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-pandas">1. Introduksjon til Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-importere-pandas-og-laste-inn-en-csv-fil"><strong>Eksempel: Importere Pandas og laste inn en CSV-fil</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasjoner-pa-dataframe-s"><strong>Operasjoner på dataframe’s</strong></a></li>
@@ -437,9 +435,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8a">Oppgave 8a</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8b">Oppgave 8b</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-eurostat">📊 Oppgave 9 - Eurostat</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9a-jobbe-med-data"><strong>Oppgave 9a - Jobbe med data</strong></a></li>
@@ -457,12 +457,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas-og-databehandling">
-<h1>5 - Pandas og databehandling<a class="headerlink" href="#pandas-og-databehandling" title="Link to this heading">#</a></h1>
-<section id="pandas-et-verktoy-for-behandling-og-lasting-av-data">
-<h2><strong>Pandas</strong> - et verktøy for behandling og lasting av data<a class="headerlink" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data" title="Link to this heading">#</a></h2>
+  <p>5 - Pandas og databehandling</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pandas-et-verktoy-for-behandling-og-lasting-av-data">
+<h1><strong>Pandas</strong> - et verktøy for behandling og lasting av data<a class="headerlink" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data" title="Link to this heading">#</a></h1>
 <p>I denne delen skal vi utforske hvordan du kan bruke Pandas til å håndtere og modifisere data. Vi skal også gå gjennom grunnleggende databehandling, filtrering, aggregering og visualisering.</p>
-</section>
 <section id="introduksjon-til-pandas">
 <h2>1. Introduksjon til Pandas<a class="headerlink" href="#introduksjon-til-pandas" title="Link to this heading">#</a></h2>
 <p>Pandas er et kraftig verktøy for datahåndtering og analyse. Det gir deg muligheten til å arbeide med datasett som er representert som DataFrames, en struktur som ligner regneark som dere kanskje kjenner fra Excel.</p>
@@ -470,6 +468,8 @@ document.write(`
 <p>Først, hvis vi ikke har gjort det, bruker vi <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> for å laste ned pandas. Det kan gjøres ved å skrive følgende:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># Laster ned pandas med pip</span>
         <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">eurostat</span>
+        <span class="c1">#evt</span>
+        <span class="c1"># !pip install eurostat</span>
 </pre></div>
 </div>
 <p>Så må vi importere modulen, at vi “henter” den klar for bruk, ved å kjøre cellen under:</p>
@@ -1220,37 +1220,37 @@ Laveste BNP per innbygger: 634.97137
     <tr>
       <th>0</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024M07</td>
+      <td>2024M10</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>91.8</td>
+      <td>92.9</td>
     </tr>
     <tr>
       <th>1</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024M08</td>
+      <td>2024M11</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>92.3</td>
+      <td>93.2</td>
     </tr>
     <tr>
       <th>2</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024M09</td>
+      <td>2024M12</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>92.2</td>
+      <td>93.4</td>
     </tr>
     <tr>
       <th>3</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024M10</td>
+      <td>2025M01</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>92.6</td>
+      <td>94.4</td>
     </tr>
     <tr>
       <th>4</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024M11</td>
+      <td>2025M02</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>93.2</td>
+      <td>94.4</td>
     </tr>
   </tbody>
 </table>
@@ -1271,7 +1271,7 @@ Laveste BNP per innbygger: 634.97137
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-DatetimeIndex: 13 entries, 2024-07-01 to 2025-07-01
+DatetimeIndex: 13 entries, 2024-10-01 to 2025-10-01
 Data columns (total 4 columns):
  #   Column                                                                 Non-Null Count  Dtype         
 ---  ------                                                                 --------------  -----         
@@ -1326,32 +1326,11 @@ memory usage: 520.0+ bytes
   </thead>
   <tbody>
     <tr>
-      <th>2024-07-01</th>
-      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024-07-01</td>
-      <td>Volumindeks, sesongjustert</td>
-      <td>91.8</td>
-    </tr>
-    <tr>
-      <th>2024-08-01</th>
-      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024-08-01</td>
-      <td>Volumindeks, sesongjustert</td>
-      <td>92.3</td>
-    </tr>
-    <tr>
-      <th>2024-09-01</th>
-      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
-      <td>2024-09-01</td>
-      <td>Volumindeks, sesongjustert</td>
-      <td>92.2</td>
-    </tr>
-    <tr>
       <th>2024-10-01</th>
       <td>47 Detaljhandel, unntatt salg av motorvogner</td>
       <td>2024-10-01</td>
       <td>Volumindeks, sesongjustert</td>
-      <td>92.6</td>
+      <td>92.9</td>
     </tr>
     <tr>
       <th>2024-11-01</th>
@@ -1359,6 +1338,27 @@ memory usage: 520.0+ bytes
       <td>2024-11-01</td>
       <td>Volumindeks, sesongjustert</td>
       <td>93.2</td>
+    </tr>
+    <tr>
+      <th>2024-12-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024-12-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>93.4</td>
+    </tr>
+    <tr>
+      <th>2025-01-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025-01-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
+    </tr>
+    <tr>
+      <th>2025-02-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025-02-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
     </tr>
   </tbody>
 </table>
@@ -1381,7 +1381,7 @@ memory usage: 520.0+ bytes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;måned&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/cccc76baa1215ecc23dcf972fbd0aff60dfdb2813e048184c67a0346ab514e53.png" src="../../_images/cccc76baa1215ecc23dcf972fbd0aff60dfdb2813e048184c67a0346ab514e53.png" />
+<img alt="../../_images/b06f567b20fd6f6a4774926ae02aca2997d41fd96bf879051a266c98b1e9a5fd.png" src="../../_images/b06f567b20fd6f6a4774926ae02aca2997d41fd96bf879051a266c98b1e9a5fd.png" />
 </div>
 </div>
 </section>
@@ -1465,53 +1465,53 @@ memory usage: 520.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Number of households by household composition,...</td>
-      <td>LFST_HHNHWHTC$DV_1623</td>
+      <td>Unemployment rates by citizenship - quarterly ...</td>
+      <td>LFSQ_URGAN</td>
       <td>dataset</td>
-      <td>2024-09-12T23:00:00+0200</td>
-      <td>2024-04-24T23:00:00+0200</td>
-      <td>None</td>
-      <td>None</td>
+      <td>2025-12-12T11:00:00+0100</td>
+      <td>2025-12-12T11:00:00+0100</td>
+      <td>1998-Q1</td>
+      <td>2025-Q3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Percentage of part-time employment of adults b...</td>
-      <td>LFST_HHPTECHI</td>
+      <td>Share of digital platform workers (in the last...</td>
+      <td>LFST_DPW_01</td>
       <td>dataset</td>
-      <td>2025-06-12T23:00:00+0200</td>
-      <td>2025-04-15T11:00:00+0200</td>
-      <td>2006</td>
-      <td>2024</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Percentage of part-time employment of adults b...</td>
-      <td>LFST_HHPTECHI$DV_1903</td>
+      <td>Share of digital platform workers (in the last...</td>
+      <td>LFST_DPW_02</td>
       <td>dataset</td>
-      <td>2024-09-12T23:00:00+0200</td>
-      <td>2024-04-24T23:00:00+0200</td>
-      <td>None</td>
-      <td>None</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Percentage of part-time employment by sex, age...</td>
-      <td>LFST_HHPTETY</td>
+      <td>Distribution of digital platform workers (in t...</td>
+      <td>LFST_DPW_03</td>
       <td>dataset</td>
-      <td>2025-06-12T23:00:00+0200</td>
-      <td>2025-04-15T11:00:00+0200</td>
-      <td>2006</td>
-      <td>2024</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Percentage of self-employed adults by sex, age...</td>
-      <td>LFST_HHSECHI</td>
+      <td>Distribution of digital platform workers (at l...</td>
+      <td>LFST_DPW_04</td>
       <td>dataset</td>
-      <td>2025-06-12T23:00:00+0200</td>
-      <td>2025-04-15T11:00:00+0200</td>
-      <td>2006</td>
-      <td>2024</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1524,7 +1524,7 @@ memory usage: 520.0+ bytes
       <td>...</td>
     </tr>
     <tr>
-      <th>8018</th>
+      <th>8194</th>
       <td>Postal services falling under the universal se...</td>
       <td>POST_CUBE1_X$USO701</td>
       <td>dataset</td>
@@ -1534,7 +1534,7 @@ memory usage: 520.0+ bytes
       <td>None</td>
     </tr>
     <tr>
-      <th>8019</th>
+      <th>8195</th>
       <td>Postal services</td>
       <td>POST_CUBE1_X</td>
       <td>dataset</td>
@@ -1544,7 +1544,7 @@ memory usage: 520.0+ bytes
       <td>2023</td>
     </tr>
     <tr>
-      <th>8020</th>
+      <th>8196</th>
       <td>Number of enterprises providing postal services</td>
       <td>POST_CUBE1_X$NUM701</td>
       <td>dataset</td>
@@ -1554,7 +1554,7 @@ memory usage: 520.0+ bytes
       <td>None</td>
     </tr>
     <tr>
-      <th>8021</th>
+      <th>8197</th>
       <td>Access points  (USP under direct or indirect d...</td>
       <td>POST_CUBE1_X$POST_ACC_1</td>
       <td>dataset</td>
@@ -1564,7 +1564,7 @@ memory usage: 520.0+ bytes
       <td>None</td>
     </tr>
     <tr>
-      <th>8022</th>
+      <th>8198</th>
       <td>Domestic postal traffic, letter mail and parce...</td>
       <td>POST_CUBE1_X$POST_DTR_1</td>
       <td>dataset</td>
@@ -1575,15 +1575,14 @@ memory usage: 520.0+ bytes
     </tr>
   </tbody>
 </table>
-<p>8023 rows × 7 columns</p>
+<p>8199 rows × 7 columns</p>
 </div></div></div>
 </div>
 <p>Du kan finne hvor mange tabeller det er med <code class="docutils literal notranslate"><span class="pre">len(toc)</span></code>, og det er i skrivende stund er det rundt 8 tusen tabeller. Det blir litt krevende å lete gjennom alle, så vi ønsker derfor å begrense antall tabeller til de som er relevante. Anta at vi ønsker å se på utviklingen i BNP per innbygger for landene som er med i statistikken. Nærmere bestemt, vi ønsker å finne alle tabeller der <code class="docutils literal notranslate"><span class="pre">'GDP</span> <span class="pre">per</span> <span class="pre">capita'</span></code> er i tittelen.</p>
 <p>BNP per innbygger er hvor mye hver person i landet i gjennomsnitt produserer i løpet av ett år.</p>
 <p>Vi gjør dette ved å lage følgende “list comprehension”: <code class="docutils literal notranslate"><span class="pre">['GDP</span> <span class="pre">per</span> <span class="pre">capita'</span> <span class="pre">in</span> <span class="pre">i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">toc['title']]</span></code>. Elementene i denne listen er sant (<code class="docutils literal notranslate"><span class="pre">True</span></code>) dersom ‘GDP per capita’ er i tittelen, og usant (<code class="docutils literal notranslate"><span class="pre">false</span></code>) om det ikke er i tittelen.</p>
-</section>
 <section id="det-gjor-vi-slik">
-<h3>Det gjør vi slik:<a class="headerlink" href="#det-gjor-vi-slik" title="Link to this heading">#</a></h3>
+<h4>Det gjør vi slik:<a class="headerlink" href="#det-gjor-vi-slik" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_in_toc_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GDP per capita&#39;</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">toc</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]]</span>
@@ -1630,41 +1629,41 @@ memory usage: 520.0+ bytes
   </thead>
   <tbody>
     <tr>
-      <th>2258</th>
+      <th>4486</th>
       <td>Real GDP per capita</td>
       <td>TIPSNA40</td>
       <td>dataset</td>
-      <td>2025-08-26T23:00:00+0200</td>
+      <td>2025-12-16T23:00:00+0100</td>
       <td>2025-04-14T23:00:00+0200</td>
       <td>1995</td>
       <td>2024</td>
     </tr>
     <tr>
-      <th>3197</th>
+      <th>6281</th>
       <td>GDP per capita in PPS</td>
       <td>TEC00114</td>
       <td>dataset</td>
-      <td>2025-07-10T11:00:00+0200</td>
-      <td>2025-03-27T11:00:00+0100</td>
+      <td>2025-12-17T11:00:00+0100</td>
+      <td>2025-12-17T11:00:00+0100</td>
       <td>2013</td>
       <td>2024</td>
     </tr>
     <tr>
-      <th>3925</th>
+      <th>7674</th>
       <td>Real GDP per capita</td>
       <td>SDG_08_10</td>
       <td>dataset</td>
-      <td>2025-08-26T23:00:00+0200</td>
+      <td>2025-12-16T23:00:00+0100</td>
       <td>2025-04-14T23:00:00+0200</td>
       <td>2000</td>
       <td>2024</td>
     </tr>
     <tr>
-      <th>3939</th>
+      <th>7700</th>
       <td>Purchasing power adjusted GDP per capita</td>
       <td>SDG_10_10</td>
       <td>dataset</td>
-      <td>2025-07-10T11:00:00+0200</td>
+      <td>2025-12-17T11:00:00+0100</td>
       <td>2025-06-18T23:00:00+0200</td>
       <td>2000</td>
       <td>2024</td>
@@ -1676,7 +1675,7 @@ memory usage: 520.0+ bytes
 <p>La oss nå se på tabellen <code class="docutils literal notranslate"><span class="pre">&quot;Real</span> <span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">capita&quot;</span></code>, som har kode <code class="docutils literal notranslate"><span class="pre">'TIPSNA40'</span></code>. Da bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">get_data_df</span></code> med tabellkoden som argument:</p>
 </section>
 <section id="laster-inn-denne-tabellen">
-<h3>Laster inn denne tabellen<a class="headerlink" href="#laster-inn-denne-tabellen" title="Link to this heading">#</a></h3>
+<h4>Laster inn denne tabellen<a class="headerlink" href="#laster-inn-denne-tabellen" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_data</span> <span class="o">=</span> <span class="n">eurostat</span><span class="o">.</span><span class="n">get_data_df</span><span class="p">(</span><span class="s1">&#39;TIPSNA40&#39;</span><span class="p">)</span>
@@ -1746,10 +1745,10 @@ memory usage: 520.0+ bytes
       <td>41430.0</td>
       <td>41970.0</td>
       <td>39140.0</td>
-      <td>40860.0</td>
-      <td>42540.0</td>
-      <td>41770.0</td>
-      <td>41140.0</td>
+      <td>40910.0</td>
+      <td>42610.0</td>
+      <td>41910.0</td>
+      <td>41420.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1770,10 +1769,10 @@ memory usage: 520.0+ bytes
       <td>38040.0</td>
       <td>38760.0</td>
       <td>36740.0</td>
-      <td>38870.0</td>
-      <td>40190.0</td>
-      <td>40330.0</td>
-      <td>40500.0</td>
+      <td>38880.0</td>
+      <td>40100.0</td>
+      <td>40440.0</td>
+      <td>40650.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1791,13 +1790,13 @@ memory usage: 520.0+ bytes
       <td>6560.0</td>
       <td>6840.0</td>
       <td>7130.0</td>
-      <td>7410.0</td>
-      <td>7800.0</td>
-      <td>7620.0</td>
-      <td>8270.0</td>
+      <td>7390.0</td>
+      <td>7780.0</td>
+      <td>7610.0</td>
+      <td>8260.0</td>
       <td>8660.0</td>
-      <td>8850.0</td>
-      <td>9110.0</td>
+      <td>8830.0</td>
+      <td>9140.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1819,9 +1818,9 @@ memory usage: 520.0+ bytes
       <td>25390.0</td>
       <td>24240.0</td>
       <td>26600.0</td>
-      <td>27990.0</td>
-      <td>28220.0</td>
-      <td>28730.0</td>
+      <td>28270.0</td>
+      <td>28740.0</td>
+      <td>29400.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1901,23 +1900,23 @@ memory usage: 520.0+ bytes
       <td>CLV15_EUR_HAB</td>
       <td>B1GQ</td>
       <td>EA20</td>
-      <td>24610.0</td>
-      <td>24970.0</td>
-      <td>25590.0</td>
-      <td>26300.0</td>
+      <td>24620.0</td>
+      <td>24980.0</td>
+      <td>25600.0</td>
+      <td>26310.0</td>
       <td>27030.0</td>
-      <td>27990.0</td>
+      <td>28000.0</td>
       <td>...</td>
-      <td>31120.0</td>
-      <td>31590.0</td>
-      <td>32340.0</td>
-      <td>32830.0</td>
-      <td>33270.0</td>
-      <td>31220.0</td>
-      <td>33180.0</td>
-      <td>34170.0</td>
-      <td>34150.0</td>
-      <td>34340.0</td>
+      <td>31160.0</td>
+      <td>31630.0</td>
+      <td>32410.0</td>
+      <td>32920.0</td>
+      <td>33370.0</td>
+      <td>31320.0</td>
+      <td>33320.0</td>
+      <td>34370.0</td>
+      <td>34310.0</td>
+      <td>34480.0</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1938,10 +1937,10 @@ memory usage: 520.0+ bytes
       <td>17990.0</td>
       <td>18580.0</td>
       <td>17990.0</td>
-      <td>19260.0</td>
-      <td>19240.0</td>
+      <td>19450.0</td>
+      <td>19190.0</td>
       <td>18200.0</td>
-      <td>18030.0</td>
+      <td>18070.0</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1963,9 +1962,9 @@ memory usage: 520.0+ bytes
       <td>17320.0</td>
       <td>15760.0</td>
       <td>17220.0</td>
-      <td>18310.0</td>
-      <td>18800.0</td>
-      <td>19250.0</td>
+      <td>18270.0</td>
+      <td>18720.0</td>
+      <td>19140.0</td>
     </tr>
     <tr>
       <th>10</th>
@@ -1987,9 +1986,9 @@ memory usage: 520.0+ bytes
       <td>25520.0</td>
       <td>22610.0</td>
       <td>24120.0</td>
-      <td>25380.0</td>
-      <td>25730.0</td>
-      <td>26300.0</td>
+      <td>25420.0</td>
+      <td>25740.0</td>
+      <td>26350.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -1999,21 +1998,21 @@ memory usage: 520.0+ bytes
       <td>EU27_2020</td>
       <td>20910.0</td>
       <td>21260.0</td>
-      <td>21800.0</td>
+      <td>21810.0</td>
       <td>22430.0</td>
-      <td>23070.0</td>
+      <td>23080.0</td>
       <td>23930.0</td>
       <td>...</td>
-      <td>27770.0</td>
-      <td>28250.0</td>
-      <td>28990.0</td>
-      <td>29530.0</td>
-      <td>30030.0</td>
-      <td>28390.0</td>
-      <td>30180.0</td>
-      <td>31020.0</td>
-      <td>31030.0</td>
-      <td>31280.0</td>
+      <td>27800.0</td>
+      <td>28280.0</td>
+      <td>29040.0</td>
+      <td>29590.0</td>
+      <td>30090.0</td>
+      <td>28450.0</td>
+      <td>30280.0</td>
+      <td>31160.0</td>
+      <td>31150.0</td>
+      <td>31380.0</td>
     </tr>
     <tr>
       <th>12</th>
@@ -2036,8 +2035,8 @@ memory usage: 520.0+ bytes
       <td>40270.0</td>
       <td>41270.0</td>
       <td>41470.0</td>
-      <td>40920.0</td>
-      <td>40550.0</td>
+      <td>40930.0</td>
+      <td>40780.0</td>
     </tr>
     <tr>
       <th>13</th>
@@ -2076,16 +2075,16 @@ memory usage: 520.0+ bytes
       <td>7620.0</td>
       <td>7920.0</td>
       <td>...</td>
-      <td>10810.0</td>
-      <td>11280.0</td>
-      <td>11770.0</td>
-      <td>12230.0</td>
-      <td>12940.0</td>
-      <td>11970.0</td>
-      <td>13580.0</td>
-      <td>14580.0</td>
-      <td>14980.0</td>
-      <td>15580.0</td>
+      <td>10960.0</td>
+      <td>11480.0</td>
+      <td>12040.0</td>
+      <td>12550.0</td>
+      <td>13070.0</td>
+      <td>12100.0</td>
+      <td>13750.0</td>
+      <td>14820.0</td>
+      <td>15370.0</td>
+      <td>15910.0</td>
     </tr>
     <tr>
       <th>15</th>
@@ -2107,9 +2106,9 @@ memory usage: 520.0+ bytes
       <td>13780.0</td>
       <td>13210.0</td>
       <td>14230.0</td>
-      <td>14870.0</td>
-      <td>14770.0</td>
-      <td>14890.0</td>
+      <td>14860.0</td>
+      <td>14760.0</td>
+      <td>14880.0</td>
     </tr>
     <tr>
       <th>16</th>
@@ -2156,8 +2155,8 @@ memory usage: 520.0+ bytes
       <td>26560.0</td>
       <td>29080.0</td>
       <td>30550.0</td>
-      <td>30780.0</td>
-      <td>31010.0</td>
+      <td>30860.0</td>
+      <td>31090.0</td>
     </tr>
     <tr>
       <th>18</th>
@@ -2179,9 +2178,9 @@ memory usage: 520.0+ bytes
       <td>15710.0</td>
       <td>15720.0</td>
       <td>16740.0</td>
-      <td>17020.0</td>
-      <td>16840.0</td>
-      <td>17210.0</td>
+      <td>17010.0</td>
+      <td>16900.0</td>
+      <td>17310.0</td>
     </tr>
     <tr>
       <th>19</th>
@@ -2204,8 +2203,8 @@ memory usage: 520.0+ bytes
       <td>94770.0</td>
       <td>99760.0</td>
       <td>96540.0</td>
-      <td>94080.0</td>
-      <td>93550.0</td>
+      <td>94830.0</td>
+      <td>93670.0</td>
     </tr>
     <tr>
       <th>20</th>
@@ -2227,9 +2226,9 @@ memory usage: 520.0+ bytes
       <td>13820.0</td>
       <td>13430.0</td>
       <td>14480.0</td>
-      <td>14730.0</td>
-      <td>15190.0</td>
-      <td>15290.0</td>
+      <td>14750.0</td>
+      <td>14640.0</td>
+      <td>14770.0</td>
     </tr>
     <tr>
       <th>21</th>
@@ -2249,11 +2248,11 @@ memory usage: 520.0+ bytes
       <td>25710.0</td>
       <td>26600.0</td>
       <td>26570.0</td>
-      <td>25150.0</td>
-      <td>28330.0</td>
-      <td>28780.0</td>
-      <td>29530.0</td>
-      <td>30310.0</td>
+      <td>25120.0</td>
+      <td>28320.0</td>
+      <td>28300.0</td>
+      <td>30080.0</td>
+      <td>31300.0</td>
     </tr>
     <tr>
       <th>22</th>
@@ -2324,8 +2323,8 @@ memory usage: 520.0+ bytes
       <td>17680.0</td>
       <td>18620.0</td>
       <td>19800.0</td>
-      <td>20110.0</td>
-      <td>20300.0</td>
+      <td>20200.0</td>
+      <td>20410.0</td>
     </tr>
     <tr>
       <th>25</th>
@@ -2343,13 +2342,13 @@ memory usage: 520.0+ bytes
       <td>8090.0</td>
       <td>8370.0</td>
       <td>9100.0</td>
-      <td>9720.0</td>
-      <td>10140.0</td>
-      <td>9820.0</td>
-      <td>10450.0</td>
-      <td>10910.0</td>
-      <td>11170.0</td>
-      <td>11260.0</td>
+      <td>9650.0</td>
+      <td>10080.0</td>
+      <td>9760.0</td>
+      <td>10390.0</td>
+      <td>10880.0</td>
+      <td>11120.0</td>
+      <td>11220.0</td>
     </tr>
     <tr>
       <th>26</th>
@@ -2373,7 +2372,7 @@ memory usage: 520.0+ bytes
       <td>48690.0</td>
       <td>48780.0</td>
       <td>48350.0</td>
-      <td>48690.0</td>
+      <td>48660.0</td>
     </tr>
     <tr>
       <th>27</th>
@@ -2396,8 +2395,8 @@ memory usage: 520.0+ bytes
       <td>20560.0</td>
       <td>22230.0</td>
       <td>22810.0</td>
-      <td>23170.0</td>
-      <td>23470.0</td>
+      <td>23230.0</td>
+      <td>23560.0</td>
     </tr>
     <tr>
       <th>28</th>
@@ -2418,16 +2417,17 @@ memory usage: 520.0+ bytes
       <td>16110.0</td>
       <td>16450.0</td>
       <td>16010.0</td>
-      <td>16980.0</td>
-      <td>17000.0</td>
+      <td>16970.0</td>
+      <td>17010.0</td>
       <td>17370.0</td>
-      <td>17720.0</td>
+      <td>17700.0</td>
     </tr>
   </tbody>
 </table>
 <p>29 rows × 34 columns</p>
 </div></div></div>
 </div>
+</section>
 </section>
 </section>
 <section id="oppgave-9a-jobbe-med-data">
@@ -2446,8 +2446,14 @@ memory usage: 520.0+ bytes
 <h2>🔄 Del 1: Rens og filtrer data<a class="headerlink" href="#del-1-rens-og-filtrer-data" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Last inn datasettet i en pandas DataFrame.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
 <li><p>Fjern unødvendige kolonner (f.eks. <code class="docutils literal notranslate"><span class="pre">freq</span></code>, <code class="docutils literal notranslate"><span class="pre">unit</span></code>, <code class="docutils literal notranslate"><span class="pre">na_item</span></code>).</p></li>
+</ol>
+<ol class="arabic simple" start="3">
 <li><p>Behold kun rader for Italia (IT), Danmark (DK) og Sverige (SE).</p></li>
+</ol>
+<ol class="arabic simple" start="4">
 <li><p>Sjekk og håndter eventuelle manglende verdier (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p></li>
 </ol>
 </section>
@@ -2461,6 +2467,8 @@ memory usage: 520.0+ bytes
 <li><p>BNP per capita-verdiene for hvert land forblir i tabellen.</p></li>
 </ul>
 </li>
+</ol>
+<ol class="arabic simple" start="2">
 <li><p>Konverter eventuelle verdier som er lagret som <code class="docutils literal notranslate"><span class="pre">object</span></code> til <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
 </ol>
 </section>
@@ -2473,6 +2481,8 @@ memory usage: 520.0+ bytes
 <li><p>Maksimum og minimum BNP per capita.</p></li>
 </ul>
 </li>
+</ol>
+<ol class="arabic simple" start="2">
 <li><p>Finn ut hvilket år hvert land hadde høyest BNP per capita.</p></li>
 </ol>
 </section>
@@ -2542,7 +2552,6 @@ memory usage: 520.0+ bytes
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-pandas">1. Introduksjon til Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-importere-pandas-og-laste-inn-en-csv-fil"><strong>Eksempel: Importere Pandas og laste inn en CSV-fil</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasjoner-pa-dataframe-s"><strong>Operasjoner på dataframe’s</strong></a></li>
@@ -2559,9 +2568,11 @@ memory usage: 520.0+ bytes
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8a">Oppgave 8a</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8b">Oppgave 8b</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-eurostat">📊 Oppgave 9 - Eurostat</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9a-jobbe-med-data"><strong>Oppgave 9a - Jobbe med data</strong></a></li>

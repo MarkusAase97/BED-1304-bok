@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/04/lister_oppslag_numpy';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5 - Pandas og databehandling" href="../05/pandas_og_databehandling.html" />
+    <link rel="next" title="Pandas - et verktøy for behandling og lasting av data" href="../05/pandas_og_databehandling.html" />
     <link rel="prev" title="3 - Funksjoner" href="../03/funksjoner.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,12 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4 - Lister, oppslag og numpy</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -212,7 +207,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -418,7 +417,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4 - Lister, oppslag og numpy</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister">Lister</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
@@ -430,36 +428,44 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unnga-uonsket-endring-av-objekter">Unngå uønsket endring av objekter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unnga-uonsket-endring-av-objekter">Unngå uønsket endring av objekter</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-et-array">Hva er et array?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restriksjoner-i-numpy-arrays">Restriksjoner i NumPy-arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opprette-arrays">Opprette arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-er-mutable-kan-endres"><strong>Arrays er mutable (kan endres)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing"><strong>Slicing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obs"><strong>OBS</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruke-numpy-arrays-i-stedet-for-lister">Hvorfor bruke NumPy-arrays i stedet for lister?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppslag">Oppslag</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppslag">Oppslag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-neste-oppgavene-kommer-vi-tilbake-til-i-senere-kapitler">De neste oppgavene kommer vi tilbake til i senere kapitler</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -489,7 +495,9 @@ document.write(`
 <h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equinor</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Statoil&#39;</span><span class="p">,</span> <span class="s1">&#39;EQNR&#39;</span><span class="p">,</span> <span class="mf">167.554919090282</span><span class="p">,</span> <span class="mf">376883380048.5</span><span class="p">,</span> <span class="mf">6.14609823076753</span><span class="p">,</span> <span class="mf">0.617893838660362</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listene består av [Navn, ticker, aksjekurs, markedsverdi, P/E, gjeldsrate]</span>
+
+<span class="n">equinor</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Statoil&#39;</span><span class="p">,</span> <span class="s1">&#39;EQNR&#39;</span><span class="p">,</span> <span class="mf">167.554919090282</span><span class="p">,</span> <span class="mf">376883380048.5</span><span class="p">,</span> <span class="mf">6.14609823076753</span><span class="p">,</span> <span class="mf">0.617893838660362</span><span class="p">]</span>
 <span class="n">dnb</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DNB&#39;</span><span class="p">,</span> <span class="s1">&#39;DNB&#39;</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">259169427140</span><span class="p">,</span> <span class="mf">11.1121822724349</span><span class="p">,</span> <span class="mf">0.914999939276725</span><span class="p">]</span>
 <span class="n">telenor</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Telenor&#39;</span><span class="p">,</span> <span class="s1">&#39;TEL&#39;</span><span class="p">,</span> <span class="mf">148.737572948101</span><span class="p">,</span> <span class="mf">227115017138.4</span><span class="p">,</span> <span class="mf">13.0211568133471</span><span class="p">,</span> <span class="mf">0.715300723576896</span><span class="p">]</span>
 <span class="n">marine_harvest</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Marine Harvest&#39;</span><span class="p">,</span> <span class="s1">&#39;MHG&#39;</span><span class="p">,</span> <span class="mf">225.589705235372</span><span class="p">,</span> <span class="mf">118004750966.2</span><span class="p">,</span> <span class="mf">21.6878893009616</span><span class="p">,</span> <span class="mf">0.440427599611273</span><span class="p">]</span>
@@ -937,18 +945,17 @@ document.write(`
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="unnga-uonsket-endring-av-objekter">
-<h1>Unngå uønsket endring av objekter<a class="headerlink" href="#unnga-uonsket-endring-av-objekter" title="Link to this heading">#</a></h1>
+<section id="unnga-uonsket-endring-av-objekter">
+<h2>Unngå uønsket endring av objekter<a class="headerlink" href="#unnga-uonsket-endring-av-objekter" title="Link to this heading">#</a></h2>
 <p>En veldig vanlig nybegynnerfeil i Python er å glemme at selv om et objekt, slik som en liste, har fått nytt navn, så er det fortsatt det samme objektet. Dette er spesielt lett å glemme når du objektet er et argument i en funksjon. Her er for eksempel en funksjon som opererer på argumentet:</p>
 <section id="eksempel-9">
-<h2>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h2>
+<h3>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Denne funksjonen kvitter seg med element i i en liste </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">pop_and_print</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-    <span class="n">last_element</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
+    <span class="n">element_i</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element_i</span><span class="p">)</span>
     
 <span class="n">pop_and_print</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">stocks</span>
@@ -1010,7 +1017,7 @@ document.write(`
 <p>Av og til vil du at funksjonen skal operere på argumentet, men om det ikke er meningen at argumentet skal være endret når funksjonen er ferdigkjørt, så kan du ta en kopi inne i funksjonen. Det gjøres enklest ved å bruke <em>typen</em> til objektet som funksjon. Du danner da et nytt objekt av samme type. For eksempel for en liste som <code class="docutils literal notranslate"><span class="pre">stocks</span></code>bruker du <code class="docutils literal notranslate"><span class="pre">list</span></code>som funksjon</p>
 </section>
 <section id="eksempel-10">
-<h2>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h2>
+<h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Denne funksjonen kvitter seg med element i</span>
@@ -1019,72 +1026,28 @@ document.write(`
     <span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     
     <span class="c1"># Kvitter oss med element i, og viser hva det er</span>
-    <span class="n">last_element</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">last_element</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
     
-<span class="n">pop_and_print</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">stocks</span>
+<span class="n">pop_and_print</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#stocks</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Tomra Systems&#39;, &#39;TOM&#39;, 276.409619134278, 41208789715.2, 52.8996016883184, 0.454299114121939]
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Equinor&#39;,
-  &#39;EQNR&#39;,
-  167.554919090282,
-  376883380048.5,
-  6.14609823076753,
-  0.617893838660362],
- [&#39;Telenor&#39;,
-  &#39;TEL&#39;,
-  148.737572948101,
-  227115017138.4,
-  13.0211568133471,
-  0.715300723576896],
- [&#39;Marine Harvest&#39;,
-  &#39;MHG&#39;,
-  225.589705235372,
-  118004750966.2,
-  21.6878893009616,
-  0.440427599611273],
- [&#39;Aker BP&#39;,
-  &#39;AKERBP&#39;,
-  272.499264741749,
-  103712690592,
-  26.7636558040214,
-  0.722568840028356],
- [&#39;Yara International&#39;,
-  &#39;YAR&#39;,
-  333.328922090651,
-  99481443032.4,
-  86.741957363663,
-  0.465057636887608],
- [&#39;Gjensidige Forsikring&#39;,
-  &#39;GJF&#39;,
-  172.830508474576,
-  92125000000,
-  24.9404407385348,
-  0.847890127134592],
- [&#39;Tomra Systems&#39;,
-  &#39;TOM&#39;,
-  276.409619134278,
-  41208789715.2,
-  52.8996016883184,
-  0.454299114121939]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Gjensidige Forsikring&#39;, &#39;GJF&#39;, 172.830508474576, 92125000000, 24.9404407385348, 0.847890127134592]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Denne koden kan kjøres så mange ganger du vil, uten at stocks endres</p>
+<p>Denne koden kan kjøres så mange ganger du vil, uten at stocks endres.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tuple">
-<h1>Tuple<a class="headerlink" href="#tuple" title="Link to this heading">#</a></h1>
+<section id="tuple">
+<h2>Tuple<a class="headerlink" href="#tuple" title="Link to this heading">#</a></h2>
 <p>En <code class="docutils literal notranslate"><span class="pre">tuple</span></code> fungerer ganske likt som en liste når du skal hente noe fra den. Men i motsetning til en liste, så går det ikke an å endre på en <code class="docutils literal notranslate"><span class="pre">tuple</span></code> etter at den er skapt. Du kan lage en tuple enten ved å bruke den innebygde funksjonen  <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> eller ved å lage en liste med en vanlig parentes:</p>
 <section id="eksempel-11">
-<h2>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h2>
+<h3>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">equinor</span><span class="p">)</span>
@@ -1134,7 +1097,7 @@ document.write(`
 <p>Vi kan <em>få tak i</em> innholdet, men det går ikke an å <em>endre</em> på innholdet i en <code class="docutils literal notranslate"><span class="pre">tuple</span></code>etter at den er skapt:</p>
 </section>
 <section id="eksempel-12">
-<h2>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h2>
+<h3>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1157,15 +1120,150 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Tuple er mest brukt i forbindelse med funksjoner, og er ikke noe vi kommer til å bruke mye tid på i dette kurset. En annen fordel med ‘tuples’ er at de er mer effektive ved svært store datasett.</p>
+<ul class="simple">
+<li><p>Tuple er mest brukt i forbindelse med funksjoner, og er ikke noe vi kommer til å bruke mye tid på i dette kurset.</p></li>
+<li><p>En annen fordel med ‘tuples’ er at de er mer effektive ved svært store datasett.</p></li>
+</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="numpy">
-<h1>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
-<p>Numpy er en pakke som kan gjøre matematiske beregninger på store datasett, , på en svært effektiv måte. Vi starter med å importere pakken, og konvertere listen vi har brukt til en numpy-matrise kalt <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. En <em>matrise</em> er en liste der alle rader har like mange elementer, og det er jo tilfelle med vår <code class="docutils literal notranslate"><span class="pre">stocks</span></code>-liste.</p>
-<p>Vi starter med å definere en liste av liste med informasjon om aksjene:</p>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>NumPy (<a class="reference internal" href="#"><span class="xref myst"><em>“numerical Python”</em></span></a>) er en pakke som kan gjøre matematiske beregninger på store datasett, på en svært effektiv måte. Vi starter med å importere pakken, og konvertere listen vi har brukt til en numpy-matrise kalt <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. En <em>matrise</em> er en liste der alle rader har like mange elementer, og det er jo tilfelle med vår <code class="docutils literal notranslate"><span class="pre">stocks</span></code>-liste.</p>
+<section id="hva-er-et-array">
+<h3>Hva er et array?<a class="headerlink" href="#hva-er-et-array" title="Link to this heading">#</a></h3>
+<p>I programmering er et <strong>array</strong> en struktur for å lagre og hente ut data.<br />
+Man kan se for seg et array som et rutenett, der hver celle inneholder ett element av data.</p>
+<ul class="simple">
+<li><p>Et <strong>en-dimensjonalt array</strong> kan sammenlignes med en liste:<br />
+<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code></p></li>
+<li><p>Et <strong>to-dimensjonalt array</strong> ligner en tabell (rader og kolonner).</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>Et <strong>tre-dimensjonalt array</strong> kan tenkes som flere tabeller lagt oppå hverandre, som sider i en bok.</p></li>
+</ul>
+<p>I <strong>NumPy</strong> generaliseres denne ideen til et vilkårlig antall dimensjoner. Den grunnleggende array-klassen heter derfor <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> (<strong>N-dimensjonalt array</strong>).</p>
+</section>
+<section id="restriksjoner-i-numpy-arrays">
+<h3>Restriksjoner i NumPy-arrays<a class="headerlink" href="#restriksjoner-i-numpy-arrays" title="Link to this heading">#</a></h3>
+<p>NumPy-arrays har noen begrensninger sammenlignet med vanlige Python-lister:</p>
+<ol class="arabic simple">
+<li><p>Alle elementene må være av <strong>samme datatype</strong>.</p></li>
+<li><p>Når et array er opprettet, kan <strong>størrelsen ikke endres</strong>.</p></li>
+<li><p>Formen må være <strong>rektangulær</strong>, ikke “taggete” (f.eks. kan ikke en rad ha flere kolonner enn en annen).</p></li>
+</ol>
+<p>Disse reglene gjør at NumPy kan være <strong>raskere</strong>, bruke <strong>mindre minne</strong>, og gi mer praktiske verktøy for beregninger enn vanlige datastrukturer i Python.</p>
+</section>
+<section id="opprette-arrays">
+<h3>Opprette arrays<a class="headerlink" href="#opprette-arrays" title="Link to this heading">#</a></h3>
+<p>Et array kan lages fra en Python-liste. For eksempel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># array([1, 2, 3, 4, 5, 6])</span>
+
+<span class="c1">### **Tilgang til elementer**</span>
+
+<span class="n">Elementer</span> <span class="n">kan</span> <span class="n">hentes</span> <span class="n">ut</span> <span class="n">med</span> <span class="n">indeksering</span><span class="p">,</span> <span class="n">på</span> <span class="n">samme</span> <span class="n">måte</span> <span class="n">som</span> <span class="n">i</span> <span class="n">en</span> <span class="n">liste</span><span class="p">:</span>
+
+<span class="err">```</span><span class="n">python</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="arrays-er-mutable-kan-endres">
+<h3><strong>Arrays er mutable (kan endres)</strong><a class="headerlink" href="#arrays-er-mutable-kan-endres" title="Link to this heading">#</a></h3>
+<p>Akkurat som lister i Python, kan elementene endres:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="slicing">
+<h3><strong>Slicing</strong><a class="headerlink" href="#slicing" title="Link to this heading">#</a></h3>
+<p>Man kan hente ut deler av et array med slice-notasjon:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="obs">
+<h3><strong>OBS</strong><a class="headerlink" href="#obs" title="Link to this heading">#</a></h3>
+<p>En viktig forskjell fra lister er at slicing i NumPy gir en <strong>view</strong> (en peker til originaldata), ikke en kopi.
+Det betyr at endringer i view også påvirker det originale arrayet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># array([4, 5, 6])</span>
+
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># array([10,  2,  3, 40,  5,  6])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="hvorfor-bruke-numpy-arrays-i-stedet-for-lister">
+<h2>Hvorfor bruke NumPy-arrays i stedet for lister?<a class="headerlink" href="#hvorfor-bruke-numpy-arrays-i-stedet-for-lister" title="Link to this heading">#</a></h2>
+<p>Selv om Python-lister er fleksible og enkle å bruke, har de noen begrensninger når det gjelder store datamengder og numeriske beregninger.<br />
+NumPy-arrays (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) er laget for vitenskapelige beregninger og har derfor flere fordeler:</p>
+<ul class="simple">
+<li><p>🚀 <strong>Ytelse</strong>: NumPy er skrevet i C under panseret, og array-operasjoner er mye raskere enn tilsvarende løkker i Python.</p></li>
+<li><p>📦 <strong>Minnebruk</strong>: Alle elementene i et NumPy-array har samme datatype og ligger lagret i sammenhengende minne → mer kompakt og effektiv lagring enn lister.</p></li>
+<li><p>🔢 <strong>Matematiske operasjoner</strong>: NumPy støtter vektoriserte operasjoner (regning på hele arrays samtidig) uten eksplisitte løkker.</p></li>
+<li><p>🧩 <strong>Verktøykasse</strong>: NumPy gir tilgang til mange funksjoner for lineær algebra, statistikk, transformasjoner m.m. som ikke finnes i vanlige lister.</p></li>
+<li><p>📐 <strong>Flere dimensjoner</strong>: Arrays kan være 1D (liste), 2D (matrise/tabell) eller høyere dimensjoner (f.eks. 3D for bilder, 4D for datasett i maskinlæring).</p></li>
+</ul>
+<p>Kort sagt: NumPy-arrays er <strong>raskere, mer effektive og mer praktiske</strong> når man skal jobbe med data og tall.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kvadratrot av liste ved hjelp av numpy</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3. 4. 5.]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+3.0
+&lt;class &#39;numpy.float64&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <section id="eksempel-13">
-<h2>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h2>
+<h3>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h3>
+<p>Vi starter med å definere en liste av liste med informasjon om aksjene:</p>
+</section>
+<section id="id1">
+<h3>Eksempel 13:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1208,7 +1306,7 @@ document.write(`
 <p>Som du ser, så består listen av tolv rader og seks kolonner. Dette er altså en 12x6-matrise. Den kan enkelt konverteres til en numpy-matrise med funksjonen <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> slik som her:</p>
 </section>
 <section id="eksempel-14">
-<h2>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h2>
+<h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stocks_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span>
@@ -1271,7 +1369,7 @@ document.write(`
 <p>Her er vi mest interessert i de to siste kolonnene. Det er disse som inneholder tall. For å plukke ut disse velger vi alle radene (<code class="docutils literal notranslate"><span class="pre">:</span></code>) og alle kolonnene fra og med kolonne 2 (<code class="docutils literal notranslate"><span class="pre">2:</span></code>). Da får vi</p>
 </section>
 <section id="eksempel-15">
-<h2>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h2>
+<h3>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stocks_np</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span>
@@ -1308,7 +1406,7 @@ document.write(`
 <p>Sist i matrisen over, står det <code class="docutils literal notranslate"><span class="pre">dtype='&lt;U32'</span></code>. Det betyr at dette er tekstrenger på 32 eller færre tegn. Vi må imidlertid ha dette over i tallformat for å kunne jobbe med det. Det gjør vi slik:</p>
 </section>
 <section id="eksempel-16">
-<h2>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h2>
+<h3>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stocks_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">stocks_np</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
@@ -1337,7 +1435,7 @@ document.write(`
 <p>Nå kan vi begynne å bruke tallene. For eksempel kan vi se grafisk om det er en sammenheng mellom gjeldsgrad og pris-inntjeningstraten (PE). Dette er de to siste kolonnene i datamatrisen:</p>
 </section>
 <section id="eksempel-17">
-<h2>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h2>
+<h3>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -1385,11 +1483,11 @@ document.write(`
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="oppslag">
-<h1>Oppslag<a class="headerlink" href="#oppslag" title="Link to this heading">#</a></h1>
+<section id="oppslag">
+<h2>Oppslag<a class="headerlink" href="#oppslag" title="Link to this heading">#</a></h2>
 <p>Et oppslag, eller <em>dictionary</em> har symbol <code class="docutils literal notranslate"><span class="pre">dict</span></code> i Python. Dette er en datastruktur der hvert element ikke identifiseres med hvor det er plassert, men med et nøkkelord (<code class="docutils literal notranslate"><span class="pre">key</span></code>). Å bruke oppslag i stedet for lister gjør ofte koden mer lesbar. Det finnes to måter å lage oppslag på; enten ved å bruke funksjonen <code class="docutils literal notranslate"><span class="pre">dict()</span></code>:</p>
 <section id="eksempel-18">
-<h2>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h2>
+<h3>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definere en tom dictionary kalt a</span>
@@ -1453,7 +1551,7 @@ document.write(`
 <p>Vi legger merke til at dette også er en objekt av type <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Med oppslag blir det enklere å bruke variablene, siden vi kan referere til dem med navn i stedet for indeks. Her er plottet i Eksempel 17 gjort med oppslag:</p>
 </section>
 <section id="eksempel-19">
-<h2>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h2>
+<h3>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PE&#39;</span><span class="p">)</span>
@@ -1463,7 +1561,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1bc82abbc50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x21a965d7c90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/f772fd876ad9528883f4dd3a7ed3895ef051323ec6362d036e4f04a78e6b4b13.png" src="../../_images/f772fd876ad9528883f4dd3a7ed3895ef051323ec6362d036e4f04a78e6b4b13.png" />
@@ -1472,7 +1570,7 @@ document.write(`
 <p>Når du først har laget en dict, er det enkelt å legge til nye elementer. Det gjør du enkelt ved å bruke en nøkkel som ikke finnes, for eksempel <code class="docutils literal notranslate"><span class="pre">'Pris'</span></code>, og dette elementet lik ønsket objekt:</p>
 </section>
 <section id="eksempel-20">
-<h2>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h2>
+<h3>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;Pris&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">stocks_numbers</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
@@ -1483,7 +1581,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1bc82b05910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x21a96637e10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/117593c74cd7905188b37d50a6558bf2fd5db2f5d4dbe9708d92462beb1534b7.png" src="../../_images/117593c74cd7905188b37d50a6558bf2fd5db2f5d4dbe9708d92462beb1534b7.png" />
@@ -1492,7 +1590,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">dict</span></code>-objektet er helt sentralt i selve byggeklossene til Python. Alle variabler du lager er faktisk elementer i to <code class="docutils literal notranslate"><span class="pre">dict</span></code> som du kan få frem med funksjonene <code class="docutils literal notranslate"><span class="pre">locals()</span></code> og <code class="docutils literal notranslate"><span class="pre">globals()</span></code>, som kaller de lokalt og globalt definerte variablene i miljøet du befinner deg. Dette eksemplet viser at objektet <code class="docutils literal notranslate"><span class="pre">stocks</span></code> som vi har definert i Eksempel 13, er identisk med elementet <code class="docutils literal notranslate"><span class="pre">'stocks'</span></code> i <code class="docutils literal notranslate"><span class="pre">locals()</span></code>.</p>
 </section>
 <section id="eksempel-21">
-<h2>Eksempel 21:<a class="headerlink" href="#eksempel-21" title="Link to this heading">#</a></h2>
+<h3>Eksempel 21:<a class="headerlink" href="#eksempel-21" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">locals</span><span class="p">()[</span><span class="s1">&#39;stocks&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">stocks</span>
@@ -1508,8 +1606,8 @@ document.write(`
 <p>Vi ser at disse objektene egentlig er det samme, ved at den logiske testen om disse er like, returnerer sann (<code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="oppgaver">
-<h1>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h1>
+<section id="oppgaver">
+<h2>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h2>
 <p>Det er enkelt å konvertere en pandas dataramme til numpy. Vi skal bruke et datasett som heter ‘schooling-gdp.csv’, som er en Excel-fil. Vi henter inn dataene og konverterer dem til numpy slik:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1521,7 +1619,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette kan dere kjøre som det er, vi skal se mer på pandas i neste forelesning!</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/schooling-gdp.csv&#39;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/schooling-gdp.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="c1"># Gjør om en pandas dataframe til numpy</span>
 <span class="n">numpy_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -1646,6 +1745,14 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Bytt ut navnet til “Ireland” med “Republic of Ireland” og “United States” med “United States of America”</p></li>
 </ol>
+<p><strong>Hint:</strong></p>
+<ul class="simple">
+<li><p>Husk å bruk riktig indeksering for å finne “Ireland” og “United States”</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numpy_data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Republic of Ireland&#39;</span>
+</pre></div>
+</div>
+<p>hvor du må finne tallene <em>i</em> og <em>j</em>.</p>
 <ol class="arabic simple" start="2">
 <li><p>Print data for “Luxembourg”</p></li>
 </ol>
@@ -1670,6 +1777,9 @@ document.write(`
 <ol class="arabic simple" start="9">
 <li><p>Lag en ny variabel “Total GDP” som er produktet av BNP per capita og befolkning.</p></li>
 </ol>
+</section>
+<section id="de-neste-oppgavene-kommer-vi-tilbake-til-i-senere-kapitler">
+<h2>De neste oppgavene kommer vi tilbake til i senere kapitler<a class="headerlink" href="#de-neste-oppgavene-kommer-vi-tilbake-til-i-senere-kapitler" title="Link to this heading">#</a></h2>
 <ol class="arabic simple" start="10">
 <li><p>Lag et scatterplot med de to variablene du nettopp lagde.</p></li>
 </ol>
@@ -1697,6 +1807,7 @@ document.write(`
 <p>a) et nytt diagram med alle landene og</p>
 <p>b) et diagram med de 20 øverste.</p>
 <p>c) et diagram med de 20 nederste</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1743,7 +1854,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">5 - Pandas og databehandling</p>
+        <p class="prev-next-title"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1763,7 +1874,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4 - Lister, oppslag og numpy</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister">Lister</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
@@ -1775,36 +1885,44 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unnga-uonsket-endring-av-objekter">Unngå uønsket endring av objekter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unnga-uonsket-endring-av-objekter">Unngå uønsket endring av objekter</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-et-array">Hva er et array?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restriksjoner-i-numpy-arrays">Restriksjoner i NumPy-arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opprette-arrays">Opprette arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-er-mutable-kan-endres"><strong>Arrays er mutable (kan endres)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing"><strong>Slicing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obs"><strong>OBS</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruke-numpy-arrays-i-stedet-for-lister">Hvorfor bruke NumPy-arrays i stedet for lister?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppslag">Oppslag</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppslag">Oppslag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-neste-oppgavene-kommer-vi-tilbake-til-i-senere-kapitler">De neste oppgavene kommer vi tilbake til i senere kapitler</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

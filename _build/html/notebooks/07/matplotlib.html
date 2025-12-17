@@ -194,9 +194,27 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -214,7 +232,11 @@
 
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
 
 
 
@@ -420,20 +442,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
@@ -441,6 +459,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-med-tilfeldige-tall">Hva med tilfeldige tall?</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots">Eksempel med bankinnskudd og bruk av subplots()</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
@@ -486,14 +507,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
 <h1>7 - Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="enkle-grafer">
-<h1>Enkle grafer<a class="headerlink" href="#enkle-grafer" title="Link to this heading">#</a></h1>
+<section id="enkle-grafer">
+<h2>Enkle grafer<a class="headerlink" href="#enkle-grafer" title="Link to this heading">#</a></h2>
 <p>Det er fint å kunne lage funksjoner i Python, men det er enda bedre å <em>se</em> dem. Vi skal nå se på hvordan vi kan tegne resultatet av funksjoner i et diagram ved hjelp av pakken <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <p>Ofte ønsker vil å bruke matplotlib til å vise oss sammenhenger i data vi har hentet inn. Når vi importerer data til Python bruker vi vanligvis pakken <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Vi har allerede diskutert hvordan vi kan arbeide med data i <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, så foreløpig skal vi ikke gjøre noe mer enn å importere og bruke dataene i <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <p>Vi starter derfor med å <em>importere</em> <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> og <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
 <section id="eksempel-1">
-<h2>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h2>
+<h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># versjon</span>
@@ -513,8 +533,9 @@ document.write(`
 </div>
 </section>
 <section id="plotte-tall">
-<h2>Plotte tall<a class="headerlink" href="#plotte-tall" title="Link to this heading">#</a></h2>
+<h3>Plotte tall<a class="headerlink" href="#plotte-tall" title="Link to this heading">#</a></h3>
 <p>Vi starter med å plotte følgende tre kooridnater: (4,8), (7,2) og (2,6). For å gjøre det lager vi én variabel med x-koordinatene, og én med y-koordiantene. Funksjonen <code class="docutils literal notranslate"><span class="pre">plot</span></code>lager en figur med linjer mellom hvert av punktene:</p>
+</section>
 <section id="eksempel-2">
 <h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -523,13 +544,11 @@ document.write(`
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x2f9ac82a1d0&gt;
-</pre></div>
-</div>
 <img alt="../../_images/ce7318165c0b1c064aefae91a65270ef6a4a205debb49850c1469867006331ac.png" src="../../_images/ce7318165c0b1c064aefae91a65270ef6a4a205debb49850c1469867006331ac.png" />
 </div>
 </div>
@@ -566,19 +585,20 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="plotte-en-funksjon">
-<h2>Plotte en funksjon<a class="headerlink" href="#plotte-en-funksjon" title="Link to this heading">#</a></h2>
+<h3>Plotte en funksjon<a class="headerlink" href="#plotte-en-funksjon" title="Link to this heading">#</a></h3>
 <p>Du kan plotte en funksjon ved å definere en liste med tall, og så definere en funksjonsverdi for hvert element i listen. <code class="docutils literal notranslate"><span class="pre">range</span></code>-funksjonen har vi vært borte i før, og <code class="docutils literal notranslate"><span class="pre">range(1,50)</span></code> gir oss en liste over heltall fra 1 til 50. Så regner vi ut logaritmen av disse tallene og setter det inn som y-verdier:</p>
+</section>
 <section id="eksempel-5">
 <h3>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range gjør at vi slipper å skrive alle tallene i en liste</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Logaritme-funksjon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># Plot    </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    <span class="c1"># Viser plottet</span>
 </pre></div>
 </div>
 </div>
@@ -588,13 +608,13 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x = range(1, 50)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x = range(1, 50)</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># 1000 punkter mellom 1 og 50</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Sinus-funksjon</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># Plot </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -803,10 +823,10 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="importere-data">
-<h2>Importere data<a class="headerlink" href="#importere-data" title="Link to this heading">#</a></h2>
+<h3>Importere data<a class="headerlink" href="#importere-data" title="Link to this heading">#</a></h3>
 <p>Men det er morsommere å jobbe med virkelige data. Import av data til <code class="docutils literal notranslate"><span class="pre">pandas</span></code> gjøres enkelt med funksjonen <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>. Dersom du har lastet ned siste versjon av notebooks, ligger den en fil i mappen “data” som heter <code class="docutils literal notranslate"><span class="pre">'schooling-gdp.csv'</span></code> (<a class="reference external" href="https://ourworldindata.org/grapher/correlation-between-mean-years-of-schooling-and-gdp-per-capita">kilde</a>). Denne filen inneholder data på BNP og utdanningsnivå for endel land i 2010. Dette er samme datasett, som vi så på tidligere i kurset!</p>
+</section>
 <section id="eksempel-6">
 <h3>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -935,13 +955,11 @@ document.write(`
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2f9ac956110&gt;]
-</pre></div>
-</div>
 <img alt="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" src="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" />
 </div>
 </div>
@@ -976,11 +994,11 @@ document.write(`
 <h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bnp_per_capita</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
-<span class="n">utdanning</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bnp_per_capita</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
+<span class="n">utdanning</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>   <span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>    <span class="c1"># Scatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Linje plot</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -990,9 +1008,9 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">bnp_per_capita</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">utdanning</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">bnp_per_capita</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">utdanning</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>    <span class="c1"># Scatter plot</span>
 
 <span class="ne">NameError</span>: name &#39;df&#39; is not defined
 </pre></div>
@@ -1001,15 +1019,15 @@ document.write(`
 </div>
 </section>
 </section>
-<section id="eksempel-med-bankinnskudd-og-bruk-av-subplots">
-<h2>Eksempel med bankinnskudd og bruk av subplots()<a class="headerlink" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots" title="Link to this heading">#</a></h2>
-<p>Vi begynner med å lage funksjonen for et lån fra forrige forelesning. Vi husker at om banken din legger til renten <code class="docutils literal notranslate"><span class="pre">n</span></code> ganger i året, og renten er <code class="docutils literal notranslate"><span class="pre">r</span></code>, så er bankinnskuddet på <code class="docutils literal notranslate"><span class="pre">x</span></code> om <code class="docutils literal notranslate"><span class="pre">T</span></code> år gitt som  <span class="math notranslate nohighlight">\(x\cdot (1+\frac{r}{n})^{T\cdot n}\)</span>, som vi kan programmere slik:</p>
-<section id="eksempel-11">
-<h3>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hva-med-tilfeldige-tall">
+<h1>Hva med tilfeldige tall?<a class="headerlink" href="#hva-med-tilfeldige-tall" title="Link to this heading">#</a></h1>
+<p>Vi kan plottet tilfeldige tall ved hjelp av <strong>numpy</strong>, under så bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">np.random.normal(mean,</span> <span class="pre">std,</span> <span class="pre">size)</span></code>. Hvor <strong>mean</strong> er gjennomsnittsverdien, <strong>std</strong> er standardavvik (det sier noe om hvor langt fra gjennomsnittet vi vil trekke verdier fra) og <strong>size</strong> sier noe om hvor mange tilfeldige tall vi trekker.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
+<span class="c1"># Vi henter tilfeldige inntekter fra en normalfordeling rundt 550000 med std 100000</span>
 <span class="n">incomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">550000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">incomes</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
@@ -1021,12 +1039,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be69732f2b50bcb4b6c5ba653e71292ca705b343069d0f1857a7da17676cd45a.png" src="../../_images/be69732f2b50bcb4b6c5ba653e71292ca705b343069d0f1857a7da17676cd45a.png" />
+<img alt="../../_images/19d6bcda978755c144174bf774007fb3cfdd4e6c7eeb4ed777bbf80ab122c4bb.png" src="../../_images/19d6bcda978755c144174bf774007fb3cfdd4e6c7eeb4ed777bbf80ab122c4bb.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 10000x600 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
+<section id="eksempel-med-bankinnskudd-og-bruk-av-subplots">
+<h2>Eksempel med bankinnskudd og bruk av subplots()<a class="headerlink" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots" title="Link to this heading">#</a></h2>
+<p>Vi begynner med å lage funksjonen for et lån i en tidligere forelesning. Vi husker at om banken din legger til renten <code class="docutils literal notranslate"><span class="pre">n</span></code> ganger i året, og renten er <code class="docutils literal notranslate"><span class="pre">r</span></code>, så er bankinnskuddet på <code class="docutils literal notranslate"><span class="pre">x</span></code> om <code class="docutils literal notranslate"><span class="pre">T</span></code> år gitt som  <span class="math notranslate nohighlight">\(x\cdot (1+\frac{r}{n})^{T\cdot n}\)</span>, som vi kan programmere slik:</p>
+<section id="eksempel-11">
+<h3>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">account_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
@@ -1042,28 +1065,27 @@ document.write(`
 <h3>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Checking developement over 10 years, with 100 data points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Sjekker utviklingen over 10 år, med 100 data punkter</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="c1">#2. initiating the plot:</span>
+<span class="c1"># 2. Initierer plottet</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="c1">#3. adding axis lables:</span>
+<span class="c1"># 3. Legger til labels (navn) på aksene</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Verdi bankinnskudd&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tid T&#39;</span><span class="p">)</span>
 
-<span class="c1">#4. plotting the function:</span>
+<span class="c1"># 4. Plotte funksjonen med 20% årlig forrentning, og 1 gang per år</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bankinnskudd, årlig forrentning&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
 
-<span class="c1">#5. adding legend in the upper left corner:</span>
+<span class="c1"># 5. Legger til &#39;legend&#39; (merkelapp)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2f9aeaa97d0&gt;
-</pre></div>
-</div>
 <img alt="../../_images/8a225ff9d926f2037b09b2bacc0b0dbcecc5af2d1a84a21ea33cccdcd59154fb.png" src="../../_images/8a225ff9d926f2037b09b2bacc0b0dbcecc5af2d1a84a21ea33cccdcd59154fb.png" />
 </div>
 </div>
@@ -1081,7 +1103,7 @@ document.write(`
 <h3>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plotting four graphs with different compounding:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotter grafen med fire ulike forrentningsfrekvenser (kvartal, månedlig, uke, daglig)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kvartalsvis forrentning&#39;</span><span class="p">,</span>     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Måndedlig forrentning&#39;</span><span class="p">,</span>       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">52</span><span class="p">),</span>         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ukentlig forrentning&#39;</span><span class="p">,</span>        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
@@ -1095,14 +1117,14 @@ document.write(`
 <img alt="../../_images/a0f69220111a04bbde2f32f89e187658b3214b480406581e51002b1d899a947d.png" src="../../_images/a0f69220111a04bbde2f32f89e187658b3214b480406581e51002b1d899a947d.png" />
 </div>
 </div>
-<p>Hva synes du, har hyppigheten har det mye å si hvor ofte vi legger til renter?</p>
-<p>For å svare på det kan det være interessant å kobinere grafene med en utregning regne av hva du taper på hyppig forretning. La oss se på differansen mellom daglig og ukentlig, og ukentlig mot årlig:</p>
+<p>Hva synes du, har hvor ofte forrentningen skjer mye å si for verdien?</p>
+<p>For å svare på det kan det være interessant å kombinere grafene med en utregning. Hvor vi regner ut hva du taper på hyppig forretning. La oss se på differansen mellom daglig og ukentlig, og ukentlig mot årlig:</p>
 </section>
 <section id="eksempel-14">
 <h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#printing the nummerical difference between annual and daily compounding:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Printer den numeriske differansen mellom daglig og ukentlig forretning, og ukentlig og årlig.</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Differansen mellom daglig og ukentlig forrentning i løpet av 20 år er </span><span class="si">{</span>
 <span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
 <span class="w">    </span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">365</span><span class="p">)</span><span class="o">-</span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">52</span><span class="p">)</span>
@@ -1133,7 +1155,7 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <h3>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#defining the continous compounding function:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer kontinuerlig forretningsfunksjon</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">account_balance_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
@@ -1146,14 +1168,14 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <h3>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Starting with a blank graph by defining ax and fig again:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Starter med en &quot;blank graf&quot;, ved å definere &#39;ax&#39; og &#39;fig&#39; på ny</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="c1">#adding continious compounding to the prevoius plot</span>
+<span class="c1"># Legger til kontinuerlig forrentning fra forrige plot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance_exponential</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kontinuerlig forrentet&#39;</span><span class="p">,</span>      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">365</span><span class="p">),</span>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Daglig forrentning&#39;</span><span class="p">,</span>          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 
-<span class="c1">#printing the nummerical difference between continious and daily compounding:</span>
+<span class="c1"># Printer den numeriske forskjellen mellom årlig og kontinuerlig forretning</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Differansen mellom årlig og kontinuerlig forrentning etter 20 år er </span><span class="si">{</span>
 <span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
 <span class="w">   </span><span class="n">account_balance_exponential</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">-</span><span class="w"> </span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">365</span><span class="p">)</span>
@@ -1243,7 +1265,7 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 </section>
 <section id="eksempel-med-tilbud-og-ettersporsel">
 <h2>Eksempel med tilbud og etterspørsel<a class="headerlink" href="#eksempel-med-tilbud-og-ettersporsel" title="Link to this heading">#</a></h2>
-<p>Vi definerer først tilbud og etterspørsel slik vi gjorde i forrige forelesning, men med litt andre tall:</p>
+<p>Vi definerer først tilbud og etterspørsel slik vi gjorde i en tidligere forelesning, men med litt andre tall:</p>
 <section id="eksempel-19">
 <h3>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1263,25 +1285,22 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <h3>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#drawing 100 points in the interval 0.0 to 100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner 100 punkter mellom 1 og 100</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="c1">#drawing supply</span>
+<span class="c1"># Plotter grafen med tilbud og etterspørsel</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
-
-<span class="c1">#drawing demand</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
 
-<span class="c1">#adding legend:</span>
+<span class="c1"># Legger til &#39;legend&#39; (merkelapp)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
 
 
-<span class="c1">#setting the axis lables</span>
+<span class="c1"># Legger til labels (navn) på aksene</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pris&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Enheter&#39;</span><span class="p">)</span>
 
-<span class="c1">#setting the range of y values (the price) to be between 0 and 30, so that we can more</span>
-<span class="c1">#easily see the equilibrium price</span>
+<span class="c1"># Setter grenser på y-aksen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">33</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1301,34 +1320,134 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <h3>Oppgave 1:<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Forsøk å finne prisen og mengden i likevekt (der tilbud=etterspørsel) ved å bruke informasjonen i figuren fra eksempel 20.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>Gjør endringer i tilbud og etterspørselsfunksjonene og finn likevekt for disse.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="oppgave-2">
 <h3>Oppgave 2:<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h3>
 <p>Finn på noen koordinater selv, som du plotter</p>
 <ol class="arabic simple">
 <li><p>som punkter</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>med linjer mellom</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
 <li><p>med både linjer og punkter.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="oppgave-3">
 <h3>Oppgave 3:<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Plott BNP_per_capita mot Befolkning</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>Plott Utdanning mot Befolkning</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="oppgave-4">
 <h3>Oppgave 4:<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.log(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.cos(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
 <li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.sin(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
 <li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.exp(-x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
 <li><p>Lag en funksjon selv, og plott denne.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="oppgave-5">
 <h3>Oppgave 5:<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h3>
@@ -1336,11 +1455,54 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <p>I alle oppgavene under skal du plotte i intervallet 0 til 100 (<code class="docutils literal notranslate"><span class="pre">x=p=np.linspace(0,100,100)</span></code>).</p>
 <ol class="arabic simple">
 <li><p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">cost(x)</span></code> for totale kostnader, gitt en produksjonsmengde <span class="math notranslate nohighlight">\(x\)</span>, og</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">profit(x,p)</span></code> for fortjenesten, gitt en produksjonsmengde <span class="math notranslate nohighlight">\(x\)</span> og pris <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
 <li><p>Sett <code class="docutils literal notranslate"><span class="pre">x</span></code>til 5 i funksjonen du lagde over i 2., og plott fortjenesten som en funksjon av prisen.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
 <li><p>Sett <code class="docutils literal notranslate"><span class="pre">p</span></code>til 10 i funksjonen du lagde over i 2., og plott fortjenesten som en funksjon av produsert mengde.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
 <li><p>Hva er optimal produsert mengde?</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Husk å lag etiketter for aksene!</p>
 </section>
 </section>
@@ -1350,11 +1512,31 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <p>Bytt om på x og y verdier i Eksempel 10, og bytt ut <code class="docutils literal notranslate"><span class="pre">np.log</span></code> med <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, bytt ut Utdanning i stedet for <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code> i <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>-funksjonen, og plott figuren på nytt.</p>
 <p>Sorter datasettet på Utdanning først med <code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values('Utdanning')</span></code>, og bruke <code class="docutils literal notranslate"><span class="pre">df_sorted</span></code> i stedet for <code class="docutils literal notranslate"><span class="pre">df</span></code> i koden i Eksempel 10.</p>
 <p>a) Gjør tilpassninger tilsvarende de som er gjort med log-funksjonen for å få exp-funksjonen til å passe så godt som mulig til dataene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>b) Forsøk uten sortering, hva skjer?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="ekstraoppgave">
 <h1>Ekstraoppgave<a class="headerlink" href="#ekstraoppgave" title="Link to this heading">#</a></h1>
 <p>Vi ønsker å plotte prisutviklingen av ost fra 2003 til 2013. Det gjør vi ved å ta en startpris (som er ca 70 kroner), og antar en 2% årlig vekst. Hvor vi legger til 5% tilfeldig variasjon (+/-).</p>
+<p>Da kan du få bruk for en variabel som dette:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">randomness</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">randomness</span><span class="p">,</span> <span class="n">randomness</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Som vil gi det et tilfeldig tall mellom <span class="math notranslate nohighlight">\(-0.05\)</span> og <span class="math notranslate nohighlight">\(+0.05\)</span></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1421,20 +1603,16 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
@@ -1442,6 +1620,9 @@ Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-med-tilfeldige-tall">Hva med tilfeldige tall?</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots">Eksempel med bankinnskudd og bruk av subplots()</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
