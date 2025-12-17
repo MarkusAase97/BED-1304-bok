@@ -1,6 +1,6 @@
 # Book settings
 title: Bed-1304 Python-lab
-author: setternoeher
+author: Markus J. Aase, Daniel Johannessen og Daniel Fabio Groth
 logo: img/py.png
 
 # Force re-execution of notebooks on each build.

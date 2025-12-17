@@ -262,7 +262,7 @@ print(test(3, 7))
 - A) 10
 ```
 
-## Lister, Tuple, Dictionary, NumPy
+## Lister, oppslag og numpy
 
 **Hva er hovedforskjellen på en liste og en tuple?**
 - A) Lister er mutable, tupler er immutable
@@ -326,640 +326,562 @@ print(arr.mean())
 
 ## Pandas og databehandling
 
-**Hva er standardaliaset når du importerer Pandas?**
-- A) import pandas as np
-- B) import pandas as pd
-- C) from pandas import numpy
-- D) import pandas.core as pd
+**Hvilken metode brukes for å vise de første radene i en DataFrame?**
+- A) data.top()
+- B) data.head()
+- C) data.start()
+- D) data.show()
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) import pandas as pd
+- B) data.head()
 ```
 
-**Hva beskriver best en Pandas Series?**
-- A) En tabell med rader og kolonner
-- B) En endimensjonal struktur med navngitte indeksverdier
-- C) En tilfeldig liste med tall
-- D) En numpy-matrise uten indeks
+**Hvilken metode gir en statistisk oppsummering (gjennomsnitt, min, maks osv.)?**
+- A) data.summary()
+- B) data.stats()
+- C) data.describe()
+- D) data.info()
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) En endimensjonal struktur med navngitte indeksverdier
+- C) data.describe()
 ```
 
-**Hvilken funksjon bruker du for ǻ lese en CSV-fil inn i et DataFrame?**
-- A) pd.load_csv
-- B) pd.csv()
-- C) pd.read_csv
-- D) pd.read_table
+**Hvordan kan man hente ut en kolonne som heter A?**
+- A) data[A]
+- B) data["A"]
+- C) data.get("A")
+- D) b) og c)
 
 ```{admonition} Svar
 :class: note, dropdown
-- C) pd.read_csv
+- D) b) og c)
 ```
 
-**Hva gjǿr df.head(3)?**
-- A) Viser de tre siste radene
-- B) Returnerer de tre fǿrste radene
-- C) Sletter de tre fǿrste radene
-- D) Viser kun kolonnenummer
+**Hva gjør data.isnull().sum()?**
+- A) Sletter alle tomme rader
+- B) Teller antall manglende verdier per kolonne
+- C) Returnerer True/False for hver celle
+- D) Ingenting, gir feil
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Returnerer de tre fǿrste radene
+- B) Teller antall manglende verdier per kolonne
 ```
 
-**Hvordan henter du kolonnen pris fra DataFrame df?**
-- A) df.pris()
-- B) df['pris']
-- C) df.get('pris', 0)
-- D) df.columns('pris')
+**Hvilken metode brukes for å sortere en DataFrame på en kolonne?**
+- A) data.order()
+- B) data.sort(’kolonne’)
+- C) data.sort_values(’kolonne’)
+- D) data.arrange(’kolonne’)
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) df['pris']
+- C) data.sort_values(’kolonne’)
 ```
 
-**Hva returnerer df.loc[2, 'alder']?**
-- A) Hele kolonnen alder
-- B) Raden med indeks 2 som DataFrame
-- C) Verdien i raden med etiketten 2 og kolonnen alder
-- D) Ingenting, det gir KeyError
+**Hva gir data.shape?**
+- A) Antall rader
+- B) Antall kolonner
+- C) Tuple med (antall rader, antall kolonner)
+- D) Datatypene i kolonnene
 
 ```{admonition} Svar
 :class: note, dropdown
-- C) Verdien i raden med etiketten 2 og kolonnen alder
+- C) Tuple med (antall rader, antall kolonner)
 ```
 
-**Hvordan filtrerer du radene der kolonnen status er lik ferdig?**
-- A) df.filter(status == 'ferdig')
-- B) df[df['status'] == 'ferdig']
-- C) df.where('status', 'ferdig')
-- D) df.loc('status' == 'ferdig')
+**Hvordan lager man en ny kolonne C som er summen av A og B?**
+- A) data["C"] = A+B
+- B) data.C = data.A + data.B
+- C) data["C"] = data["A"] + data["B"]
+- D) data.newcol("C", A+B)
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) df[df['status'] == 'ferdig']
+- C) data["C"] = data["A"] + data["B"]
 ```
 
-**Hvilken kode fyller manglende verdier i kolonnen score med kolonnens gjennomsnitt?**
-- A) df.score.dropna()
-- B) df.fillna('score')
-- C) df['score'] = df['score'].fillna(df['score'].mean())
-- D) df['score'].mean(fillna=True)
+**Hva gjør data.dtypes?**
+- A) Viser antall rader
+- B) Viser antall kolonner
+- C) Viser datatype for hver kolonne
+- D) Konverterer alt til tekst
 
 ```{admonition} Svar
 :class: note, dropdown
-- C) df['score'] = df['score'].fillna(df['score'].mean())
+- C) Viser datatype for hver kolonne
 ```
 
-**Hva gjǿr df.groupby('kategori')['belǿp'].sum()?**
-- A) Returnerer summen av alle belǿp i DataFrame
-- B) Returnerer summen av belǿp for hver kategori
-- C) Sorterer DataFrame pǻ belǿp
-- D) Lager en pivottabell uten belǿp
+**Hvordan henter man de siste 5 radene i en DataFrame?**
+- A) data.last()
+- B) data.tail()
+- C) data.bottom()
+- D) data.end()
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Returnerer summen av belǿp for hver kategori
+- B) data.tail()
 ```
 
-**Hvorfor bruker man index=False i df.to_csv('fil.csv', index=False)?**
-- A) For ǻ lagre bare indeksen
-- B) For ǻ hindre at indeksen skrives som egen kolonne i filen
-- C) For ǻ slette DataFrame etter lagring
-- D) For ǻ gjǿre filen skrivebeskyttet
+**Hva gjør data["A"].mean()?**
+- A) Regner ut gjennomsnittet av kolonnen A
+- B) Viser første rad i kolonnen A
+- C) Teller antall elementer i A
+- D) Sletter NaN-verdier i A
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) For ǻ hindre at indeksen skrives som egen kolonne i filen
+- A) Regner ut gjennomsnittet av kolonnen A
 ```
 
-## Logikk og loops
+## Logikk og løkker
 
-**Hva gjǿr en if-setning i Python?**
-- A) Den skriver alltid ut True
-- B) Den evaluerer et logisk uttrykk og kjǿrer koden hvis uttrykket er sant
-- C) Den bytter automatisk variabeltyper
-- D) Den sorterer lister
+**Hva vil følgende kode printe?**
+```python
+x = 7
+if x > 5:
+    print("Større enn 5")
+else:
+    print("5 eller mindre")
+```
+- A) Større enn 5
+- B) 5 eller mindre
+- C) Ingenting
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Den evaluerer et logisk uttrykk og kjǿrer koden hvis uttrykket er sant
+- A) Større enn 5
 ```
 
-**Hvordan legger du til et ekstra alternativ mellom if og else?**
-- A) Ved ǻ bruke switch
-- B) Ved ǻ legge til elif
-- C) Ved ǻ skrive else if pǻ ny linje
-- D) Det er ikke mulig
+**Hvilket utsagn er sant om en for-løkke?**
+- A) Den kan kun iterere over tall
+- B) Den kan iterere over lister, strenger og range
+- C) Den kjører alltid kun én gang
+- D) Den fungerer bare med if/else
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Ved ǻ legge til elif
+- B) Den kan iterere over lister, strenger og range
 ```
 
-**Hva er sant om en while-lǿkke?**
-- A) Den itererer over hvert element i en liste
-- B) Den kjǿrer sǻ lenge betingelsen er sann
-- C) Den kan bare brukes sammen med range
-- D) Den stopper alltid etter ti runder
+**Hva gjør denne koden?**
+```python
+frukt = ["eple", "banan", "appelsin"]
+for f in frukt:
+    print(f)
+```
+- A) Printer navnet på listen
+- B) Printer hvert element i listen
+- C) Teller antall elementer
+- D) Ingenting
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Den kjǿrer sǻ lenge betingelsen er sann
+- B) Printer hvert element i listen
 ```
 
-**Hva produserer list(range(1,5))?**
-- A) [1, 2, 3, 4]
-- B) [1, 2, 3, 4, 5]
-- C) [0, 1, 2, 3, 4]
-- D) [5, 4, 3, 2, 1]
-
-```{admonition} Svar
-:class: note, dropdown
-- A) [1, 2, 3, 4]
+**Hvilken while-løkke teller fra 1 til 3?**
+- A)
+```python
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+```
+- B)
+```python
+while i in range(1, 4):
+    print(i)
+```
+- C)
+```python
+for i in range(1, 4):
+    print(i)
+```
+- D)
+```python
+while i < 3:
+    print(i)
 ```
 
-**Hvilket utsagn om for-lǿkker er riktig?**
-- A) De kan ikke brukes pǻ strenger
-- B) De itererer over hvert element i en sekvens
-- C) De mǹ alltid inkludere break
-- D) De kan bare brukes i funksjoner
-
 ```{admonition} Svar
 :class: note, dropdown
-- B) De itererer over hvert element i en sekvens
+- A) i = 1
+while i <= 3:
+    print(i)
+    i += 1
 ```
 
-**Hva gjǿr break inne i en lǿkke?**
-- A) Hopper over resten av gjeldende iterasjon
-- B) Avslutter lǿkken umiddelbart
-- C) Starter lǿkken pǻ nytt
-- D) Endrer boolske uttrykk til False
+**Hvilken operator kombinerer to betingelser i en if-setning?**
+- A) +
+- B) and
+- C) %
+- D) ==
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Avslutter lǿkken umiddelbart
+- B) and
 ```
 
-**Hva gjǿr continue i en for-lǿkke?**
-- A) Stopper programmet
-- B) Hopper over resten av koden i denne iterasjonen og gǿr videre til neste
-- C) Legger til et nytt element i lista
-- D) Printer navnet pǻ lǿkken
+**Hva vil følgende kode printe?**
+```python
+alder = 16
+if alder >= 18:
+    print("Voksen")
+elif alder >= 13:
+    print("Ungdom")
+else:
+    print("Barn")
+```
+- A) Voksen
+- B) Ungdom
+- C) Barn
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Hopper over resten av koden i denne iterasjonen og gǿr videre til neste
+- B) Ungdom
 ```
 
-**Hvordan kombinerer du to betingelser der begge mǹ vre sanne?**
-- A) condition1 or condition2
-- B) condition1 and condition2
-- C) condition1 xor condition2
-- D) condition1 not condition2
+**Hva gjør `if x in liste:` i Python?**
+- A) Sjekker om variabelen x finnes i listen
+- B) Legger til x i listen
+- C) Fjerner x fra listen
+- D) Gir alltid True
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) condition1 and condition2
+- A) Sjekker om variabelen x finnes i listen
 ```
 
 ## Matplotlib
 
-**Hva er vanlig alias nǿr du importerer Matplotlib sin plottemodul?**
-- A) import matplotlib.pyplot as mp
-- B) import matplotlib.pyplot as plt
-- C) import matplotlib som plot
-- D) import matplotlib.plot as plt
+**Hva vil følgende kode skrive ut?**
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "Navn": ["Alice", "Bob", "Charlie"],
+    "Poeng": [10, 15, 12]
+})
+print(df["Poeng"].mean())
+```
+- A) 10
+- B) 12.33
+- C) 15
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) import matplotlib.pyplot as plt
+- B) 12.33
 ```
 
-**Hva gjǿr plt.plot(x, y)?**
-- A) Lager et stolpediagram
-- B) Tegner en linje mellom x- og y-verdier
+**Hvilken funksjon lager et linjediagram i matplotlib?**
+- A) `plt.bar()`
+- B) `plt.plot()`
+- C) `plt.scatter()`
+- D) `plt.hist()`
+
+```{admonition} Svar
+:class: note, dropdown
+- B) `plt.plot()`
+```
+
+**Hva gjør denne koden?**
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3]
+y = [4, 5, 6]
+plt.scatter(x, y)
+plt.show()
+```
+- A) Lager et linjediagram
+- B) Lager et scatterplot
 - C) Lager et histogram
-- D) Viser tabellen i tekstform
+- D) Lager et kakediagram
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Tegner en linje mellom x- og y-verdier
+- B) Lager et scatterplot
 ```
 
-**Hva mǹ du vanligvis kalle til slutt for ǻ vise figuren?**
-- A) plt.clear()
-- B) plt.show()
-- C) plt.close()
-- D) plt.render()
+**Hva gjør koden nedenfor?**
+```python
+import numpy as np
+x = np.arange(0, 10, 2)
+print(x)
+```
+- A) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+- B) [0, 2, 4, 6, 8]
+- C) [2, 4, 6, 8, 10]
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) plt.show()
+- B) [0, 2, 4, 6, 8]
 ```
 
-**Hvordan legger du til en tittel pǻ figuren?**
-- A) plt.add_title('Tittel')
-- B) plt.caption('Tittel')
-- C) plt.title('Tittel')
-- D) title.plot('Tittel')
+**Hvordan lager man et kakediagram fra en dictionary?**
 
-```{admonition} Svar
-:class: note, dropdown
-- C) plt.title('Tittel')
+```python
+import matplotlib . pyplot as plt
+data = { "Røde" : 5 , "Blå" : 3 , "Grønn" : 7}
 ```
 
-**Hva gjǿr plt.xlabel('Tid (s)')?**
-- A) Setter tekst pǻ y-aksen
-- B) Setter tittel pǻ figuren
-- C) Setter tekst pǻ x-aksen
-- D) Endrer farge pǻ linjen
+- A) `plt.pie(data.values(), labels=data.keys())`
+- B) `plt.plot(data)`
+- C) `plt.bar(data)`
+- D) `plt.scatter(data)`
 
 ```{admonition} Svar
 :class: note, dropdown
-- C) Setter tekst pǻ x-aksen
+- A) `plt.pie(data.values(), labels=data.keys())`
 ```
 
-**Hvilken funksjon bruker du for ǻ lagre en figur som fil?**
-- A) plt.save('figur.png')
-- B) plt.savefig('figur.png')
-- C) plt.export('figur.png')
-- D) plt.write('figur.png')
+**Hva returnerer denne funksjonen?**
+
+```python
+def dobbel(x):
+    return x * 2
+
+print(dobbel(5))
+```
+- A) 5
+- B) 10
+- C) 'dobbel'
+- D) None
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) plt.savefig('figur.png')
+- B) 10
 ```
 
-**Hva gjǿr plt.figure(figsize=(10,5))?**
-- A) Lukker figuren
-- B) Oppretter en ny figur med spesifisert bredde og hǿyde i tommer
-- C) Zoomer inn i grafen
-- D) Viser to figurer ved siden av hverandre
+**Hva gjør denne koden?**
+```python
+import matplotlib.pyplot as plt
+
+verdier = [3, 7, 2, 5]
+plt.bar(range(len(verdier)), verdier)
+plt.show()
+```
+- A) Lager et linjediagram
+- B) Lager et stolpediagram
+- C) Lager et scatterplot
+- D) Lager et kakediagram
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Oppretter en ny figur med spesifisert bredde og hǿyde i tommer
+- B) Lager et stolpediagram
 ```
 
-**Hvilken funksjon lager et stolpediagram?**
-- A) plt.plot
-- B) plt.bar
-- C) plt.scatter
-- D) plt.pie
+**Hva gjør koden nedenfor?**
+```python
+frukter = ["eple", "banan", "appelsin"]
+for f in frukter:
+    print(f.upper())
+```
+- A) Printer fruktnavnene med store bokstaver
+- B) Teller antall frukter
+- C) Legger til fruktnavn i en liste
+- D) Ingenting
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) plt.bar
+- A) Printer fruktnavnene med store bokstaver
 ```
 
-## Seaborn
+## Sympy
 
-**Hva er standardaliaset for Seaborn?**
-- A) import seaborn as sb
-- B) import seaborn as sns
-- C) import seaborn.pyplot as sns
-- D) import seaborn som seaborn
+**Hva gjør følgende kode?**
+
+```python
+import sympy as sp
+x = sp.Symbol('x')
+f = -x**2 + 4*x
+f_prime = sp.diff(f, x)
+print(f_prime)
+```
+- A) Printer −x² + 4x
+- B) Printer −2x + 4
+- C) Printer f(2)
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) import seaborn as sns
+- B) Printer −2x + 4
 ```
 
-**Hva er en viktig fordel med Seaborn?**
-- A) Det kan ikke bruke DataFrames
-- B) Det bygger pǻ Matplotlib og har ferdige statistiske visualiseringer
-- C) Det krever ingen data
-- D) Det fungerer kun i konsollen
+**Hvilken kommando setter opp en ligning i SymPy?**
+- A) `sp.Eq()`
+- B) `sp.solve()`
+- C) `sp.subs()`
+- D) `sp.Symbol()`
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Det bygger pǻ Matplotlib og har ferdige statistiske visualiseringer
+- A) `sp.Eq()`
 ```
 
-**Hvilken funksjon lager et scatterplot i Seaborn?**
-- A) sns.lineplot
-- B) sns.scatterplot
-- C) sns.barplot
-- D) sns.tableplot
+**Hva gjør denne koden?**
+
+```python
+x = sp.Symbol('x')
+ettersporsel = 100 - 2*x
+tilbud = 20 + 3*x
+likevekt = sp.solve(sp.Eq(ettersporsel, tilbud), x)
+print(likevekt)
+```
+- A) Løser tilbudsfunksjonen alene
+- B) Finner likevektsmengden x*
+- C) Finner likevektsmengden og -prisen
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) sns.scatterplot
+- B) Finner likevektsmengden x*
 ```
 
-**Hva gjǿr parameteren hue i flere Seaborn-plott?**
-- A) Setter bakgrunnsfargen
-- B) Angir kolonnen som bestemmer fargegrupper
-- C) Bestemmer figurstǿrrelsen
-- D) Sorterer DataFrame
+**Hva gjør denne koden?**
+
+```python
+f = x**2
+print(f.subs(x, 3))
+```
+- A) Returnerer symbolet x
+- B) Returnerer 9
+- C) Returnerer 3
+- D) Feilmelding
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Angir kolonnen som bestemmer fargegrupper
+- B) Returnerer 9
 ```
 
-**Hvordan setter du standardtema i Seaborn?**
-- A) sns.set_theme()
-- B) sns.style()
-- C) plt.style('sns')
-- D) sns.use_default()
+**Hvordan finner man maksimum/minimum av en funksjon?**
+- A) Sett den andrederiverte lik null
+- B) Sett funksjonen lik null
+- C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte
+- D) Sett inn tall tilfeldig
 
 ```{admonition} Svar
 :class: note, dropdown
-- A) sns.set_theme()
-```
-
-**Hvilken funksjon bruker du for ǻ lage et histogram i Seaborn?**
-- A) sns.lineplot
-- B) sns.histplot
-- C) sns.barplot
-- D) sns.boxplot
-
-```{admonition} Svar
-:class: note, dropdown
-- B) sns.histplot
-```
-
-**Hvilken funksjon er best egnet for ǻ vise kategoriske gjennomsnitt med usikkerhet?**
-- A) sns.scatterplot
-- B) sns.barplot
-- C) sns.lineplot
-- D) sns.heatmap
-
-```{admonition} Svar
-:class: note, dropdown
-- B) sns.barplot
-```
-
-**Hva gjǿr sns.heatmap(df.corr())?**
-- A) Tegner stolper
-- B) Viser en heatmap av korrelasjonsmatrisen
-- C) Lager et 3D-plot
-- D) Sletter korrelasjoner
-
-```{admonition} Svar
-:class: note, dropdown
-- B) Viser en heatmap av korrelasjonsmatrisen
-```
-
-## SymPy
-
-**Hva brukes SymPy hovedsakelig til?**
-- A) Numeriske simuleringer
-- B) Symbolsk matematikk og algebra
-- C) Grafikk og visualisering
-- D) Datainnhenting
-
-```{admonition} Svar
-:class: note, dropdown
-- B) Symbolsk matematikk og algebra
-```
-
-**Hvordan definerer du de symbolske variablene x og y?**
-- A) x = symbol('x'); y = symbol('y')
-- B) x, y = sp.symbols('x y')
-- C) x = 'x'; y = 'y'
-- D) symbols.x, symbols.y
-
-```{admonition} Svar
-:class: note, dropdown
-- B) x, y = sp.symbols('x y')
-```
-
-**Hva gjǿr sp.Eq(x + 2, 10)?**
-- A) Regner ut at x er 8
-- B) Oppretter en symbolsk ligning x + 2 = 10
-- C) Returnerer boolsk True
-- D) Rasjonaliserer uttrykket
-
-```{admonition} Svar
-:class: note, dropdown
-- B) Oppretter en symbolsk ligning x + 2 = 10
-```
-
-**Hvilken funksjon lǿser ligningen x**2 - 4 = 0?**
-- A) sp.solve(sp.Eq(x**2 - 4, 0), x)
-- B) sp.integrate(x**2 - 4, x)
-- C) sp.diff(x**2 - 4, x)
-- D) sp.expand(x**2 - 4)
-
-```{admonition} Svar
-:class: note, dropdown
-- A) sp.solve(sp.Eq(x**2 - 4, 0), x)
-```
-
-**Hva er resultatet av sp.diff(x**3, x)?**
-- A) x**3
-- B) 3*x**2
-- C) 3*x
-- D) 6*x
-
-```{admonition} Svar
-:class: note, dropdown
-- B) 3*x**2
-```
-
-**Hvilken funksjon integrerer x fra 0 til 2?**
-- A) sp.integrate(x, (x, 0, 2))
-- B) sp.diff(x, (x, 0, 2))
-- C) sp.solve(x, 0, 2)
-- D) sp.summation(x, 0, 2)
-
-```{admonition} Svar
-:class: note, dropdown
-- A) sp.integrate(x, (x, 0, 2))
-```
-
-**Hva gjǿr sp.expand((x + 1)**2)?**
-- A) Holder uttrykket uendret
-- B) Utvider til x**2 + 2*x + 1
-- C) Deriverer uttrykket
-- D) Forenkler til x + 1
-
-```{admonition} Svar
-:class: note, dropdown
-- B) Utvider til x**2 + 2*x + 1
-```
-
-**Hvordan fǿr du et numerisk resultat av et symbolsk uttrykk?**
-- A) sp.N(uttrykk)
-- B) sp.float(uttrykk)
-- C) Det er ikke mulig
-- D) sp.evaluate(uttrykk)
-
-```{admonition} Svar
-:class: note, dropdown
-- A) sp.N(uttrykk)
+- C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte
 ```
 
 ## Simulering
 
-**Hva kjennetegner Monte Carlo-simulering?**
-- A) Den er helt deterministisk
-- B) Den bruker tilfeldige trekninger for ǻ estimere resultater
-- C) Den kjǿrer kun én runde
-- D) Den kan bare brukes i SymPy
+**Hva menes med simulering i denne sammenhengen?**
+- A) Å tegne grafer over funksjoner
+- B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall
+- C) Å beregne eksakte matematiske løsninger
+- D) Å løse ligninger symbolsk med SymPy
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Den bruker tilfeldige trekninger for ǻ estimere resultater
+- B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall
 ```
 
-**Hvorfor setter vi np.random.seed(42) i en simulering?**
-- A) For ǻ gjǿre koden tregere
-- B) For ǻ reprodusere de samme tilfeldige tallene
-- C) For ǻ ǿke variasjonen
-- D) For ǻ rydde minnet
+**Hvilken funksjon genererer tilfeldige tall mellom 1 og 6 i eksemplet?**
+- A) `np.random.choice(6)`
+- B) `random.random()`
+- C) `random.randint(1, 6)`
+- D) `random.uniform(1, 6)`
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) For ǻ reprodusere de samme tilfeldige tallene
+- C) `random.randint(1, 6)`
 ```
 
-**Hvilken funksjon trekker n observasjoner fra en normalfordeling?**
-- A) np.random.uniform(n)
-- B) np.random.normal(loc, scale, size=n)
-- C) np.normal.random(n)
-- D) np.random.gauss(n)
+**Hva skjer når antall terningkast økes fra 5 til 10 000?**
+- A) Resultatene blir mer tilfeldige
+- B) Vi får færre ulike verdier
+- C) Histogrammet blir mer skjevt
+- D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) np.random.normal(loc, scale, size=n)
+- D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi
 ```
 
-**Hvordan kan du estimere forventningsverdien til en stokastisk variabel?**
-- A) Sortere alle resultatene
-- B) Ta gjennomsnittet av de simulerte verdiene
-- C) Finne maksimumsverdien
-- D) Ta logaritmen av hver observasjon
+**Hva er forventningsverdien for en rettferdig seks-sidet terning?**
+- A) 3
+- B) 3.5
+- C) 4
+- D) 6
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Ta gjennomsnittet av de simulerte verdiene
+- B) 3.5
 ```
 
-**Hvorfor bruker vi mange repetisjoner i en simulering?**
-- A) For ǻ gjǿre grafen penere
-- B) For ǻ redusere tilfeldige variasjoner i estimatet
-- C) For ǻ fǹ flere filer
-- D) For ǻ unngǹ numpy
+**Hvorfor får vi ikke alltid samme resultat fra koden?**
+- A) Fordi koden er feil
+- B) Fordi Python lagrer tilfeldige tall midlertidig
+- C) Fordi funksjonen random.randint() genererer tilfeldige tall
+- D) Fordi løkka ikke itererer riktig
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) For ǻ redusere tilfeldige variasjoner i estimatet
+- C) Fordi funksjonen random.randint() genererer tilfeldige tall
 ```
 
-**Hva er riktig mǹte ǻ samle resultater i en Pandas DataFrame?**
-- A) pd.DataFrame(resultater)
-- B) resultater.toframe()
-- C) dataframe(resultater)
-- D) new DataFrame(resultater)
+**Hva illustrerer loven om store tall?**
+- A) At tilfeldige tall blir mer uforutsigbare jo flere vi genererer
+- B) At summen av tilfeldige tall alltid er konstant
+- C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien
+- D) At sannsynligheten for alle utfall øker med flere forsøk
 
 ```{admonition} Svar
 :class: note, dropdown
-- A) pd.DataFrame(resultater)
+- C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien
 ```
 
-**Hvordan beregner du sannsynligheten for at en simulert verdi er stǿrre enn en terskel?**
-- A) bruke np.max(resultater)
-- B) telle = np.sum(resultater > terskel) / len(resultater)
-- C) bruke np.random.choice(resultater)
-- D) bruke plt.show()
+**Hva viser histogrammet med 10 000 kast best?**
+- A) At 6 kommer sjeldnere enn 1
+- B) At terningen er urettferdig
+- C) At alle verdier forekommer omtrent like ofte
+- D) At tilfeldigheter forsvinner helt
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) telle = np.sum(resultater > terskel) / len(resultater)
+- C) At alle verdier forekommer omtrent like ofte
 ```
 
-**Hvorfor visualiserer vi simuleringsresultater med histogram?**
-- A) For ǻ hente ut rǿdata
-- B) For ǻ se fordelingen av utfall og varians
-- C) For ǻ redusere datamengden
-- D) For ǻ generere flere tilfeldige tall
+**Hva er forskjellen mellom `random.randint(1, 6)` og `np.random.randint(1, 6)`?**
+- A) Ingen forskjell – de gir alltid samme resultat
+- B) Begge ekskluderer 6
+- C) `random.randint()` gir flyttall, `np.random.randint()` gir heltall
+- D) `random.randint(1, 6)` inkluderer 6, `np.random.randint(1, 6)` ekskluderer 6
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) For ǻ se fordelingen av utfall og varians
+- D) `random.randint(1, 6)` inkluderer 6, `np.random.randint(1, 6)` ekskluderer 6
 ```
 
-**Hva gjør operatoren %?**
-- A) Potens
-- B) Rest ved divisjon
-- C) Multiplikasjon
-- D) Negasjon
+**Hva er en fordel med simulering?**
+- A) Den er alltid mer presis
+- B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger
+- C) Den krever ingen programmering
+- D) Den fjerner tilfeldigheter
 
 ```{admonition} Svar
 :class: note, dropdown
-- B) Rest ved divisjon
+- B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger
 ```
 
-**Hva er resultatet av 2 * (3+4)?**
-- A) 14
-- B) 10
-- C) 12
-- D) 20
+**Hvordan henger Monte Carlo-metoden sammen med terningkast-eksemplet?**
+- A) Den brukes bare til spill
+- B) Den beregner kun sannsynligheter for 6-ere
+- C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat
+- D) Den eliminerer behovet for tilfeldige tall
 
 ```{admonition} Svar
 :class: note, dropdown
-- A) 14
+- C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat
 ```
-
-**Hva vil print(type(True)) gi?**
-- A) int
-- B) bool
-- C) string
-- D) float
-
-```{admonition} Svar
-:class: note, dropdown
-- B) bool
-```
-
-**Hva skjer om du skriver navn = 10; navn = navn + 5?**
-- A) Feil
-- B) navn blir 15
-- C) navn blir "105"
-- D) navn blir 5
-
-```{admonition} Svar
-:class: note, dropdown
-- B) navn blir 15
-```
-
-**Hva blir output fra print(2**3)?**
-- A) 6
-- B) 8
-- C) 9
-- D) 12
-
-```{admonition} Svar
-:class: note, dropdown
-- B) 8
-```
-
-**Hvordan skriver man en kommentar i Python?**
-- A) // kommentar
-- B) /* kommentar */
-- C) # kommentar
-- D) – kommentar
-
-```{admonition} Svar
-:class: note, dropdown
-- C) # kommentar
-```
-
-**Hva er riktig utskrift, gitt at vi har definert navn = "Markus"?**
-- A) print(f"Hei {navn}")
-- B) print("Hei navn")
-- C) Begge virker likt
-- D) Ingen virker
-
-```{admonition} Svar
-:class: note, dropdown
-- A) print(f"Hei {navn}")
-```
-
