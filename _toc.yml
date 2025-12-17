@@ -3,8 +3,6 @@ root: notebooks/00/intro
 chapters:
   - file: notebooks/01/introduksjon
   - file: notebooks/02/python_basics
-    sections:
-    - file: notebooks/02/seminar2
   - file: notebooks/03/funksjoner
   - file: notebooks/04/lister_oppslag_numpy
   - file: notebooks/05/pandas_og_databehandling
