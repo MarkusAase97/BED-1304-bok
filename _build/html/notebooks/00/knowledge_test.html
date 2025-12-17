@@ -188,30 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
 
 
@@ -441,12 +418,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjoner">Funksjoner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-tuple-dictionary-numpy">Lister, Tuple, Dictionary, NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-oppslag-og-numpy">Lister, oppslag og numpy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-og-databehandling">Pandas og databehandling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-loops">Logikk og loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-lokker">Logikk og løkker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">SymPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering">Simulering</a></li>
 </ul>
             </nav>
@@ -771,8 +747,8 @@ document.write(`
 </ul>
 </div>
 </section>
-<section id="lister-tuple-dictionary-numpy">
-<h2>Lister, Tuple, Dictionary, NumPy<a class="headerlink" href="#lister-tuple-dictionary-numpy" title="Link to this heading">#</a></h2>
+<section id="lister-oppslag-og-numpy">
+<h2>Lister, oppslag og numpy<a class="headerlink" href="#lister-oppslag-og-numpy" title="Link to this heading">#</a></h2>
 <p><strong>Hva er hovedforskjellen på en liste og en tuple?</strong></p>
 <ul class="simple">
 <li><p>A) Lister er mutable, tupler er immutable</p></li>
@@ -846,760 +822,648 @@ document.write(`
 </section>
 <section id="pandas-og-databehandling">
 <h2>Pandas og databehandling<a class="headerlink" href="#pandas-og-databehandling" title="Link to this heading">#</a></h2>
-<p><strong>Hva er standardaliaset når du importerer Pandas?</strong></p>
+<p><strong>Hvilken metode brukes for å vise de første radene i en DataFrame?</strong></p>
 <ul class="simple">
-<li><p>A) import pandas as np</p></li>
-<li><p>B) import pandas as pd</p></li>
-<li><p>C) from pandas import numpy</p></li>
-<li><p>D) import pandas.core as pd</p></li>
+<li><p>A) data.top()</p></li>
+<li><p>B) data.head()</p></li>
+<li><p>C) data.start()</p></li>
+<li><p>D) data.show()</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) import pandas as pd</p></li>
+<li><p>B) data.head()</p></li>
 </ul>
 </div>
-<p><strong>Hva beskriver best en Pandas Series?</strong></p>
+<p><strong>Hvilken metode gir en statistisk oppsummering (gjennomsnitt, min, maks osv.)?</strong></p>
 <ul class="simple">
-<li><p>A) En tabell med rader og kolonner</p></li>
-<li><p>B) En endimensjonal struktur med navngitte indeksverdier</p></li>
-<li><p>C) En tilfeldig liste med tall</p></li>
-<li><p>D) En numpy-matrise uten indeks</p></li>
+<li><p>A) data.summary()</p></li>
+<li><p>B) data.stats()</p></li>
+<li><p>C) data.describe()</p></li>
+<li><p>D) data.info()</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) En endimensjonal struktur med navngitte indeksverdier</p></li>
+<li><p>C) data.describe()</p></li>
 </ul>
 </div>
-<p><strong>Hvilken funksjon bruker du for ǻ lese en CSV-fil inn i et DataFrame?</strong></p>
+<p><strong>Hvordan kan man hente ut en kolonne som heter A?</strong></p>
 <ul class="simple">
-<li><p>A) pd.load_csv</p></li>
-<li><p>B) pd.csv()</p></li>
-<li><p>C) pd.read_csv</p></li>
-<li><p>D) pd.read_table</p></li>
+<li><p>A) data[A]</p></li>
+<li><p>B) data[“A”]</p></li>
+<li><p>C) data.get(“A”)</p></li>
+<li><p>D) b) og c)</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>C) pd.read_csv</p></li>
+<li><p>D) b) og c)</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr df.head(3)?</strong></p>
+<p><strong>Hva gjør data.isnull().sum()?</strong></p>
 <ul class="simple">
-<li><p>A) Viser de tre siste radene</p></li>
-<li><p>B) Returnerer de tre fǿrste radene</p></li>
-<li><p>C) Sletter de tre fǿrste radene</p></li>
-<li><p>D) Viser kun kolonnenummer</p></li>
+<li><p>A) Sletter alle tomme rader</p></li>
+<li><p>B) Teller antall manglende verdier per kolonne</p></li>
+<li><p>C) Returnerer True/False for hver celle</p></li>
+<li><p>D) Ingenting, gir feil</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Returnerer de tre fǿrste radene</p></li>
+<li><p>B) Teller antall manglende verdier per kolonne</p></li>
 </ul>
 </div>
-<p><strong>Hvordan henter du kolonnen pris fra DataFrame df?</strong></p>
+<p><strong>Hvilken metode brukes for å sortere en DataFrame på en kolonne?</strong></p>
 <ul class="simple">
-<li><p>A) df.pris()</p></li>
-<li><p>B) df[‘pris’]</p></li>
-<li><p>C) df.get(‘pris’, 0)</p></li>
-<li><p>D) df.columns(‘pris’)</p></li>
+<li><p>A) data.order()</p></li>
+<li><p>B) data.sort(’kolonne’)</p></li>
+<li><p>C) data.sort_values(’kolonne’)</p></li>
+<li><p>D) data.arrange(’kolonne’)</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) df[‘pris’]</p></li>
+<li><p>C) data.sort_values(’kolonne’)</p></li>
 </ul>
 </div>
-<p><strong>Hva returnerer df.loc[2, ‘alder’]?</strong></p>
+<p><strong>Hva gir data.shape?</strong></p>
 <ul class="simple">
-<li><p>A) Hele kolonnen alder</p></li>
-<li><p>B) Raden med indeks 2 som DataFrame</p></li>
-<li><p>C) Verdien i raden med etiketten 2 og kolonnen alder</p></li>
-<li><p>D) Ingenting, det gir KeyError</p></li>
+<li><p>A) Antall rader</p></li>
+<li><p>B) Antall kolonner</p></li>
+<li><p>C) Tuple med (antall rader, antall kolonner)</p></li>
+<li><p>D) Datatypene i kolonnene</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>C) Verdien i raden med etiketten 2 og kolonnen alder</p></li>
+<li><p>C) Tuple med (antall rader, antall kolonner)</p></li>
 </ul>
 </div>
-<p><strong>Hvordan filtrerer du radene der kolonnen status er lik ferdig?</strong></p>
+<p><strong>Hvordan lager man en ny kolonne C som er summen av A og B?</strong></p>
 <ul class="simple">
-<li><p>A) df.filter(status == ‘ferdig’)</p></li>
-<li><p>B) df[df[‘status’] == ‘ferdig’]</p></li>
-<li><p>C) df.where(‘status’, ‘ferdig’)</p></li>
-<li><p>D) df.loc(‘status’ == ‘ferdig’)</p></li>
+<li><p>A) data[“C”] = A+B</p></li>
+<li><p>B) data.C = data.A + data.B</p></li>
+<li><p>C) data[“C”] = data[“A”] + data[“B”]</p></li>
+<li><p>D) data.newcol(“C”, A+B)</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) df[df[‘status’] == ‘ferdig’]</p></li>
+<li><p>C) data[“C”] = data[“A”] + data[“B”]</p></li>
 </ul>
 </div>
-<p><strong>Hvilken kode fyller manglende verdier i kolonnen score med kolonnens gjennomsnitt?</strong></p>
+<p><strong>Hva gjør data.dtypes?</strong></p>
 <ul class="simple">
-<li><p>A) df.score.dropna()</p></li>
-<li><p>B) df.fillna(‘score’)</p></li>
-<li><p>C) df[‘score’] = df[‘score’].fillna(df[‘score’].mean())</p></li>
-<li><p>D) df[‘score’].mean(fillna=True)</p></li>
+<li><p>A) Viser antall rader</p></li>
+<li><p>B) Viser antall kolonner</p></li>
+<li><p>C) Viser datatype for hver kolonne</p></li>
+<li><p>D) Konverterer alt til tekst</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>C) df[‘score’] = df[‘score’].fillna(df[‘score’].mean())</p></li>
+<li><p>C) Viser datatype for hver kolonne</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr df.groupby(‘kategori’)[‘belǿp’].sum()?</strong></p>
+<p><strong>Hvordan henter man de siste 5 radene i en DataFrame?</strong></p>
 <ul class="simple">
-<li><p>A) Returnerer summen av alle belǿp i DataFrame</p></li>
-<li><p>B) Returnerer summen av belǿp for hver kategori</p></li>
-<li><p>C) Sorterer DataFrame pǻ belǿp</p></li>
-<li><p>D) Lager en pivottabell uten belǿp</p></li>
+<li><p>A) data.last()</p></li>
+<li><p>B) data.tail()</p></li>
+<li><p>C) data.bottom()</p></li>
+<li><p>D) data.end()</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Returnerer summen av belǿp for hver kategori</p></li>
+<li><p>B) data.tail()</p></li>
 </ul>
 </div>
-<p><strong>Hvorfor bruker man index=False i df.to_csv(‘fil.csv’, index=False)?</strong></p>
+<p><strong>Hva gjør data[“A”].mean()?</strong></p>
 <ul class="simple">
-<li><p>A) For ǻ lagre bare indeksen</p></li>
-<li><p>B) For ǻ hindre at indeksen skrives som egen kolonne i filen</p></li>
-<li><p>C) For ǻ slette DataFrame etter lagring</p></li>
-<li><p>D) For ǻ gjǿre filen skrivebeskyttet</p></li>
+<li><p>A) Regner ut gjennomsnittet av kolonnen A</p></li>
+<li><p>B) Viser første rad i kolonnen A</p></li>
+<li><p>C) Teller antall elementer i A</p></li>
+<li><p>D) Sletter NaN-verdier i A</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) For ǻ hindre at indeksen skrives som egen kolonne i filen</p></li>
+<li><p>A) Regner ut gjennomsnittet av kolonnen A</p></li>
 </ul>
 </div>
 </section>
-<section id="logikk-og-loops">
-<h2>Logikk og loops<a class="headerlink" href="#logikk-og-loops" title="Link to this heading">#</a></h2>
-<p><strong>Hva gjǿr en if-setning i Python?</strong></p>
+<section id="logikk-og-lokker">
+<h2>Logikk og løkker<a class="headerlink" href="#logikk-og-lokker" title="Link to this heading">#</a></h2>
+<p><strong>Hva vil følgende kode printe?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Større enn 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5 eller mindre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Den skriver alltid ut True</p></li>
-<li><p>B) Den evaluerer et logisk uttrykk og kjǿrer koden hvis uttrykket er sant</p></li>
-<li><p>C) Den bytter automatisk variabeltyper</p></li>
-<li><p>D) Den sorterer lister</p></li>
+<li><p>A) Større enn 5</p></li>
+<li><p>B) 5 eller mindre</p></li>
+<li><p>C) Ingenting</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Den evaluerer et logisk uttrykk og kjǿrer koden hvis uttrykket er sant</p></li>
+<li><p>A) Større enn 5</p></li>
 </ul>
 </div>
-<p><strong>Hvordan legger du til et ekstra alternativ mellom if og else?</strong></p>
+<p><strong>Hvilket utsagn er sant om en for-løkke?</strong></p>
 <ul class="simple">
-<li><p>A) Ved ǻ bruke switch</p></li>
-<li><p>B) Ved ǻ legge til elif</p></li>
-<li><p>C) Ved ǻ skrive else if pǻ ny linje</p></li>
-<li><p>D) Det er ikke mulig</p></li>
+<li><p>A) Den kan kun iterere over tall</p></li>
+<li><p>B) Den kan iterere over lister, strenger og range</p></li>
+<li><p>C) Den kjører alltid kun én gang</p></li>
+<li><p>D) Den fungerer bare med if/else</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Ved ǻ legge til elif</p></li>
+<li><p>B) Den kan iterere over lister, strenger og range</p></li>
 </ul>
 </div>
-<p><strong>Hva er sant om en while-lǿkke?</strong></p>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frukt</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eple&quot;</span><span class="p">,</span> <span class="s2">&quot;banan&quot;</span><span class="p">,</span> <span class="s2">&quot;appelsin&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Den itererer over hvert element i en liste</p></li>
-<li><p>B) Den kjǿrer sǻ lenge betingelsen er sann</p></li>
-<li><p>C) Den kan bare brukes sammen med range</p></li>
-<li><p>D) Den stopper alltid etter ti runder</p></li>
+<li><p>A) Printer navnet på listen</p></li>
+<li><p>B) Printer hvert element i listen</p></li>
+<li><p>C) Teller antall elementer</p></li>
+<li><p>D) Ingenting</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Den kjǿrer sǻ lenge betingelsen er sann</p></li>
+<li><p>B) Printer hvert element i listen</p></li>
 </ul>
 </div>
-<p><strong>Hva produserer list(range(1,5))?</strong></p>
+<p><strong>Hvilken while-løkke teller fra 1 til 3?</strong></p>
 <ul class="simple">
-<li><p>A) [1, 2, 3, 4]</p></li>
-<li><p>B) [1, 2, 3, 4, 5]</p></li>
-<li><p>C) [0, 1, 2, 3, 4]</p></li>
-<li><p>D) [5, 4, 3, 2, 1]</p></li>
+<li><p>A)</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>B)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>C)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>D)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>A) [1, 2, 3, 4]</p></li>
+<li><p>A) i = 1
+while i &lt;= 3:
+print(i)
+i += 1</p></li>
 </ul>
 </div>
-<p><strong>Hvilket utsagn om for-lǿkker er riktig?</strong></p>
+<p><strong>Hvilken operator kombinerer to betingelser i en if-setning?</strong></p>
 <ul class="simple">
-<li><p>A) De kan ikke brukes pǻ strenger</p></li>
-<li><p>B) De itererer over hvert element i en sekvens</p></li>
-<li><p>C) De mǹ alltid inkludere break</p></li>
-<li><p>D) De kan bare brukes i funksjoner</p></li>
+<li><p>A) +</p></li>
+<li><p>B) and</p></li>
+<li><p>C) %</p></li>
+<li><p>D) ==</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) De itererer over hvert element i en sekvens</p></li>
+<li><p>B) and</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr break inne i en lǿkke?</strong></p>
+<p><strong>Hva vil følgende kode printe?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Voksen&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&gt;=</span> <span class="mi">13</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ungdom&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Barn&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Hopper over resten av gjeldende iterasjon</p></li>
-<li><p>B) Avslutter lǿkken umiddelbart</p></li>
-<li><p>C) Starter lǿkken pǻ nytt</p></li>
-<li><p>D) Endrer boolske uttrykk til False</p></li>
+<li><p>A) Voksen</p></li>
+<li><p>B) Ungdom</p></li>
+<li><p>C) Barn</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Avslutter lǿkken umiddelbart</p></li>
+<li><p>B) Ungdom</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr continue i en for-lǿkke?</strong></p>
+<p><strong>Hva gjør <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">liste:</span></code> i Python?</strong></p>
 <ul class="simple">
-<li><p>A) Stopper programmet</p></li>
-<li><p>B) Hopper over resten av koden i denne iterasjonen og gǿr videre til neste</p></li>
-<li><p>C) Legger til et nytt element i lista</p></li>
-<li><p>D) Printer navnet pǻ lǿkken</p></li>
+<li><p>A) Sjekker om variabelen x finnes i listen</p></li>
+<li><p>B) Legger til x i listen</p></li>
+<li><p>C) Fjerner x fra listen</p></li>
+<li><p>D) Gir alltid True</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Hopper over resten av koden i denne iterasjonen og gǿr videre til neste</p></li>
-</ul>
-</div>
-<p><strong>Hvordan kombinerer du to betingelser der begge mǹ vre sanne?</strong></p>
-<ul class="simple">
-<li><p>A) condition1 or condition2</p></li>
-<li><p>B) condition1 and condition2</p></li>
-<li><p>C) condition1 xor condition2</p></li>
-<li><p>D) condition1 not condition2</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) condition1 and condition2</p></li>
+<li><p>A) Sjekker om variabelen x finnes i listen</p></li>
 </ul>
 </div>
 </section>
 <section id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
-<p><strong>Hva er vanlig alias nǿr du importerer Matplotlib sin plottemodul?</strong></p>
+<p><strong>Hva vil følgende kode skrive ut?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Navn&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Poeng&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Poeng&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) import matplotlib.pyplot as mp</p></li>
-<li><p>B) import matplotlib.pyplot as plt</p></li>
-<li><p>C) import matplotlib som plot</p></li>
-<li><p>D) import matplotlib.plot as plt</p></li>
+<li><p>A) 10</p></li>
+<li><p>B) 12.33</p></li>
+<li><p>C) 15</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) import matplotlib.pyplot as plt</p></li>
+<li><p>B) 12.33</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr plt.plot(x, y)?</strong></p>
+<p><strong>Hvilken funksjon lager et linjediagram i matplotlib?</strong></p>
 <ul class="simple">
-<li><p>A) Lager et stolpediagram</p></li>
-<li><p>B) Tegner en linje mellom x- og y-verdier</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code></p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code></p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Lager et linjediagram</p></li>
+<li><p>B) Lager et scatterplot</p></li>
 <li><p>C) Lager et histogram</p></li>
-<li><p>D) Viser tabellen i tekstform</p></li>
+<li><p>D) Lager et kakediagram</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Tegner en linje mellom x- og y-verdier</p></li>
+<li><p>B) Lager et scatterplot</p></li>
 </ul>
 </div>
-<p><strong>Hva mǹ du vanligvis kalle til slutt for ǻ vise figuren?</strong></p>
+<p><strong>Hva gjør koden nedenfor?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) plt.clear()</p></li>
-<li><p>B) plt.show()</p></li>
-<li><p>C) plt.close()</p></li>
-<li><p>D) plt.render()</p></li>
+<li><p>A) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p></li>
+<li><p>B) [0, 2, 4, 6, 8]</p></li>
+<li><p>C) [2, 4, 6, 8, 10]</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) plt.show()</p></li>
+<li><p>B) [0, 2, 4, 6, 8]</p></li>
 </ul>
 </div>
-<p><strong>Hvordan legger du til en tittel pǻ figuren?</strong></p>
+<p><strong>Hvordan lager man et kakediagram fra en dictionary?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span> <span class="o">.</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Røde&quot;</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="s2">&quot;Blå&quot;</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">,</span> <span class="s2">&quot;Grønn&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) plt.add_title(‘Tittel’)</p></li>
-<li><p>B) plt.caption(‘Tittel’)</p></li>
-<li><p>C) plt.title(‘Tittel’)</p></li>
-<li><p>D) title.plot(‘Tittel’)</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.pie(data.values(),</span> <span class="pre">labels=data.keys())</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot(data)</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">plt.bar(data)</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">plt.scatter(data)</span></code></p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>C) plt.title(‘Tittel’)</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.pie(data.values(),</span> <span class="pre">labels=data.keys())</span></code></p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr plt.xlabel(‘Tid (s)’)?</strong></p>
+<p><strong>Hva returnerer denne funksjonen?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dobbel</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dobbel</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Setter tekst pǻ y-aksen</p></li>
-<li><p>B) Setter tittel pǻ figuren</p></li>
-<li><p>C) Setter tekst pǻ x-aksen</p></li>
-<li><p>D) Endrer farge pǻ linjen</p></li>
+<li><p>A) 5</p></li>
+<li><p>B) 10</p></li>
+<li><p>C) ‘dobbel’</p></li>
+<li><p>D) None</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>C) Setter tekst pǻ x-aksen</p></li>
+<li><p>B) 10</p></li>
 </ul>
 </div>
-<p><strong>Hvilken funksjon bruker du for ǻ lagre en figur som fil?</strong></p>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">verdier</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verdier</span><span class="p">)),</span> <span class="n">verdier</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) plt.save(‘figur.png’)</p></li>
-<li><p>B) plt.savefig(‘figur.png’)</p></li>
-<li><p>C) plt.export(‘figur.png’)</p></li>
-<li><p>D) plt.write(‘figur.png’)</p></li>
+<li><p>A) Lager et linjediagram</p></li>
+<li><p>B) Lager et stolpediagram</p></li>
+<li><p>C) Lager et scatterplot</p></li>
+<li><p>D) Lager et kakediagram</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) plt.savefig(‘figur.png’)</p></li>
+<li><p>B) Lager et stolpediagram</p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr plt.figure(figsize=(10,5))?</strong></p>
-<ul class="simple">
-<li><p>A) Lukker figuren</p></li>
-<li><p>B) Oppretter en ny figur med spesifisert bredde og hǿyde i tommer</p></li>
-<li><p>C) Zoomer inn i grafen</p></li>
-<li><p>D) Viser to figurer ved siden av hverandre</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) Oppretter en ny figur med spesifisert bredde og hǿyde i tommer</p></li>
-</ul>
+<p><strong>Hva gjør koden nedenfor?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frukter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eple&quot;</span><span class="p">,</span> <span class="s2">&quot;banan&quot;</span><span class="p">,</span> <span class="s2">&quot;appelsin&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukter</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
 </div>
-<p><strong>Hvilken funksjon lager et stolpediagram?</strong></p>
 <ul class="simple">
-<li><p>A) plt.plot</p></li>
-<li><p>B) plt.bar</p></li>
-<li><p>C) plt.scatter</p></li>
-<li><p>D) plt.pie</p></li>
+<li><p>A) Printer fruktnavnene med store bokstaver</p></li>
+<li><p>B) Teller antall frukter</p></li>
+<li><p>C) Legger til fruktnavn i en liste</p></li>
+<li><p>D) Ingenting</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) plt.bar</p></li>
-</ul>
-</div>
-</section>
-<section id="seaborn">
-<h2>Seaborn<a class="headerlink" href="#seaborn" title="Link to this heading">#</a></h2>
-<p><strong>Hva er standardaliaset for Seaborn?</strong></p>
-<ul class="simple">
-<li><p>A) import seaborn as sb</p></li>
-<li><p>B) import seaborn as sns</p></li>
-<li><p>C) import seaborn.pyplot as sns</p></li>
-<li><p>D) import seaborn som seaborn</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) import seaborn as sns</p></li>
-</ul>
-</div>
-<p><strong>Hva er en viktig fordel med Seaborn?</strong></p>
-<ul class="simple">
-<li><p>A) Det kan ikke bruke DataFrames</p></li>
-<li><p>B) Det bygger pǻ Matplotlib og har ferdige statistiske visualiseringer</p></li>
-<li><p>C) Det krever ingen data</p></li>
-<li><p>D) Det fungerer kun i konsollen</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) Det bygger pǻ Matplotlib og har ferdige statistiske visualiseringer</p></li>
-</ul>
-</div>
-<p><strong>Hvilken funksjon lager et scatterplot i Seaborn?</strong></p>
-<ul class="simple">
-<li><p>A) sns.lineplot</p></li>
-<li><p>B) sns.scatterplot</p></li>
-<li><p>C) sns.barplot</p></li>
-<li><p>D) sns.tableplot</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) sns.scatterplot</p></li>
-</ul>
-</div>
-<p><strong>Hva gjǿr parameteren hue i flere Seaborn-plott?</strong></p>
-<ul class="simple">
-<li><p>A) Setter bakgrunnsfargen</p></li>
-<li><p>B) Angir kolonnen som bestemmer fargegrupper</p></li>
-<li><p>C) Bestemmer figurstǿrrelsen</p></li>
-<li><p>D) Sorterer DataFrame</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) Angir kolonnen som bestemmer fargegrupper</p></li>
-</ul>
-</div>
-<p><strong>Hvordan setter du standardtema i Seaborn?</strong></p>
-<ul class="simple">
-<li><p>A) sns.set_theme()</p></li>
-<li><p>B) sns.style()</p></li>
-<li><p>C) plt.style(‘sns’)</p></li>
-<li><p>D) sns.use_default()</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>A) sns.set_theme()</p></li>
-</ul>
-</div>
-<p><strong>Hvilken funksjon bruker du for ǻ lage et histogram i Seaborn?</strong></p>
-<ul class="simple">
-<li><p>A) sns.lineplot</p></li>
-<li><p>B) sns.histplot</p></li>
-<li><p>C) sns.barplot</p></li>
-<li><p>D) sns.boxplot</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) sns.histplot</p></li>
-</ul>
-</div>
-<p><strong>Hvilken funksjon er best egnet for ǻ vise kategoriske gjennomsnitt med usikkerhet?</strong></p>
-<ul class="simple">
-<li><p>A) sns.scatterplot</p></li>
-<li><p>B) sns.barplot</p></li>
-<li><p>C) sns.lineplot</p></li>
-<li><p>D) sns.heatmap</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) sns.barplot</p></li>
-</ul>
-</div>
-<p><strong>Hva gjǿr sns.heatmap(df.corr())?</strong></p>
-<ul class="simple">
-<li><p>A) Tegner stolper</p></li>
-<li><p>B) Viser en heatmap av korrelasjonsmatrisen</p></li>
-<li><p>C) Lager et 3D-plot</p></li>
-<li><p>D) Sletter korrelasjoner</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) Viser en heatmap av korrelasjonsmatrisen</p></li>
+<li><p>A) Printer fruktnavnene med store bokstaver</p></li>
 </ul>
 </div>
 </section>
 <section id="sympy">
-<h2>SymPy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h2>
-<p><strong>Hva brukes SymPy hovedsakelig til?</strong></p>
+<h2>Sympy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h2>
+<p><strong>Hva gjør følgende kode?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span>
+<span class="n">f_prime</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_prime</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Numeriske simuleringer</p></li>
-<li><p>B) Symbolsk matematikk og algebra</p></li>
-<li><p>C) Grafikk og visualisering</p></li>
-<li><p>D) Datainnhenting</p></li>
+<li><p>A) Printer −x² + 4x</p></li>
+<li><p>B) Printer −2x + 4</p></li>
+<li><p>C) Printer f(2)</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Symbolsk matematikk og algebra</p></li>
+<li><p>B) Printer −2x + 4</p></li>
 </ul>
 </div>
-<p><strong>Hvordan definerer du de symbolske variablene x og y?</strong></p>
+<p><strong>Hvilken kommando setter opp en ligning i SymPy?</strong></p>
 <ul class="simple">
-<li><p>A) x = symbol(‘x’); y = symbol(‘y’)</p></li>
-<li><p>B) x, y = sp.symbols(‘x y’)</p></li>
-<li><p>C) x = ‘x’; y = ‘y’</p></li>
-<li><p>D) symbols.x, symbols.y</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">sp.Eq()</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">sp.solve()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">sp.subs()</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">sp.Symbol()</span></code></p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) x, y = sp.symbols(‘x y’)</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">sp.Eq()</span></code></p></li>
 </ul>
 </div>
-<p><strong>Hva gjǿr sp.Eq(x + 2, 10)?</strong></p>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ettersporsel</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<span class="n">tilbud</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span>
+<span class="n">likevekt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">ettersporsel</span><span class="p">,</span> <span class="n">tilbud</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">likevekt</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) Regner ut at x er 8</p></li>
-<li><p>B) Oppretter en symbolsk ligning x + 2 = 10</p></li>
-<li><p>C) Returnerer boolsk True</p></li>
-<li><p>D) Rasjonaliserer uttrykket</p></li>
+<li><p>A) Løser tilbudsfunksjonen alene</p></li>
+<li><p>B) Finner likevektsmengden x*</p></li>
+<li><p>C) Finner likevektsmengden og -prisen</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Oppretter en symbolsk ligning x + 2 = 10</p></li>
+<li><p>B) Finner likevektsmengden x*</p></li>
 </ul>
 </div>
-<p><strong>Hvilken funksjon lǿser ligningen x</strong>2 - 4 = 0?**</p>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>A) sp.solve(sp.Eq(x**2 - 4, 0), x)</p></li>
-<li><p>B) sp.integrate(x**2 - 4, x)</p></li>
-<li><p>C) sp.diff(x**2 - 4, x)</p></li>
-<li><p>D) sp.expand(x**2 - 4)</p></li>
+<li><p>A) Returnerer symbolet x</p></li>
+<li><p>B) Returnerer 9</p></li>
+<li><p>C) Returnerer 3</p></li>
+<li><p>D) Feilmelding</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>A) sp.solve(sp.Eq(x**2 - 4, 0), x)</p></li>
+<li><p>B) Returnerer 9</p></li>
 </ul>
 </div>
-<p><strong>Hva er resultatet av sp.diff(x</strong>3, x)?**</p>
+<p><strong>Hvordan finner man maksimum/minimum av en funksjon?</strong></p>
 <ul class="simple">
-<li><p>A) x**3</p></li>
-<li><p>B) 3*x**2</p></li>
-<li><p>C) 3*x</p></li>
-<li><p>D) 6*x</p></li>
+<li><p>A) Sett den andrederiverte lik null</p></li>
+<li><p>B) Sett funksjonen lik null</p></li>
+<li><p>C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte</p></li>
+<li><p>D) Sett inn tall tilfeldig</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) 3*x**2</p></li>
-</ul>
-</div>
-<p><strong>Hvilken funksjon integrerer x fra 0 til 2?</strong></p>
-<ul class="simple">
-<li><p>A) sp.integrate(x, (x, 0, 2))</p></li>
-<li><p>B) sp.diff(x, (x, 0, 2))</p></li>
-<li><p>C) sp.solve(x, 0, 2)</p></li>
-<li><p>D) sp.summation(x, 0, 2)</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>A) sp.integrate(x, (x, 0, 2))</p></li>
-</ul>
-</div>
-<p>**Hva gjǿr sp.expand((x + 1)<strong>2)?</strong></p>
-<ul class="simple">
-<li><p>A) Holder uttrykket uendret</p></li>
-<li><p>B) Utvider til x**2 + 2*x + 1</p></li>
-<li><p>C) Deriverer uttrykket</p></li>
-<li><p>D) Forenkler til x + 1</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) Utvider til x**2 + 2*x + 1</p></li>
-</ul>
-</div>
-<p><strong>Hvordan fǿr du et numerisk resultat av et symbolsk uttrykk?</strong></p>
-<ul class="simple">
-<li><p>A) sp.N(uttrykk)</p></li>
-<li><p>B) sp.float(uttrykk)</p></li>
-<li><p>C) Det er ikke mulig</p></li>
-<li><p>D) sp.evaluate(uttrykk)</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>A) sp.N(uttrykk)</p></li>
+<li><p>C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte</p></li>
 </ul>
 </div>
 </section>
 <section id="simulering">
 <h2>Simulering<a class="headerlink" href="#simulering" title="Link to this heading">#</a></h2>
-<p><strong>Hva kjennetegner Monte Carlo-simulering?</strong></p>
+<p><strong>Hva menes med simulering i denne sammenhengen?</strong></p>
 <ul class="simple">
-<li><p>A) Den er helt deterministisk</p></li>
-<li><p>B) Den bruker tilfeldige trekninger for ǻ estimere resultater</p></li>
-<li><p>C) Den kjǿrer kun én runde</p></li>
-<li><p>D) Den kan bare brukes i SymPy</p></li>
+<li><p>A) Å tegne grafer over funksjoner</p></li>
+<li><p>B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall</p></li>
+<li><p>C) Å beregne eksakte matematiske løsninger</p></li>
+<li><p>D) Å løse ligninger symbolsk med SymPy</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Den bruker tilfeldige trekninger for ǻ estimere resultater</p></li>
+<li><p>B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall</p></li>
 </ul>
 </div>
-<p><strong>Hvorfor setter vi np.random.seed(42) i en simulering?</strong></p>
+<p><strong>Hvilken funksjon genererer tilfeldige tall mellom 1 og 6 i eksemplet?</strong></p>
 <ul class="simple">
-<li><p>A) For ǻ gjǿre koden tregere</p></li>
-<li><p>B) For ǻ reprodusere de samme tilfeldige tallene</p></li>
-<li><p>C) For ǻ ǿke variasjonen</p></li>
-<li><p>D) For ǻ rydde minnet</p></li>
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">np.random.choice(6)</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">random.random()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.uniform(1,</span> <span class="pre">6)</span></code></p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) For ǻ reprodusere de samme tilfeldige tallene</p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code></p></li>
 </ul>
 </div>
-<p><strong>Hvilken funksjon trekker n observasjoner fra en normalfordeling?</strong></p>
+<p><strong>Hva skjer når antall terningkast økes fra 5 til 10 000?</strong></p>
 <ul class="simple">
-<li><p>A) np.random.uniform(n)</p></li>
-<li><p>B) np.random.normal(loc, scale, size=n)</p></li>
-<li><p>C) np.normal.random(n)</p></li>
-<li><p>D) np.random.gauss(n)</p></li>
+<li><p>A) Resultatene blir mer tilfeldige</p></li>
+<li><p>B) Vi får færre ulike verdier</p></li>
+<li><p>C) Histogrammet blir mer skjevt</p></li>
+<li><p>D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) np.random.normal(loc, scale, size=n)</p></li>
+<li><p>D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi</p></li>
 </ul>
 </div>
-<p><strong>Hvordan kan du estimere forventningsverdien til en stokastisk variabel?</strong></p>
+<p><strong>Hva er forventningsverdien for en rettferdig seks-sidet terning?</strong></p>
 <ul class="simple">
-<li><p>A) Sortere alle resultatene</p></li>
-<li><p>B) Ta gjennomsnittet av de simulerte verdiene</p></li>
-<li><p>C) Finne maksimumsverdien</p></li>
-<li><p>D) Ta logaritmen av hver observasjon</p></li>
+<li><p>A) 3</p></li>
+<li><p>B) 3.5</p></li>
+<li><p>C) 4</p></li>
+<li><p>D) 6</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Ta gjennomsnittet av de simulerte verdiene</p></li>
+<li><p>B) 3.5</p></li>
 </ul>
 </div>
-<p><strong>Hvorfor bruker vi mange repetisjoner i en simulering?</strong></p>
+<p><strong>Hvorfor får vi ikke alltid samme resultat fra koden?</strong></p>
 <ul class="simple">
-<li><p>A) For ǻ gjǿre grafen penere</p></li>
-<li><p>B) For ǻ redusere tilfeldige variasjoner i estimatet</p></li>
-<li><p>C) For ǻ fǹ flere filer</p></li>
-<li><p>D) For ǻ unngǹ numpy</p></li>
+<li><p>A) Fordi koden er feil</p></li>
+<li><p>B) Fordi Python lagrer tilfeldige tall midlertidig</p></li>
+<li><p>C) Fordi funksjonen random.randint() genererer tilfeldige tall</p></li>
+<li><p>D) Fordi løkka ikke itererer riktig</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) For ǻ redusere tilfeldige variasjoner i estimatet</p></li>
+<li><p>C) Fordi funksjonen random.randint() genererer tilfeldige tall</p></li>
 </ul>
 </div>
-<p><strong>Hva er riktig mǹte ǻ samle resultater i en Pandas DataFrame?</strong></p>
+<p><strong>Hva illustrerer loven om store tall?</strong></p>
 <ul class="simple">
-<li><p>A) pd.DataFrame(resultater)</p></li>
-<li><p>B) resultater.toframe()</p></li>
-<li><p>C) dataframe(resultater)</p></li>
-<li><p>D) new DataFrame(resultater)</p></li>
+<li><p>A) At tilfeldige tall blir mer uforutsigbare jo flere vi genererer</p></li>
+<li><p>B) At summen av tilfeldige tall alltid er konstant</p></li>
+<li><p>C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien</p></li>
+<li><p>D) At sannsynligheten for alle utfall øker med flere forsøk</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>A) pd.DataFrame(resultater)</p></li>
+<li><p>C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien</p></li>
 </ul>
 </div>
-<p><strong>Hvordan beregner du sannsynligheten for at en simulert verdi er stǿrre enn en terskel?</strong></p>
+<p><strong>Hva viser histogrammet med 10 000 kast best?</strong></p>
 <ul class="simple">
-<li><p>A) bruke np.max(resultater)</p></li>
-<li><p>B) telle = np.sum(resultater &gt; terskel) / len(resultater)</p></li>
-<li><p>C) bruke np.random.choice(resultater)</p></li>
-<li><p>D) bruke plt.show()</p></li>
+<li><p>A) At 6 kommer sjeldnere enn 1</p></li>
+<li><p>B) At terningen er urettferdig</p></li>
+<li><p>C) At alle verdier forekommer omtrent like ofte</p></li>
+<li><p>D) At tilfeldigheter forsvinner helt</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) telle = np.sum(resultater &gt; terskel) / len(resultater)</p></li>
+<li><p>C) At alle verdier forekommer omtrent like ofte</p></li>
 </ul>
 </div>
-<p><strong>Hvorfor visualiserer vi simuleringsresultater med histogram?</strong></p>
+<p><strong>Hva er forskjellen mellom <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> og <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code>?</strong></p>
 <ul class="simple">
-<li><p>A) For ǻ hente ut rǿdata</p></li>
-<li><p>B) For ǻ se fordelingen av utfall og varians</p></li>
-<li><p>C) For ǻ redusere datamengden</p></li>
-<li><p>D) For ǻ generere flere tilfeldige tall</p></li>
+<li><p>A) Ingen forskjell – de gir alltid samme resultat</p></li>
+<li><p>B) Begge ekskluderer 6</p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> gir flyttall, <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> gir heltall</p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> inkluderer 6, <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code> ekskluderer 6</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) For ǻ se fordelingen av utfall og varians</p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> inkluderer 6, <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code> ekskluderer 6</p></li>
 </ul>
 </div>
-<p><strong>Hva gjør operatoren %?</strong></p>
+<p><strong>Hva er en fordel med simulering?</strong></p>
 <ul class="simple">
-<li><p>A) Potens</p></li>
-<li><p>B) Rest ved divisjon</p></li>
-<li><p>C) Multiplikasjon</p></li>
-<li><p>D) Negasjon</p></li>
+<li><p>A) Den er alltid mer presis</p></li>
+<li><p>B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger</p></li>
+<li><p>C) Den krever ingen programmering</p></li>
+<li><p>D) Den fjerner tilfeldigheter</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>B) Rest ved divisjon</p></li>
+<li><p>B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger</p></li>
 </ul>
 </div>
-<p><strong>Hva er resultatet av 2 * (3+4)?</strong></p>
+<p><strong>Hvordan henger Monte Carlo-metoden sammen med terningkast-eksemplet?</strong></p>
 <ul class="simple">
-<li><p>A) 14</p></li>
-<li><p>B) 10</p></li>
-<li><p>C) 12</p></li>
-<li><p>D) 20</p></li>
+<li><p>A) Den brukes bare til spill</p></li>
+<li><p>B) Den beregner kun sannsynligheter for 6-ere</p></li>
+<li><p>C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat</p></li>
+<li><p>D) Den eliminerer behovet for tilfeldige tall</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Svar</p>
 <ul class="simple">
-<li><p>A) 14</p></li>
-</ul>
-</div>
-<p><strong>Hva vil print(type(True)) gi?</strong></p>
-<ul class="simple">
-<li><p>A) int</p></li>
-<li><p>B) bool</p></li>
-<li><p>C) string</p></li>
-<li><p>D) float</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) bool</p></li>
-</ul>
-</div>
-<p><strong>Hva skjer om du skriver navn = 10; navn = navn + 5?</strong></p>
-<ul class="simple">
-<li><p>A) Feil</p></li>
-<li><p>B) navn blir 15</p></li>
-<li><p>C) navn blir “105”</p></li>
-<li><p>D) navn blir 5</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) navn blir 15</p></li>
-</ul>
-</div>
-<p><strong>Hva blir output fra print(2</strong>3)?**</p>
-<ul class="simple">
-<li><p>A) 6</p></li>
-<li><p>B) 8</p></li>
-<li><p>C) 9</p></li>
-<li><p>D) 12</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>B) 8</p></li>
-</ul>
-</div>
-<p><strong>Hvordan skriver man en kommentar i Python?</strong></p>
-<ul class="simple">
-<li><p>A) // kommentar</p></li>
-<li><p>B) /* kommentar */</p></li>
-<li><p>C) # kommentar</p></li>
-<li><p>D) – kommentar</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>C) # kommentar</p></li>
-</ul>
-</div>
-<p><strong>Hva er riktig utskrift, gitt at vi har definert navn = “Markus”?</strong></p>
-<ul class="simple">
-<li><p>A) print(f”Hei {navn}”)</p></li>
-<li><p>B) print(“Hei navn”)</p></li>
-<li><p>C) Begge virker likt</p></li>
-<li><p>D) Ingen virker</p></li>
-</ul>
-<div class="note dropdown admonition">
-<p class="admonition-title">Svar</p>
-<ul class="simple">
-<li><p>A) print(f”Hei {navn}”)</p></li>
+<li><p>C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat</p></li>
 </ul>
 </div>
 </section>
@@ -1662,12 +1526,11 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjoner">Funksjoner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-tuple-dictionary-numpy">Lister, Tuple, Dictionary, NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-oppslag-og-numpy">Lister, oppslag og numpy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-og-databehandling">Pandas og databehandling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-loops">Logikk og loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-lokker">Logikk og løkker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">SymPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering">Simulering</a></li>
 </ul>
   </nav></div>
@@ -1683,7 +1546,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By setternoeher
+By Markus J. Aase, Daniel Johannessen og Daniel Fabio Groth
 </p>
 
   </div>
