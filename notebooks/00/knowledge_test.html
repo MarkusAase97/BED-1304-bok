@@ -1,0 +1,1582 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kunnskapstest &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/00/knowledge_test';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="9 - Simulering" href="../10/simulering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/00/knowledge_test.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/00/knowledge_test.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kunnskapstest</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjoner">Funksjoner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-oppslag-og-numpy">Lister, oppslag og numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-og-databehandling">Pandas og databehandling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-lokker">Logikk og løkker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering">Simulering</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kunnskapstest">
+<h1>Kunnskapstest<a class="headerlink" href="#kunnskapstest" title="Link to this heading">#</a></h1>
+<section id="python-basics">
+<h2>Python basics<a class="headerlink" href="#python-basics" title="Link to this heading">#</a></h2>
+<p><strong>Hva brukes Python hovedsakelig til?</strong></p>
+<ul class="simple">
+<li><p>A) Matlaging</p></li>
+<li><p>B) Dataanalyse, programmering og automatisering</p></li>
+<li><p>C) Tegning</p></li>
+<li><p>D) Ingen av de ovenfor</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Dataanalyse, programmering og automatisering</p></li>
+</ul>
+</div>
+<p><strong>Hva blir output fra print(2+3*4)?</strong></p>
+<ul class="simple">
+<li><p>A) 20</p></li>
+<li><p>B) 14</p></li>
+<li><p>C) 24</p></li>
+<li><p>D) 18</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 14</p></li>
+</ul>
+</div>
+<p><strong>Hva blir resultatet av 5 ** 2?</strong></p>
+<ul class="simple">
+<li><p>A) 7</p></li>
+<li><p>B) 10</p></li>
+<li><p>C) 25</p></li>
+<li><p>D) 52</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) 25</p></li>
+</ul>
+</div>
+<p><strong>Hvilken datatype har 3.14?</strong></p>
+<ul class="simple">
+<li><p>A) int</p></li>
+<li><p>B) float</p></li>
+<li><p>C) bool</p></li>
+<li><p>D) string</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) float</p></li>
+</ul>
+</div>
+<p><strong>Hvilken operator brukes for divisjon?</strong></p>
+<ul class="simple">
+<li><p>A) *</p></li>
+<li><p>B) +</p></li>
+<li><p>C) -</p></li>
+<li><p>D) /</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>D) /</p></li>
+</ul>
+</div>
+<p><strong>Hva er output fra print(True and False)?</strong></p>
+<ul class="simple">
+<li><p>A) True</p></li>
+<li><p>B) False</p></li>
+<li><p>C) 1</p></li>
+<li><p>D) 0</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) False</p></li>
+</ul>
+</div>
+<p><strong>Hva er riktig måte å lage en streng på?</strong></p>
+<ul class="simple">
+<li><p>A) navn = ’Ola’</p></li>
+<li><p>B) navn = “Ola”</p></li>
+<li><p>C) Begge</p></li>
+<li><p>D) Ingen av de</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Begge</p></li>
+</ul>
+</div>
+<p><strong>Hva er resultatet av 10 // 3?</strong></p>
+<ul class="simple">
+<li><p>A) 3.33</p></li>
+<li><p>B) 3</p></li>
+<li><p>C) 4</p></li>
+<li><p>D) 30</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 3</p></li>
+</ul>
+</div>
+</section>
+<section id="funksjoner">
+<h2>Funksjoner<a class="headerlink" href="#funksjoner" title="Link to this heading">#</a></h2>
+<p><strong>Hva brukes en funksjon til?</strong></p>
+<ul class="simple">
+<li><p>A) Gjenbrukbar kodeblokk</p></li>
+<li><p>B) Skrive kommentarer</p></li>
+<li><p>C) Endre variabeltyper</p></li>
+<li><p>D) Tegning</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Gjenbrukbar kodeblokk</p></li>
+</ul>
+</div>
+<p><strong>Hvordan definerer man en funksjon i Python?</strong></p>
+<ul class="simple">
+<li><p>A) function navn():</p></li>
+<li><p>B) def navn():</p></li>
+<li><p>C) fun navn():</p></li>
+<li><p>D) define navn():</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) def navn():</p></li>
+</ul>
+</div>
+<p><strong>Hva er en parameter?</strong></p>
+<ul class="simple">
+<li><p>A) Verdien som sendes inn</p></li>
+<li><p>B) Variabelen som defineres i funksjonen</p></li>
+<li><p>C) Navnet på funksjonen</p></li>
+<li><p>D) En kommentar</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Variabelen som defineres i funksjonen</p></li>
+</ul>
+</div>
+<p><strong>Hva er et argument?</strong></p>
+<ul class="simple">
+<li><p>A) Verdien som sendes inn når funksjonen kalles</p></li>
+<li><p>B) Variabelen som defineres i funksjonen</p></li>
+<li><p>C) Navnet på funksjonen</p></li>
+<li><p>D) Returnverdien</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Verdien som sendes inn når funksjonen kalles</p></li>
+</ul>
+</div>
+<p><strong>Hvilken funksjon gir lengden på en liste?</strong></p>
+<ul class="simple">
+<li><p>A) size()</p></li>
+<li><p>B) len()</p></li>
+<li><p>C) length()</p></li>
+<li><p>D) count()</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) len()</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør return i en funksjon?</strong></p>
+<ul class="simple">
+<li><p>A) Stopper funksjonen og returnerer en verdi</p></li>
+<li><p>B) Printer en verdi</p></li>
+<li><p>C) Definerer en parameter</p></li>
+<li><p>D) Endrer en variabel</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Stopper funksjonen og returnerer en verdi</p></li>
+</ul>
+</div>
+<p><strong>Hva vil print(max(3,5,2)) gi?</strong></p>
+<ul class="simple">
+<li><p>A) 2</p></li>
+<li><p>B) 3</p></li>
+<li><p>C) 5</p></li>
+<li><p>D) Feil</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) 5</p></li>
+</ul>
+</div>
+<p><strong>Hva vil print(min([4,7,1])) gi?</strong></p>
+<ul class="simple">
+<li><p>A) 4</p></li>
+<li><p>B) 1</p></li>
+<li><p>C) 7</p></li>
+<li><p>D) [4, 7, 1]</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 1</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør sum([1,2,3])?</strong></p>
+<ul class="simple">
+<li><p>A) 6</p></li>
+<li><p>B) 123</p></li>
+<li><p>C) [1,2,3]</p></li>
+<li><p>D) Feil</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) 6</p></li>
+</ul>
+</div>
+<p><strong>Hva skjer hvis du glemmer innrykk i en funksjon?</strong></p>
+<ul class="simple">
+<li><p>A) Ingenting</p></li>
+<li><p>B) Python gir en IndentationError</p></li>
+<li><p>C) Funksjonen kjører som vanlig</p></li>
+<li><p>D) Kommentarer ignoreres</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Python gir en IndentationError</p></li>
+</ul>
+</div>
+<p><strong>Hva skjer hvis du glemmer å skrive return i en funksjon som skal gi tilbake en verdi?</strong></p>
+<ul class="simple">
+<li><p>A) Funksjonen returnerer automatisk 0</p></li>
+<li><p>B) Funksjonen returnerer None</p></li>
+<li><p>C) Funksjonen krasjer</p></li>
+<li><p>D) Python antar return 1</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Funksjonen returnerer None</p></li>
+</ul>
+</div>
+<p><strong>Hva er forskjellen på en parameter og et argument?</strong></p>
+<ul class="simple">
+<li><p>A) Parametere er verdier, argumenter er variabler</p></li>
+<li><p>B) Parametere defineres i funksjonen, argumenter sendes inn når den kalles</p></li>
+<li><p>C) Ingen forskjell, de er synonymer</p></li>
+<li><p>D) Parametere er alltid tall, argumenter alltid tekst</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Parametere defineres i funksjonen, argumenter sendes inn når den kalles</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør len(Python”)?</strong></p>
+<ul class="simple">
+<li><p>A) Returnerer antall bokstaver i ordet</p></li>
+<li><p>B) Printer ordet baklengs</p></li>
+<li><p>C) Gir en feilmelding</p></li>
+<li><p>D) Multipliserer antall bokstaver med 2</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Gir en feilmelding</p></li>
+</ul>
+</div>
+<p><strong>Hva er en fordel med å bruke funksjoner i programmering?</strong></p>
+<ul class="simple">
+<li><p>A) Man slipper å bruke variabler</p></li>
+<li><p>B) Koden blir mer ryddig og gjenbrukbar</p></li>
+<li><p>C) Python kjører raskere</p></li>
+<li><p>D) Det er eneste måten å bruke if-setninger på</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Koden blir mer ryddig og gjenbrukbar</p></li>
+</ul>
+</div>
+<p><strong>Hva vil denne koden skrive ut?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) 10</p></li>
+<li><p>B) 37</p></li>
+<li><p>C) x+y</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) 10</p></li>
+</ul>
+</div>
+</section>
+<section id="lister-oppslag-og-numpy">
+<h2>Lister, oppslag og numpy<a class="headerlink" href="#lister-oppslag-og-numpy" title="Link to this heading">#</a></h2>
+<p><strong>Hva er hovedforskjellen på en liste og en tuple?</strong></p>
+<ul class="simple">
+<li><p>A) Lister er mutable, tupler er immutable</p></li>
+<li><p>B) Tupler er raskere å iterere over</p></li>
+<li><p>C) Ingen forskjell</p></li>
+<li><p>D) Tupler kan bare inneholde tall</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Lister er mutable, tupler er immutable</p></li>
+</ul>
+</div>
+<p><strong>Hvilken metode bruker du for å legge til et element i en liste?</strong></p>
+<ul class="simple">
+<li><p>A) add()</p></li>
+<li><p>B) insert()</p></li>
+<li><p>C) append()</p></li>
+<li><p>D) extend()</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) append()</p></li>
+</ul>
+</div>
+<p><strong>Hvordan definerer man et dictionary i Python?</strong></p>
+<ul class="simple">
+<li><p>A) []</p></li>
+<li><p>B) ()</p></li>
+<li><p>C) {}</p></li>
+<li><p>D) dict[]</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) {}</p></li>
+</ul>
+</div>
+<p><strong>Hva vil følgende kode gi?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) 20</p></li>
+<li><p>B) 30</p></li>
+<li><p>C) Feil</p></li>
+<li><p>D) 60</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) 20</p></li>
+</ul>
+</div>
+<p><strong>Hva returnerer len((1,2,3))?</strong></p>
+<ul class="simple">
+<li><p>A) 2</p></li>
+<li><p>B) 3</p></li>
+<li><p>C) (1,2,3)</p></li>
+<li><p>D) Feil</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 3</p></li>
+</ul>
+</div>
+</section>
+<section id="pandas-og-databehandling">
+<h2>Pandas og databehandling<a class="headerlink" href="#pandas-og-databehandling" title="Link to this heading">#</a></h2>
+<p><strong>Hvilken metode brukes for å vise de første radene i en DataFrame?</strong></p>
+<ul class="simple">
+<li><p>A) data.top()</p></li>
+<li><p>B) data.head()</p></li>
+<li><p>C) data.start()</p></li>
+<li><p>D) data.show()</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) data.head()</p></li>
+</ul>
+</div>
+<p><strong>Hvilken metode gir en statistisk oppsummering (gjennomsnitt, min, maks osv.)?</strong></p>
+<ul class="simple">
+<li><p>A) data.summary()</p></li>
+<li><p>B) data.stats()</p></li>
+<li><p>C) data.describe()</p></li>
+<li><p>D) data.info()</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) data.describe()</p></li>
+</ul>
+</div>
+<p><strong>Hvordan kan man hente ut en kolonne som heter A?</strong></p>
+<ul class="simple">
+<li><p>A) data[A]</p></li>
+<li><p>B) data[“A”]</p></li>
+<li><p>C) data.get(“A”)</p></li>
+<li><p>D) b) og c)</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>D) b) og c)</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør data.isnull().sum()?</strong></p>
+<ul class="simple">
+<li><p>A) Sletter alle tomme rader</p></li>
+<li><p>B) Teller antall manglende verdier per kolonne</p></li>
+<li><p>C) Returnerer True/False for hver celle</p></li>
+<li><p>D) Ingenting, gir feil</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Teller antall manglende verdier per kolonne</p></li>
+</ul>
+</div>
+<p><strong>Hvilken metode brukes for å sortere en DataFrame på en kolonne?</strong></p>
+<ul class="simple">
+<li><p>A) data.order()</p></li>
+<li><p>B) data.sort(’kolonne’)</p></li>
+<li><p>C) data.sort_values(’kolonne’)</p></li>
+<li><p>D) data.arrange(’kolonne’)</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) data.sort_values(’kolonne’)</p></li>
+</ul>
+</div>
+<p><strong>Hva gir data.shape?</strong></p>
+<ul class="simple">
+<li><p>A) Antall rader</p></li>
+<li><p>B) Antall kolonner</p></li>
+<li><p>C) Tuple med (antall rader, antall kolonner)</p></li>
+<li><p>D) Datatypene i kolonnene</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Tuple med (antall rader, antall kolonner)</p></li>
+</ul>
+</div>
+<p><strong>Hvordan lager man en ny kolonne C som er summen av A og B?</strong></p>
+<ul class="simple">
+<li><p>A) data[“C”] = A+B</p></li>
+<li><p>B) data.C = data.A + data.B</p></li>
+<li><p>C) data[“C”] = data[“A”] + data[“B”]</p></li>
+<li><p>D) data.newcol(“C”, A+B)</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) data[“C”] = data[“A”] + data[“B”]</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør data.dtypes?</strong></p>
+<ul class="simple">
+<li><p>A) Viser antall rader</p></li>
+<li><p>B) Viser antall kolonner</p></li>
+<li><p>C) Viser datatype for hver kolonne</p></li>
+<li><p>D) Konverterer alt til tekst</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Viser datatype for hver kolonne</p></li>
+</ul>
+</div>
+<p><strong>Hvordan henter man de siste 5 radene i en DataFrame?</strong></p>
+<ul class="simple">
+<li><p>A) data.last()</p></li>
+<li><p>B) data.tail()</p></li>
+<li><p>C) data.bottom()</p></li>
+<li><p>D) data.end()</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) data.tail()</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør data[“A”].mean()?</strong></p>
+<ul class="simple">
+<li><p>A) Regner ut gjennomsnittet av kolonnen A</p></li>
+<li><p>B) Viser første rad i kolonnen A</p></li>
+<li><p>C) Teller antall elementer i A</p></li>
+<li><p>D) Sletter NaN-verdier i A</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Regner ut gjennomsnittet av kolonnen A</p></li>
+</ul>
+</div>
+</section>
+<section id="logikk-og-lokker">
+<h2>Logikk og løkker<a class="headerlink" href="#logikk-og-lokker" title="Link to this heading">#</a></h2>
+<p><strong>Hva vil følgende kode printe?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Større enn 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5 eller mindre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Større enn 5</p></li>
+<li><p>B) 5 eller mindre</p></li>
+<li><p>C) Ingenting</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Større enn 5</p></li>
+</ul>
+</div>
+<p><strong>Hvilket utsagn er sant om en for-løkke?</strong></p>
+<ul class="simple">
+<li><p>A) Den kan kun iterere over tall</p></li>
+<li><p>B) Den kan iterere over lister, strenger og range</p></li>
+<li><p>C) Den kjører alltid kun én gang</p></li>
+<li><p>D) Den fungerer bare med if/else</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Den kan iterere over lister, strenger og range</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frukt</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eple&quot;</span><span class="p">,</span> <span class="s2">&quot;banan&quot;</span><span class="p">,</span> <span class="s2">&quot;appelsin&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Printer navnet på listen</p></li>
+<li><p>B) Printer hvert element i listen</p></li>
+<li><p>C) Teller antall elementer</p></li>
+<li><p>D) Ingenting</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Printer hvert element i listen</p></li>
+</ul>
+</div>
+<p><strong>Hvilken while-løkke teller fra 1 til 3?</strong></p>
+<ul class="simple">
+<li><p>A)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>B)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>C)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>D)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) i = 1
+while i &lt;= 3:
+print(i)
+i += 1</p></li>
+</ul>
+</div>
+<p><strong>Hvilken operator kombinerer to betingelser i en if-setning?</strong></p>
+<ul class="simple">
+<li><p>A) +</p></li>
+<li><p>B) and</p></li>
+<li><p>C) %</p></li>
+<li><p>D) ==</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) and</p></li>
+</ul>
+</div>
+<p><strong>Hva vil følgende kode printe?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Voksen&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&gt;=</span> <span class="mi">13</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ungdom&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Barn&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Voksen</p></li>
+<li><p>B) Ungdom</p></li>
+<li><p>C) Barn</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Ungdom</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">liste:</span></code> i Python?</strong></p>
+<ul class="simple">
+<li><p>A) Sjekker om variabelen x finnes i listen</p></li>
+<li><p>B) Legger til x i listen</p></li>
+<li><p>C) Fjerner x fra listen</p></li>
+<li><p>D) Gir alltid True</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Sjekker om variabelen x finnes i listen</p></li>
+</ul>
+</div>
+</section>
+<section id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<p><strong>Hva vil følgende kode skrive ut?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Navn&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Poeng&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Poeng&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) 10</p></li>
+<li><p>B) 12.33</p></li>
+<li><p>C) 15</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 12.33</p></li>
+</ul>
+</div>
+<p><strong>Hvilken funksjon lager et linjediagram i matplotlib?</strong></p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code></p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code></p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Lager et linjediagram</p></li>
+<li><p>B) Lager et scatterplot</p></li>
+<li><p>C) Lager et histogram</p></li>
+<li><p>D) Lager et kakediagram</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Lager et scatterplot</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør koden nedenfor?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p></li>
+<li><p>B) [0, 2, 4, 6, 8]</p></li>
+<li><p>C) [2, 4, 6, 8, 10]</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) [0, 2, 4, 6, 8]</p></li>
+</ul>
+</div>
+<p><strong>Hvordan lager man et kakediagram fra en dictionary?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span> <span class="o">.</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Røde&quot;</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="s2">&quot;Blå&quot;</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">,</span> <span class="s2">&quot;Grønn&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.pie(data.values(),</span> <span class="pre">labels=data.keys())</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">plt.plot(data)</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">plt.bar(data)</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">plt.scatter(data)</span></code></p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">plt.pie(data.values(),</span> <span class="pre">labels=data.keys())</span></code></p></li>
+</ul>
+</div>
+<p><strong>Hva returnerer denne funksjonen?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dobbel</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dobbel</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) 5</p></li>
+<li><p>B) 10</p></li>
+<li><p>C) ‘dobbel’</p></li>
+<li><p>D) None</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 10</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">verdier</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verdier</span><span class="p">)),</span> <span class="n">verdier</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Lager et linjediagram</p></li>
+<li><p>B) Lager et stolpediagram</p></li>
+<li><p>C) Lager et scatterplot</p></li>
+<li><p>D) Lager et kakediagram</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Lager et stolpediagram</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør koden nedenfor?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frukter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eple&quot;</span><span class="p">,</span> <span class="s2">&quot;banan&quot;</span><span class="p">,</span> <span class="s2">&quot;appelsin&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukter</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Printer fruktnavnene med store bokstaver</p></li>
+<li><p>B) Teller antall frukter</p></li>
+<li><p>C) Legger til fruktnavn i en liste</p></li>
+<li><p>D) Ingenting</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) Printer fruktnavnene med store bokstaver</p></li>
+</ul>
+</div>
+</section>
+<section id="sympy">
+<h2>Sympy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h2>
+<p><strong>Hva gjør følgende kode?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span>
+<span class="n">f_prime</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_prime</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Printer −x² + 4x</p></li>
+<li><p>B) Printer −2x + 4</p></li>
+<li><p>C) Printer f(2)</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Printer −2x + 4</p></li>
+</ul>
+</div>
+<p><strong>Hvilken kommando setter opp en ligning i SymPy?</strong></p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">sp.Eq()</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">sp.solve()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">sp.subs()</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">sp.Symbol()</span></code></p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">sp.Eq()</span></code></p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ettersporsel</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<span class="n">tilbud</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span>
+<span class="n">likevekt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">ettersporsel</span><span class="p">,</span> <span class="n">tilbud</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">likevekt</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Løser tilbudsfunksjonen alene</p></li>
+<li><p>B) Finner likevektsmengden x*</p></li>
+<li><p>C) Finner likevektsmengden og -prisen</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Finner likevektsmengden x*</p></li>
+</ul>
+</div>
+<p><strong>Hva gjør denne koden?</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A) Returnerer symbolet x</p></li>
+<li><p>B) Returnerer 9</p></li>
+<li><p>C) Returnerer 3</p></li>
+<li><p>D) Feilmelding</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Returnerer 9</p></li>
+</ul>
+</div>
+<p><strong>Hvordan finner man maksimum/minimum av en funksjon?</strong></p>
+<ul class="simple">
+<li><p>A) Sett den andrederiverte lik null</p></li>
+<li><p>B) Sett funksjonen lik null</p></li>
+<li><p>C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte</p></li>
+<li><p>D) Sett inn tall tilfeldig</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Sett den første deriverte lik null og sjekk fortegnet til den andrederiverte</p></li>
+</ul>
+</div>
+</section>
+<section id="simulering">
+<h2>Simulering<a class="headerlink" href="#simulering" title="Link to this heading">#</a></h2>
+<p><strong>Hva menes med simulering i denne sammenhengen?</strong></p>
+<ul class="simple">
+<li><p>A) Å tegne grafer over funksjoner</p></li>
+<li><p>B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall</p></li>
+<li><p>C) Å beregne eksakte matematiske løsninger</p></li>
+<li><p>D) Å løse ligninger symbolsk med SymPy</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Å etterligne virkelige prosesser på datamaskinen ved hjelp av tilfeldige tall</p></li>
+</ul>
+</div>
+<p><strong>Hvilken funksjon genererer tilfeldige tall mellom 1 og 6 i eksemplet?</strong></p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">np.random.choice(6)</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">random.random()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.uniform(1,</span> <span class="pre">6)</span></code></p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code></p></li>
+</ul>
+</div>
+<p><strong>Hva skjer når antall terningkast økes fra 5 til 10 000?</strong></p>
+<ul class="simple">
+<li><p>A) Resultatene blir mer tilfeldige</p></li>
+<li><p>B) Vi får færre ulike verdier</p></li>
+<li><p>C) Histogrammet blir mer skjevt</p></li>
+<li><p>D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>D) Frekvensene gjevner seg ut og nærmer seg sannsynligheten 1/6 for hver verdi</p></li>
+</ul>
+</div>
+<p><strong>Hva er forventningsverdien for en rettferdig seks-sidet terning?</strong></p>
+<ul class="simple">
+<li><p>A) 3</p></li>
+<li><p>B) 3.5</p></li>
+<li><p>C) 4</p></li>
+<li><p>D) 6</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) 3.5</p></li>
+</ul>
+</div>
+<p><strong>Hvorfor får vi ikke alltid samme resultat fra koden?</strong></p>
+<ul class="simple">
+<li><p>A) Fordi koden er feil</p></li>
+<li><p>B) Fordi Python lagrer tilfeldige tall midlertidig</p></li>
+<li><p>C) Fordi funksjonen random.randint() genererer tilfeldige tall</p></li>
+<li><p>D) Fordi løkka ikke itererer riktig</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Fordi funksjonen random.randint() genererer tilfeldige tall</p></li>
+</ul>
+</div>
+<p><strong>Hva illustrerer loven om store tall?</strong></p>
+<ul class="simple">
+<li><p>A) At tilfeldige tall blir mer uforutsigbare jo flere vi genererer</p></li>
+<li><p>B) At summen av tilfeldige tall alltid er konstant</p></li>
+<li><p>C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien</p></li>
+<li><p>D) At sannsynligheten for alle utfall øker med flere forsøk</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) At gjennomsnittet av mange tilfeldige utfall nærmer seg forventningsverdien</p></li>
+</ul>
+</div>
+<p><strong>Hva viser histogrammet med 10 000 kast best?</strong></p>
+<ul class="simple">
+<li><p>A) At 6 kommer sjeldnere enn 1</p></li>
+<li><p>B) At terningen er urettferdig</p></li>
+<li><p>C) At alle verdier forekommer omtrent like ofte</p></li>
+<li><p>D) At tilfeldigheter forsvinner helt</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) At alle verdier forekommer omtrent like ofte</p></li>
+</ul>
+</div>
+<p><strong>Hva er forskjellen mellom <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> og <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code>?</strong></p>
+<ul class="simple">
+<li><p>A) Ingen forskjell – de gir alltid samme resultat</p></li>
+<li><p>B) Begge ekskluderer 6</p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> gir flyttall, <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> gir heltall</p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> inkluderer 6, <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code> ekskluderer 6</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> inkluderer 6, <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">6)</span></code> ekskluderer 6</p></li>
+</ul>
+</div>
+<p><strong>Hva er en fordel med simulering?</strong></p>
+<ul class="simple">
+<li><p>A) Den er alltid mer presis</p></li>
+<li><p>B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger</p></li>
+<li><p>C) Den krever ingen programmering</p></li>
+<li><p>D) Den fjerner tilfeldigheter</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>B) Den kan modellere komplekse prosesser som ikke har enkle matematiske løsninger</p></li>
+</ul>
+</div>
+<p><strong>Hvordan henger Monte Carlo-metoden sammen med terningkast-eksemplet?</strong></p>
+<ul class="simple">
+<li><p>A) Den brukes bare til spill</p></li>
+<li><p>B) Den beregner kun sannsynligheter for 6-ere</p></li>
+<li><p>C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat</p></li>
+<li><p>D) Den eliminerer behovet for tilfeldige tall</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Svar</p>
+<ul class="simple">
+<li><p>C) Den bygger på idéen om å bruke mange tilfeldige utfall for å estimere et forventet
+resultat</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\00"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../10/simulering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">9 - Simulering</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjoner">Funksjoner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lister-oppslag-og-numpy">Lister, oppslag og numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-og-databehandling">Pandas og databehandling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-lokker">Logikk og løkker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering">Simulering</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

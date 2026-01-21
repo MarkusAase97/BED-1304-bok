@@ -1,0 +1,1682 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7 - Matplotlib &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/07/matplotlib';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7 - Seaborn" href="../08/seaborn.html" />
+    <link rel="prev" title="6 - Logikk og løkker" href="../06/logikk_loops.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/07/matplotlib.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/07/matplotlib.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>7 - Matplotlib</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-med-tilfeldige-tall">Hva med tilfeldige tall?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots">Eksempel med bankinnskudd og bruk av subplots()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#googling">Googling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-tilbud-og-ettersporsel">Eksempel med tilbud og etterspørsel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraoppgave">Ekstraoppgave</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<h1>7 - Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h1>
+<section id="enkle-grafer">
+<h2>Enkle grafer<a class="headerlink" href="#enkle-grafer" title="Link to this heading">#</a></h2>
+<p>Det er fint å kunne lage funksjoner i Python, men det er enda bedre å <em>se</em> dem. Vi skal nå se på hvordan vi kan tegne resultatet av funksjoner i et diagram ved hjelp av pakken <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Ofte ønsker vil å bruke matplotlib til å vise oss sammenhenger i data vi har hentet inn. Når vi importerer data til Python bruker vi vanligvis pakken <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Vi har allerede diskutert hvordan vi kan arbeide med data i <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, så foreløpig skal vi ikke gjøre noe mer enn å importere og bruke dataene i <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Vi starter derfor med å <em>importere</em> <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> og <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<section id="eksempel-1">
+<h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># versjon</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotte-tall">
+<h3>Plotte tall<a class="headerlink" href="#plotte-tall" title="Link to this heading">#</a></h3>
+<p>Vi starter med å plotte følgende tre kooridnater: (4,8), (7,2) og (2,6). For å gjøre det lager vi én variabel med x-koordinatene, og én med y-koordiantene. Funksjonen <code class="docutils literal notranslate"><span class="pre">plot</span></code>lager en figur med linjer mellom hvert av punktene:</p>
+</section>
+<section id="eksempel-2">
+<h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ce7318165c0b1c064aefae91a65270ef6a4a205debb49850c1469867006331ac.png" src="../../_images/ce7318165c0b1c064aefae91a65270ef6a4a205debb49850c1469867006331ac.png" />
+</div>
+</div>
+<p>Vi kan legge til punktene, så vi ser dem tydligere, med funksjonen <code class="docutils literal notranslate"><span class="pre">scatter</span></code>:</p>
+</section>
+<section id="eksempel-3">
+<h3>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>    <span class="c1"># plt.plot - lager linjer</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># plt.scatter - lager punkter</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9111ee9a6be5ba99c5501b14d6018b1025689eebfb0d9cc67dd81a8f0426b5dd.png" src="../../_images/9111ee9a6be5ba99c5501b14d6018b1025689eebfb0d9cc67dd81a8f0426b5dd.png" />
+</div>
+</div>
+<p>… og vi kan plotte kun punktene:</p>
+</section>
+<section id="eksempel-4">
+<h3>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c2ae00ed574307904900c8a713d3da50d056fe8d0b8683ef289c00915ce42114.png" src="../../_images/c2ae00ed574307904900c8a713d3da50d056fe8d0b8683ef289c00915ce42114.png" />
+</div>
+</div>
+</section>
+<section id="plotte-en-funksjon">
+<h3>Plotte en funksjon<a class="headerlink" href="#plotte-en-funksjon" title="Link to this heading">#</a></h3>
+<p>Du kan plotte en funksjon ved å definere en liste med tall, og så definere en funksjonsverdi for hvert element i listen. <code class="docutils literal notranslate"><span class="pre">range</span></code>-funksjonen har vi vært borte i før, og <code class="docutils literal notranslate"><span class="pre">range(1,50)</span></code> gir oss en liste over heltall fra 1 til 50. Så regner vi ut logaritmen av disse tallene og setter det inn som y-verdier:</p>
+</section>
+<section id="eksempel-5">
+<h3>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range gjør at vi slipper å skrive alle tallene i en liste</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Logaritme-funksjon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># Plot    </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    <span class="c1"># Viser plottet</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" src="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x = range(1, 50)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># 1000 punkter mellom 1 og 50</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Sinus-funksjon</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># Plot </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/58fe5ea8872e878bd66db98364f1edf19d8bd7230d79814f6d34d60df7c29a5a.png" src="../../_images/58fe5ea8872e878bd66db98364f1edf19d8bd7230d79814f6d34d60df7c29a5a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.          1.04904905  1.0980981   1.14714715  1.1961962   1.24524525
+  1.29429429  1.34334334  1.39239239  1.44144144  1.49049049  1.53953954
+  1.58858859  1.63763764  1.68668669  1.73573574  1.78478478  1.83383383
+  1.88288288  1.93193193  1.98098098  2.03003003  2.07907908  2.12812813
+  2.17717718  2.22622623  2.27527528  2.32432432  2.37337337  2.42242242
+  2.47147147  2.52052052  2.56956957  2.61861862  2.66766767  2.71671672
+  2.76576577  2.81481481  2.86386386  2.91291291  2.96196196  3.01101101
+  3.06006006  3.10910911  3.15815816  3.20720721  3.25625626  3.30530531
+  3.35435435  3.4034034   3.45245245  3.5015015   3.55055055  3.5995996
+  3.64864865  3.6976977   3.74674675  3.7957958   3.84484484  3.89389389
+  3.94294294  3.99199199  4.04104104  4.09009009  4.13913914  4.18818819
+  4.23723724  4.28628629  4.33533534  4.38438438  4.43343343  4.48248248
+  4.53153153  4.58058058  4.62962963  4.67867868  4.72772773  4.77677678
+  4.82582583  4.87487487  4.92392392  4.97297297  5.02202202  5.07107107
+  5.12012012  5.16916917  5.21821822  5.26726727  5.31631632  5.36536537
+  5.41441441  5.46346346  5.51251251  5.56156156  5.61061061  5.65965966
+  5.70870871  5.75775776  5.80680681  5.85585586  5.9049049   5.95395395
+  6.003003    6.05205205  6.1011011   6.15015015  6.1991992   6.24824825
+  6.2972973   6.34634635  6.3953954   6.44444444  6.49349349  6.54254254
+  6.59159159  6.64064064  6.68968969  6.73873874  6.78778779  6.83683684
+  6.88588589  6.93493493  6.98398398  7.03303303  7.08208208  7.13113113
+  7.18018018  7.22922923  7.27827828  7.32732733  7.37637638  7.42542543
+  7.47447447  7.52352352  7.57257257  7.62162162  7.67067067  7.71971972
+  7.76876877  7.81781782  7.86686687  7.91591592  7.96496496  8.01401401
+  8.06306306  8.11211211  8.16116116  8.21021021  8.25925926  8.30830831
+  8.35735736  8.40640641  8.45545546  8.5045045   8.55355355  8.6026026
+  8.65165165  8.7007007   8.74974975  8.7987988   8.84784785  8.8968969
+  8.94594595  8.99499499  9.04404404  9.09309309  9.14214214  9.19119119
+  9.24024024  9.28928929  9.33833834  9.38738739  9.43643644  9.48548549
+  9.53453453  9.58358358  9.63263263  9.68168168  9.73073073  9.77977978
+  9.82882883  9.87787788  9.92692693  9.97597598 10.02502503 10.07407407
+ 10.12312312 10.17217217 10.22122122 10.27027027 10.31931932 10.36836837
+ 10.41741742 10.46646647 10.51551552 10.56456456 10.61361361 10.66266266
+ 10.71171171 10.76076076 10.80980981 10.85885886 10.90790791 10.95695696
+ 11.00600601 11.05505506 11.1041041  11.15315315 11.2022022  11.25125125
+ 11.3003003  11.34934935 11.3983984  11.44744745 11.4964965  11.54554555
+ 11.59459459 11.64364364 11.69269269 11.74174174 11.79079079 11.83983984
+ 11.88888889 11.93793794 11.98698699 12.03603604 12.08508509 12.13413413
+ 12.18318318 12.23223223 12.28128128 12.33033033 12.37937938 12.42842843
+ 12.47747748 12.52652653 12.57557558 12.62462462 12.67367367 12.72272272
+ 12.77177177 12.82082082 12.86986987 12.91891892 12.96796797 13.01701702
+ 13.06606607 13.11511512 13.16416416 13.21321321 13.26226226 13.31131131
+ 13.36036036 13.40940941 13.45845846 13.50750751 13.55655656 13.60560561
+ 13.65465465 13.7037037  13.75275275 13.8018018  13.85085085 13.8998999
+ 13.94894895 13.997998   14.04704705 14.0960961  14.14514515 14.19419419
+ 14.24324324 14.29229229 14.34134134 14.39039039 14.43943944 14.48848849
+ 14.53753754 14.58658659 14.63563564 14.68468468 14.73373373 14.78278278
+ 14.83183183 14.88088088 14.92992993 14.97897898 15.02802803 15.07707708
+ 15.12612613 15.17517518 15.22422422 15.27327327 15.32232232 15.37137137
+ 15.42042042 15.46946947 15.51851852 15.56756757 15.61661662 15.66566567
+ 15.71471471 15.76376376 15.81281281 15.86186186 15.91091091 15.95995996
+ 16.00900901 16.05805806 16.10710711 16.15615616 16.20520521 16.25425425
+ 16.3033033  16.35235235 16.4014014  16.45045045 16.4994995  16.54854855
+ 16.5975976  16.64664665 16.6956957  16.74474474 16.79379379 16.84284284
+ 16.89189189 16.94094094 16.98998999 17.03903904 17.08808809 17.13713714
+ 17.18618619 17.23523524 17.28428428 17.33333333 17.38238238 17.43143143
+ 17.48048048 17.52952953 17.57857858 17.62762763 17.67667668 17.72572573
+ 17.77477477 17.82382382 17.87287287 17.92192192 17.97097097 18.02002002
+ 18.06906907 18.11811812 18.16716717 18.21621622 18.26526527 18.31431431
+ 18.36336336 18.41241241 18.46146146 18.51051051 18.55955956 18.60860861
+ 18.65765766 18.70670671 18.75575576 18.8048048  18.85385385 18.9029029
+ 18.95195195 19.001001   19.05005005 19.0990991  19.14814815 19.1971972
+ 19.24624625 19.2952953  19.34434434 19.39339339 19.44244244 19.49149149
+ 19.54054054 19.58958959 19.63863864 19.68768769 19.73673674 19.78578579
+ 19.83483483 19.88388388 19.93293293 19.98198198 20.03103103 20.08008008
+ 20.12912913 20.17817818 20.22722723 20.27627628 20.32532533 20.37437437
+ 20.42342342 20.47247247 20.52152152 20.57057057 20.61961962 20.66866867
+ 20.71771772 20.76676677 20.81581582 20.86486486 20.91391391 20.96296296
+ 21.01201201 21.06106106 21.11011011 21.15915916 21.20820821 21.25725726
+ 21.30630631 21.35535536 21.4044044  21.45345345 21.5025025  21.55155155
+ 21.6006006  21.64964965 21.6986987  21.74774775 21.7967968  21.84584585
+ 21.89489489 21.94394394 21.99299299 22.04204204 22.09109109 22.14014014
+ 22.18918919 22.23823824 22.28728729 22.33633634 22.38538539 22.43443443
+ 22.48348348 22.53253253 22.58158158 22.63063063 22.67967968 22.72872873
+ 22.77777778 22.82682683 22.87587588 22.92492492 22.97397397 23.02302302
+ 23.07207207 23.12112112 23.17017017 23.21921922 23.26826827 23.31731732
+ 23.36636637 23.41541542 23.46446446 23.51351351 23.56256256 23.61161161
+ 23.66066066 23.70970971 23.75875876 23.80780781 23.85685686 23.90590591
+ 23.95495495 24.004004   24.05305305 24.1021021  24.15115115 24.2002002
+ 24.24924925 24.2982983  24.34734735 24.3963964  24.44544545 24.49449449
+ 24.54354354 24.59259259 24.64164164 24.69069069 24.73973974 24.78878879
+ 24.83783784 24.88688689 24.93593594 24.98498498 25.03403403 25.08308308
+ 25.13213213 25.18118118 25.23023023 25.27927928 25.32832833 25.37737738
+ 25.42642643 25.47547548 25.52452452 25.57357357 25.62262262 25.67167167
+ 25.72072072 25.76976977 25.81881882 25.86786787 25.91691692 25.96596597
+ 26.01501502 26.06406406 26.11311311 26.16216216 26.21121121 26.26026026
+ 26.30930931 26.35835836 26.40740741 26.45645646 26.50550551 26.55455455
+ 26.6036036  26.65265265 26.7017017  26.75075075 26.7997998  26.84884885
+ 26.8978979  26.94694695 26.995996   27.04504505 27.09409409 27.14314314
+ 27.19219219 27.24124124 27.29029029 27.33933934 27.38838839 27.43743744
+ 27.48648649 27.53553554 27.58458458 27.63363363 27.68268268 27.73173173
+ 27.78078078 27.82982983 27.87887888 27.92792793 27.97697698 28.02602603
+ 28.07507508 28.12412412 28.17317317 28.22222222 28.27127127 28.32032032
+ 28.36936937 28.41841842 28.46746747 28.51651652 28.56556557 28.61461461
+ 28.66366366 28.71271271 28.76176176 28.81081081 28.85985986 28.90890891
+ 28.95795796 29.00700701 29.05605606 29.10510511 29.15415415 29.2032032
+ 29.25225225 29.3013013  29.35035035 29.3993994  29.44844845 29.4974975
+ 29.54654655 29.5955956  29.64464464 29.69369369 29.74274274 29.79179179
+ 29.84084084 29.88988989 29.93893894 29.98798799 30.03703704 30.08608609
+ 30.13513514 30.18418418 30.23323323 30.28228228 30.33133133 30.38038038
+ 30.42942943 30.47847848 30.52752753 30.57657658 30.62562563 30.67467467
+ 30.72372372 30.77277277 30.82182182 30.87087087 30.91991992 30.96896897
+ 31.01801802 31.06706707 31.11611612 31.16516517 31.21421421 31.26326326
+ 31.31231231 31.36136136 31.41041041 31.45945946 31.50850851 31.55755756
+ 31.60660661 31.65565566 31.7047047  31.75375375 31.8028028  31.85185185
+ 31.9009009  31.94994995 31.998999   32.04804805 32.0970971  32.14614615
+ 32.1951952  32.24424424 32.29329329 32.34234234 32.39139139 32.44044044
+ 32.48948949 32.53853854 32.58758759 32.63663664 32.68568569 32.73473473
+ 32.78378378 32.83283283 32.88188188 32.93093093 32.97997998 33.02902903
+ 33.07807808 33.12712713 33.17617618 33.22522523 33.27427427 33.32332332
+ 33.37237237 33.42142142 33.47047047 33.51951952 33.56856857 33.61761762
+ 33.66666667 33.71571572 33.76476476 33.81381381 33.86286286 33.91191191
+ 33.96096096 34.01001001 34.05905906 34.10810811 34.15715716 34.20620621
+ 34.25525526 34.3043043  34.35335335 34.4024024  34.45145145 34.5005005
+ 34.54954955 34.5985986  34.64764765 34.6966967  34.74574575 34.79479479
+ 34.84384384 34.89289289 34.94194194 34.99099099 35.04004004 35.08908909
+ 35.13813814 35.18718719 35.23623624 35.28528529 35.33433433 35.38338338
+ 35.43243243 35.48148148 35.53053053 35.57957958 35.62862863 35.67767768
+ 35.72672673 35.77577578 35.82482482 35.87387387 35.92292292 35.97197197
+ 36.02102102 36.07007007 36.11911912 36.16816817 36.21721722 36.26626627
+ 36.31531532 36.36436436 36.41341341 36.46246246 36.51151151 36.56056056
+ 36.60960961 36.65865866 36.70770771 36.75675676 36.80580581 36.85485485
+ 36.9039039  36.95295295 37.002002   37.05105105 37.1001001  37.14914915
+ 37.1981982  37.24724725 37.2962963  37.34534535 37.39439439 37.44344344
+ 37.49249249 37.54154154 37.59059059 37.63963964 37.68868869 37.73773774
+ 37.78678679 37.83583584 37.88488488 37.93393393 37.98298298 38.03203203
+ 38.08108108 38.13013013 38.17917918 38.22822823 38.27727728 38.32632633
+ 38.37537538 38.42442442 38.47347347 38.52252252 38.57157157 38.62062062
+ 38.66966967 38.71871872 38.76776777 38.81681682 38.86586587 38.91491491
+ 38.96396396 39.01301301 39.06206206 39.11111111 39.16016016 39.20920921
+ 39.25825826 39.30730731 39.35635636 39.40540541 39.45445445 39.5035035
+ 39.55255255 39.6016016  39.65065065 39.6996997  39.74874875 39.7977978
+ 39.84684685 39.8958959  39.94494494 39.99399399 40.04304304 40.09209209
+ 40.14114114 40.19019019 40.23923924 40.28828829 40.33733734 40.38638639
+ 40.43543544 40.48448448 40.53353353 40.58258258 40.63163163 40.68068068
+ 40.72972973 40.77877878 40.82782783 40.87687688 40.92592593 40.97497497
+ 41.02402402 41.07307307 41.12212212 41.17117117 41.22022022 41.26926927
+ 41.31831832 41.36736737 41.41641642 41.46546547 41.51451451 41.56356356
+ 41.61261261 41.66166166 41.71071071 41.75975976 41.80880881 41.85785786
+ 41.90690691 41.95595596 42.00500501 42.05405405 42.1031031  42.15215215
+ 42.2012012  42.25025025 42.2992993  42.34834835 42.3973974  42.44644645
+ 42.4954955  42.54454454 42.59359359 42.64264264 42.69169169 42.74074074
+ 42.78978979 42.83883884 42.88788789 42.93693694 42.98598599 43.03503504
+ 43.08408408 43.13313313 43.18218218 43.23123123 43.28028028 43.32932933
+ 43.37837838 43.42742743 43.47647648 43.52552553 43.57457457 43.62362362
+ 43.67267267 43.72172172 43.77077077 43.81981982 43.86886887 43.91791792
+ 43.96696697 44.01601602 44.06506507 44.11411411 44.16316316 44.21221221
+ 44.26126126 44.31031031 44.35935936 44.40840841 44.45745746 44.50650651
+ 44.55555556 44.6046046  44.65365365 44.7027027  44.75175175 44.8008008
+ 44.84984985 44.8988989  44.94794795 44.996997   45.04604605 45.0950951
+ 45.14414414 45.19319319 45.24224224 45.29129129 45.34034034 45.38938939
+ 45.43843844 45.48748749 45.53653654 45.58558559 45.63463463 45.68368368
+ 45.73273273 45.78178178 45.83083083 45.87987988 45.92892893 45.97797798
+ 46.02702703 46.07607608 46.12512513 46.17417417 46.22322322 46.27227227
+ 46.32132132 46.37037037 46.41941942 46.46846847 46.51751752 46.56656657
+ 46.61561562 46.66466466 46.71371371 46.76276276 46.81181181 46.86086086
+ 46.90990991 46.95895896 47.00800801 47.05705706 47.10610611 47.15515516
+ 47.2042042  47.25325325 47.3023023  47.35135135 47.4004004  47.44944945
+ 47.4984985  47.54754755 47.5965966  47.64564565 47.69469469 47.74374374
+ 47.79279279 47.84184184 47.89089089 47.93993994 47.98898899 48.03803804
+ 48.08708709 48.13613614 48.18518519 48.23423423 48.28328328 48.33233233
+ 48.38138138 48.43043043 48.47947948 48.52852853 48.57757758 48.62662663
+ 48.67567568 48.72472472 48.77377377 48.82282282 48.87187187 48.92092092
+ 48.96996997 49.01901902 49.06806807 49.11711712 49.16616617 49.21521522
+ 49.26426426 49.31331331 49.36236236 49.41141141 49.46046046 49.50950951
+ 49.55855856 49.60760761 49.65665666 49.70570571 49.75475475 49.8038038
+ 49.85285285 49.9019019  49.95095095 50.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_education</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">income</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">year_education</span><span class="p">,</span> <span class="n">income</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_education</span><span class="p">,</span> <span class="n">income</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lønn&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;År med utdannelse&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Inntekt&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/27c18a92c76e86000e38113bb37d2ad5f5ac4739ed838c57156ac091156fa350.png" src="../../_images/27c18a92c76e86000e38113bb37d2ad5f5ac4739ed838c57156ac091156fa350.png" />
+</div>
+</div>
+</section>
+<section id="importere-data">
+<h3>Importere data<a class="headerlink" href="#importere-data" title="Link to this heading">#</a></h3>
+<p>Men det er morsommere å jobbe med virkelige data. Import av data til <code class="docutils literal notranslate"><span class="pre">pandas</span></code> gjøres enkelt med funksjonen <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>. Dersom du har lastet ned siste versjon av notebooks, ligger den en fil i mappen “data” som heter <code class="docutils literal notranslate"><span class="pre">'schooling-gdp.csv'</span></code> (<a class="reference external" href="https://ourworldindata.org/grapher/correlation-between-mean-years-of-schooling-and-gdp-per-capita">kilde</a>). Denne filen inneholder data på BNP og utdanningsnivå for endel land i 2010. Dette er samme datasett, som vi så på tidligere i kurset!</p>
+</section>
+<section id="eksempel-6">
+<h3>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/schooling-gdp.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/schooling-gdp.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./data/schooling-gdp.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>La oss nå se på dataene, ved å kjøre en kode med kun navnet på variabelen som holder dataene:</p>
+</section>
+<section id="eksempel-7">
+<h3>Eksempel 7:<a class="headerlink" href="#eksempel-7" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser at vi har fire variabler: Land, Landkode, BNP_per_capita (BNP per innbygger), Utdanning og Befolkning. BNP er “brutto nasjonalprodukt” som måler hvor mye som produseres i et land i løpet av et år. BNP_per_capita viser altså hvor mye hver person i landet produserer hvert år i gjennomsnitt.</p>
+<p>Vi kan hente opp hver serie ved å skrive navnet til variabelen som holder dataene, altså <code class="docutils literal notranslate"><span class="pre">df</span></code>, etterfulgt av en klammeparentes med navnet på dataserien vi ønsker, for eksempel ‘BNP’:</p>
+</section>
+<section id="eksempel-8">
+<h3>Eksempel 8:<a class="headerlink" href="#eksempel-8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Skal vi plotte data, gjør vi akkurat som i Eksempel 2; vi legger inn x- og y-verdier i plotfunksjonen, og disse verdiene henter vi med klammeparentes etter datavariabelen. Her plotter vi BNP langs x-aksen og utdanning langs y-aksen. Vi bruker <code class="docutils literal notranslate"><span class="pre">scatter</span></code>-funksjonen, siden det ikke gir noen mening å tegne streker mellom disse punktene:</p>
+</section>
+<section id="eksempel-9">
+<h3>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" src="../../_images/adf7931807c656dd46275f19af689721b7c1111ddf3930046042205f3c100aed.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;BNP per innbygger&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Utdanning&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Overskrift&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;BNP per innbygger&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Utdanning&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Om vi ser på log-funksjonen i Eksempel 5, så ser vi at fordelingen av punkter ligner litt på den, så la oss legge inn logaritmen som funksjon av BNP. Vi må justere den litt, men som du ser passer den ganske bra! Det ser altså ut til at det er en sammenheng mellom utdanningsnivå og BNP, men sammenhengen blir svakere desto høyere BNP er.</p>
+</section>
+<section id="eksempel-10">
+<h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bnp_per_capita</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
+<span class="n">utdanning</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>    <span class="c1"># Scatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Linje plot</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">bnp_per_capita</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">utdanning</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bnp_per_capita</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]))</span>    <span class="c1"># Scatter plot</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hva-med-tilfeldige-tall">
+<h1>Hva med tilfeldige tall?<a class="headerlink" href="#hva-med-tilfeldige-tall" title="Link to this heading">#</a></h1>
+<p>Vi kan plottet tilfeldige tall ved hjelp av <strong>numpy</strong>, under så bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">np.random.normal(mean,</span> <span class="pre">std,</span> <span class="pre">size)</span></code>. Hvor <strong>mean</strong> er gjennomsnittsverdien, <strong>std</strong> er standardavvik (det sier noe om hvor langt fra gjennomsnittet vi vil trekke verdier fra) og <strong>size</strong> sier noe om hvor mange tilfeldige tall vi trekker.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Vi henter tilfeldige inntekter fra en normalfordeling rundt 550000 med std 100000</span>
+<span class="n">incomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">550000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">incomes</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19d6bcda978755c144174bf774007fb3cfdd4e6c7eeb4ed777bbf80ab122c4bb.png" src="../../_images/19d6bcda978755c144174bf774007fb3cfdd4e6c7eeb4ed777bbf80ab122c4bb.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 10000x600 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="eksempel-med-bankinnskudd-og-bruk-av-subplots">
+<h2>Eksempel med bankinnskudd og bruk av subplots()<a class="headerlink" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots" title="Link to this heading">#</a></h2>
+<p>Vi begynner med å lage funksjonen for et lån i en tidligere forelesning. Vi husker at om banken din legger til renten <code class="docutils literal notranslate"><span class="pre">n</span></code> ganger i året, og renten er <code class="docutils literal notranslate"><span class="pre">r</span></code>, så er bankinnskuddet på <code class="docutils literal notranslate"><span class="pre">x</span></code> om <code class="docutils literal notranslate"><span class="pre">T</span></code> år gitt som  <span class="math notranslate nohighlight">\(x\cdot (1+\frac{r}{n})^{T\cdot n}\)</span>, som vi kan programmere slik:</p>
+<section id="eksempel-11">
+<h3>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">account_balance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi skal bruke en litt annen fremgangsmåte for å plotte denne funksjonen, enn i eksemplene over. Vi skal først lage et figurobjekt og et akseobjekt med funksjonen <code class="docutils literal notranslate"><span class="pre">fig,ax=plt.subplots()</span></code>. Vi kan så bruke objektet <code class="docutils literal notranslate"><span class="pre">ax</span></code> til å lage etiketter til aksene og plotte flere grafer oppå hverandre. Dette er altså en littegran mer avansert bruk av <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Fordelen er at vi kan legge til nye elementer i eksisterende plot, uten å skrive hele koden på nytt når vi kjører i en annen celle.</p>
+<p>Om renten er 20%=0.2, innskuddet er 100 som forrentes årlig, så kan vi tegne innskuddsfunksjonen for 10 år som</p>
+</section>
+<section id="eksempel-12">
+<h3>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Sjekker utviklingen over 10 år, med 100 data punkter</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># 2. Initierer plottet</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># 3. Legger til labels (navn) på aksene</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Verdi bankinnskudd&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tid T&#39;</span><span class="p">)</span>
+
+<span class="c1"># 4. Plotte funksjonen med 20% årlig forrentning, og 1 gang per år</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bankinnskudd, årlig forrentning&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+
+<span class="c1"># 5. Legger til &#39;legend&#39; (merkelapp)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8a225ff9d926f2037b09b2bacc0b0dbcecc5af2d1a84a21ea33cccdcd59154fb.png" src="../../_images/8a225ff9d926f2037b09b2bacc0b0dbcecc5af2d1a84a21ea33cccdcd59154fb.png" />
+</div>
+</div>
+<p>Det som skjer over er at vi</p>
+<ol class="arabic simple">
+<li><p>Definerer for hvilke verdier vi skal tegne og hvor mange punkter. Her ser vi at vi tegner hundre punkter i intervallet 0 til 10</p></li>
+<li><p>Lager to objekter <code class="docutils literal notranslate"><span class="pre">fig</span></code> og <code class="docutils literal notranslate"><span class="pre">ax</span></code> som brukes til å tegne grafene.</p></li>
+<li><p>Definerer hva som skal være på x og y-aksen</p></li>
+<li><p>Plotter ved å sette inn punktene <code class="docutils literal notranslate"><span class="pre">T</span></code> og funksjonen <code class="docutils literal notranslate"><span class="pre">account_balance(100,0.2,T,1)</span></code> inn i funksjonen <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code></p></li>
+<li><p>lager ettikett og plasserer den oppe til venstre</p></li>
+</ol>
+<p>Som i forrige forelesning kan det være interessant å sammenligne ulike hyppigheter for å legge til renter. Vi legger derfor til fire grafer til, i samme figur, med henholdsvis kvartalsvis, månedlig, ukentlig og daglig forrentning:</p>
+</section>
+<section id="eksempel-13">
+<h3>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotter grafen med fire ulike forrentningsfrekvenser (kvartal, månedlig, uke, daglig)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kvartalsvis forrentning&#39;</span><span class="p">,</span>     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Måndedlig forrentning&#39;</span><span class="p">,</span>       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">52</span><span class="p">),</span>         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ukentlig forrentning&#39;</span><span class="p">,</span>        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">365</span><span class="p">),</span>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Daglig forrentning&#39;</span><span class="p">,</span>          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a0f69220111a04bbde2f32f89e187658b3214b480406581e51002b1d899a947d.png" src="../../_images/a0f69220111a04bbde2f32f89e187658b3214b480406581e51002b1d899a947d.png" />
+</div>
+</div>
+<p>Hva synes du, har hvor ofte forrentningen skjer mye å si for verdien?</p>
+<p>For å svare på det kan det være interessant å kombinere grafene med en utregning. Hvor vi regner ut hva du taper på hyppig forretning. La oss se på differansen mellom daglig og ukentlig, og ukentlig mot årlig:</p>
+</section>
+<section id="eksempel-14">
+<h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Printer den numeriske differansen mellom daglig og ukentlig forretning, og ukentlig og årlig.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Differansen mellom daglig og ukentlig forrentning i løpet av 20 år er </span><span class="si">{</span>
+<span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+<span class="w">    </span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">365</span><span class="p">)</span><span class="o">-</span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">52</span><span class="p">)</span>
+<span class="w">        </span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="si">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er </span><span class="si">{</span>
+<span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+<span class="w">    </span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">52</span><span class="p">)</span><span class="o">-</span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="si">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Differansen mellom daglig og ukentlig forrentning i løpet av 20 år er 2.42
+
+Differansen mellom ukentlig og årlig forrentning i løpet av 20 år er 116.9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser altså at å gå fra ukentlig til daglig forrentning ikke har så mye å si, men forskjellen fra ukentlig til årlig er ganske stor.</p>
+<p>I stedet for å regne ut med daglig forrentning kan vi bruke kontinuerlig forrentning. Som vi husker fra forrige forelesning, betyr det at vi bruker eksponentialfunksjonen:</p>
+</section>
+<section id="eksempel-15">
+<h3>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer kontinuerlig forretningsfunksjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">account_balance_exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La oss plotte kontinuerlig og <em>sammenligne</em> med daglig forrentning. Legg merke til første linje, som sørger for at vi starter med “blanke ark”.</p>
+</section>
+<section id="eksempel-16">
+<h3>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Starter med en &quot;blank graf&quot;, ved å definere &#39;ax&#39; og &#39;fig&#39; på ny</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Legger til kontinuerlig forrentning fra forrige plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance_exponential</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kontinuerlig forrentet&#39;</span><span class="p">,</span>      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span>       <span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">365</span><span class="p">),</span>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Daglig forrentning&#39;</span><span class="p">,</span>          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+
+<span class="c1"># Printer den numeriske forskjellen mellom årlig og kontinuerlig forretning</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Differansen mellom årlig og kontinuerlig forrentning etter 20 år er </span><span class="si">{</span>
+<span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+<span class="w">   </span><span class="n">account_balance_exponential</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">-</span><span class="w"> </span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">365</span><span class="p">)</span>
+<span class="w">        </span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Differansen mellom årlig og kontinuerlig forrentning etter 20 år er 0.4
+</pre></div>
+</div>
+<img alt="../../_images/33f538a7dfc6f17662bf9cb9532310f9a35c8cb946391005e9355cc0dd84cd7d.png" src="../../_images/33f538a7dfc6f17662bf9cb9532310f9a35c8cb946391005e9355cc0dd84cd7d.png" />
+</div>
+</div>
+<p>Vi ser at selv om det lønner seg å forrente ofte, er det liten forskjell mellom daglig og kontinuerlig forretning. Likevel benytter vi ofte kontinuerlig forrentning i økonomifaget. Årsaken til det er at eksponenten og logaritmen er mye enklere å jobbe med matematisk enn prosentvis avkastning. Nummerisk er imidlertid forskjellen liten så lenge hyppigheten er høy.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="googling">
+<h1>Googling<a class="headerlink" href="#googling" title="Link to this heading">#</a></h1>
+<p>Det er umulig å huske hvordan alle funksjonene til alle pakkene i Python skal brukes, ikke minst fordi det er en konstant uvikling av slike pakker. Heldigvis lages de fleste pakker på en <em>pytonsk</em> måte, hvilket vil si at funksjoner og objekter fra forskjellige pakker og forfattere skal oppføre seg forutsigbart og ensartet. Helt selvforklarende er imidlertid ingen pakker.</p>
+<p>Den beste måten å finne ut hvordan du skal bruke en pakke, er derfor å google det du lurer på. Dette må gjøres på engelsk, siden stort sett alt av forum og dokumentasjon er på engelsk.</p>
+<p>La oss derfor ta matplotlib som eksempel. La oss si at du har glemt denne forelesningen og derfor skal finne ut hvordan du plotter en linje med matplotlib. Forsøk å google <code class="docutils literal notranslate"><span class="pre">&quot;matplotlib</span> <span class="pre">plot</span> <span class="pre">function&quot;</span></code>. I skrivende stund i første treff på Google (det er ikke alltid det første treffet er best), finner du denne koden på <a class="reference external" href="https://scriptverse.academy/tutorials/python-matplotlib-plot-function.html">scriptverse.academy</a>:</p>
+<section id="eksempel-17">
+<h2>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># 100 linearly spaced numbers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># the function, which is y = x^2 here</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># setting the axes at the centre</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/92b58772475fb51e73daf1a83e6c7f989be7cb990c4a4bfda08df20a65eb8741.png" src="../../_images/92b58772475fb51e73daf1a83e6c7f989be7cb990c4a4bfda08df20a65eb8741.png" />
+</div>
+</div>
+<p>Vi ser umiddelbart at det er endel ting vi ikke trenger for et enkelt plott, så vi sletter alt under kommentaren <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">setting</span> <span class="pre">the</span> <span class="pre">axes</span> <span class="pre">at</span> <span class="pre">the</span> <span class="pre">centre</span></code> (frem til <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">plot</span> <span class="pre">the</span> <span class="pre">function</span></code>). Vi trenger heller ikke definisjonen av funksjonen under kommentaren <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">the</span> <span class="pre">function,</span> <span class="pre">which</span> <span class="pre">is</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">x^2</span> <span class="pre">here</span></code>, siden vi har definert våre egne funksjoner over, så vi sletter den også.  Så bytter vi ut alle <code class="docutils literal notranslate"><span class="pre">x</span></code>’er med <code class="docutils literal notranslate"><span class="pre">T</span></code> og velger å sette inn funksjonen for daglig forretning <code class="docutils literal notranslate"><span class="pre">account_balance(100,0.2,T,365)</span></code> inn i <code class="docutils literal notranslate"><span class="pre">plot</span></code>-funksjonen. Tilslutt bytter vi ut startpunktet i <code class="docutils literal notranslate"><span class="pre">linspace</span></code>-funksjonen med <code class="docutils literal notranslate"><span class="pre">0</span></code>. Da får vi følgende kode:</p>
+</section>
+<section id="eksempel-18">
+<h2>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#From https://scriptverse.academy/tutorials/python-matplotlib-plot-function.html</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># 100 linearly spaced numbers</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># plot the function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">account_balance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">365</span><span class="p">),</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1"># show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1b6d91255164e05b347963b21108ed5b004e343806e6a9016ce3a1b6de5278dc.png" src="../../_images/1b6d91255164e05b347963b21108ed5b004e343806e6a9016ce3a1b6de5278dc.png" />
+</div>
+</div>
+<p>Vi ser altså her at ved å bruke eksempler som vi kan endre på, så kan vi raskt finne ut hvordan en pakke fungerer.</p>
+<p>*HUSK: Bruker du andres kode, skal det kommenteres i koden!</p>
+</section>
+<section id="eksempel-med-tilbud-og-ettersporsel">
+<h2>Eksempel med tilbud og etterspørsel<a class="headerlink" href="#eksempel-med-tilbud-og-ettersporsel" title="Link to this heading">#</a></h2>
+<p>Vi definerer først tilbud og etterspørsel slik vi gjorde i en tidligere forelesning, men med litt andre tall:</p>
+<section id="eksempel-19">
+<h3>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">supply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">250</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3000</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi skal nå finne likhet mellom tilbud og etterspørsel grafisk ved å tegne opp begge funksjonene i samme diagram:</p>
+</section>
+<section id="eksempel-20">
+<h3>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner 100 punkter mellom 1 og 100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plotter grafen med tilbud og etterspørsel</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+
+<span class="c1"># Legger til &#39;legend&#39; (merkelapp)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Legger til labels (navn) på aksene</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pris&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Enheter&#39;</span><span class="p">)</span>
+
+<span class="c1"># Setter grenser på y-aksen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">33</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.0, 33.0)
+</pre></div>
+</div>
+<img alt="../../_images/2ef08a062b08ad6c91c842a7c7ddb0b4d916c4f9c09bf42e408526d0e9bace11.png" src="../../_images/2ef08a062b08ad6c91c842a7c7ddb0b4d916c4f9c09bf42e408526d0e9bace11.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="oppgaver">
+<h2>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h2>
+<section id="oppgave-1">
+<h3>Oppgave 1:<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Forsøk å finne prisen og mengden i likevekt (der tilbud=etterspørsel) ved å bruke informasjonen i figuren fra eksempel 20.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Gjør endringer i tilbud og etterspørselsfunksjonene og finn likevekt for disse.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-2">
+<h3>Oppgave 2:<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h3>
+<p>Finn på noen koordinater selv, som du plotter</p>
+<ol class="arabic simple">
+<li><p>som punkter</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>med linjer mellom</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>med både linjer og punkter.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3">
+<h3>Oppgave 3:<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Plott BNP_per_capita mot Befolkning</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Plott Utdanning mot Befolkning</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4">
+<h3>Oppgave 4:<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.log(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.cos(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.sin(x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">np.exp(-x)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Lag en funksjon selv, og plott denne.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-5">
+<h3>Oppgave 5:<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h3>
+<p>En fabrikk produserer <span class="math notranslate nohighlight">\(x\)</span> enheter. Kostnaden per enhet er 5 kroner, og i tillegg øker kostnaden med 5 øre per produsert enhet. Hver enhet koster dermed <span class="math notranslate nohighlight">\(5+0.05 \cdot x\)</span>. Bedriften selger produksjonen <span class="math notranslate nohighlight">\(x\)</span> til en pris <span class="math notranslate nohighlight">\(p\)</span>. Fortjenesten er dermed differansen mellom inntekter <span class="math notranslate nohighlight">\(p\cdot x\)</span> og totale kostnader <span class="math notranslate nohighlight">\(x \cdot (5+0.05 x)\)</span>.</p>
+<p>I alle oppgavene under skal du plotte i intervallet 0 til 100 (<code class="docutils literal notranslate"><span class="pre">x=p=np.linspace(0,100,100)</span></code>).</p>
+<ol class="arabic simple">
+<li><p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">cost(x)</span></code> for totale kostnader, gitt en produksjonsmengde <span class="math notranslate nohighlight">\(x\)</span>, og</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">profit(x,p)</span></code> for fortjenesten, gitt en produksjonsmengde <span class="math notranslate nohighlight">\(x\)</span> og pris <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Sett <code class="docutils literal notranslate"><span class="pre">x</span></code>til 5 i funksjonen du lagde over i 2., og plott fortjenesten som en funksjon av prisen.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Sett <code class="docutils literal notranslate"><span class="pre">p</span></code>til 10 i funksjonen du lagde over i 2., og plott fortjenesten som en funksjon av produsert mengde.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Hva er optimal produsert mengde?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Husk å lag etiketter for aksene!</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-6">
+<h1>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h1>
+<p>Bytt om på x og y verdier i Eksempel 10, og bytt ut <code class="docutils literal notranslate"><span class="pre">np.log</span></code> med <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, bytt ut Utdanning i stedet for <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code> i <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>-funksjonen, og plott figuren på nytt.</p>
+<p>Sorter datasettet på Utdanning først med <code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values('Utdanning')</span></code>, og bruke <code class="docutils literal notranslate"><span class="pre">df_sorted</span></code> i stedet for <code class="docutils literal notranslate"><span class="pre">df</span></code> i koden i Eksempel 10.</p>
+<p>a) Gjør tilpassninger tilsvarende de som er gjort med log-funksjonen for å få exp-funksjonen til å passe så godt som mulig til dataene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Forsøk uten sortering, hva skjer?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ekstraoppgave">
+<h1>Ekstraoppgave<a class="headerlink" href="#ekstraoppgave" title="Link to this heading">#</a></h1>
+<p>Vi ønsker å plotte prisutviklingen av ost fra 2003 til 2013. Det gjør vi ved å ta en startpris (som er ca 70 kroner), og antar en 2% årlig vekst. Hvor vi legger til 5% tilfeldig variasjon (+/-).</p>
+<p>Da kan du få bruk for en variabel som dette:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">randomness</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">randomness</span><span class="p">,</span> <span class="n">randomness</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Som vil gi det et tilfeldig tall mellom <span class="math notranslate nohighlight">\(-0.05\)</span> og <span class="math notranslate nohighlight">\(+0.05\)</span></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../06/logikk_loops.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6 - Logikk og løkker</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08/seaborn.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7 - Seaborn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7 - Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkle-grafer">Enkle grafer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-tall">Plotte tall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotte-en-funksjon">Plotte en funksjon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importere-data">Importere data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-med-tilfeldige-tall">Hva med tilfeldige tall?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-bankinnskudd-og-bruk-av-subplots">Eksempel med bankinnskudd og bruk av subplots()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#googling">Googling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-tilbud-og-ettersporsel">Eksempel med tilbud og etterspørsel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraoppgave">Ekstraoppgave</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

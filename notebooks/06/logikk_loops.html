@@ -1,0 +1,1470 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6 - Logikk og løkker &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/06/logikk_loops';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7 - Matplotlib" href="../07/matplotlib.html" />
+    <link rel="prev" title="5 - Pandas og databehandling" href="../05/pandas_og_databehandling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06/logikk_loops.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/06/logikk_loops.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6 - Logikk og løkker</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6 - Logikk og løkker</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-betingelser">Logikk og betingelser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-i-python">If/else Statements i Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elif-statements">elif-statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-elif-og-betingelser"><strong>Eksempel med elif og betingelser</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-liten-oversikt-av-if-else-statements-i-python">En liten oversikt av If/Else Statements i Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-setninger-og-lister">If/else setninger og lister</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokker-i-python">For-løkker i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaks">Syntaks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-nyttig-tilfelle-av-for-lokke-i-databehandling">Et nyttig tilfelle av for-løkke i databehandling.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterere-over-dataframe"><strong>Iterere over DataFrame</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9-tilgang-til-rader"><strong>Eksempel 9 - Tilgang til rader</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsummering">Oppsummering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-while-lokker-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10-bruk-av-while-lokke">Eksempel 10 - bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forklaring-av-eksempelet-over">Forklaring av eksempelet over</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definering-av-variabler">Definering av variabler:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke">While-løkke:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-i-lokken">Inne i løkken:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utskrift">Utskrift:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fordeler-med-while-lokker">Fordeler med <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komponenter-i-while-lokker">Komponenter i <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11-beregning-av-rente-over-tid">Eksempel 11 - Beregning av rente over tid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12-beregn-nedbetalingstid-for-lan">Eksempel 12 - Beregn nedbetalingstid for lån</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-skriv-ut-bilmerker">Oppgave 2 - Skriv ut bilmerker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-total-antall-biler-vraket">Oppgave 3 - Total antall biler vraket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-totalt-antall-biler-under-4-ar">Oppgave 4 - Totalt antall biler under 4 år</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-populaere-bilmerker">Oppgave 5 - Populære bilmerker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-lanebelop-og-rente">Oppgave 6 - Lånebeløp og rente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-beskatning-av-inntekt">Oppgave 7 - Beskatning av inntekt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-karakterberegning">Oppgave 8 - Karakterberegning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-while-og-lan">Oppgave 9 - <code class="docutils literal notranslate"><span class="pre">while</span></code> og lån</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="logikk-og-lokker">
+<h1>6 - Logikk og løkker<a class="headerlink" href="#logikk-og-lokker" title="Link to this heading">#</a></h1>
+<section id="logikk-og-betingelser">
+<h2>Logikk og betingelser<a class="headerlink" href="#logikk-og-betingelser" title="Link to this heading">#</a></h2>
+<p>Noe av det vi gjør oftest når vi programmerer er å teste om en betingelse er sann eller usann. Når testen er utført, kan programmet velge riktig vei å gå i fortsettelsen. Slik testing kalles “logikk”. Vi har allerede i innledningen vært inne på variabeltypen som avgjør om en test er sann eller usann, typen <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<p>Sann eller usann (<code class="docutils literal notranslate"><span class="pre">True</span></code> og <code class="docutils literal notranslate"><span class="pre">False</span></code>) brukes som oftest sammen med en <code class="docutils literal notranslate"><span class="pre">if</span></code>-betingelse, slik som dette:</p>
+<section id="eksempel-1">
+<h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hå&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eksempelet over ser vi at hvis <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">False</span></code>, så printes teksten ‘Hei’. Hvis vi setter <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">True</span></code> så printes teksten ‘Hå’.</p>
+</section>
+</section>
+<section id="if-else-statements-i-python">
+<h2>If/else Statements i Python<a class="headerlink" href="#if-else-statements-i-python" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">if/else</span></code>-setninger i Python brukes til å utføre betinget logikk i programmet. De lar oss ta beslutninger i koden basert på spesifikke betingelser. Dette betyr at programmet kan kjøre ulike blokker med kode avhengig av om en betingelse er sann (<code class="docutils literal notranslate"><span class="pre">True</span></code>) eller usann (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<section id="grunnleggende-struktur">
+<h3>Grunnleggende Struktur<a class="headerlink" href="#grunnleggende-struktur" title="Link to this heading">#</a></h3>
+<p>Strukturen for en enkel if/else-setning ser slik ut:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="k">if</span> <span class="n">betingelse</span><span class="p">:</span>
+            <span class="c1"># Kode som kjøres hvis betingelsen er sann</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Kode som kjøres hvis betingelsen er usann</span>
+</pre></div>
+</div>
+<p>Hvor det er viktig at det brukes kolon (:) og inntrykk!</p>
+<p>Vanligvis vil <code class="docutils literal notranslate"><span class="pre">if</span></code>-setningen inneholde en test som ikke er helt åpenbar, og som avhenger av input i en funksjon eller en variabel som er definert et annet sted i koden. Her er et eksempel på det første:</p>
+</section>
+<section id="eskempel-2">
+<h3>Eskempel 2:<a class="headerlink" href="#eskempel-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">did_I_win</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span><span class="n">s1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s1</span><span class="o">&gt;</span><span class="n">s0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;won!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;lost&quot;</span> 
+
+<span class="n">PricePaid</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">StockPriceToday</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Bought for: </span><span class="si">{</span><span class="n">PricePaid</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Worth today: </span><span class="si">{</span><span class="n">StockPriceToday</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;You </span><span class="si">{</span><span class="n">did_I_win</span><span class="p">(</span><span class="n">PricePaid</span><span class="p">,</span><span class="n">StockPriceToday</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bought for: 100
+Worth today: 177
+You won!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="elif-statements">
+<h2>elif-statements<a class="headerlink" href="#elif-statements" title="Link to this heading">#</a></h2>
+<p>I tillegg kan vi bruke <code class="docutils literal notranslate"><span class="pre">elif</span></code> (else if) for å sjekke flere betingelser:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">betingelse1</span><span class="p">:</span>
+        <span class="c1"># Kode som kjøres hvis betingelse1 er sann</span>
+    <span class="k">elif</span> <span class="n">betingelse2</span><span class="p">:</span>
+        <span class="c1"># Kode som kjøres hvis betingelse2 er sann</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Kode som kjøres hvis ingen av betingelsene er sanne</span>
+</pre></div>
+</div>
+<p>Her kan vi legge til “så mange vi vil” av <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statements. Men bare én <code class="docutils literal notranslate"><span class="pre">if</span></code> og én <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
+</section>
+<section id="betingelser">
+<h2>Betingelser<a class="headerlink" href="#betingelser" title="Link to this heading">#</a></h2>
+<p>Betingelsene i <code class="docutils literal notranslate"><span class="pre">if</span></code>-setninger kan involvere sammenligninger (som <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>) og logiske operatorer (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>).</p>
+</section>
+<section id="eksempel-med-elif-og-betingelser">
+<h2><strong>Eksempel med elif og betingelser</strong><a class="headerlink" href="#eksempel-med-elif-og-betingelser" title="Link to this heading">#</a></h2>
+<p>La oss se for deg at du har en variabel ‘alder’, og gir den en verdi. Så kan vi bruke <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> for å si noe om denne alderen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempelalder</span>
+<span class="n">alder</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er et barn.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er en voksen.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er en senior.&quot;</span><span class="p">)</span>
+
+<span class="c1">### Det vi egentlig har skrevet over her, gjør er:</span>
+<span class="c1"># Hvis alder er mindre enn 18 --&gt; print(&quot;Du er et barn.&quot;)</span>
+<span class="c1"># Hvis ikke den over, hvis alder er mindre enn 65 --&gt; print(&quot;Du er en voksen.&quot;)</span>
+<span class="c1"># Hvis ingen av de over --&gt; print(&quot;Du er en senior.&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er en voksen.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="en-liten-oversikt-av-if-else-statements-i-python">
+<h2>En liten oversikt av If/Else Statements i Python<a class="headerlink" href="#en-liten-oversikt-av-if-else-statements-i-python" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Beskrivelse</p></th>
+<th class="head"><p>Eksempel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>if</strong></p></td>
+<td><p>Sjekker en betingelse; hvis sann, kjør koden under</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">10:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>else</strong></p></td>
+<td><p>Kjør koden under hvis if-betingelsen er usann</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>elif</strong></p></td>
+<td><p>Sjekker en annen betingelse hvis <code class="docutils literal notranslate"><span class="pre">if</span></code> er usann</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">5:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>betingelse</strong></p></td>
+<td><p>Uttrykk som evalueres til <code class="docutils literal notranslate"><span class="pre">True</span></code> eller <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">!=</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>blokk</strong></p></td>
+<td><p>Koden som kjøres hvis betingelsen er oppfylt</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">if/else</span></code>-setninger er essensielle for å implementere beslutningstaking i programmer. De gir programmene evnen til å håndtere forskjellige situasjoner og tilpasse seg forskjellige innganger. Ved å bruke disse setningene kan vi lage dynamiske og responsive programmer som reagerer på brukerens input eller andre forhold.</p>
+<section id="ofte-vil-vi-teste-andre-ting">
+<h3>Ofte vil vi teste andre ting!<a class="headerlink" href="#ofte-vil-vi-teste-andre-ting" title="Link to this heading">#</a></h3>
+<p>Ofte vil du ønske å sammenligne ulike datasett, for eksempel to numpy-rekker. Dersom du skal ha en <code class="docutils literal notranslate"><span class="pre">if</span></code>-betingelse, må du imidlertid huske på at for å få ett svar på en sammenligning mellom to numpy-rekker, så må du angi på hvilken måte de skal sammenlignes. I utgangspunktet vil en slik sammenligning bare gi resultatet fra en sammenligning av hvert element i de to rekkene. Resultatet av sammenligningen er altså ikke en bolsk verdi (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) men en ny rekke. En slik sammenligning vil derfor føre til en feil:</p>
+</section>
+<section id="eksempel-2">
+<h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a was bigger than b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[False False  True]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">if</span> <span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a was bigger than b&#39;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<p>I stedet må vi angi hvordan den elementvise sammenligningen skal sammenfattes i et sant/usant-resultat. Vi kan da velge mellom å kreve at alle elementene er sanne med numpyfunksjonen <code class="docutils literal notranslate"><span class="pre">all()</span></code>, eller at minst ett av elementene er sanne med<code class="docutils literal notranslate"><span class="pre">any()</span></code>.</p>
+</section>
+<section id="eksempel-3">
+<h3>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There were elements in a where the corresponding element in b was smaller&#39;</span><span class="p">)</span>
+    
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">101</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">103</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All elements in a was bigger than the corresponding element in b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There were elements in a where the corresponding element in b was smaller
+All elements in a was bigger than the corresponding element in b
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="if-else-setninger-og-lister">
+<h2>If/else setninger og lister<a class="headerlink" href="#if-else-setninger-og-lister" title="Link to this heading">#</a></h2>
+<p>Ofte vil du ha bruk for å bruke flere vilkår for testen, der du enten krever at alle må være sanne, eller at det holder at én er sann, eller en kombinasjon. Det oppnår vi med <code class="docutils literal notranslate"><span class="pre">and</span></code> og <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+<p>Et annet nyttig nøkkelord for logiske tester er <code class="docutils literal notranslate"><span class="pre">in</span></code>. Dette brukes på alt fra å finne ut om et objekt er i en liste eller annen datastruktur, til om en delstreng er i en streng. Her er et eksempel som bruker alle disse nøkkelordene i <code class="docutils literal notranslate"><span class="pre">if</span></code> og <code class="docutils literal notranslate"><span class="pre">elif</span></code>-setninger:</p>
+<section id="eksempel-4">
+<h3>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="o">=</span><span class="s1">&#39;lion&#39;</span>
+
+<span class="n">cats</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">,</span><span class="s1">&#39;tiger&#39;</span><span class="p">,</span><span class="s1">&#39;puma&#39;</span><span class="p">,</span><span class="s1">&#39;lynx&#39;</span><span class="p">]</span>
+<span class="n">mammals</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;human&#39;</span><span class="p">,</span><span class="s1">&#39;bear&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;whale&#39;</span><span class="p">,</span><span class="s1">&#39;mouse&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">cats</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">animal</span> <span class="ow">in</span> <span class="n">cats</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">animal</span> <span class="ow">in</span> <span class="n">mammals</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="s2"> is a cat and a mammal&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">cats</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">animal</span> <span class="ow">in</span> <span class="n">mammals</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="s2"> is not a cat, but it is a mammal&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">animal</span> <span class="ow">in</span> <span class="n">cats</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">mammals</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="s2"> is a cat, but not a mammal&quot;</span><span class="p">)</span>   
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="s2"> is neither a cat nor a mammal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lion is a cat and a mammal
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg merke til <code class="docutils literal notranslate"><span class="pre">elif</span></code> over. De er <code class="docutils literal notranslate"><span class="pre">if</span></code>-setninger som er knyttet til <code class="docutils literal notranslate"><span class="pre">if</span></code>-setningen over. Koden til en <code class="docutils literal notranslate"><span class="pre">elif</span></code>-setning kjøres dersom hverken <code class="docutils literal notranslate"><span class="pre">if</span></code>-setningen eller noen <code class="docutils literal notranslate"><span class="pre">elif</span></code>-setninger over har blitt tilfredsstilt.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="for-lokker-i-python">
+<h1>For-løkker i Python<a class="headerlink" href="#for-lokker-i-python" title="Link to this heading">#</a></h1>
+<p>For-løkker er en viktig del av programmering som lar deg iterere over en sekvens (for eksempel en liste eller et intervall). I økonomi kan for-løkker være nyttige for å beregne totalverdier, avgifter, eller for å analysere datasett.</p>
+<section id="syntaks">
+<h2>Syntaks<a class="headerlink" href="#syntaks" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sekvens</span><span class="p">:</span>
+    <span class="c1"># Kodeblokk som kjøres for hvert element</span>
+</pre></div>
+</div>
+<p>En for-løkke består altså av følgende;</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Beskrivelse</p></th>
+<th class="head"><p>Eksempel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>for</strong></p></td>
+<td><p>Starten av løkken.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(10):</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Element</strong></p></td>
+<td><p>Variabelen som tar verdien til hvert element i sekvensen.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sekvens</strong></p></td>
+<td><p>Listen, området, eller annen itererbar datatype.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">range(10)</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Kodeblokk</strong></p></td>
+<td><p>Koden som utføres for hvert element i sekvensen.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">print(i)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="eksempel-5">
+<h3>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel 5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-6">
+<h3>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel 6</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+4
+8
+100
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="litt-mer-avanserte-eksempler">
+<h3>Litt mer avanserte eksempler<a class="headerlink" href="#litt-mer-avanserte-eksempler" title="Link to this heading">#</a></h3>
+</section>
+<section id="eksempel-6-beregning-av-total-inntekt">
+<h3>Eksempel 6 - Beregning av total inntekt<a class="headerlink" href="#eksempel-6-beregning-av-total-inntekt" title="Link to this heading">#</a></h3>
+<p>Anta at vi har en liste over månedlig inntekt og vi ønsker å finne den totale inntekten for året.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_income</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">3200</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">3700</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">3400</span><span class="p">]</span>
+<span class="n">total_income</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">income</span> <span class="ow">in</span> <span class="n">monthly_income</span><span class="p">:</span>
+    <span class="n">total_income</span> <span class="o">+=</span> <span class="n">income</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total inntekt for året:&quot;</span><span class="p">,</span> <span class="n">total_income</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total inntekt for året: 39500
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bruk-av-i-python">
+<h3>Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python<a class="headerlink" href="#bruk-av-i-python" title="Link to this heading">#</a></h3>
+<p>I Python er <code class="docutils literal notranslate"><span class="pre">+=</span></code> en operator som gjør det lettere å oppdatere verdien av en variabel ved å legge til en annen verdi til den. Dette er en praktisk og effektiv måte å akkumulerer verdier på uten å måtte skrive hele uttrykket.</p>
+</section>
+<section id="eksempel-7-beregning-av-gjennomsnittlig-inntekt">
+<h3>Eksempel 7 - Beregning av gjennomsnittlig inntekt<a class="headerlink" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt" title="Link to this heading">#</a></h3>
+<p>Du kan også bruke en for-løkke til å beregne gjennomsnittlig inntekt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_income</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">income</span> <span class="ow">in</span> <span class="n">monthly_income</span><span class="p">:</span>
+    <span class="n">total_income</span> <span class="o">+=</span> <span class="n">income</span>
+
+<span class="n">average_income</span> <span class="o">=</span> <span class="n">total_income</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">monthly_income</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gjennomsnittlig månedlig inntekt:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">average_income</span><span class="p">,</span><span class="mi">2</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjennomsnittlig månedlig inntekt: 3291.67
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-7-beregning-av-rente-pa-en-investering">
+<h3>Eksempel 7 - Beregning av rente på en investering<a class="headerlink" href="#eksempel-7-beregning-av-rente-pa-en-investering" title="Link to this heading">#</a></h3>
+<p>La oss si at du har en investering som vokser med en fast rente over en periode. Du kan bruke en for-løkke for å beregne verdien av investeringen over tid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_investment</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Startkapital</span>
+<span class="n">interest_rate</span> <span class="o">=</span> <span class="mf">0.05</span>        <span class="c1"># 5% rente</span>
+<span class="n">years</span> <span class="o">=</span> <span class="mi">10</span>                  <span class="c1"># Antall år</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">years</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">initial_investment</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest_rate</span><span class="p">)</span> <span class="o">**</span> <span class="n">year</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Verdi av investeringen etter år:&quot;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verdi av investeringen etter år: [10500.0, 11025.0, 11576.250000000002, 12155.062500000002, 12762.815625000003, 13400.956406250005, 14071.004226562505, 14774.55443789063, 15513.282159785162, 16288.94626777442]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-8-beregning-av-skatt-pa-inntekt">
+<h3>Eksempel 8 - Beregning av skatt på inntekt<a class="headerlink" href="#eksempel-8-beregning-av-skatt-pa-inntekt" title="Link to this heading">#</a></h3>
+<p>Anta at vi har en skattesats, og vi ønsker å beregne skatten for hver måned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># 25% skatt</span>
+<span class="n">monthly_income</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">47000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">90000</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">income</span> <span class="ow">in</span> <span class="n">monthly_income</span><span class="p">:</span>
+    <span class="n">tax</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">income</span> <span class="o">*</span> <span class="n">tax_rate</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skatt for inntekt på </span><span class="si">{</span><span class="n">income</span><span class="si">}</span><span class="s2"> kr i måneden: </span><span class="si">{</span><span class="n">tax</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Skatt for inntekt på 45000 kr i måneden: 15750 kr
+Skatt for inntekt på 47000 kr i måneden: 16450 kr
+Skatt for inntekt på 50000 kr i måneden: 17500 kr
+Skatt for inntekt på 60000 kr i måneden: 21000 kr
+Skatt for inntekt på 80000 kr i måneden: 28000 kr
+Skatt for inntekt på 90000 kr i måneden: 31500 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="et-nyttig-tilfelle-av-for-lokke-i-databehandling">
+<h2>Et nyttig tilfelle av for-løkke i databehandling.<a class="headerlink" href="#et-nyttig-tilfelle-av-for-lokke-i-databehandling" title="Link to this heading">#</a></h2>
+<p>La oss ta for oss et datasett, f.eks. det under.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Opprettelse av en eksempel DataFrame med frukter</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Frukter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Eple&#39;</span><span class="p">,</span> <span class="s1">&#39;Banan&#39;</span><span class="p">,</span> <span class="s1">&#39;Appelsin&#39;</span><span class="p">,</span> <span class="s1">&#39;Druer&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Kalorier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">69</span><span class="p">],</span>
+    <span class="s1">&#39;Vekt (gram)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">182</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Frukter</th>
+      <th>Kalorier</th>
+      <th>Vekt (gram)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Eple</td>
+      <td>52</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Banan</td>
+      <td>89</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Appelsin</td>
+      <td>47</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Druer</td>
+      <td>69</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="iterere-over-dataframe">
+<h2><strong>Iterere over DataFrame</strong>:<a class="headerlink" href="#iterere-over-dataframe" title="Link to this heading">#</a></h2>
+<p>Det er ofte vi kan ha bruk for å iterere over en dataframe. Da kan vi bruke <code class="docutils literal notranslate"><span class="pre">iterrows()</span></code> metoden for å iterere gjennom DataFrame. Denne metoden returnerer både indeksen og raden for hver iterasjon. Da må vi skrive</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+</pre></div>
+</div>
+<section id="eksempel-9-tilgang-til-rader">
+<h3><strong>Eksempel 9 - Tilgang til rader</strong>:<a class="headerlink" href="#eksempel-9-tilgang-til-rader" title="Link to this heading">#</a></h3>
+<p>For hver <code class="docutils literal notranslate"><span class="pre">row</span></code>, får vi tilgang til spesifikke verdier ved å bruke kolonnenavn. I dette tilfellet skriver vi ut navnet på frukten og antall kalorier. Se hvordan i eksempelet under:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterer over DataFrame med index og row</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Skriv ut fruktnavn og kalorier</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frukt: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Frukter&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, Kalorier: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Kalorier&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frukt: Eple, Kalorier: 52
+Frukt: Banan, Kalorier: 89
+Frukt: Appelsin, Kalorier: 47
+Frukt: Druer, Kalorier: 69
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppsummering">
+<h3>Oppsummering<a class="headerlink" href="#oppsummering" title="Link to this heading">#</a></h3>
+<p>I eksempel 9 har vi demonstrert hvordan man bruker <code class="docutils literal notranslate"><span class="pre">index</span></code> og <code class="docutils literal notranslate"><span class="pre">row</span></code> til å iterere gjennom en DataFrame. <code class="docutils literal notranslate"><span class="pre">index</span></code> gir oss muligheten til å referere til hver rad, mens <code class="docutils literal notranslate"><span class="pre">row</span></code> gir oss tilgang til verdiene i den spesifikke raden. Dette er en effektiv måte å håndtere data på når man arbeider med Pandas i Python.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bruk-av-while-lokker-i-python">
+<h1>Bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker i Python<a class="headerlink" href="#bruk-av-while-lokker-i-python" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker er en type løkke som fortsetter å kjøre så lenge en spesifisert betingelse er sann. De er nyttige når vi ikke vet på forhånd hvor mange ganger vi må gjenta en blokk med kode, men vi har en betingelse som styrer hvor lenge løkken skal kjøre.</p>
+<section id="eksempel-10-bruk-av-while-lokke">
+<h2>Eksempel 10 - bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke<a class="headerlink" href="#eksempel-10-bruk-av-while-lokke" title="Link to this heading">#</a></h2>
+<p>La oss se på et enkelt eksempel som demonstrerer bruken av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker. Anta at vi vil oppsummere inntektene våre månedlig inntil vi når en total inntekt som er større enn eller lik 30000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_income</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">3200</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">3700</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">3400</span><span class="p">]</span>
+<span class="n">total_income</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">total_income</span> <span class="o">&lt;</span> <span class="mi">30000</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">monthly_income</span><span class="p">):</span>
+    <span class="n">total_income</span> <span class="o">+=</span> <span class="n">monthly_income</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>  <span class="c1"># Legger til inntekten for den gjeldende måneden</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>                             <span class="c1"># Går til neste måned</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total inntekt nådd: </span><span class="si">{</span><span class="n">total_income</span><span class="si">}</span><span class="s2"> er nådd etter </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> måneder.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total inntekt nådd: 32600 er nådd etter 10 måneder.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="forklaring-av-eksempelet-over">
+<h2>Forklaring av eksempelet over<a class="headerlink" href="#forklaring-av-eksempelet-over" title="Link to this heading">#</a></h2>
+<section id="definering-av-variabler">
+<h3>Definering av variabler:<a class="headerlink" href="#definering-av-variabler" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">monthly_income</span></code></strong>: En liste som inneholder månedlig inntekt for 12 måneder.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">total_income</span></code></strong>: En variabel som starter på 0, som vil akkumulerer den totale inntekten.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">index</span></code></strong>: En variabel som brukes for å spore hvilken måned vi er på i listen.</p></li>
+</ul>
+</section>
+<section id="while-lokke">
+<h3>While-løkke:<a class="headerlink" href="#while-lokke" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">total_income</span> <span class="pre">&lt;</span> <span class="pre">30000</span> <span class="pre">and</span> <span class="pre">index</span> <span class="pre">&lt;</span> <span class="pre">len(monthly_income):</span></code></strong> Løkken fortsetter å kjøre så lenge <code class="docutils literal notranslate"><span class="pre">total_income</span></code> er mindre enn 30000 og <code class="docutils literal notranslate"><span class="pre">index</span></code> er mindre enn lengden på <code class="docutils literal notranslate"><span class="pre">monthly_income</span></code>-listen.</p></li>
+</ul>
+</section>
+<section id="inne-i-lokken">
+<h3>Inne i løkken:<a class="headerlink" href="#inne-i-lokken" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">total_income</span> <span class="pre">+=</span> <span class="pre">monthly_income[index]</span></code></strong>: Legger til inntekten for den gjeldende måneden til <code class="docutils literal notranslate"><span class="pre">total_income</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">+=</span> <span class="pre">1</span></code></strong>: Øker <code class="docutils literal notranslate"><span class="pre">index</span></code> med 1 for å gå videre til neste måned.</p></li>
+</ul>
+</section>
+<section id="utskrift">
+<h3>Utskrift:<a class="headerlink" href="#utskrift" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Etter løkken skriver vi ut den totale inntekten som er nådd, og etter hvilken måned.</p></li>
+</ul>
+</section>
+</section>
+<section id="fordeler-med-while-lokker">
+<h2>Fordeler med <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker<a class="headerlink" href="#fordeler-med-while-lokker" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Fleksibilitet</strong>: Du kan styre hvor mange ganger løkken kjører med betingelser, noe som gir høy fleksibilitet.</p></li>
+<li><p><strong>Ubestemt antall iterasjoner</strong>: <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker er ideelle når antall iterasjoner ikke er kjent på forhånd.</p></li>
+</ul>
+</section>
+<section id="komponenter-i-while-lokker">
+<h2>Komponenter i <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker<a class="headerlink" href="#komponenter-i-while-lokker" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Beskrivelse</p></th>
+<th class="head"><p>Eksempel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></td>
+<td><p>Starter løkken og definerer betingelsen for å fortsette.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">total_income</span> <span class="pre">&lt;</span> <span class="pre">30000:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Betingelse</p></td>
+<td><p>Uttrykk som evalueres til True eller False.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">total_income</span> <span class="pre">&lt;</span> <span class="pre">30000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Løkkeblokk</p></td>
+<td><p>Koden som kjøres så lenge betingelsen er sann.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">total_income</span> <span class="pre">+=</span> <span class="pre">monthly_income[index]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></td>
+<td><p>Avslutter løkken når det ikke er nødvendig å fortsette.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">total_income</span> <span class="pre">&gt;=</span> <span class="pre">30000:</span> <span class="pre">break</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+<td><p>Hopper over resten av løkkens kode for den nåværende iterasjonen.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="eksempel-11-beregning-av-rente-over-tid">
+<h3>Eksempel 11 - Beregning av rente over tid<a class="headerlink" href="#eksempel-11-beregning-av-rente-over-tid" title="Link to this heading">#</a></h3>
+<p>I dette eksempelet vil vi beregne hvor mye penger vi har etter å ha investert en viss sum penger i en bank med en fast årlig rente over en periode.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer variablene våre</span>
+
+<span class="n">initial_investment</span> <span class="o">=</span> <span class="mi">1000</span>          <span class="c1"># Startbeløp</span>
+<span class="n">annual_interest_rate</span> <span class="o">=</span> <span class="mf">0.05</span>        <span class="c1"># Årlig rente (5%)</span>
+<span class="n">years</span> <span class="o">=</span> <span class="mi">0</span>                          <span class="c1"># Antall år</span>
+<span class="n">total_amount</span> <span class="o">=</span> <span class="n">initial_investment</span>  <span class="c1"># Totalbeløp</span>
+
+<span class="c1"># Beregn totalbeløp over tid med rente</span>
+<span class="k">while</span> <span class="n">years</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Beregn i 10 år</span>
+    <span class="n">total_amount</span> <span class="o">+=</span> <span class="n">total_amount</span> <span class="o">*</span> <span class="n">annual_interest_rate</span>  <span class="c1"># Legg til rente</span>
+    <span class="n">years</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Øk årstallet</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Totalbeløp etter </span><span class="si">{</span><span class="n">years</span><span class="si">}</span><span class="s2"> år: </span><span class="si">{</span><span class="n">total_amount</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Totalbeløp etter 10 år: 1628.89 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-12-beregn-nedbetalingstid-for-lan">
+<h3>Eksempel 12 - Beregn nedbetalingstid for lån<a class="headerlink" href="#eksempel-12-beregn-nedbetalingstid-for-lan" title="Link to this heading">#</a></h3>
+<p>Vi ønsker å lage en funksjon som tar inn tre argumenter: <code class="docutils literal notranslate"><span class="pre">loan_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">annual_interest_rate</span></code> og <code class="docutils literal notranslate"><span class="pre">monthly_payment</span></code>. Altså, hvor mye du har lånt, hva er den årlige renta og hva du kan betale ned i måneden.</p>
+<p>Funksjonen skal beregne hvor mange måneder det vil ta å nedbetale lånet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_months_to_pay_off_loan</span><span class="p">(</span><span class="n">loan_amount</span><span class="p">,</span> <span class="n">annual_interest_rate</span><span class="p">,</span> <span class="n">monthly_payment</span><span class="p">):</span>
+    <span class="c1"># Konverterer årlig rente til månedlig rente</span>
+    <span class="n">monthly_interest_rate</span> <span class="o">=</span> <span class="n">annual_interest_rate</span> <span class="o">/</span> <span class="mi">12</span>
+    <span class="n">months</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Antall måneder</span>
+
+    <span class="c1"># Beregn nedbetalingstid vha while-løkke</span>
+    <span class="k">while</span> <span class="n">loan_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Reduser lånebeløpet med rente og månedlig betaling</span>
+        <span class="n">loan_amount</span> <span class="o">+=</span> <span class="n">loan_amount</span> <span class="o">*</span> <span class="n">monthly_interest_rate</span> <span class="o">-</span> <span class="n">monthly_payment</span>
+        <span class="n">months</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Øk månedstallet</span>
+
+    <span class="k">return</span> <span class="n">months</span>  <span class="c1"># Returnerer antall måneder</span>
+
+
+<span class="c1"># Eksempel på bruk</span>
+<span class="n">loan</span> <span class="o">=</span> <span class="mi">3000000</span>           <span class="c1"># Lånebeløp</span>
+<span class="n">interest_rate</span> <span class="o">=</span> <span class="mf">0.054</span>    <span class="c1"># Årlig rente (6%)</span>
+<span class="n">monthly_payment</span> <span class="o">=</span> <span class="mi">19000</span>  <span class="c1"># Månedlig betalingskapasitet</span>
+
+<span class="n">months_needed</span> <span class="o">=</span> <span class="n">calculate_months_to_pay_off_loan</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">interest_rate</span><span class="p">,</span> <span class="n">monthly_payment</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Det tar </span><span class="si">{</span><span class="n">months_needed</span><span class="si">}</span><span class="s2"> måneder å nedbetale lånet.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det tar 277 måneder å nedbetale lånet.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="oppgaver">
+<h2>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h2>
+<p>Under kommer flere oppgaver dere kan jobbe med som tar opp if/else/for/while. Dette er gode forberedelser til eksamen, med å forstå grunnleggende prinsipper i Python.</p>
+</section>
+<section id="oppgave-1">
+<h2>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h2>
+<p>Les inn csv.-filen, <code class="docutils literal notranslate"><span class="pre">'bilparken_ssb.csv'</span></code>, som en dataframe ved hjelp av Pandas.</p>
+</section>
+<section id="oppgave-2-skriv-ut-bilmerker">
+<h2>Oppgave 2 - Skriv ut bilmerker<a class="headerlink" href="#oppgave-2-skriv-ut-bilmerker" title="Link to this heading">#</a></h2>
+<p>Lag en for-løkke som skriver ut alle bilmerkene i datasettet.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Du kan få bruk for: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">index,</span> <span class="pre">row</span> <span class="pre">in</span> <span class="pre">df.iterrows():</span></code></p></li>
+</ul>
+</section>
+<section id="oppgave-3-total-antall-biler-vraket">
+<h2>Oppgave 3 - Total antall biler vraket<a class="headerlink" href="#oppgave-3-total-antall-biler-vraket" title="Link to this heading">#</a></h2>
+<p>Lag en for-løkke som beregner det totale antallet biler vraket mot pant for alle bilmerkene.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Du kan få bruk for: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">index,</span> <span class="pre">row</span> <span class="pre">in</span> <span class="pre">df.iterrows():</span></code></p></li>
+</ul>
+</section>
+<section id="oppgave-4-totalt-antall-biler-under-4-ar">
+<h2>Oppgave 4 - Totalt antall biler under 4 år<a class="headerlink" href="#oppgave-4-totalt-antall-biler-under-4-ar" title="Link to this heading">#</a></h2>
+<p>Lag en for-løkke som summerer antall biler som er under 4 år gamle.</p>
+</section>
+<section id="oppgave-5-populaere-bilmerker">
+<h2>Oppgave 5 - Populære bilmerker<a class="headerlink" href="#oppgave-5-populaere-bilmerker" title="Link to this heading">#</a></h2>
+<p>Lag en if-setning som skriver ut en melding hvis et bilmerke har mer enn 50,000 biler i kategorien “12 - 15 år”.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Bruk både for og if.</p></li>
+</ul>
+</section>
+<section id="oppgave-6-lanebelop-og-rente">
+<h2>Oppgave 6 - Lånebeløp og rente<a class="headerlink" href="#oppgave-6-lanebelop-og-rente" title="Link to this heading">#</a></h2>
+<p>Lag et program som tar inn et lånebeløp og en rente. Programmet skal skrive ut om lånet er “Lav rente”, “Moderat rente” eller “Høy rente”.</p>
+</section>
+<section id="oppgave-7-beskatning-av-inntekt">
+<h2>Oppgave 7 - Beskatning av inntekt<a class="headerlink" href="#oppgave-7-beskatning-av-inntekt" title="Link to this heading">#</a></h2>
+<p>Skriv et program som beregner beskatningen for en fast inntekt.</p>
+<p>Kriterier:</p>
+<ul class="simple">
+<li><p>Hvis lønn er under 200.000 –&gt; ingen skatt</p></li>
+<li><p>Hvis lønna er mellom 200.000 og 300.000 —&gt; 20% skatt</p></li>
+<li><p>Hvis lønna er mellom 300.000 og 550.000 —&gt; 30% skatt</p></li>
+<li><p>Hvis annet, 40% skatt.</p></li>
+</ul>
+</section>
+<section id="oppgave-8-karakterberegning">
+<h2>Oppgave 8 - Karakterberegning<a class="headerlink" href="#oppgave-8-karakterberegning" title="Link to this heading">#</a></h2>
+<p>Lag en funksjon som tar inn en parameter <code class="docutils literal notranslate"><span class="pre">score</span></code> (et tall mellom <span class="math notranslate nohighlight">\(0\)</span> og <span class="math notranslate nohighlight">\(100\)</span>), og gir en karakter etter følgende skala:</p>
+<ul class="simple">
+<li><p>90 - 100: “Strålende!”</p></li>
+<li><p>75 - 90: “Bra jobba!”</p></li>
+<li><p>50 - 75: “Godkjent.”</p></li>
+<li><p>Under 50: “Ikke bestått.”</p></li>
+</ul>
+</section>
+<section id="oppgave-9-while-og-lan">
+<h2>Oppgave 9 - <code class="docutils literal notranslate"><span class="pre">while</span></code> og lån<a class="headerlink" href="#oppgave-9-while-og-lan" title="Link to this heading">#</a></h2>
+<p>Skriv en funksjon nedbetal_loan som tar inn tre parametere:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loan_amount</span></code> (lånebeløp)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interest_rate</span></code> (årlig rente i prosent)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monthly_payment</span></code> (månedlig beløp som nedbetales).</p></li>
+</ul>
+<p>Funksjonen skal returnere hvor mange måneder det tar å nedbetale lånet, gitt at lånet har en fast månedlig rente som legges til saldoen før hver betaling.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../05/pandas_og_databehandling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5 - Pandas og databehandling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../07/matplotlib.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7 - Matplotlib</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6 - Logikk og løkker</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logikk-og-betingelser">Logikk og betingelser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-i-python">If/else Statements i Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-struktur">Grunnleggende Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eskempel-2">Eskempel 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elif-statements">elif-statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-elif-og-betingelser"><strong>Eksempel med elif og betingelser</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-liten-oversikt-av-if-else-statements-i-python">En liten oversikt av If/Else Statements i Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ofte-vil-vi-teste-andre-ting">Ofte vil vi teste andre ting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-setninger-og-lister">If/else setninger og lister</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokker-i-python">For-løkker i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaks">Syntaks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-mer-avanserte-eksempler">Litt mer avanserte eksempler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-beregning-av-total-inntekt">Eksempel 6 - Beregning av total inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">+=</span></code> i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-gjennomsnittlig-inntekt">Eksempel 7 - Beregning av gjennomsnittlig inntekt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-beregning-av-rente-pa-en-investering">Eksempel 7 - Beregning av rente på en investering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8-beregning-av-skatt-pa-inntekt">Eksempel 8 - Beregning av skatt på inntekt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-nyttig-tilfelle-av-for-lokke-i-databehandling">Et nyttig tilfelle av for-løkke i databehandling.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterere-over-dataframe"><strong>Iterere over DataFrame</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9-tilgang-til-rader"><strong>Eksempel 9 - Tilgang til rader</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsummering">Oppsummering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bruk-av-while-lokker-i-python">Bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10-bruk-av-while-lokke">Eksempel 10 - bruk av <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forklaring-av-eksempelet-over">Forklaring av eksempelet over</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definering-av-variabler">Definering av variabler:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke">While-løkke:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-i-lokken">Inne i løkken:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utskrift">Utskrift:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fordeler-med-while-lokker">Fordeler med <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komponenter-i-while-lokker">Komponenter i <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11-beregning-av-rente-over-tid">Eksempel 11 - Beregning av rente over tid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12-beregn-nedbetalingstid-for-lan">Eksempel 12 - Beregn nedbetalingstid for lån</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-skriv-ut-bilmerker">Oppgave 2 - Skriv ut bilmerker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-total-antall-biler-vraket">Oppgave 3 - Total antall biler vraket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-totalt-antall-biler-under-4-ar">Oppgave 4 - Totalt antall biler under 4 år</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-populaere-bilmerker">Oppgave 5 - Populære bilmerker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-lanebelop-og-rente">Oppgave 6 - Lånebeløp og rente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-beskatning-av-inntekt">Oppgave 7 - Beskatning av inntekt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-karakterberegning">Oppgave 8 - Karakterberegning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-while-og-lan">Oppgave 9 - <code class="docutils literal notranslate"><span class="pre">while</span></code> og lån</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

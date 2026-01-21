@@ -1,0 +1,2633 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5 - Pandas og databehandling &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05/pandas_og_databehandling';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6 - Logikk og løkker" href="../06/logikk_loops.html" />
+    <link rel="prev" title="4 - Lister, oppslag og numpy" href="../04/lister_oppslag_numpy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/pandas_og_databehandling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/05/pandas_og_databehandling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5 - Pandas og databehandling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-pandas">1. Introduksjon til Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-importere-pandas-og-laste-inn-en-csv-fil"><strong>Eksempel: Importere Pandas og laste inn en CSV-fil</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasjoner-pa-dataframe-s"><strong>Operasjoner på dataframe’s</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempelbruk-av-operasjoner-pa-dataframe-s">Eksempelbruk av operasjoner på dataframe’s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">📊 Oppgave 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">📊 Oppgave 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">📊 Oppgave 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">📊 Oppgave 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">📊 Oppgave 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">📊 Oppgave 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7">📊 Oppgave 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-statistisk-sentralbyra">📊 Oppgave 8 - Statistisk sentralbyrå</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8a">Oppgave 8a</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8b">Oppgave 8b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-eurostat">📊 Oppgave 9 - Eurostat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9a-jobbe-med-data"><strong>Oppgave 9a - Jobbe med data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-rens-og-filtrer-data">🔄 Del 1: Rens og filtrer data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-transformer-data">🔄 Del 2: Transformér data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-videre-analyse-av-data">📊 Del 3: Videre analyse av data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-og-databehandling">
+<h1>5 - Pandas og databehandling<a class="headerlink" href="#pandas-og-databehandling" title="Link to this heading">#</a></h1>
+<section id="pandas-et-verktoy-for-behandling-og-lasting-av-data">
+<h2><strong>Pandas</strong> - et verktøy for behandling og lasting av data<a class="headerlink" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data" title="Link to this heading">#</a></h2>
+<p>I denne delen skal vi utforske hvordan du kan bruke Pandas til å håndtere og modifisere data. Vi skal også gå gjennom grunnleggende databehandling, filtrering, aggregering og visualisering.</p>
+</section>
+<section id="introduksjon-til-pandas">
+<h2>1. Introduksjon til Pandas<a class="headerlink" href="#introduksjon-til-pandas" title="Link to this heading">#</a></h2>
+<p>Pandas er et kraftig verktøy for datahåndtering og analyse. Det gir deg muligheten til å arbeide med datasett som er representert som DataFrames, en struktur som ligner regneark som dere kanskje kjenner fra Excel.</p>
+<p>Men først, som alle pakker i Python, må vi laste den inn først.</p>
+<p>Først, hvis vi ikke har gjort det, bruker vi <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> for å laste ned pandas. Det kan gjøres ved å skrive følgende:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># Laster ned pandas med pip</span>
+        <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">eurostat</span>
+        <span class="c1">#evt</span>
+        <span class="c1"># !pip install eurostat</span>
+</pre></div>
+</div>
+<p>Så må vi importere modulen, at vi “henter” den klar for bruk, ved å kjøre cellen under:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-importere-pandas-og-laste-inn-en-csv-fil">
+<h2><strong>Eksempel: Importere Pandas og laste inn en CSV-fil</strong><a class="headerlink" href="#eksempel-importere-pandas-og-laste-inn-en-csv-fil" title="Link to this heading">#</a></h2>
+<p>Det gjør vi ved å skrive følgende:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># Laste inn en CSV-fil som et DataFrame</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/eksempel_data.csv&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Vise de første radene i DataFrame</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>MEN! Her er det viktig å huske på at <em>‘data/eksempel_data.csv’</em> må være <em>banenavn</em> til filen du ønsker å lese. Den er altså unik for din PC/MAC.</p>
+<p><strong>OBS!</strong> En del Windows brukere må skrive en <code class="docutils literal notranslate"><span class="pre">r</span></code> (som står for <em>read</em>) foran <code class="docutils literal notranslate"><span class="pre">'data/eksempel_data.csv'</span></code>, altså slik <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">pd.read_csv(r'data/eksempel_data.csv')</span></code>, så prøv det om du får feilmelding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Laste inn en CSV-fil som et DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/schooling-gdp.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">### OBS: FÅR DU FEILMEDLING OVER, SJEKK AT FILBANEN ER RIKTIG TIL DIN MAC/PC!!! ###</span>
+
+<span class="c1"># Vise de første radene i DataFrame</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Land</th>
+      <th>Landkode</th>
+      <th>BNP_per_capita</th>
+      <th>Utdanning</th>
+      <th>Befolkning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Norway</td>
+      <td>NOR</td>
+      <td>73262.680</td>
+      <td>11.65</td>
+      <td>4886000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kuwait</td>
+      <td>KWT</td>
+      <td>67029.523</td>
+      <td>6.39</td>
+      <td>2992000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Luxembourg</td>
+      <td>LUX</td>
+      <td>57882.809</td>
+      <td>11.33</td>
+      <td>508000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Switzerland</td>
+      <td>CHE</td>
+      <td>55688.020</td>
+      <td>12.92</td>
+      <td>7809000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>49500.629</td>
+      <td>13.24</td>
+      <td>309011008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Vi ser at vi har fire variabler: <code class="docutils literal notranslate"><span class="pre">Land</span></code>, <code class="docutils literal notranslate"><span class="pre">Landkode</span></code>, <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code> (BNP per innbygger), <code class="docutils literal notranslate"><span class="pre">Utdanning</span></code> og <code class="docutils literal notranslate"><span class="pre">Befolkning</span></code>. BNP er “brutto nasjonalprodukt” som måler hvor mye som produseres i et land i løpet av et år. <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code> viser altså hvor mye hver person i landet produserer hvert år i gjennomsnitt.</p>
+<p>Import av data til <code class="docutils literal notranslate"><span class="pre">pandas</span></code> gjøres enkelt med funksjonen <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>. Dersom du har lastet ned siste versjon av notebooks, ligger den en fil i mappen “data” som heter schooling-gdp.csv. (kilde: <a class="reference external" href="https://ourworldindata.org/grapher/correlation-between-mean-years-of-schooling-and-gdp-per-capita">Our World In Data</a>). Denne filen inneholder data om BNP (bruttonasjonalprodukt) og utdanningsnivå for ulike land i 2010.</p>
+</section>
+<section id="operasjoner-pa-dataframe-s">
+<h2><strong>Operasjoner på dataframe’s</strong><a class="headerlink" href="#operasjoner-pa-dataframe-s" title="Link to this heading">#</a></h2>
+<p>Vi antar at vi har kalt <em>dataframen</em> (norsk: <em>dataramme</em>) for <code class="docutils literal notranslate"><span class="pre">data</span></code> (som over).</p>
+<p>Her er en liste av operasjoner vi kan gjøre for å inspisere, endre og bli kjent med data’en vår ved hjelp av Pandas. Denne kan være et fint oppslagsverk for hva dere kan trenge om Pandas. Dokumentasjon om dette finnes også <a class="reference external" href="https://pandas.pydata.org/docs/">her</a> og over “hele” Google!</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Operasjon</strong></p></th>
+<th class="head"><p><strong>Formål</strong></p></th>
+<th class="head"><p><strong>Syntaks i Python</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Vise kolonneoverskriftene</p></td>
+<td><p>Viser navnene på kolonnene i DataFrame</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.columns</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Velge en spesifikk kolonne</p></td>
+<td><p>Hente data fra en spesifikk kolonne</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['kolonnenavn']</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Filtrere rader basert på betingelse</p></td>
+<td><p>Filtrere data der en betingelse er oppfylt</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data[data['Utdanning']</span> <span class="pre">&gt;</span> <span class="pre">10]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sjekke manglende verdier</p></td>
+<td><p>Sjekker om det finnes manglende verdier i datasetet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.isnull().sum()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Fylle manglende verdier</p></td>
+<td><p>Fyller inn manglende verdier med en gitt verdi</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.fillna(0,</span> <span class="pre">inplace=True)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Beskrivelse av numeriske verdier</p></td>
+<td><p>Gir en statistisk oversikt over numeriske kolonner</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.describe()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Sortere data (stigende)</p></td>
+<td><p>Sorterer data etter en kolonne i stigende rekkefølge</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.sort_values('kolonnenavn',</span> <span class="pre">ascending=True)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Se datatyper</p></td>
+<td><p>Viser datatypene til hver kolonne</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.dtypes</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Konvertere datatype</p></td>
+<td><p>Endrer datatype for en spesifikk kolonne</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['kolonne']</span> <span class="pre">=</span> <span class="pre">data['kolonne'].astype(float)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lese fra Excel-fil</p></td>
+<td><p>Leser data fra en Excel-fil</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">pd.read_excel('filnavn.xlsx')</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ny kolonne med beregninger</p></td>
+<td><p>Oppretter en ny kolonne som er et resultat av beregninger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['new_column']</span> <span class="pre">=</span> <span class="pre">data['kolonne1']</span> <span class="pre">/</span> <span class="pre">data['kolonne2']</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finne duplikater</p></td>
+<td><p>Sjekker om det finnes dupliserte rader</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.duplicated()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Fjerne duplikater</p></td>
+<td><p>Fjerner dupliserte rader</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.drop_duplicates(inplace=True)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Histogram</p></td>
+<td><p>Lager et histogram for en spesifikk kolonne</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['kolonnenavn'].plot(kind='hist')</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Konvertere til datetime</p></td>
+<td><p>Konverterer en kolonne til datetime-objekter</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['dato']</span> <span class="pre">=</span> <span class="pre">pd.to_datetime(data['dato'])</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Informasjon av datarammen</p></td>
+<td><p>Oppsummere hva datarammen er og består av</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.info()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Velger rader med <strong>loc</strong></p></td>
+<td><p>Velge rader basert på etiketter (navn)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.loc[2,</span> <span class="pre">'Navn']</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Velger rader med <strong>iloc</strong></p></td>
+<td><p>Velge rader basert på indeksnummer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data.loc[2,</span> <span class="pre">1]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>“Merge” to DataFrames</p></td>
+<td><p>Kombinere to DataFrames basert på en felles kolonne</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df3</span> <span class="pre">=</span> <span class="pre">df1.merge(df2,</span> <span class="pre">on='ID',</span> <span class="pre">how='inner')</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Oppsummerende statistikker</p></td>
+<td><p>Gir spesifikke beregninger som gj.snitt, median, maks, osv.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data['kolonne'].mean()</span></code> eller <code class="docutils literal notranslate"><span class="pre">data['kolonne'].median()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>… og det er mange, mange fler. Det vil dere få testa dere på gjennom oppgavene. Kommer du over et problem du ikke har sett før, prøv å google det.</p>
+<p>Lurer du på noe, så har noen lurt på det samme før deg :-)</p>
+</section>
+<section id="eksempelbruk-av-operasjoner-pa-dataframe-s">
+<h2>Eksempelbruk av operasjoner på dataframe’s<a class="headerlink" href="#eksempelbruk-av-operasjoner-pa-dataframe-s" title="Link to this heading">#</a></h2>
+<p>Siden vi allerede har kjørt kodeblokken over, har vi variabelen <code class="docutils literal notranslate"><span class="pre">data</span></code>, som inneholder dataframe’n med data fra ‘schooling-gdp.csv’-filen vår.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Viser kolonneoverskriftene</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Land&#39;, &#39;Landkode&#39;, &#39;BNP_per_capita&#39;, &#39;Utdanning&#39;, &#39;Befolkning&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her ser i at vi får navn på alle kolonnene i dataframe’n vår. Nyttig inspeksjon!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Velg en spesifikk kolonne (BNP per capita)</span>
+<span class="n">bnp_column</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bnp_column</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      73262.68000
+1      67029.52300
+2      57882.80900
+3      55688.02000
+4      49500.62900
+          ...     
+101      972.04572
+102      969.23077
+103      845.86932
+104      786.67023
+105      634.97137
+Name: BNP_per_capita, Length: 106, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her ser vi verdiene for kolonnen <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code>, vi ser kolonnens <code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Length</span></code> (altså hvor mange tall) og ‘dtype’ (her har vi et flyttall (float)).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Filtrer rader basert på en betingelse (land med utdanning &gt; 10 år)</span>
+<span class="n">high_education</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_education</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Land Landkode  BNP_per_capita  Utdanning  Befolkning
+0                Norway      NOR      73262.6800      11.65     4886000
+2            Luxembourg      LUX      57882.8090      11.33      508000
+3           Switzerland      CHE      55688.0200      12.92     7809000
+4         United States      USA      49500.6290      13.24   309011008
+5               Ireland      IRL      47823.5040      12.45     4554000
+6             Australia      AUS      44854.9020      11.69    22155000
+7           Netherlands      NLD      44004.1450      11.71    16683000
+8               Denmark      DNK      43416.2230      11.97     5555000
+9             Hong Kong      HKG      41687.9490      12.20     6966000
+10              Germany      DEU      40627.2300      12.58    80827000
+11              Austria      AUT      40489.8090      10.13     8410000
+12               Sweden      SWE      40421.9060      11.95     9390000
+13               Canada      CAN      40269.0310      12.74    34148000
+14              Finland      FIN      38394.0590      10.71     5366000
+15              Belgium      BEL      38177.9450      11.29    10939000
+16              Iceland      ISL      37729.0160      11.48      320000
+17               Taiwan      TWN      37188.8950      11.96    23188000
+18                Japan      JPN      36595.6330      12.44   128542000
+19               France      FRA      35786.1600      11.34    62880000
+20       United Kingdom      GBR      34810.2810      12.46    63460000
+21                Italy      ITA      34727.6760      10.71    59325000
+22                Spain      ESP      31610.9800      10.75    46931000
+23          South Korea      KOR      31589.7050      12.96    49546000
+24          New Zealand      NZL      30867.0530      11.12     4370000
+25               Cyprus      CYP      28046.3750      11.76     1113000
+26  Trinidad and Tobago      TTO      27510.2360      10.96     1328000
+27              Czechia      CZE      26129.5680      12.80    10537000
+28               Greece      GRC      25815.7990      11.36    10888000
+30                Malta      MLT      22983.4510      11.06      414000
+31               Russia      RUS      21754.0660      12.02   143479008
+32               Poland      POL      21006.0270      11.62    38330000
+33              Hungary      HUN      20477.7990      11.98     9927000
+34                Chile      CHL      18092.9410      10.35    17063000
+36             Malaysia      MYS      17913.1640      10.89    28208000
+38              Romania      ROU      16775.6090      11.08    20472000
+44             Bulgaria      BGR      14906.7850      11.07     7425000
+50               Serbia      SRB      12453.4820      11.52     8991000
+56              Albania      ALB       9544.7402      10.44     2948000
+63            Sri Lanka      LKA       8390.4297      10.67    20262000
+67                 Fiji      FJI       6902.0688      10.35      860000
+69              Jamaica      JAM       6675.1768      10.33     2810000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her får vi listet opp alle landene som har at <code class="docutils literal notranslate"><span class="pre">Utdanning</span></code> er over 10 år.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. Sjekke om det finnes noen manglende verdier (også kalt: NAN - Not a Number)</span>
+<span class="n">missing_values</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">missing_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Land              0
+Landkode          0
+BNP_per_capita    0
+Utdanning         0
+Befolkning        0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Denne koden sjekker om det er manglende verdier i datasettet vårt. Her er det ‘0’ i alle kolonnene, som betyr at det er data i alle cellene i dataframe’n, men jobber man med ekte data - trenger det slett ikke være tilfelle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternativt til 4.</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Land              0
+Landkode          0
+BNP_per_capita    0
+Utdanning         0
+Befolkning        0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. Fyll manglende verdier (hvis det var noen) med 0</span>
+<span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Koden over vil fulle inn ‘0’ der det er manglende verdier. Men det kan godt tenkes man burde ta gjennomsnitt, median eller en annen verdi her. Det vil avhenge av datasettet man har.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. Beskrivelse av numeriske verdier</span>
+<span class="n">description</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       BNP_per_capita   Utdanning    Befolkning
+count      106.000000  106.000000  1.060000e+02
+mean     17295.935035    8.629434  5.755919e+07
+std      16527.233275    2.918427  1.807718e+08
+min        634.971370    1.950000  2.820000e+05
+25%       4037.425625    6.425000  6.290000e+06
+50%      11444.386500    8.745000  1.482050e+07
+75%      27165.069000   11.110000  4.025450e+07
+max      73262.680000   13.240000  1.368811e+09
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her får vi en beskrivelse av de numeriske verdiene i dataframe’n.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. Sortere data etter BNP per capita (stigende)</span>
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                             Land Landkode  BNP_per_capita  Utdanning  \
+105  Democratic Republic of Congo      COD       634.97137       3.79   
+104                       Liberia      LBR       786.67023       4.35   
+103                         Niger      NER       845.86932       1.95   
+102                    Mozambique      MOZ       969.23077       2.03   
+101                        Malawi      MWI       972.04572       5.01   
+..                            ...      ...             ...        ...   
+4                   United States      USA     49500.62900      13.24   
+3                     Switzerland      CHE     55688.02000      12.92   
+2                      Luxembourg      LUX     57882.80900      11.33   
+1                          Kuwait      KWT     67029.52300       6.39   
+0                          Norway      NOR     73262.68000      11.65   
+
+     Befolkning  
+105    64564000  
+104     3891000  
+103    16464000  
+102    23532000  
+101    14540000  
+..          ...  
+4     309011008  
+3       7809000  
+2        508000  
+1       2992000  
+0       4886000  
+
+[106 rows x 5 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her har vi sortert data’en i stigende rekkefølge, basert på variablen <code class="docutils literal notranslate"><span class="pre">BNP_per_capita</span></code>. Hadde vi satt <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code>, ville det være i synkende rekkefølge!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8. Se datatypene</span>
+<span class="n">data_types</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_types</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Land               object
+Landkode           object
+BNP_per_capita    float64
+Utdanning         float64
+Befolkning          int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her ser vi datatypene til kolonnene våre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9. Konvertere en kolonne til en annen datatype (Befolkning til float)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Befolkning&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Befolkning&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Befolkning&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        4886000.0
+1        2992000.0
+2         508000.0
+3        7809000.0
+4      309011008.0
+          ...     
+101     14540000.0
+102     23532000.0
+103     16464000.0
+104      3891000.0
+105     64564000.0
+Name: Befolkning, Length: 106, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her ser vi at vi gjorde om <code class="docutils literal notranslate"><span class="pre">Befolkning</span></code> fra heltall (‘int64’) til flyttall (‘float64’).</p>
+<p><strong>OBS:</strong> Men prøv å tenk over hva vi akkurat gjorde - gir det mening å ha <code class="docutils literal notranslate"><span class="pre">Befolkning</span></code> variabelen som flytall (desimaltall)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10. Ny kolonne som er en funksjon av andre kolonner (BNP total)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Befolkning&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                             Land Landkode  BNP_per_capita  Utdanning  \
+0                          Norway      NOR     73262.68000      11.65   
+1                          Kuwait      KWT     67029.52300       6.39   
+2                      Luxembourg      LUX     57882.80900      11.33   
+3                     Switzerland      CHE     55688.02000      12.92   
+4                   United States      USA     49500.62900      13.24   
+..                            ...      ...             ...        ...   
+101                        Malawi      MWI       972.04572       5.01   
+102                    Mozambique      MOZ       969.23077       2.03   
+103                         Niger      NER       845.86932       1.95   
+104                       Liberia      LBR       786.67023       4.35   
+105  Democratic Republic of Congo      COD       634.97137       3.79   
+
+      Befolkning     BNP_total  
+0      4886000.0  3.579615e+11  
+1      2992000.0  2.005523e+11  
+2       508000.0  2.940447e+10  
+3      7809000.0  4.348677e+11  
+4    309011008.0  1.529624e+13  
+..           ...           ...  
+101   14540000.0  1.413354e+10  
+102   23532000.0  2.280794e+10  
+103   16464000.0  1.392639e+10  
+104    3891000.0  3.060934e+09  
+105   64564000.0  4.099629e+10  
+
+[106 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her lager vi en ny kolonner, som en funksjon av de to andre kolonnene, BNP og Befolkning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 11. Finne dupliserte rader</span>
+<span class="n">duplicates</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span>
+
+<span class="c1"># Her summerer vi &#39;duplicates&#39; - husk at False = 0, True = 1</span>
+<span class="c1"># så hvis summen er lik &#39;0&#39; - så betyr det at det ikke er duplikater.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">duplicates</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+101    False
+102    False
+103    False
+104    False
+105    False
+Length: 106, dtype: bool
+0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her leter vi etter duplikater i data’en vår. Her ser alt ut til å være ‘False’ –&gt; altså, ingen duplikater.</p>
+<p>Legg merke til at <code class="docutils literal notranslate"><span class="pre">print(duplicates)</span></code> viser ‘False’ for de første fem, og de siste 5 radene i dataframe’n. Men vanskelig å si noe om de mellom indeks 4 og indeks 101.</p>
+<p>Derfor har jeg skrevet <code class="docutils literal notranslate"><span class="pre">print(sum(duplicates))</span></code>, for vi husker fra tidligere forelesning. Så behandles ‘False’ som tallet <span class="math notranslate nohighlight">\(0\)</span> og ‘True’ som tallet <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 12. Fjerne duplikater</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hadde vi hatt duplikater (noe vi ikke har her), hadde vi nå fjernet dem! :-)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 13. Plot et histogram over utdanningsnivå</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Utdanning&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/1365f9e9fb158886f135aa2dc527834667b6b8bd07f1d7c1207a69c842e66c57.png" src="../../_images/1365f9e9fb158886f135aa2dc527834667b6b8bd07f1d7c1207a69c842e66c57.png" />
+</div>
+</div>
+<p>Her har vi plottet et histogram ved hjelp av ‘Pandas’. Hvor vi ser frekvensen av de ulike utdanningstallene. Vi skal lære mer om plotting senere i kurset, da det er andre bibliotek (matplotlib og seaborn) som egner seg enda bedre for dette.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 14. Bruke .loc for å hente data for et spesifikt land</span>
+<span class="n">norway_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Land&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Norway&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">norway_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Land Landkode  BNP_per_capita  Utdanning  Befolkning     BNP_total
+0  Norway      NOR        73262.68      11.65   4886000.0  3.579615e+11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 15. Bruke .iloc for å hente rader og kolonner basert på indeks</span>
+<span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># Første 5 rader, første 3 kolonner</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Land Landkode  BNP_per_capita
+0         Norway      NOR       73262.680
+1         Kuwait      KWT       67029.523
+2     Luxembourg      LUX       57882.809
+3    Switzerland      CHE       55688.020
+4  United States      USA       49500.629
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 16. Oppsummerende statistikk over BNP per innbygger</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gjennomsnittlig BNP per innbygger:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Median BNP per innbygger:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Høyeste BNP per innbygger:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Laveste BNP per innbygger:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BNP_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjennomsnittlig BNP per innbygger: 17295.935035
+Median BNP per innbygger: 11444.3865
+Høyeste BNP per innbygger: 73262.68
+Laveste BNP per innbygger: 634.97137
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgaver">
+<h2>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h2>
+<p>Under er det et datasett dere skal lese inn og gjøre en rekke oppgaver. Bruk notatene over, Pandas dokumentasjon og Google som hjelp. Lykke til! :-)</p>
+<p>Vi bruker et datasett som dere finner på GitHub under <code class="docutils literal notranslate"><span class="pre">'/data'</span></code> mappen kalt: <code class="docutils literal notranslate"><span class="pre">'bilparken_ssb.csv'</span></code></p>
+</section>
+<section id="oppgave-1">
+<h2>📊 Oppgave 1<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h2>
+<p>Les inn csv.-filen som en dataframe ved hjelp av Pandas biblioteket.</p>
+</section>
+<section id="oppgave-2">
+<h2>📊 Oppgave 2<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h2>
+<p>Skriv en beskrivelse av data’en under her. Bruk kode for å inspisere data’en.</p>
+</section>
+<section id="oppgave-3">
+<h2>📊 Oppgave 3<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h2>
+<p>Sjekk hvilke datatyper vi har i Dataframe’n</p>
+</section>
+<section id="oppgave-4">
+<h2>📊 Oppgave 4<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h2>
+<p>Sorter datasettet, <code class="docutils literal notranslate"><span class="pre">df</span></code> fra oppgave 1, basert på variabelen “Personbiler vraket mot pant (prosent av bestanden)” - i synkende rekkefølge.</p>
+<p>Verifiser at dere fikk dette til.</p>
+</section>
+<section id="oppgave-5">
+<h2>📊 Oppgave 5<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h2>
+<p>Filtrer rader med høyere gjennomsnittsalder ved vraking enn <strong>18 år</strong>.</p>
+<p>Her ser vi at flere ‘Bilmerker’ har forsvunnet fra dataframe’n - som f.eks. Tesla.</p>
+</section>
+<section id="oppgave-6">
+<h2>📊 Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h2>
+<p>Finn gjennomsnittlig <code class="docutils literal notranslate"><span class="pre">'Personbilbestand</span> <span class="pre">31.</span> <span class="pre">desember'</span></code> for alle bilmerkene i datasettet.</p>
+</section>
+<section id="oppgave-7">
+<h2>📊 Oppgave 7<a class="headerlink" href="#oppgave-7" title="Link to this heading">#</a></h2>
+<p>Finn bilmerket med høyest gjennomsnittsalder ved vraking.</p>
+<p>Tips, her kan der fp bruk for funksjonene:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.loc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.idxmax()</span></code></p></li>
+</ul>
+<p>Det kan brukes slik:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette gjør at vi kan finne raden hvor høyeste verdien av &#39;kolonne_av_interesse&#39; er.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kolonne_av_interesse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span> 
+</pre></div>
+</div>
+<p>Chevrolet er det bilmerke med høyest gjennomsnittlig vrakealder!</p>
+</section>
+<section id="oppgave-8-statistisk-sentralbyra">
+<h2>📊 Oppgave 8 - Statistisk sentralbyrå<a class="headerlink" href="#oppgave-8-statistisk-sentralbyra" title="Link to this heading">#</a></h2>
+<p>SSB - Statistisk sentralbyrå sitter mye data. Det er også en arbeidsplass med mange samfunnsøkonomer og bedriftsøkonomer.</p>
+<p>Uansett, vi har muligheten til å hente data der ifra. Koden under viser hvordan vi henter data fra SSB sitt API. Mer om det kan de interesserte lese <a class="reference external" href="https://www.ssb.no/api/pxwebapi/_/attachment/inline/019c05e0-35ad-4757-87a0-ba7fbf4a68e2:397d9112916d85696733b77d376220c4465cb4fb/Api_brukerveiledning.pdf">her</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hente CSV fra SSB til pandas</span>
+
+<span class="c1"># Importerer Python pandas for å kunne lage dataframe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># pd.read_csv() henter innholdet fra API-et og legger det i data. </span>
+<span class="c1"># De norske datasettene her er semikolonseparert med komma som desimaltegn.</span>
+<span class="c1"># CSV er ikke UTF-8, så vi må angi parameter encoding for å få æøå riktig. </span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://data.ssb.no/api/v0/dataset/1066.csv?lang=no&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-8a">
+<h2>Oppgave 8a<a class="headerlink" href="#oppgave-8a" title="Link to this heading">#</a></h2>
+<p>Her i <strong>Oppgave 8a</strong> skal dere kommentere kodelinjene under, og si noe om hva de gjør.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(13, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>næring</th>
+      <th>måned</th>
+      <th>statistikkvariabel</th>
+      <th>07129: Varehandelsindeksen, etter næring, måned og statistikkvariabel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024M10</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>92.9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024M11</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>93.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024M12</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>93.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025M01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025M02</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;måned&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;måned&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">))</span>
+
+<span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;måned&#39;</span><span class="p">]</span>
+
+<span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 13 entries, 2024-10-01 to 2025-10-01
+Data columns (total 4 columns):
+ #   Column                                                                 Non-Null Count  Dtype         
+---  ------                                                                 --------------  -----         
+ 0   næring                                                                 13 non-null     object        
+ 1   måned                                                                  13 non-null     datetime64[ns]
+ 2   statistikkvariabel                                                     13 non-null     object        
+ 3   07129: Varehandelsindeksen, etter næring, måned og statistikkvariabel  13 non-null     float64       
+dtypes: datetime64[ns](1), float64(1), object(2)
+memory usage: 520.0+ bytes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se hva som skjedde med &#39;måned&#39; kolonnen nå!</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>næring</th>
+      <th>måned</th>
+      <th>statistikkvariabel</th>
+      <th>07129: Varehandelsindeksen, etter næring, måned og statistikkvariabel</th>
+    </tr>
+    <tr>
+      <th>måned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-10-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024-10-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>92.9</td>
+    </tr>
+    <tr>
+      <th>2024-11-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024-11-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>93.2</td>
+    </tr>
+    <tr>
+      <th>2024-12-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2024-12-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>93.4</td>
+    </tr>
+    <tr>
+      <th>2025-01-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025-01-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
+    </tr>
+    <tr>
+      <th>2025-02-01</th>
+      <td>47 Detaljhandel, unntatt salg av motorvogner</td>
+      <td>2025-02-01</td>
+      <td>Volumindeks, sesongjustert</td>
+      <td>94.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;måned&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;07129: Varehandelsindeksen, etter næring, måned og statistikkvariabel&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="c1"># </span>
+<span class="n">data_serie</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;07129: Varehandelsindeksen, etter næring, måned og statistikkvariabel&#39;</span><span class="p">]</span>
+
+<span class="c1"># </span>
+<span class="n">data_serie</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;måned&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/b06f567b20fd6f6a4774926ae02aca2997d41fd96bf879051a266c98b1e9a5fd.png" src="../../_images/b06f567b20fd6f6a4774926ae02aca2997d41fd96bf879051a266c98b1e9a5fd.png" />
+</div>
+</div>
+</section>
+<section id="oppgave-8b">
+<h2>Oppgave 8b<a class="headerlink" href="#oppgave-8b" title="Link to this heading">#</a></h2>
+<p>Utforsk et annet datasett fra SSB, ved å kjøre dette:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hente CSV fra SSB til pandas</span>
+
+<span class="c1"># Importerer Python pandas for å kunne lage dataframe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># pd.read_csv() henter innholdet fra API-et og legger det i data. </span>
+<span class="c1"># De norske datasettene her er semikolonseparert med komma som desimaltegn.</span>
+<span class="c1"># CSV er ikke UTF-8, så vi må angi parameter encoding for å få æøå riktig. </span>
+
+<span class="n">ssb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://data.ssb.no/api/v0/dataset/1078.csv?lang=no&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">ssb</span>
+</pre></div>
+</div>
+<p>Utforsk denne datarammen, ved å gjøre følgende:</p>
+<ol class="arabic simple">
+<li><p>Last inn data.</p></li>
+<li><p>Se på de første fem radene.</p></li>
+<li><p>Bruk Pandas til å få informasjon om datarammen.</p></li>
+<li><p>Bruk <code class="docutils literal notranslate"><span class="pre">ssb.describe()</span></code> for å beskrive de numeriske kolonnene.</p></li>
+<li><p>Undersøk unike verdier i hver kolonne.</p></li>
+<li><p>Grupper data etter <code class="docutils literal notranslate"><span class="pre">region</span></code> og <code class="docutils literal notranslate"><span class="pre">kjønn</span></code>, og se hvor mange som er i de ulike gruppene.</p></li>
+<li><p>Filtrer spesifikke verdier. F.eks. Kjør <code class="docutils literal notranslate"><span class="pre">ssb[ssb['kjønn']</span> <span class="pre">==</span> <span class="pre">'2</span> <span class="pre">Kvinner']</span></code> - hva får du da? Prøv å filtrere på andre ting?</p></li>
+<li><p>Bruk <strong>pandas</strong> til å visualisere hvor mange kvinner og hvor mange menn det er i Halden. Du vil få bruk for Pandas funksjonene, <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> og <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>.</p></li>
+</ol>
+</section>
+<section id="oppgave-9-eurostat">
+<h2>📊 Oppgave 9 - Eurostat<a class="headerlink" href="#oppgave-9-eurostat" title="Link to this heading">#</a></h2>
+<p>Eurostat er en veldig nyttig kilde til data. De har et stort utvalg av data på europeiske land. De har laget en egen pakke til python som ikke overraskende heter <code class="docutils literal notranslate"><span class="pre">eurostat</span></code>. Denne pakken er heller ikke installert, så dere må kjøre  <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">eurostat</span></code> først. Gå igjennom de neste <em>chunkene</em> med kode, og prøv å forstå hva vi gjør.</p>
+<p>For å se hvilke tabeller som er der, henter vi innholdsfortegnelsen (table of contents) med funksjonen <code class="docutils literal notranslate"><span class="pre">get_toc_df</span></code>. Det gir oss en <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataramme:</p>
+<section id="laster-ned-eurostat-med-pip">
+<h3>Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.<a class="headerlink" href="#laster-ned-eurostat-med-pip" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install eurostat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">eurostat</span>
+<span class="n">toc</span> <span class="o">=</span> <span class="n">eurostat</span><span class="o">.</span><span class="n">get_toc_df</span><span class="p">()</span>
+<span class="n">toc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>code</th>
+      <th>type</th>
+      <th>last update of data</th>
+      <th>last table structure change</th>
+      <th>data start</th>
+      <th>data end</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Unemployment rates by citizenship - quarterly ...</td>
+      <td>LFSQ_URGAN</td>
+      <td>dataset</td>
+      <td>2025-12-12T11:00:00+0100</td>
+      <td>2025-12-12T11:00:00+0100</td>
+      <td>1998-Q1</td>
+      <td>2025-Q3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Share of digital platform workers (in the last...</td>
+      <td>LFST_DPW_01</td>
+      <td>dataset</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Share of digital platform workers (in the last...</td>
+      <td>LFST_DPW_02</td>
+      <td>dataset</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Distribution of digital platform workers (in t...</td>
+      <td>LFST_DPW_03</td>
+      <td>dataset</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Distribution of digital platform workers (at l...</td>
+      <td>LFST_DPW_04</td>
+      <td>dataset</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2024-07-17T23:00:00+0200</td>
+      <td>2022</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8194</th>
+      <td>Postal services falling under the universal se...</td>
+      <td>POST_CUBE1_X$USO701</td>
+      <td>dataset</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8195</th>
+      <td>Postal services</td>
+      <td>POST_CUBE1_X</td>
+      <td>dataset</td>
+      <td>2025-04-15T12:43:15Z</td>
+      <td>2025-04-15T12:43:15Z</td>
+      <td>2012</td>
+      <td>2023</td>
+    </tr>
+    <tr>
+      <th>8196</th>
+      <td>Number of enterprises providing postal services</td>
+      <td>POST_CUBE1_X$NUM701</td>
+      <td>dataset</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8197</th>
+      <td>Access points  (USP under direct or indirect d...</td>
+      <td>POST_CUBE1_X$POST_ACC_1</td>
+      <td>dataset</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8198</th>
+      <td>Domestic postal traffic, letter mail and parce...</td>
+      <td>POST_CUBE1_X$POST_DTR_1</td>
+      <td>dataset</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>2025-04-15T12:44:56Z</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>8199 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>Du kan finne hvor mange tabeller det er med <code class="docutils literal notranslate"><span class="pre">len(toc)</span></code>, og det er i skrivende stund er det rundt 8 tusen tabeller. Det blir litt krevende å lete gjennom alle, så vi ønsker derfor å begrense antall tabeller til de som er relevante. Anta at vi ønsker å se på utviklingen i BNP per innbygger for landene som er med i statistikken. Nærmere bestemt, vi ønsker å finne alle tabeller der <code class="docutils literal notranslate"><span class="pre">'GDP</span> <span class="pre">per</span> <span class="pre">capita'</span></code> er i tittelen.</p>
+<p>BNP per innbygger er hvor mye hver person i landet i gjennomsnitt produserer i løpet av ett år.</p>
+<p>Vi gjør dette ved å lage følgende “list comprehension”: <code class="docutils literal notranslate"><span class="pre">['GDP</span> <span class="pre">per</span> <span class="pre">capita'</span> <span class="pre">in</span> <span class="pre">i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">toc['title']]</span></code>. Elementene i denne listen er sant (<code class="docutils literal notranslate"><span class="pre">True</span></code>) dersom ‘GDP per capita’ er i tittelen, og usant (<code class="docutils literal notranslate"><span class="pre">false</span></code>) om det ikke er i tittelen.</p>
+<section id="det-gjor-vi-slik">
+<h4>Det gjør vi slik:<a class="headerlink" href="#det-gjor-vi-slik" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_in_toc_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GDP per capita&#39;</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">toc</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan så velge de elementene hvor betingelsen er sann ved å sette listen inn i en klammeparentes etter innholdsfortegnelsen, <code class="docutils literal notranslate"><span class="pre">toc[gdp_in_toc_list]</span></code>. Kun de elementene i innholdsfortegnelsen der det står sant (<code class="docutils literal notranslate"><span class="pre">True</span></code>) i listen, tas da med.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collecting only the tables where &#39;GDP per capita&#39; is in the name</span>
+<span class="n">toc_gdp</span> <span class="o">=</span> <span class="n">toc</span><span class="p">[</span><span class="n">gdp_in_toc_list</span><span class="p">]</span>
+<span class="n">toc_gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>code</th>
+      <th>type</th>
+      <th>last update of data</th>
+      <th>last table structure change</th>
+      <th>data start</th>
+      <th>data end</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4486</th>
+      <td>Real GDP per capita</td>
+      <td>TIPSNA40</td>
+      <td>dataset</td>
+      <td>2025-12-16T23:00:00+0100</td>
+      <td>2025-04-14T23:00:00+0200</td>
+      <td>1995</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>6281</th>
+      <td>GDP per capita in PPS</td>
+      <td>TEC00114</td>
+      <td>dataset</td>
+      <td>2025-12-17T11:00:00+0100</td>
+      <td>2025-12-17T11:00:00+0100</td>
+      <td>2013</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>7674</th>
+      <td>Real GDP per capita</td>
+      <td>SDG_08_10</td>
+      <td>dataset</td>
+      <td>2025-12-16T23:00:00+0100</td>
+      <td>2025-04-14T23:00:00+0200</td>
+      <td>2000</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>7700</th>
+      <td>Purchasing power adjusted GDP per capita</td>
+      <td>SDG_10_10</td>
+      <td>dataset</td>
+      <td>2025-12-17T11:00:00+0100</td>
+      <td>2025-06-18T23:00:00+0200</td>
+      <td>2000</td>
+      <td>2024</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>La oss nå se på tabellen <code class="docutils literal notranslate"><span class="pre">&quot;Real</span> <span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">capita&quot;</span></code>, som har kode <code class="docutils literal notranslate"><span class="pre">'TIPSNA40'</span></code>. Da bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">get_data_df</span></code> med tabellkoden som argument:</p>
+</section>
+<section id="laster-inn-denne-tabellen">
+<h4>Laster inn denne tabellen<a class="headerlink" href="#laster-inn-denne-tabellen" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_data</span> <span class="o">=</span> <span class="n">eurostat</span><span class="o">.</span><span class="n">get_data_df</span><span class="p">(</span><span class="s1">&#39;TIPSNA40&#39;</span><span class="p">)</span>
+<span class="n">gdp_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>freq</th>
+      <th>unit</th>
+      <th>na_item</th>
+      <th>geo\TIME_PERIOD</th>
+      <th>1995</th>
+      <th>1996</th>
+      <th>1997</th>
+      <th>1998</th>
+      <th>1999</th>
+      <th>2000</th>
+      <th>...</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+      <th>2020</th>
+      <th>2021</th>
+      <th>2022</th>
+      <th>2023</th>
+      <th>2024</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>AT</td>
+      <td>30290.0</td>
+      <td>30920.0</td>
+      <td>31540.0</td>
+      <td>32610.0</td>
+      <td>33770.0</td>
+      <td>34760.0</td>
+      <td>...</td>
+      <td>39640.0</td>
+      <td>39970.0</td>
+      <td>40620.0</td>
+      <td>41430.0</td>
+      <td>41970.0</td>
+      <td>39140.0</td>
+      <td>40910.0</td>
+      <td>42610.0</td>
+      <td>41910.0</td>
+      <td>41420.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>BE</td>
+      <td>28400.0</td>
+      <td>28720.0</td>
+      <td>29740.0</td>
+      <td>30260.0</td>
+      <td>31250.0</td>
+      <td>32340.0</td>
+      <td>...</td>
+      <td>36860.0</td>
+      <td>37110.0</td>
+      <td>37510.0</td>
+      <td>38040.0</td>
+      <td>38760.0</td>
+      <td>36740.0</td>
+      <td>38880.0</td>
+      <td>40100.0</td>
+      <td>40440.0</td>
+      <td>40650.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>BG</td>
+      <td>3630.0</td>
+      <td>3840.0</td>
+      <td>3320.0</td>
+      <td>3460.0</td>
+      <td>3190.0</td>
+      <td>3350.0</td>
+      <td>...</td>
+      <td>6560.0</td>
+      <td>6840.0</td>
+      <td>7130.0</td>
+      <td>7390.0</td>
+      <td>7780.0</td>
+      <td>7610.0</td>
+      <td>8260.0</td>
+      <td>8660.0</td>
+      <td>8830.0</td>
+      <td>9140.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>CY</td>
+      <td>17530.0</td>
+      <td>17470.0</td>
+      <td>17680.0</td>
+      <td>18530.0</td>
+      <td>19240.0</td>
+      <td>20180.0</td>
+      <td>...</td>
+      <td>20810.0</td>
+      <td>22060.0</td>
+      <td>23130.0</td>
+      <td>24300.0</td>
+      <td>25390.0</td>
+      <td>24240.0</td>
+      <td>26600.0</td>
+      <td>28270.0</td>
+      <td>28740.0</td>
+      <td>29400.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>CZ</td>
+      <td>10320.0</td>
+      <td>10770.0</td>
+      <td>10720.0</td>
+      <td>10690.0</td>
+      <td>10850.0</td>
+      <td>11290.0</td>
+      <td>...</td>
+      <td>16230.0</td>
+      <td>16640.0</td>
+      <td>17490.0</td>
+      <td>17960.0</td>
+      <td>18570.0</td>
+      <td>17670.0</td>
+      <td>18380.0</td>
+      <td>18450.0</td>
+      <td>18260.0</td>
+      <td>18450.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>DE</td>
+      <td>28980.0</td>
+      <td>29220.0</td>
+      <td>29750.0</td>
+      <td>30400.0</td>
+      <td>31050.0</td>
+      <td>31930.0</td>
+      <td>...</td>
+      <td>37950.0</td>
+      <td>38550.0</td>
+      <td>39540.0</td>
+      <td>39930.0</td>
+      <td>40300.0</td>
+      <td>38670.0</td>
+      <td>40250.0</td>
+      <td>40710.0</td>
+      <td>39990.0</td>
+      <td>39680.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>DK</td>
+      <td>39110.0</td>
+      <td>39990.0</td>
+      <td>41080.0</td>
+      <td>41900.0</td>
+      <td>43000.0</td>
+      <td>44450.0</td>
+      <td>...</td>
+      <td>47900.0</td>
+      <td>48970.0</td>
+      <td>50150.0</td>
+      <td>50830.0</td>
+      <td>51500.0</td>
+      <td>50470.0</td>
+      <td>53520.0</td>
+      <td>53290.0</td>
+      <td>53230.0</td>
+      <td>54820.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>EA20</td>
+      <td>24620.0</td>
+      <td>24980.0</td>
+      <td>25600.0</td>
+      <td>26310.0</td>
+      <td>27030.0</td>
+      <td>28000.0</td>
+      <td>...</td>
+      <td>31160.0</td>
+      <td>31630.0</td>
+      <td>32410.0</td>
+      <td>32920.0</td>
+      <td>33370.0</td>
+      <td>31320.0</td>
+      <td>33320.0</td>
+      <td>34370.0</td>
+      <td>34310.0</td>
+      <td>34480.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>EE</td>
+      <td>6410.0</td>
+      <td>6840.0</td>
+      <td>7830.0</td>
+      <td>8250.0</td>
+      <td>8300.0</td>
+      <td>8990.0</td>
+      <td>...</td>
+      <td>16000.0</td>
+      <td>16460.0</td>
+      <td>17390.0</td>
+      <td>17990.0</td>
+      <td>18580.0</td>
+      <td>17990.0</td>
+      <td>19450.0</td>
+      <td>19190.0</td>
+      <td>18200.0</td>
+      <td>18070.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>EL</td>
+      <td>14290.0</td>
+      <td>14430.0</td>
+      <td>14870.0</td>
+      <td>15300.0</td>
+      <td>15650.0</td>
+      <td>16230.0</td>
+      <td>...</td>
+      <td>16210.0</td>
+      <td>16270.0</td>
+      <td>16540.0</td>
+      <td>16920.0</td>
+      <td>17320.0</td>
+      <td>15760.0</td>
+      <td>17220.0</td>
+      <td>18270.0</td>
+      <td>18720.0</td>
+      <td>19140.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>ES</td>
+      <td>18220.0</td>
+      <td>18620.0</td>
+      <td>19210.0</td>
+      <td>19960.0</td>
+      <td>20750.0</td>
+      <td>21730.0</td>
+      <td>...</td>
+      <td>23440.0</td>
+      <td>24100.0</td>
+      <td>24750.0</td>
+      <td>25230.0</td>
+      <td>25520.0</td>
+      <td>22610.0</td>
+      <td>24120.0</td>
+      <td>25420.0</td>
+      <td>25740.0</td>
+      <td>26350.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>EU27_2020</td>
+      <td>20910.0</td>
+      <td>21260.0</td>
+      <td>21810.0</td>
+      <td>22430.0</td>
+      <td>23080.0</td>
+      <td>23930.0</td>
+      <td>...</td>
+      <td>27800.0</td>
+      <td>28280.0</td>
+      <td>29040.0</td>
+      <td>29590.0</td>
+      <td>30090.0</td>
+      <td>28450.0</td>
+      <td>30280.0</td>
+      <td>31160.0</td>
+      <td>31150.0</td>
+      <td>31380.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>FI</td>
+      <td>26940.0</td>
+      <td>27840.0</td>
+      <td>29530.0</td>
+      <td>31060.0</td>
+      <td>32340.0</td>
+      <td>34130.0</td>
+      <td>...</td>
+      <td>38350.0</td>
+      <td>39230.0</td>
+      <td>40430.0</td>
+      <td>40860.0</td>
+      <td>41370.0</td>
+      <td>40270.0</td>
+      <td>41270.0</td>
+      <td>41470.0</td>
+      <td>40930.0</td>
+      <td>40780.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>FR</td>
+      <td>26540.0</td>
+      <td>26820.0</td>
+      <td>27400.0</td>
+      <td>28250.0</td>
+      <td>29060.0</td>
+      <td>30060.0</td>
+      <td>...</td>
+      <td>33200.0</td>
+      <td>33360.0</td>
+      <td>33920.0</td>
+      <td>34320.0</td>
+      <td>34880.0</td>
+      <td>32170.0</td>
+      <td>34230.0</td>
+      <td>35030.0</td>
+      <td>35440.0</td>
+      <td>35770.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>HR</td>
+      <td>6520.0</td>
+      <td>7010.0</td>
+      <td>7480.0</td>
+      <td>7650.0</td>
+      <td>7620.0</td>
+      <td>7920.0</td>
+      <td>...</td>
+      <td>10960.0</td>
+      <td>11480.0</td>
+      <td>12040.0</td>
+      <td>12550.0</td>
+      <td>13070.0</td>
+      <td>12100.0</td>
+      <td>13750.0</td>
+      <td>14820.0</td>
+      <td>15370.0</td>
+      <td>15910.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>HU</td>
+      <td>6940.0</td>
+      <td>6960.0</td>
+      <td>7180.0</td>
+      <td>7480.0</td>
+      <td>7730.0</td>
+      <td>8090.0</td>
+      <td>...</td>
+      <td>11520.0</td>
+      <td>11850.0</td>
+      <td>12380.0</td>
+      <td>13100.0</td>
+      <td>13780.0</td>
+      <td>13210.0</td>
+      <td>14230.0</td>
+      <td>14860.0</td>
+      <td>14760.0</td>
+      <td>14880.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>IE</td>
+      <td>25870.0</td>
+      <td>27590.0</td>
+      <td>30310.0</td>
+      <td>32530.0</td>
+      <td>35570.0</td>
+      <td>38400.0</td>
+      <td>...</td>
+      <td>57980.0</td>
+      <td>57990.0</td>
+      <td>62950.0</td>
+      <td>66830.0</td>
+      <td>69060.0</td>
+      <td>73020.0</td>
+      <td>83930.0</td>
+      <td>88360.0</td>
+      <td>84560.0</td>
+      <td>85320.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>IT</td>
+      <td>26510.0</td>
+      <td>26850.0</td>
+      <td>27360.0</td>
+      <td>27840.0</td>
+      <td>28310.0</td>
+      <td>29390.0</td>
+      <td>...</td>
+      <td>27620.0</td>
+      <td>28010.0</td>
+      <td>28510.0</td>
+      <td>28810.0</td>
+      <td>29000.0</td>
+      <td>26560.0</td>
+      <td>29080.0</td>
+      <td>30550.0</td>
+      <td>30860.0</td>
+      <td>31090.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>LT</td>
+      <td>4440.0</td>
+      <td>4700.0</td>
+      <td>5120.0</td>
+      <td>5550.0</td>
+      <td>5520.0</td>
+      <td>5750.0</td>
+      <td>...</td>
+      <td>12860.0</td>
+      <td>13360.0</td>
+      <td>14150.0</td>
+      <td>14970.0</td>
+      <td>15710.0</td>
+      <td>15720.0</td>
+      <td>16740.0</td>
+      <td>17010.0</td>
+      <td>16900.0</td>
+      <td>17310.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>LU</td>
+      <td>67360.0</td>
+      <td>67480.0</td>
+      <td>70230.0</td>
+      <td>73970.0</td>
+      <td>78880.0</td>
+      <td>83270.0</td>
+      <td>...</td>
+      <td>95090.0</td>
+      <td>97300.0</td>
+      <td>96460.0</td>
+      <td>96110.0</td>
+      <td>96730.0</td>
+      <td>94770.0</td>
+      <td>99760.0</td>
+      <td>96540.0</td>
+      <td>94830.0</td>
+      <td>93670.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>LV</td>
+      <td>4200.0</td>
+      <td>4350.0</td>
+      <td>4790.0</td>
+      <td>5160.0</td>
+      <td>5340.0</td>
+      <td>5710.0</td>
+      <td>...</td>
+      <td>12010.0</td>
+      <td>12430.0</td>
+      <td>12970.0</td>
+      <td>13630.0</td>
+      <td>13820.0</td>
+      <td>13430.0</td>
+      <td>14480.0</td>
+      <td>14750.0</td>
+      <td>14640.0</td>
+      <td>14770.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>MT</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15640.0</td>
+      <td>...</td>
+      <td>23000.0</td>
+      <td>23400.0</td>
+      <td>25710.0</td>
+      <td>26600.0</td>
+      <td>26570.0</td>
+      <td>25120.0</td>
+      <td>28320.0</td>
+      <td>28300.0</td>
+      <td>30080.0</td>
+      <td>31300.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>NL</td>
+      <td>30570.0</td>
+      <td>31470.0</td>
+      <td>32640.0</td>
+      <td>33940.0</td>
+      <td>35420.0</td>
+      <td>36650.0</td>
+      <td>...</td>
+      <td>41270.0</td>
+      <td>42050.0</td>
+      <td>42970.0</td>
+      <td>43680.0</td>
+      <td>44390.0</td>
+      <td>42440.0</td>
+      <td>44870.0</td>
+      <td>46670.0</td>
+      <td>45930.0</td>
+      <td>46130.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>PL</td>
+      <td>5150.0</td>
+      <td>5460.0</td>
+      <td>5810.0</td>
+      <td>6080.0</td>
+      <td>6370.0</td>
+      <td>6670.0</td>
+      <td>...</td>
+      <td>11390.0</td>
+      <td>11740.0</td>
+      <td>12340.0</td>
+      <td>13120.0</td>
+      <td>13720.0</td>
+      <td>13720.0</td>
+      <td>14750.0</td>
+      <td>15190.0</td>
+      <td>15290.0</td>
+      <td>15800.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>PT</td>
+      <td>14250.0</td>
+      <td>14700.0</td>
+      <td>15270.0</td>
+      <td>15930.0</td>
+      <td>16460.0</td>
+      <td>16960.0</td>
+      <td>...</td>
+      <td>17280.0</td>
+      <td>17670.0</td>
+      <td>18280.0</td>
+      <td>18830.0</td>
+      <td>19310.0</td>
+      <td>17680.0</td>
+      <td>18620.0</td>
+      <td>19800.0</td>
+      <td>20200.0</td>
+      <td>20410.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>RO</td>
+      <td>4120.0</td>
+      <td>4300.0</td>
+      <td>4100.0</td>
+      <td>4020.0</td>
+      <td>4020.0</td>
+      <td>4120.0</td>
+      <td>...</td>
+      <td>8090.0</td>
+      <td>8370.0</td>
+      <td>9100.0</td>
+      <td>9650.0</td>
+      <td>10080.0</td>
+      <td>9760.0</td>
+      <td>10390.0</td>
+      <td>10880.0</td>
+      <td>11120.0</td>
+      <td>11220.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>SE</td>
+      <td>31610.0</td>
+      <td>32100.0</td>
+      <td>33070.0</td>
+      <td>34460.0</td>
+      <td>35880.0</td>
+      <td>37480.0</td>
+      <td>...</td>
+      <td>46160.0</td>
+      <td>46590.0</td>
+      <td>46800.0</td>
+      <td>47080.0</td>
+      <td>47790.0</td>
+      <td>46550.0</td>
+      <td>48690.0</td>
+      <td>48780.0</td>
+      <td>48350.0</td>
+      <td>48660.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>SI</td>
+      <td>11980.0</td>
+      <td>12320.0</td>
+      <td>12980.0</td>
+      <td>13400.0</td>
+      <td>14100.0</td>
+      <td>14550.0</td>
+      <td>...</td>
+      <td>18660.0</td>
+      <td>19210.0</td>
+      <td>20190.0</td>
+      <td>21010.0</td>
+      <td>21570.0</td>
+      <td>20560.0</td>
+      <td>22230.0</td>
+      <td>22810.0</td>
+      <td>23230.0</td>
+      <td>23560.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>A</td>
+      <td>CLV15_EUR_HAB</td>
+      <td>B1GQ</td>
+      <td>SK</td>
+      <td>6990.0</td>
+      <td>7400.0</td>
+      <td>7790.0</td>
+      <td>8080.0</td>
+      <td>8040.0</td>
+      <td>8090.0</td>
+      <td>...</td>
+      <td>14820.0</td>
+      <td>15090.0</td>
+      <td>15500.0</td>
+      <td>16110.0</td>
+      <td>16450.0</td>
+      <td>16010.0</td>
+      <td>16970.0</td>
+      <td>17010.0</td>
+      <td>17370.0</td>
+      <td>17700.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>29 rows × 34 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="oppgave-9a-jobbe-med-data">
+<h2><strong>Oppgave 9a - Jobbe med data</strong><a class="headerlink" href="#oppgave-9a-jobbe-med-data" title="Link to this heading">#</a></h2>
+<p>Du har fått utdelt et datasett <code class="docutils literal notranslate"><span class="pre">gdp_data</span></code> som inneholder BNP per innbygger (GDP per capita) for ulike europeiske land over flere år. Dataene har noen utfordringer, som manglende verdier (NaN) og kolonner som ikke er relevante for analysen.</p>
+<p>Målet med oppgaven er å:</p>
+<ul class="simple">
+<li><p>Rydde opp i dataene ved å fjerne unødvendige kolonner og håndtere eventuelle manglende verdier.</p></li>
+<li><p>Ekstrahere data kun for Italia (IT), Danmark (DK) og Sverige (SE).</p></li>
+<li><p>Transformere dataene slik at årstallene blir kolonner, og vi har et rent format.</p></li>
+<li><p>Utføre beskrivende statistikk og visualisere utviklingen i BNP per capita for de tre landene.</p></li>
+<li><p>Bruke standard pandas-metoder for å utforske dataene videre.</p></li>
+</ul>
+</section>
+<section id="del-1-rens-og-filtrer-data">
+<h2>🔄 Del 1: Rens og filtrer data<a class="headerlink" href="#del-1-rens-og-filtrer-data" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Last inn datasettet i en pandas DataFrame.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Fjern unødvendige kolonner (f.eks. <code class="docutils literal notranslate"><span class="pre">freq</span></code>, <code class="docutils literal notranslate"><span class="pre">unit</span></code>, <code class="docutils literal notranslate"><span class="pre">na_item</span></code>).</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Behold kun rader for Italia (IT), Danmark (DK) og Sverige (SE).</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Sjekk og håndter eventuelle manglende verdier (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p></li>
+</ol>
+</section>
+<section id="del-2-transformer-data">
+<h2>🔄 Del 2: Transformér data<a class="headerlink" href="#del-2-transformer-data" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Sett opp DataFrame slik at:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">geo\TIME_PERIOD</span></code> blir indeks.</p></li>
+<li><p>Årstallene blir kolonnenavn.</p></li>
+<li><p>BNP per capita-verdiene for hvert land forblir i tabellen.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Konverter eventuelle verdier som er lagret som <code class="docutils literal notranslate"><span class="pre">object</span></code> til <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+</ol>
+</section>
+<section id="del-3-videre-analyse-av-data">
+<h2>📊 Del 3: Videre analyse av data<a class="headerlink" href="#del-3-videre-analyse-av-data" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Beregn beskrivende statistikk for hvert av landene:</p>
+<ul class="simple">
+<li><p>Gjennomsnitt, median, standardavvik.</p></li>
+<li><p>Maksimum og minimum BNP per capita.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Finn ut hvilket år hvert land hadde høyest BNP per capita.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../04/lister_oppslag_numpy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4 - Lister, oppslag og numpy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06/logikk_loops.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6 - Logikk og løkker</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-et-verktoy-for-behandling-og-lasting-av-data"><strong>Pandas</strong> - et verktøy for behandling og lasting av data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-pandas">1. Introduksjon til Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-importere-pandas-og-laste-inn-en-csv-fil"><strong>Eksempel: Importere Pandas og laste inn en CSV-fil</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasjoner-pa-dataframe-s"><strong>Operasjoner på dataframe’s</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempelbruk-av-operasjoner-pa-dataframe-s">Eksempelbruk av operasjoner på dataframe’s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">📊 Oppgave 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">📊 Oppgave 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">📊 Oppgave 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">📊 Oppgave 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">📊 Oppgave 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">📊 Oppgave 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7">📊 Oppgave 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-statistisk-sentralbyra">📊 Oppgave 8 - Statistisk sentralbyrå</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8a">Oppgave 8a</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8b">Oppgave 8b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-eurostat">📊 Oppgave 9 - Eurostat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-ned-eurostat-med-pip">Laster ned <code class="docutils literal notranslate"><span class="pre">eurostat</span></code> med pip.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#det-gjor-vi-slik">Det gjør vi slik:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laster-inn-denne-tabellen">Laster inn denne tabellen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9a-jobbe-med-data"><strong>Oppgave 9a - Jobbe med data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-rens-og-filtrer-data">🔄 Del 1: Rens og filtrer data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-transformer-data">🔄 Del 2: Transformér data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-videre-analyse-av-data">📊 Del 3: Videre analyse av data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

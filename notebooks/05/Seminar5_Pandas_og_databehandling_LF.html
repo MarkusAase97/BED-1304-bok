@@ -1,0 +1,1244 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 5 - Pandas og databehandling (løsningsforslag) &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05/Seminar5_Pandas_og_databehandling_LF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/Seminar5_Pandas_og_databehandling_LF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/05/Seminar5_Pandas_og_databehandling_LF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 5 - Pandas og databehandling (løsningsforslag)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-opprette-en-pandas-dataframe">📌 Oppgave 1: Opprette en Pandas DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-filtrere-data-i-en-dataframe">📌 Oppgave 2: Filtrere Data i en DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-legge-til-en-ny-kolonne">📌 Oppgave 3: Legge til en Ny Kolonne</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-laste-inn-data-fra-en-csv-fil">📌 Oppgave 4: Laste Inn Data fra en CSV-fil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-finn-gjennomsnittlig-eksamensscore">📌 Oppgave 5: Finn Gjennomsnittlig Eksamensscore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-tell-antall-elever-med-og-uten-internett">📌 Oppgave 6: Tell Antall Elever med og uten Internett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-histogram-over-studietimer">📌 Oppgave 7: Histogram over Studietimer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-utforsk-dataene-med-pandas">📌 Oppgave 8: Utforsk Dataene med Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sjekk-informasjon-om-datasettet"><strong>a) Sjekk informasjon om datasettet</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-vis-de-forste-5-radene-i-datasettet"><strong>b) Vis de første 5 radene i datasettet</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-finn-antall-rader-og-kolonner"><strong>c) Finn antall rader og kolonner</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-sjekk-om-det-finnes-manglende-verdier"><strong>d) Sjekk om det finnes manglende verdier</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-beskriv-datasettet-med-statistikk"><strong>e) Beskriv datasettet med statistikk</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-5-pandas-og-databehandling-losningsforslag">
+<h1>Seminar 5 - <strong>Pandas og databehandling (løsningsforslag)</strong><a class="headerlink" href="#seminar-5-pandas-og-databehandling-losningsforslag" title="Link to this heading">#</a></h1>
+<p>Til nå har vi sett på fundamentale prinsipper i Python, som variabler, funksjoner, lister, dictionaries og NumPy. I dette seminaret vil dere øve på bruk av biblioteket <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, og hvordan vi kan bruke dette til behandling av data.</p>
+<p>Øv på å bruke Google, forelesningsnotater og pseudokode for å løse oppgaven.</p>
+<section id="oppgave-1-opprette-en-pandas-dataframe">
+<h2>📌 Oppgave 1: Opprette en Pandas DataFrame<a class="headerlink" href="#oppgave-1-opprette-en-pandas-dataframe" title="Link to this heading">#</a></h2>
+<p>Opprett en DataFrame som inneholder informasjon om tre forskjellige produkter:</p>
+<p><strong>Kolonner</strong>: “Produkt”, “Pris”, “Lager”</p>
+<p><strong>Data</strong>:</p>
+<ul class="simple">
+<li><p>“Eple”, 10 kr, 100 stk</p></li>
+<li><p>“Banan”, 15 kr, 150 stk</p></li>
+<li><p>“Appelsin”, 12 kr, 80 stk</p></li>
+</ul>
+<p>Skriv ut hele DataFrame-en.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importerer biblioteket</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Opprett DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Produkt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Eple&quot;</span><span class="p">,</span> <span class="s2">&quot;Banan&quot;</span><span class="p">,</span> <span class="s2">&quot;Appelsin&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Pris&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+    <span class="s2">&quot;Lager&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Skriv ut DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Produkt  Pris  Lager
+0      Eple    10    100
+1     Banan    15    150
+2  Appelsin    12     80
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-2-filtrere-data-i-en-dataframe">
+<h2>📌 Oppgave 2: Filtrere Data i en DataFrame<a class="headerlink" href="#oppgave-2-filtrere-data-i-en-dataframe" title="Link to this heading">#</a></h2>
+<p>Bruk DataFrame-en fra Oppgave 1.</p>
+<p>Finn og skriv ut alle produkter med en pris over 12 kr.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filtrer produkter med pris over 12 kr</span>
+<span class="n">dyre_produkter</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Pris&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dyre_produkter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Produkt  Pris  Lager
+1   Banan    15    150
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3-legge-til-en-ny-kolonne">
+<h2>📌 Oppgave 3: Legge til en Ny Kolonne<a class="headerlink" href="#oppgave-3-legge-til-en-ny-kolonne" title="Link to this heading">#</a></h2>
+<p>Legg til en ny kolonne <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">verdi</span></code> i DataFrame-en. Den skal vise <strong>pris × lager</strong> for hvert produkt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Legg til en ny kolonne som heter &#39;Total verdi&#39;</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total verdi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Pris&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Lager&quot;</span><span class="p">]</span>
+
+<span class="c1"># Skriv ut oppdatert DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Produkt  Pris  Lager  Total verdi
+0      Eple    10    100         1000
+1     Banan    15    150         2250
+2  Appelsin    12     80          960
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4-laste-inn-data-fra-en-csv-fil">
+<h2>📌 Oppgave 4: Laste Inn Data fra en CSV-fil<a class="headerlink" href="#oppgave-4-laste-inn-data-fra-en-csv-fil" title="Link to this heading">#</a></h2>
+<p>Last inn csv-filen som heter <code class="docutils literal notranslate"><span class="pre">StudentPerformanceFactors.csv</span></code> fra data mappen til kurset. Den finner dere [her](insert link).</p>
+<p>Print ut de første fem radene av  dataene ved hjelp av funksjonen</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Les inn CSV-fil</span>
+<span class="n">df_student</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/StudentPerformanceFactors.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vis de første radene</span>
+<span class="n">df_student</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hours_Studied</th>
+      <th>Attendance</th>
+      <th>Parental_Involvement</th>
+      <th>Access_to_Resources</th>
+      <th>Extracurricular_Activities</th>
+      <th>Sleep_Hours</th>
+      <th>Previous_Scores</th>
+      <th>Motivation_Level</th>
+      <th>Internet_Access</th>
+      <th>Tutoring_Sessions</th>
+      <th>Family_Income</th>
+      <th>Teacher_Quality</th>
+      <th>School_Type</th>
+      <th>Peer_Influence</th>
+      <th>Physical_Activity</th>
+      <th>Learning_Disabilities</th>
+      <th>Parental_Education_Level</th>
+      <th>Distance_from_Home</th>
+      <th>Gender</th>
+      <th>Exam_Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>84</td>
+      <td>Low</td>
+      <td>High</td>
+      <td>No</td>
+      <td>7</td>
+      <td>73</td>
+      <td>Low</td>
+      <td>Yes</td>
+      <td>0</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Positive</td>
+      <td>3</td>
+      <td>No</td>
+      <td>High School</td>
+      <td>Near</td>
+      <td>Male</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>19</td>
+      <td>64</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>8</td>
+      <td>59</td>
+      <td>Low</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Negative</td>
+      <td>4</td>
+      <td>No</td>
+      <td>College</td>
+      <td>Moderate</td>
+      <td>Female</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>24</td>
+      <td>98</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>7</td>
+      <td>91</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Neutral</td>
+      <td>4</td>
+      <td>No</td>
+      <td>Postgraduate</td>
+      <td>Near</td>
+      <td>Male</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>29</td>
+      <td>89</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>98</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Negative</td>
+      <td>4</td>
+      <td>No</td>
+      <td>High School</td>
+      <td>Moderate</td>
+      <td>Male</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19</td>
+      <td>92</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>6</td>
+      <td>65</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>3</td>
+      <td>Medium</td>
+      <td>High</td>
+      <td>Public</td>
+      <td>Neutral</td>
+      <td>4</td>
+      <td>No</td>
+      <td>College</td>
+      <td>Near</td>
+      <td>Female</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="oppgave-5-finn-gjennomsnittlig-eksamensscore">
+<h2>📌 Oppgave 5: Finn Gjennomsnittlig Eksamensscore<a class="headerlink" href="#oppgave-5-finn-gjennomsnittlig-eksamensscore" title="Link to this heading">#</a></h2>
+<p>Bruk <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> til å finne <strong>gjennomsnittlig eksamensscore</strong> for hele datasettet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finn gjennomsnittlig eksamensscore</span>
+<span class="n">gj_snitt</span> <span class="o">=</span> <span class="n">df_student</span><span class="p">[</span><span class="s2">&quot;Exam_Score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gjennomsnittlig eksamensscore er </span><span class="si">{</span><span class="n">gj_snitt</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjennomsnittlig eksamensscore er 67.24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6-tell-antall-elever-med-og-uten-internett">
+<h2>📌 Oppgave 6: Tell Antall Elever med og uten Internett<a class="headerlink" href="#oppgave-6-tell-antall-elever-med-og-uten-internett" title="Link to this heading">#</a></h2>
+<p>Bruk Pandas til å finne ut hvor mange elever som har tilgang til internett og hvor mange som ikke har det.</p>
+<p>Da vil du ha bruk for funksjonen <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> til Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tell hvor mange elever som har tilgang til internett</span>
+<span class="n">internett_tilgang</span> <span class="o">=</span> <span class="n">df_student</span><span class="p">[</span><span class="s2">&quot;Internet_Access&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">internett_tilgang</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Internet_Access
+Yes    6108
+No      499
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-7-histogram-over-studietimer">
+<h2>📌 Oppgave 7: Histogram over Studietimer<a class="headerlink" href="#oppgave-7-histogram-over-studietimer" title="Link to this heading">#</a></h2>
+<p>Vis hvor mange elever som går på <strong>Public</strong> vs. <strong>Private</strong> skoler.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lag et stolpediagram over skoletyper</span>
+<span class="n">df_student</span><span class="p">[</span><span class="s2">&quot;School_Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Antall elever per Skoletype&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Antall elever per Skoletype&#39;}, xlabel=&#39;School_Type&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/a8e0b73a27f7db688f9a11b2805bb169ab5c12d44923083fff6f865b1afcb63b.png" src="../../_images/a8e0b73a27f7db688f9a11b2805bb169ab5c12d44923083fff6f865b1afcb63b.png" />
+</div>
+</div>
+</section>
+<section id="oppgave-8-utforsk-dataene-med-pandas">
+<h2>📌 Oppgave 8: Utforsk Dataene med Pandas<a class="headerlink" href="#oppgave-8-utforsk-dataene-med-pandas" title="Link to this heading">#</a></h2>
+<p>I denne oppgaven skal du bruke Pandas’ innebygde metoder for å undersøke datasettet om studentenes og deres vaner.</p>
+<section id="a-sjekk-informasjon-om-datasettet">
+<h3><strong>a) Sjekk informasjon om datasettet</strong><a class="headerlink" href="#a-sjekk-informasjon-om-datasettet" title="Link to this heading">#</a></h3>
+<p>Bruk Pandas til å vise en oversikt over kolonner, datatyper og manglende verdier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_student</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6607 entries, 0 to 6606
+Data columns (total 20 columns):
+ #   Column                      Non-Null Count  Dtype 
+---  ------                      --------------  ----- 
+ 0   Hours_Studied               6607 non-null   int64 
+ 1   Attendance                  6607 non-null   int64 
+ 2   Parental_Involvement        6607 non-null   object
+ 3   Access_to_Resources         6607 non-null   object
+ 4   Extracurricular_Activities  6607 non-null   object
+ 5   Sleep_Hours                 6607 non-null   int64 
+ 6   Previous_Scores             6607 non-null   int64 
+ 7   Motivation_Level            6607 non-null   object
+ 8   Internet_Access             6607 non-null   object
+ 9   Tutoring_Sessions           6607 non-null   int64 
+ 10  Family_Income               6607 non-null   object
+ 11  Teacher_Quality             6529 non-null   object
+ 12  School_Type                 6607 non-null   object
+ 13  Peer_Influence              6607 non-null   object
+ 14  Physical_Activity           6607 non-null   int64 
+ 15  Learning_Disabilities       6607 non-null   object
+ 16  Parental_Education_Level    6517 non-null   object
+ 17  Distance_from_Home          6540 non-null   object
+ 18  Gender                      6607 non-null   object
+ 19  Exam_Score                  6607 non-null   int64 
+dtypes: int64(7), object(13)
+memory usage: 1.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-vis-de-forste-5-radene-i-datasettet">
+<h3><strong>b) Vis de første 5 radene i datasettet</strong><a class="headerlink" href="#b-vis-de-forste-5-radene-i-datasettet" title="Link to this heading">#</a></h3>
+<p>Se hvordan dataene ser ut ved å hente ut de første radene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_student</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hours_Studied</th>
+      <th>Attendance</th>
+      <th>Parental_Involvement</th>
+      <th>Access_to_Resources</th>
+      <th>Extracurricular_Activities</th>
+      <th>Sleep_Hours</th>
+      <th>Previous_Scores</th>
+      <th>Motivation_Level</th>
+      <th>Internet_Access</th>
+      <th>Tutoring_Sessions</th>
+      <th>Family_Income</th>
+      <th>Teacher_Quality</th>
+      <th>School_Type</th>
+      <th>Peer_Influence</th>
+      <th>Physical_Activity</th>
+      <th>Learning_Disabilities</th>
+      <th>Parental_Education_Level</th>
+      <th>Distance_from_Home</th>
+      <th>Gender</th>
+      <th>Exam_Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>84</td>
+      <td>Low</td>
+      <td>High</td>
+      <td>No</td>
+      <td>7</td>
+      <td>73</td>
+      <td>Low</td>
+      <td>Yes</td>
+      <td>0</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Positive</td>
+      <td>3</td>
+      <td>No</td>
+      <td>High School</td>
+      <td>Near</td>
+      <td>Male</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>19</td>
+      <td>64</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>No</td>
+      <td>8</td>
+      <td>59</td>
+      <td>Low</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Negative</td>
+      <td>4</td>
+      <td>No</td>
+      <td>College</td>
+      <td>Moderate</td>
+      <td>Female</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>24</td>
+      <td>98</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>7</td>
+      <td>91</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Neutral</td>
+      <td>4</td>
+      <td>No</td>
+      <td>Postgraduate</td>
+      <td>Near</td>
+      <td>Male</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>29</td>
+      <td>89</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>98</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Public</td>
+      <td>Negative</td>
+      <td>4</td>
+      <td>No</td>
+      <td>High School</td>
+      <td>Moderate</td>
+      <td>Male</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19</td>
+      <td>92</td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>6</td>
+      <td>65</td>
+      <td>Medium</td>
+      <td>Yes</td>
+      <td>3</td>
+      <td>Medium</td>
+      <td>High</td>
+      <td>Public</td>
+      <td>Neutral</td>
+      <td>4</td>
+      <td>No</td>
+      <td>College</td>
+      <td>Near</td>
+      <td>Female</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="c-finn-antall-rader-og-kolonner">
+<h3><strong>c) Finn antall rader og kolonner</strong><a class="headerlink" href="#c-finn-antall-rader-og-kolonner" title="Link to this heading">#</a></h3>
+<p>Bruk Pandas for å finne ut hvor mange rader og kolonner datasettet inneholder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_student</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6607, 20)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-sjekk-om-det-finnes-manglende-verdier">
+<h3><strong>d) Sjekk om det finnes manglende verdier</strong><a class="headerlink" href="#d-sjekk-om-det-finnes-manglende-verdier" title="Link to this heading">#</a></h3>
+<p>Finn ut om noen kolonner har <strong>NaN</strong>-verdier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_student</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hours_Studied                  0
+Attendance                     0
+Parental_Involvement           0
+Access_to_Resources            0
+Extracurricular_Activities     0
+Sleep_Hours                    0
+Previous_Scores                0
+Motivation_Level               0
+Internet_Access                0
+Tutoring_Sessions              0
+Family_Income                  0
+Teacher_Quality               78
+School_Type                    0
+Peer_Influence                 0
+Physical_Activity              0
+Learning_Disabilities          0
+Parental_Education_Level      90
+Distance_from_Home            67
+Gender                         0
+Exam_Score                     0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e-beskriv-datasettet-med-statistikk">
+<h3><strong>e) Beskriv datasettet med statistikk</strong><a class="headerlink" href="#e-beskriv-datasettet-med-statistikk" title="Link to this heading">#</a></h3>
+<p>Få et raskt overblikk over numeriske kolonner. Bruk <code class="docutils literal notranslate"><span class="pre">describe()</span></code> funksjonen til Pandas. Hva kan finner vi ut her?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pris</th>
+      <th>Lager</th>
+      <th>Total verdi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>12.333333</td>
+      <td>110.000000</td>
+      <td>1403.333333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.516611</td>
+      <td>36.055513</td>
+      <td>733.507555</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>10.000000</td>
+      <td>80.000000</td>
+      <td>960.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>11.000000</td>
+      <td>90.000000</td>
+      <td>980.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>12.000000</td>
+      <td>100.000000</td>
+      <td>1000.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>13.500000</td>
+      <td>125.000000</td>
+      <td>1625.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>15.000000</td>
+      <td>150.000000</td>
+      <td>2250.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-opprette-en-pandas-dataframe">📌 Oppgave 1: Opprette en Pandas DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-filtrere-data-i-en-dataframe">📌 Oppgave 2: Filtrere Data i en DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-legge-til-en-ny-kolonne">📌 Oppgave 3: Legge til en Ny Kolonne</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-laste-inn-data-fra-en-csv-fil">📌 Oppgave 4: Laste Inn Data fra en CSV-fil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-finn-gjennomsnittlig-eksamensscore">📌 Oppgave 5: Finn Gjennomsnittlig Eksamensscore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-tell-antall-elever-med-og-uten-internett">📌 Oppgave 6: Tell Antall Elever med og uten Internett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-histogram-over-studietimer">📌 Oppgave 7: Histogram over Studietimer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-utforsk-dataene-med-pandas">📌 Oppgave 8: Utforsk Dataene med Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sjekk-informasjon-om-datasettet"><strong>a) Sjekk informasjon om datasettet</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-vis-de-forste-5-radene-i-datasettet"><strong>b) Vis de første 5 radene i datasettet</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-finn-antall-rader-og-kolonner"><strong>c) Finn antall rader og kolonner</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-sjekk-om-det-finnes-manglende-verdier"><strong>d) Sjekk om det finnes manglende verdier</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-beskriv-datasettet-med-statistikk"><strong>e) Beskriv datasettet med statistikk</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

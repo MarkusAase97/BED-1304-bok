@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 6 - Logikk og løkker (løsningsforslag) &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/06/Seminar6-Logikk_løkkerLF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06/Seminar6-Logikk_løkkerLF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/06/Seminar6-Logikk_løkkerLF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 6 - Logikk og løkker (løsningsforslag)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-rabatt-pa-kjop">📌 Oppgave 1: Rabatt på Kjøp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-lanesoknadsgodkjenning">📌 Oppgave 2: Lånesøknadsgodkjenning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-beregn-totalt-sparebelop">📌 Oppgave 3: Beregn Totalt Sparebeløp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-skatteberegning-med-if-else">📌 Oppgave 4: Skatteberegning med If/Else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-lan-med-for-lokke">📌 Oppgave 5: Lån med For-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-sparing-med-while-lokke">📌 Oppgave 6: Sparing med While-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-budsjettkontroll-med-for-lokke-og-if">📌 Oppgave 7: Budsjettkontroll med For-løkke og If</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-sparing-og-okonomiske-beslutninger">📌 Oppgave 8: Sparing og Økonomiske Beslutninger</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-6-logikk-og-lokker-losningsforslag">
+<h1>Seminar 6 - <strong>Logikk og løkker (løsningsforslag)</strong><a class="headerlink" href="#seminar-6-logikk-og-lokker-losningsforslag" title="Link to this heading">#</a></h1>
+<p>Til nå har vi sett på fundamentale prinsipper i Python, som variabler, funksjoner, lister, dictionaries og NumPy. I dette seminaret vil dere øve på bruk av logikk, ulike løkker og hvordan vi kan bruke dette i ulike problemstillinger.</p>
+<p>Øv på å bruke Google, forelesningsnotater og pseudokode for å løse oppgaven.</p>
+<section id="oppgave-1-rabatt-pa-kjop">
+<h2>📌 Oppgave 1: Rabatt på Kjøp<a class="headerlink" href="#oppgave-1-rabatt-pa-kjop" title="Link to this heading">#</a></h2>
+<p>En butikk gir 10% rabatt hvis kunden handler for mer enn 1000 kr.</p>
+<p>Skriv en kode som tar inn en totalpris og sjekker om kunden får rabatt eller ikke.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brukerens kjøpsbeløp</span>
+<span class="n">totalpris</span> <span class="o">=</span> <span class="mi">1500</span>
+
+<span class="c1"># Sjekk om rabatt gjelder</span>
+<span class="k">if</span> <span class="n">totalpris</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">ny_pris</span> <span class="o">=</span> <span class="n">totalpris</span> <span class="o">*</span> <span class="mf">0.9</span>  <span class="c1"># 10% rabatt</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Du får 10% rabatt! Ny pris: </span><span class="si">{</span><span class="n">ny_pris</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ingen rabatt gitt. Totalpris: </span><span class="si">{</span><span class="n">totalpris</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du får 10% rabatt! Ny pris: 1350.00 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-2-lanesoknadsgodkjenning">
+<h2>📌 Oppgave 2: Lånesøknadsgodkjenning<a class="headerlink" href="#oppgave-2-lanesoknadsgodkjenning" title="Link to this heading">#</a></h2>
+<p>En bank godkjenner lån dersom kunden tjener minst <span class="math notranslate nohighlight">\(500,000\)</span> kr i året og ikke har betalingsanmerkninger.</p>
+<p>Lag en <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> setning, som tar inn <code class="docutils literal notranslate"><span class="pre">inntekt</span></code> og <code class="docutils literal notranslate"><span class="pre">betalingsanmerkning</span></code> (“ja” eller “nei”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kundeinformasjon</span>
+<span class="n">inntekt</span> <span class="o">=</span> <span class="mi">510000</span>                <span class="c1"># Eksempel-lønn</span>
+<span class="n">betalingsanmerkning</span> <span class="o">=</span> <span class="s2">&quot;nei&quot;</span>     <span class="c1"># &quot;nei&quot; eller &quot;ja&quot;</span>
+
+<span class="c1"># Sjekk lånekriterier</span>
+<span class="k">if</span> <span class="n">inntekt</span> <span class="o">&gt;=</span> <span class="mi">300000</span> <span class="ow">and</span> <span class="n">betalingsanmerkning</span> <span class="o">==</span> <span class="s2">&quot;nei&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lån innvilget!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Beklager, du oppfyller ikke kravene for lån.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lån innvilget!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3-beregn-totalt-sparebelop">
+<h2>📌 Oppgave 3: Beregn Totalt Sparebeløp<a class="headerlink" href="#oppgave-3-beregn-totalt-sparebelop" title="Link to this heading">#</a></h2>
+<p>En person setter inn <span class="math notranslate nohighlight">\(1000\)</span> kr på en sparekonto hver måned. Banken gir <span class="math notranslate nohighlight">\(2\)</span>% årlig rente, men renten legges ikke til før på slutten av året.</p>
+<p>Skriv en <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke som simulerer 5 år med sparing og beregner hvor mye penger personen har etter denne perioden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Startverdier</span>
+<span class="n">månedlig_sparing</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">rente</span> <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># 2% årlig rente</span>
+<span class="n">år</span> <span class="o">=</span> <span class="mi">5</span>        <span class="c1"># 5 år med sparing</span>
+<span class="n">saldo</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># Starter med 0 kronasjer</span>
+
+<span class="c1"># Løkke for å beregne saldo over flere år</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">år</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">saldo</span> <span class="o">+=</span> <span class="n">månedlig_sparing</span> <span class="o">*</span> <span class="mi">12</span>          <span class="c1"># Legg til sparing for året</span>
+    <span class="n">saldo</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rente</span><span class="p">)</span>                    <span class="c1"># Legg til årlig rente, på slutten av året.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Etter </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> år: </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>  <span class="c1"># Print resultatet, med avrundede verdier</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Etter 1 år: 12240.00 kr
+Etter 2 år: 24724.80 kr
+Etter 3 år: 37459.30 kr
+Etter 4 år: 50448.48 kr
+Etter 5 år: 63697.45 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4-skatteberegning-med-if-else">
+<h2>📌 Oppgave 4: Skatteberegning med If/Else<a class="headerlink" href="#oppgave-4-skatteberegning-med-if-else" title="Link to this heading">#</a></h2>
+<p>En person må betale skatt basert på følgende inntektsnivå:</p>
+<ul class="simple">
+<li><p>Under <strong>200,000 kr</strong>: <strong>0% skatt</strong></p></li>
+<li><p>Mellom <strong>200,000 kr</strong> - <strong>500,000 kr</strong>: <strong>20% skatt</strong></p></li>
+<li><p>Over <strong>500,000 kr</strong>: <strong>35% skatt</strong></p></li>
+</ul>
+<p>Lag en <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> setning, som tar inn <code class="docutils literal notranslate"><span class="pre">inntekt</span></code> og <code class="docutils literal notranslate"><span class="pre">betalingsanmerkning</span></code> (“ja” eller “nei”), og beregner hvor mye man må betale i skatt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brukerinput</span>
+<span class="n">inntekt</span> <span class="o">=</span> <span class="mi">600000</span>
+
+<span class="c1"># Beregn skatt basert på inntekten</span>
+<span class="k">if</span> <span class="n">inntekt</span> <span class="o">&lt;</span> <span class="mi">200000</span><span class="p">:</span>
+    <span class="n">skatt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">inntekt</span> <span class="o">&lt;=</span> <span class="mi">500000</span><span class="p">:</span>
+    <span class="n">skatt</span> <span class="o">=</span> <span class="n">inntekt</span> <span class="o">*</span> <span class="mf">0.20</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">skatt</span> <span class="o">=</span> <span class="n">inntekt</span> <span class="o">*</span> <span class="mf">0.35</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Du må betale </span><span class="si">{</span><span class="n">skatt</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr i skatt.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du må betale 210000.00 kr i skatt.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-5-lan-med-for-lokke">
+<h2>📌 Oppgave 5: Lån med For-løkke<a class="headerlink" href="#oppgave-5-lan-med-for-lokke" title="Link to this heading">#</a></h2>
+<p>En person tar opp et lån på <span class="math notranslate nohighlight">\(10,000\)</span> kr med en årlig rente på <span class="math notranslate nohighlight">\(5\)</span>%.</p>
+<p>Skriv en for-løkke som viser hvor mye lånet vokser hvert år i 5 år.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Startverdi</span>
+<span class="n">lån</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">rente</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># Løkke for å beregne lån over 5 år</span>
+<span class="k">for</span> <span class="n">år</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="n">lån</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rente</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;År </span><span class="si">{</span><span class="n">år</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">lån</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>År 1: 10500.00 kr
+År 2: 11025.00 kr
+År 3: 11576.25 kr
+År 4: 12155.06 kr
+År 5: 12762.82 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6-sparing-med-while-lokke">
+<h2>📌 Oppgave 6: Sparing med While-løkke<a class="headerlink" href="#oppgave-6-sparing-med-while-lokke" title="Link to this heading">#</a></h2>
+<p>En person starter med <span class="math notranslate nohighlight">\(0\)</span> kr på en sparekonto og setter inn <span class="math notranslate nohighlight">\(900\)</span> kr per måned.</p>
+<p>Skriv en while-løkke som beregner hvor mange måneder det tar å spare opp <span class="math notranslate nohighlight">\(50,000\)</span> kr.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Startverdi</span>
+<span class="n">saldo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">månedlig_sparing</span> <span class="o">=</span> <span class="mi">900</span>
+<span class="n">mål</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">måneder</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># While-løkke for å beregne sparing</span>
+<span class="k">while</span> <span class="n">saldo</span> <span class="o">&lt;</span> <span class="n">mål</span><span class="p">:</span>
+    <span class="n">saldo</span> <span class="o">+=</span> <span class="n">månedlig_sparing</span>
+    <span class="n">måneder</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Etter </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2"> måneder har du spart opp </span><span class="si">{</span><span class="n">saldo</span><span class="si">}</span><span class="s2"> kr!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Etter 56 måneder har du spart opp 50400 kr!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-7-budsjettkontroll-med-for-lokke-og-if">
+<h2>📌 Oppgave 7: Budsjettkontroll med For-løkke og If<a class="headerlink" href="#oppgave-7-budsjettkontroll-med-for-lokke-og-if" title="Link to this heading">#</a></h2>
+<p>En person har ført utgifter de siste månedene, og ser slik ut:
+<code class="docutils literal notranslate"><span class="pre">utgifter</span> <span class="pre">=</span> <span class="pre">[12000,</span> <span class="pre">8500,</span> <span class="pre">10000,</span> <span class="pre">13000,</span> <span class="pre">7500,</span> <span class="pre">11000]</span></code></p>
+<p>Skriv en <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke som sjekker hvor mange måneder personen brukte mer enn <span class="math notranslate nohighlight">\(10,000\)</span> kr.</p>
+<p>Hint: Her vil du fort få bruk for både <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke og en <code class="docutils literal notranslate"><span class="pre">if</span></code> betingelse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste med utgifter</span>
+<span class="n">utgifter</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12000</span><span class="p">,</span> <span class="mi">8500</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">,</span> <span class="mi">11000</span><span class="p">]</span>
+<span class="n">grense</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">over_budsjett</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Løkke for å telle måneder over budsjett</span>
+<span class="k">for</span> <span class="n">utgift</span> <span class="ow">in</span> <span class="n">utgifter</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">utgift</span> <span class="o">&gt;</span> <span class="n">grense</span><span class="p">:</span>
+        <span class="n">over_budsjett</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Antall måneder over budsjettet: </span><span class="si">{</span><span class="n">over_budsjett</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antall måneder over budsjettet: 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-8-sparing-og-okonomiske-beslutninger">
+<h2>📌 Oppgave 8: Sparing og Økonomiske Beslutninger<a class="headerlink" href="#oppgave-8-sparing-og-okonomiske-beslutninger" title="Link to this heading">#</a></h2>
+<p>En person ønsker å spare opp <span class="math notranslate nohighlight">\(100,000\)</span> kr til egenkapital mot boligkjøp. Hver måned setter de inn et fast beløp på kontoen sin.
+Du skal lage et program som:</p>
+<ul class="simple">
+<li><p>Ber brukeren skrive inn hvor mye de vil spare per måned.</p></li>
+<li><p>Bruker en while-løkke for å beregne hvor mange måneder det tar å nå <span class="math notranslate nohighlight">\(100,000\)</span> kr.</p></li>
+<li><p>Bruker en for-løkke for å skrive ut saldoen for hver måned.</p></li>
+<li><p>Bruker if/elif/else for å gi forskjellige meldinger underveis basert på saldoen.</p></li>
+<li><p>Legger alt i en funksjon, slik at vi kan kalle <code class="docutils literal notranslate"><span class="pre">sparing()</span></code> for å kjøre programmet.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sparing</span><span class="p">():</span>
+    <span class="c1"># Sparemål og startverdi</span>
+    <span class="n">sparemål</span> <span class="o">=</span> <span class="mi">100000</span>       <span class="c1"># Sparemål fra oppgavetekst</span>
+    <span class="n">saldo</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># må initieres med &quot;0&quot;</span>
+    <span class="n">måneder</span> <span class="o">=</span> <span class="mi">0</span>             <span class="c1"># må initieres med &quot;0&quot;</span>
+
+    <span class="c1"># Brukerinput: månedlig sparing - input vil komme opp øverst på skjermen</span>
+    <span class="n">månedlig_sparing</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor mye vil du spare per måned? &quot;</span><span class="p">))</span>
+
+    <span class="c1"># While-løkke for å beregne sparing hvor mye penger spart</span>
+    <span class="k">while</span> <span class="n">saldo</span> <span class="o">&lt;</span> <span class="n">sparemål</span><span class="p">:</span>
+        <span class="n">måneder</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">saldo</span> <span class="o">+=</span> <span class="n">månedlig_sparing</span>
+
+        <span class="c1"># If/elif/else for statusmeldinger underveis i spareprosessen :)</span>
+        <span class="k">if</span> <span class="n">saldo</span> <span class="o">&gt;=</span> <span class="mi">100000</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Måned </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2">: Du har spart </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr! Målet er nådd!&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">saldo</span> <span class="o">&gt;=</span> <span class="mi">50000</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Måned </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2">: Du har spart </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr! Halvveis der!&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">saldo</span> <span class="o">&gt;=</span> <span class="mi">25000</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Måned </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2">: Du har spart </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr! God start!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Måned </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2">: Sparte </span><span class="si">{</span><span class="n">månedlig_sparing</span><span class="si">}</span><span class="s2"> kr, saldo: </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gratulerer! Du har nådd sparemålet på </span><span class="si">{</span><span class="n">sparemål</span><span class="si">}</span><span class="s2"> kr etter </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2"> måneder!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Kjør funksjonenen vi har lagd</span>
+<span class="n">sparing</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">28</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gratulerer! Du har nådd sparemålet på </span><span class="si">{</span><span class="n">sparemål</span><span class="si">}</span><span class="s2"> kr etter </span><span class="si">{</span><span class="n">måneder</span><span class="si">}</span><span class="s2"> måneder!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1"># Kjør funksjonenen vi har lagd</span>
+<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">sparing</span><span class="p">()</span>
+
+<span class="nn">Cell In[8], line 8,</span> in <span class="ni">sparing</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">måneder</span> <span class="o">=</span> <span class="mi">0</span>             <span class="c1"># må initieres med &quot;0&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Brukerinput: månedlig sparing - input vil komme opp øverst på skjermen</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">månedlig_sparing</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor mye vil du spare per måned? &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># While-løkke for å beregne sparing hvor mye penger spart</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">while</span> <span class="n">saldo</span> <span class="o">&lt;</span> <span class="n">sparemål</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python311\site-packages\ipykernel\kernelbase.py:1190,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1190</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1191</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1193</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1195</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1196</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-rabatt-pa-kjop">📌 Oppgave 1: Rabatt på Kjøp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-lanesoknadsgodkjenning">📌 Oppgave 2: Lånesøknadsgodkjenning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-beregn-totalt-sparebelop">📌 Oppgave 3: Beregn Totalt Sparebeløp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-skatteberegning-med-if-else">📌 Oppgave 4: Skatteberegning med If/Else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-lan-med-for-lokke">📌 Oppgave 5: Lån med For-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-sparing-med-while-lokke">📌 Oppgave 6: Sparing med While-løkke</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-budsjettkontroll-med-for-lokke-og-if">📌 Oppgave 7: Budsjettkontroll med For-løkke og If</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-sparing-og-okonomiske-beslutninger">📌 Oppgave 8: Sparing og Økonomiske Beslutninger</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

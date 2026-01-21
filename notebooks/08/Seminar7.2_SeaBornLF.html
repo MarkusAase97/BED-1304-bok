@@ -1,0 +1,1730 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 7.2 - Seaborn &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/08/Seminar7.2_SeaBornLF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/08/Seminar7.2_SeaBornLF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/08/Seminar7.2_SeaBornLF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 7.2 - Seaborn</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Seminar 7.2 - <strong>Seaborn</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon">Introduksjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-seaborn">Hvorfor <em>Seaborn</em>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgaver">Seminaroppgaver</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#datasett-for-seminar">Datasett for seminar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1a">Oppgave 1a</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1b">Oppgave 1b</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1c">Oppgave 1c</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-sier-dette-oss"><strong>Hva sier dette oss?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1d">Oppgave 1d</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1e">Oppgave 1e</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2"><strong>Oppgave 2</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-informasjon-om-datasettet">Grunnleggende informasjon om datasettet</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ser-etter-manglende-verdier">Ser etter manglende verdier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualiseringer">Visualiseringer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mer-visualiseringer">Mer visualiseringer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-7-2-seaborn">
+<h1>Seminar 7.2 - <strong>Seaborn</strong><a class="headerlink" href="#seminar-7-2-seaborn" title="Link to this heading">#</a></h1>
+<section id="introduksjon">
+<h2>Introduksjon<a class="headerlink" href="#introduksjon" title="Link to this heading">#</a></h2>
+<p>I dette seminaret skal vi jobbe med visualisering av data ved hjelp av <strong>Seaborn</strong>, som er et Python-bibliotek bygget på toppen av Matplotlib. Seaborn gjør det enkelt å lage flotte og informative visualiseringer, og det er spesielt nyttig når vi arbeider med store datasett.</p>
+<p>I de forrige seminarene har vi arbeidet med:</p>
+<ul class="simple">
+<li><p><strong>Variabler og funksjoner</strong></p></li>
+<li><p><strong>Lister og datastrukturer</strong></p></li>
+<li><p><strong>NumPy</strong> (numeriske beregninger)</p></li>
+<li><p><strong>Pandas</strong> (databehandling)</p></li>
+<li><p><strong>matplotlib</strong></p></li>
+</ul>
+<p>Visualisering av data er viktig for å kunne forstå mønstre og kommunisere funn på en effektiv måte. Som samfunnsøkonomer og økonomer bruker vi ofte visualiseringer for å forklare og analysere data, og Seaborn er et utmerket verktøy for dette.</p>
+</section>
+<section id="hvorfor-seaborn">
+<h2>Hvorfor <em>Seaborn</em>?<a class="headerlink" href="#hvorfor-seaborn" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> er et bibliotek som forenkler prosessen med å lage visualiseringer som linjediagrammer, histogrammer, korrelasjonsmatriser, boksplotter, og mye mer. Seaborn har flere fordeler:</p>
+<ul class="simple">
+<li><p>Lett å bruke med Pandas DataFrames</p></li>
+<li><p>Har innebygde temaer og farger for vakre visualiseringer</p></li>
+<li><p>Støtter statistisk visualisering, som regressjonslinjer og distribusjonsplotter</p></li>
+<li><p>Gir enklere tilgang til komplekse plott som for eksempel varmekart og pairplots</p></li>
+</ul>
+<p>I dette seminaret skal vi bruke Seaborn for å visualisere data og trekke innsikt fra grafene.</p>
+</section>
+<section id="seminaroppgaver">
+<h2>Seminaroppgaver<a class="headerlink" href="#seminaroppgaver" title="Link to this heading">#</a></h2>
+<p>Disse oppgavene er laget for å gi deg trening i å lage visualiseringer og analysere data ved hjelp av Seaborn. <strong>Dette er ikke arbeidskrav</strong>, men det vil gi deg en god forberedelse til eksamen.</p>
+<p>Bruk <strong>Google, forelesningsnotater og pseudokode</strong> aktivt for å løse oppgavene.</p>
+<p>🚀 <em>Lykke til!</em></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="datasett-for-seminar">
+<h1>Datasett for seminar<a class="headerlink" href="#datasett-for-seminar" title="Link to this heading">#</a></h1>
+<p>I forbindelse med denne oppgaven henter vi et datasett fra Kaggle. Les mer om datasettet <a class="reference external" href="https://www.kaggle.com/datasets/lainguyn123/student-performance-factors">her</a>.</p>
+<p>Dette datasettet gir en omfattende oversikt over ulike faktorer som påvirker studenters prestasjoner på eksamener. Det inkluderer informasjon om studievaner, oppmøte, foreldreinvolvering og andre aspekter som har innflytelse på akademisk suksess.</p>
+<p>Kolonnene i datasettet er:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attributt</strong></p></th>
+<th class="head"><p><strong>Beskrivelse</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hours_Studied</p></td>
+<td><p>Antall timer brukt på å studere per uke.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attendance</p></td>
+<td><p>Prosentandel av klasser eleven har deltatt i.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parental_Involvement</p></td>
+<td><p>Nivå av foreldreinvolvering i elevens utdanning (Lav, Middels, Høy).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access_to_Resources</p></td>
+<td><p>Tilgang til utdanningsressurser (Lav, Middels, Høy).</p></td>
+</tr>
+<tr class="row-even"><td><p>Extracurricular_Activities</p></td>
+<td><p>Deltakelse i fritidsaktiviteter (Ja, Nei).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sleep_Hours</p></td>
+<td><p>Gjennomsnittlig antall timer søvn per natt.</p></td>
+</tr>
+<tr class="row-even"><td><p>Previous_Scores</p></td>
+<td><p>Karakterer fra tidligere eksamener.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motivation_Level</p></td>
+<td><p>Elevens motivasjonsnivå (Lav, Middels, Høy).</p></td>
+</tr>
+<tr class="row-even"><td><p>Internet_Access</p></td>
+<td><p>Tilgang til internett (Ja, Nei).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutoring_Sessions</p></td>
+<td><p>Antall veiledningsøkter deltatt i per måned.</p></td>
+</tr>
+<tr class="row-even"><td><p>Family_Income</p></td>
+<td><p>Inntektsnivået til familien (Lav, Middels, Høy).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Teacher_Quality</p></td>
+<td><p>Kvalitet på lærerne (Lav, Middels, Høy).</p></td>
+</tr>
+<tr class="row-even"><td><p>School_Type</p></td>
+<td><p>Type skole som eleven går på (Offentlig, Privat).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Peer_Influence</p></td>
+<td><p>Innflytelse fra jevnaldrende på akademisk ytelse (Positiv, Nøytral, Negativ).</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical_Activity</p></td>
+<td><p>Gjennomsnittlig antall timer med fysisk aktivitet per uke.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Learning_Disabilities</p></td>
+<td><p>Tilstedeværelse av lærevansker (Ja, Nei).</p></td>
+</tr>
+<tr class="row-even"><td><p>Parental_Education_Level</p></td>
+<td><p>Høyeste utdanningsnivå til foreldrene (Videregående, Høgskole, Master).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distance_from_Home</p></td>
+<td><p>Avstand fra hjem til skole (Nær, Moderat, Lang).</p></td>
+</tr>
+<tr class="row-even"><td><p>Gender</p></td>
+<td><p>Kjønn på studenten (Mann, Kvinne).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Exam_Score</p></td>
+<td><p>Endelig eksamensresultat.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Datasettet finner dere her: <strong><a class="reference external" href="https://github.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/tree/main/data">StudentPerformanceFactors.csv</a></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/StudentPerformanceFactors.csv&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6607 entries, 0 to 6606
+Data columns (total 20 columns):
+ #   Column                      Non-Null Count  Dtype 
+---  ------                      --------------  ----- 
+ 0   Hours_Studied               6607 non-null   int64 
+ 1   Attendance                  6607 non-null   int64 
+ 2   Parental_Involvement        6607 non-null   object
+ 3   Access_to_Resources         6607 non-null   object
+ 4   Extracurricular_Activities  6607 non-null   object
+ 5   Sleep_Hours                 6607 non-null   int64 
+ 6   Previous_Scores             6607 non-null   int64 
+ 7   Motivation_Level            6607 non-null   object
+ 8   Internet_Access             6607 non-null   object
+ 9   Tutoring_Sessions           6607 non-null   int64 
+ 10  Family_Income               6607 non-null   object
+ 11  Teacher_Quality             6529 non-null   object
+ 12  School_Type                 6607 non-null   object
+ 13  Peer_Influence              6607 non-null   object
+ 14  Physical_Activity           6607 non-null   int64 
+ 15  Learning_Disabilities       6607 non-null   object
+ 16  Parental_Education_Level    6517 non-null   object
+ 17  Distance_from_Home          6540 non-null   object
+ 18  Gender                      6607 non-null   object
+ 19  Exam_Score                  6607 non-null   int64 
+dtypes: int64(7), object(13)
+memory usage: 1.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1a">
+<h1>Oppgave 1a<a class="headerlink" href="#oppgave-1a" title="Link to this heading">#</a></h1>
+<p>I cellen over er datarammen <code class="docutils literal notranslate"><span class="pre">df</span></code> lest inn, som inneholder samme datasett som vi så på i seminaret for <strong>matplotlib</strong>.</p>
+<p>Visualiser distribusjonen av karakterer i datasettet ved hjelp av et historgram fra SeaBorn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Anta at datasettet er lastet som df</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribusjon av Karakterer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Poengsum på eksamen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frekvens&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d6ffb86d0c819edc128f6b64150cd2eeabb06fc42ce31e9828580c05a76214b5.png" src="../../_images/d6ffb86d0c819edc128f6b64150cd2eeabb06fc42ce31e9828580c05a76214b5.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1b">
+<h1>Oppgave 1b<a class="headerlink" href="#oppgave-1b" title="Link to this heading">#</a></h1>
+<p>Bruk Seaborn til å lage det samme plottet som over, men nå skal du bare plottet de som har fått <strong>karaktersum 80 eller høyere</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lager en kopi av dataframen vår, og lager en ny kolonne</span>
+<span class="n">df_80</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="c1"># Samme som over</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df_80</span><span class="p">[</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribusjon av Karakterer, for de over eller lik 80&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Poengsum på eksamen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frekvens&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/235a7f60ec41b52c972c0ba4fffc8411cdfef2d6d5335a59da0e269f4232b934.png" src="../../_images/235a7f60ec41b52c972c0ba4fffc8411cdfef2d6d5335a59da0e269f4232b934.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1c">
+<h1>Oppgave 1c<a class="headerlink" href="#oppgave-1c" title="Link to this heading">#</a></h1>
+<p>Lag et boxplot som sammenligner fordelingen av karakterene for menn og kvinner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Karakterfordeling etter Kjønn&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Kjønn&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Karakterer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ec14c0329d2454220fafbd53f64ce5c0dd58a00542e942ffd929baca02a14aa6.png" src="../../_images/ec14c0329d2454220fafbd53f64ce5c0dd58a00542e942ffd929baca02a14aa6.png" />
+</div>
+</div>
+<section id="hva-sier-dette-oss">
+<h2><strong>Hva sier dette oss?</strong><a class="headerlink" href="#hva-sier-dette-oss" title="Link to this heading">#</a></h2>
+<p>Her ser vi at median-verdien er relativt lik, både for menn og kvinner, mens vi ser at det er flere <em>outliers</em> i bunnsjiktet blant menn.</p>
+<p>Vi ser også at det er flere damer helt op toppen av karakterskalaen også.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1d">
+<h1>Oppgave 1d<a class="headerlink" href="#oppgave-1d" title="Link to this heading">#</a></h1>
+<p>Utforsk sammenhengen mellom studietid og karakterer. Her kan du bruke <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> funksjonen i SeaBorn. Så gjør det samme i matplotlib, og sammenlign.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#===================# </span>
+<span class="c1">## SeaBorn løsning ##</span>
+<span class="c1">#===================#</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Hours_Studied&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sammenheng mellom Studietid og Karakterer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Studietid (timer per uke)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Karakterer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1ebc2d980a316ab518e56a0857cb4ec45ec0eb162e58982c8aba2490a26eeb38.png" src="../../_images/1ebc2d980a316ab518e56a0857cb4ec45ec0eb162e58982c8aba2490a26eeb38.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#======================# </span>
+<span class="c1">## Matplotlib løsning ##</span>
+<span class="c1">#======================#</span>
+
+<span class="c1"># Lager et scatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Hours_Studied&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Exam_Score&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Legge til titler og etiketter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sammenheng mellom Studietid og Karakterer&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Studietid (timer per uke)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Karakterer&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Vise grafen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ab423e5a8e1e91c98005d5820280c1f9fa32a242ae07bbc8711cfbae14de42bf.png" src="../../_images/ab423e5a8e1e91c98005d5820280c1f9fa32a242ae07bbc8711cfbae14de42bf.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1e">
+<h1>Oppgave 1e<a class="headerlink" href="#oppgave-1e" title="Link to this heading">#</a></h1>
+<p>Lag et “korrelasjonsvarmekart” (bedre kalt: <strong>heatmap</strong>) som viser hvordan ulike variabler i datasettet henger sammen.</p>
+<p>I første om gang, se på følgende variabler: <code class="docutils literal notranslate"><span class="pre">Hours_Studied</span></code>, <code class="docutils literal notranslate"><span class="pre">Exam_Score</span></code>, <code class="docutils literal notranslate"><span class="pre">Sleep_Hours</span></code>, <code class="docutils literal notranslate"><span class="pre">Attendance</span></code>, <code class="docutils literal notranslate"><span class="pre">Previous_Scores</span></code> og <code class="docutils literal notranslate"><span class="pre">Physical_Activity</span></code> .</p>
+<p>Hvilke informasjon får du ut av <em>heatmap’et</em>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Velg numeriske kolonner</span>
+<span class="n">numerical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hours_Studied&#39;</span><span class="p">,</span> <span class="s1">&#39;Exam_Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Sleep_Hours&#39;</span><span class="p">,</span> <span class="s1">&#39;Physical_Activity&#39;</span><span class="p">,</span> <span class="s1">&#39;Attendance&#39;</span><span class="p">,</span> <span class="s1">&#39;Previous_Scores&#39;</span><span class="p">]</span>  <span class="c1"># Legg til flere numeriske kolonner etter behov</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">numerical_columns</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Lag et varmekart</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Korrelasjon mellom ulike faktorer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8b7d2a1d8b140749af14eb2a5eaf8fd69446cee01d29e9d2ec9da031cfbc65d7.png" src="../../_images/8b7d2a1d8b140749af14eb2a5eaf8fd69446cee01d29e9d2ec9da031cfbc65d7.png" />
+</div>
+</div>
+<section id="oppgave-2">
+<h2><strong>Oppgave 2</strong><a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h2>
+<p>I denne oppgaven skal dere bruke datasettet <code class="docutils literal notranslate"><span class="pre">bilparken_ssb.csv</span></code>, som dere finner i <code class="docutils literal notranslate"><span class="pre">/data</span></code> mappen på GitHub.</p>
+<p>Til forskjell fra oppgave 1, går oppgave 2 ut på at <strong>dere selv</strong> skal utforske datasettet ved hjelp av Seaborn, Pandas og matplotlib.</p>
+<p>Likevel, her er noen føringer for oppgaven:</p>
+<ul class="simple">
+<li><p>Vis grunnleggende informasjon om datarammen <code class="docutils literal notranslate"><span class="pre">df_bil</span></code>.</p></li>
+<li><p>Sjekk for manglende verdier.</p></li>
+<li><p>Gjør flere ulike visualiseringer vha matplotlib og/eller SeaBorn.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df_bil</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/refs/heads/main/data/bilparken_ssb.csv&#39;</span><span class="p">)</span> 
+<span class="n">df_bil</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tid</th>
+      <th>Bilmerker</th>
+      <th>12 - 15 år</th>
+      <th>16 - 20 år</th>
+      <th>4 - 7 år</th>
+      <th>8 - 11 år</th>
+      <th>Over 20 år</th>
+      <th>Under 4 år</th>
+      <th>Gjennomsnittsalder ved vraking (år)</th>
+      <th>Personbilbestand 31. desember</th>
+      <th>Personbiler vraket mot pant</th>
+      <th>Personbiler vraket mot pant (prosent av bestanden)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>Audi</td>
+      <td>30096</td>
+      <td>23230</td>
+      <td>27302</td>
+      <td>35723</td>
+      <td>12423</td>
+      <td>29778</td>
+      <td>19.2</td>
+      <td>158552.0</td>
+      <td>6390.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>Bmw</td>
+      <td>33358</td>
+      <td>21524</td>
+      <td>33096</td>
+      <td>41841</td>
+      <td>13210</td>
+      <td>21429</td>
+      <td>18.7</td>
+      <td>164458.0</td>
+      <td>4104.0</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>Bmw i</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15935</td>
+      <td>207</td>
+      <td>0</td>
+      <td>9501</td>
+      <td>3.4</td>
+      <td>25643.0</td>
+      <td>41.0</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>Chevrolet</td>
+      <td>1437</td>
+      <td>2666</td>
+      <td>449</td>
+      <td>1236</td>
+      <td>13639</td>
+      <td>64</td>
+      <td>21.9</td>
+      <td>19491.0</td>
+      <td>567.0</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>Citroen</td>
+      <td>7839</td>
+      <td>4426</td>
+      <td>7424</td>
+      <td>11999</td>
+      <td>2218</td>
+      <td>5080</td>
+      <td>16.2</td>
+      <td>38986.0</td>
+      <td>2531.0</td>
+      <td>6.5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021</td>
+      <td>Ford</td>
+      <td>38993</td>
+      <td>13186</td>
+      <td>27029</td>
+      <td>44904</td>
+      <td>18585</td>
+      <td>15657</td>
+      <td>17.2</td>
+      <td>158354.0</td>
+      <td>7148.0</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2021</td>
+      <td>Honda</td>
+      <td>14955</td>
+      <td>11430</td>
+      <td>5903</td>
+      <td>8314</td>
+      <td>3923</td>
+      <td>1842</td>
+      <td>19.1</td>
+      <td>46367.0</td>
+      <td>2402.0</td>
+      <td>5.2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2021</td>
+      <td>Hyundai</td>
+      <td>10745</td>
+      <td>6745</td>
+      <td>14790</td>
+      <td>16483</td>
+      <td>1068</td>
+      <td>26874</td>
+      <td>16.1</td>
+      <td>76705.0</td>
+      <td>2023.0</td>
+      <td>2.6</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2021</td>
+      <td>Kia</td>
+      <td>3908</td>
+      <td>1663</td>
+      <td>28986</td>
+      <td>16714</td>
+      <td>189</td>
+      <td>16877</td>
+      <td>13.8</td>
+      <td>68337.0</td>
+      <td>879.0</td>
+      <td>1.3</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2021</td>
+      <td>Mazda</td>
+      <td>10196</td>
+      <td>3872</td>
+      <td>20317</td>
+      <td>16761</td>
+      <td>4720</td>
+      <td>8344</td>
+      <td>18.3</td>
+      <td>64210.0</td>
+      <td>2868.0</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2021</td>
+      <td>Mercedes-Benz</td>
+      <td>26715</td>
+      <td>26360</td>
+      <td>35001</td>
+      <td>31742</td>
+      <td>24637</td>
+      <td>20225</td>
+      <td>20.6</td>
+      <td>164680.0</td>
+      <td>5716.0</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2021</td>
+      <td>Mitsubishi</td>
+      <td>17101</td>
+      <td>8208</td>
+      <td>28384</td>
+      <td>24709</td>
+      <td>5556</td>
+      <td>12916</td>
+      <td>18.7</td>
+      <td>96874.0</td>
+      <td>3224.0</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2021</td>
+      <td>Nissan</td>
+      <td>16193</td>
+      <td>10517</td>
+      <td>45345</td>
+      <td>37185</td>
+      <td>4963</td>
+      <td>21230</td>
+      <td>17.7</td>
+      <td>135433.0</td>
+      <td>3643.0</td>
+      <td>2.7</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2021</td>
+      <td>Opel</td>
+      <td>15250</td>
+      <td>12854</td>
+      <td>13551</td>
+      <td>14075</td>
+      <td>11765</td>
+      <td>6808</td>
+      <td>18.7</td>
+      <td>74303.0</td>
+      <td>6950.0</td>
+      <td>9.4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2021</td>
+      <td>Peugeot</td>
+      <td>19911</td>
+      <td>11743</td>
+      <td>19744</td>
+      <td>24262</td>
+      <td>3249</td>
+      <td>16337</td>
+      <td>16.6</td>
+      <td>95246.0</td>
+      <td>5892.0</td>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2021</td>
+      <td>Renault</td>
+      <td>2300</td>
+      <td>3499</td>
+      <td>12661</td>
+      <td>3821</td>
+      <td>1490</td>
+      <td>6976</td>
+      <td>17.0</td>
+      <td>30747.0</td>
+      <td>1878.0</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2021</td>
+      <td>Skoda</td>
+      <td>19012</td>
+      <td>7025</td>
+      <td>31395</td>
+      <td>29179</td>
+      <td>1304</td>
+      <td>24215</td>
+      <td>15.7</td>
+      <td>112130.0</td>
+      <td>3002.0</td>
+      <td>2.7</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2021</td>
+      <td>Subaru</td>
+      <td>8264</td>
+      <td>12078</td>
+      <td>10064</td>
+      <td>11322</td>
+      <td>3346</td>
+      <td>1941</td>
+      <td>18.9</td>
+      <td>47015.0</td>
+      <td>2140.0</td>
+      <td>4.6</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2021</td>
+      <td>Suzuki</td>
+      <td>10567</td>
+      <td>14207</td>
+      <td>11272</td>
+      <td>10167</td>
+      <td>2682</td>
+      <td>7510</td>
+      <td>17.5</td>
+      <td>56405.0</td>
+      <td>2196.0</td>
+      <td>3.9</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2021</td>
+      <td>Tesla</td>
+      <td>11</td>
+      <td>0</td>
+      <td>12452</td>
+      <td>41</td>
+      <td>0</td>
+      <td>47504</td>
+      <td>2.2</td>
+      <td>60008.0</td>
+      <td>55.0</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2021</td>
+      <td>Tesla Motors</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11383</td>
+      <td>5495</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6.2</td>
+      <td>16881.0</td>
+      <td>74.0</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2021</td>
+      <td>Toyota</td>
+      <td>70196</td>
+      <td>63080</td>
+      <td>65333</td>
+      <td>68520</td>
+      <td>30590</td>
+      <td>42712</td>
+      <td>18.6</td>
+      <td>340431.0</td>
+      <td>12332.0</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2021</td>
+      <td>Volkswagen</td>
+      <td>70902</td>
+      <td>46672</td>
+      <td>97436</td>
+      <td>88517</td>
+      <td>29453</td>
+      <td>55692</td>
+      <td>18.1</td>
+      <td>388672.0</td>
+      <td>17380.0</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2021</td>
+      <td>Volvo</td>
+      <td>40648</td>
+      <td>33993</td>
+      <td>44719</td>
+      <td>54829</td>
+      <td>30000</td>
+      <td>33331</td>
+      <td>19.9</td>
+      <td>237520.0</td>
+      <td>6238.0</td>
+      <td>2.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="grunnleggende-informasjon-om-datasettet">
+<h1>Grunnleggende informasjon om datasettet<a class="headerlink" href="#grunnleggende-informasjon-om-datasettet" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sjekk de første radene</span>
+<span class="n">df_bil</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tid</th>
+      <th>Bilmerker</th>
+      <th>12 - 15 år</th>
+      <th>16 - 20 år</th>
+      <th>4 - 7 år</th>
+      <th>8 - 11 år</th>
+      <th>Over 20 år</th>
+      <th>Under 4 år</th>
+      <th>Gjennomsnittsalder ved vraking (år)</th>
+      <th>Personbilbestand 31. desember</th>
+      <th>Personbiler vraket mot pant</th>
+      <th>Personbiler vraket mot pant (prosent av bestanden)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>Audi</td>
+      <td>30096</td>
+      <td>23230</td>
+      <td>27302</td>
+      <td>35723</td>
+      <td>12423</td>
+      <td>29778</td>
+      <td>19.2</td>
+      <td>158552.0</td>
+      <td>6390.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>Bmw</td>
+      <td>33358</td>
+      <td>21524</td>
+      <td>33096</td>
+      <td>41841</td>
+      <td>13210</td>
+      <td>21429</td>
+      <td>18.7</td>
+      <td>164458.0</td>
+      <td>4104.0</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>Bmw i</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15935</td>
+      <td>207</td>
+      <td>0</td>
+      <td>9501</td>
+      <td>3.4</td>
+      <td>25643.0</td>
+      <td>41.0</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>Chevrolet</td>
+      <td>1437</td>
+      <td>2666</td>
+      <td>449</td>
+      <td>1236</td>
+      <td>13639</td>
+      <td>64</td>
+      <td>21.9</td>
+      <td>19491.0</td>
+      <td>567.0</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>Citroen</td>
+      <td>7839</td>
+      <td>4426</td>
+      <td>7424</td>
+      <td>11999</td>
+      <td>2218</td>
+      <td>5080</td>
+      <td>16.2</td>
+      <td>38986.0</td>
+      <td>2531.0</td>
+      <td>6.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vis grunnleggende informasjon om datasettet</span>
+<span class="n">df_bil</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 24 entries, 0 to 23
+Data columns (total 12 columns):
+ #   Column                                              Non-Null Count  Dtype  
+---  ------                                              --------------  -----  
+ 0   Tid                                                 24 non-null     int64  
+ 1   Bilmerker                                           24 non-null     object 
+ 2   12 - 15 år                                          24 non-null     int64  
+ 3   16 - 20 år                                          24 non-null     int64  
+ 4   4 - 7 år                                            24 non-null     int64  
+ 5   8 - 11 år                                           24 non-null     int64  
+ 6   Over 20 år                                          24 non-null     int64  
+ 7   Under 4 år                                          24 non-null     int64  
+ 8   Gjennomsnittsalder ved vraking (år)                 24 non-null     float64
+ 9   Personbilbestand 31. desember                       24 non-null     float64
+ 10  Personbiler vraket mot pant                         24 non-null     float64
+ 11  Personbiler vraket mot pant (prosent av bestanden)  24 non-null     float64
+dtypes: float64(4), int64(7), object(1)
+memory usage: 2.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beskriv statistikken til numeriske kolonner</span>
+<span class="n">df_bil</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tid</th>
+      <th>12 - 15 år</th>
+      <th>16 - 20 år</th>
+      <th>4 - 7 år</th>
+      <th>8 - 11 år</th>
+      <th>Over 20 år</th>
+      <th>Under 4 år</th>
+      <th>Gjennomsnittsalder ved vraking (år)</th>
+      <th>Personbilbestand 31. desember</th>
+      <th>Personbiler vraket mot pant</th>
+      <th>Personbiler vraket mot pant (prosent av bestanden)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>24.0</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+      <td>24.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2021.0</td>
+      <td>19524.875000</td>
+      <td>14124.083333</td>
+      <td>25832.125000</td>
+      <td>24918.583333</td>
+      <td>9125.416667</td>
+      <td>18035.250000</td>
+      <td>16.262500</td>
+      <td>111560.333333</td>
+      <td>4153.041667</td>
+      <td>3.658333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.0</td>
+      <td>19740.079367</td>
+      <td>15474.769889</td>
+      <td>21318.665299</td>
+      <td>22495.563346</td>
+      <td>10305.035565</td>
+      <td>15193.330551</td>
+      <td>5.083119</td>
+      <td>96359.424473</td>
+      <td>4036.642734</td>
+      <td>2.146568</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2021.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>449.000000</td>
+      <td>41.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>2.200000</td>
+      <td>16881.000000</td>
+      <td>41.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2021.0</td>
+      <td>6856.250000</td>
+      <td>3778.750000</td>
+      <td>12184.750000</td>
+      <td>9703.750000</td>
+      <td>1443.500000</td>
+      <td>6934.000000</td>
+      <td>16.175000</td>
+      <td>46853.000000</td>
+      <td>1986.750000</td>
+      <td>2.600000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2021.0</td>
+      <td>15102.500000</td>
+      <td>10973.500000</td>
+      <td>20030.500000</td>
+      <td>16737.500000</td>
+      <td>4321.500000</td>
+      <td>15997.000000</td>
+      <td>17.900000</td>
+      <td>75504.000000</td>
+      <td>2935.000000</td>
+      <td>3.550000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2021.0</td>
+      <td>27560.250000</td>
+      <td>16036.250000</td>
+      <td>31820.250000</td>
+      <td>36088.500000</td>
+      <td>13317.250000</td>
+      <td>24879.750000</td>
+      <td>18.750000</td>
+      <td>158403.500000</td>
+      <td>5978.500000</td>
+      <td>4.525000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2021.0</td>
+      <td>70902.000000</td>
+      <td>63080.000000</td>
+      <td>97436.000000</td>
+      <td>88517.000000</td>
+      <td>30590.000000</td>
+      <td>55692.000000</td>
+      <td>21.900000</td>
+      <td>388672.000000</td>
+      <td>17380.000000</td>
+      <td>9.400000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="ser-etter-manglende-verdier">
+<h2>Ser etter manglende verdier<a class="headerlink" href="#ser-etter-manglende-verdier" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sjekk for manglende verdier i datasettet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_bil</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tid                                                   0
+Bilmerker                                             0
+12 - 15 år                                            0
+16 - 20 år                                            0
+4 - 7 år                                              0
+8 - 11 år                                             0
+Over 20 år                                            0
+Under 4 år                                            0
+Gjennomsnittsalder ved vraking (år)                   0
+Personbilbestand 31. desember                         0
+Personbiler vraket mot pant                           0
+Personbiler vraket mot pant (prosent av bestanden)    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualiseringer">
+<h2>Visualiseringer<a class="headerlink" href="#visualiseringer" title="Link to this heading">#</a></h2>
+<p>Det kan være interessant å se på hvor mange bilder det er fra de ulike merkene, i ulike aldre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># Omformer datasettet </span>
+<span class="n">df_long</span> <span class="o">=</span> <span class="n">df_bil</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tid&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilmerker&#39;</span><span class="p">],</span> 
+                      <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Under 4 år&#39;</span><span class="p">,</span> <span class="s1">&#39;4 - 7 år&#39;</span><span class="p">,</span> <span class="s1">&#39;8 - 11 år&#39;</span><span class="p">,</span> <span class="s1">&#39;12 - 15 år&#39;</span><span class="p">,</span> <span class="s1">&#39;16 - 20 år&#39;</span><span class="p">,</span> <span class="s1">&#39;Over 20 år&#39;</span><span class="p">,],</span> 
+                      <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Aldersgruppe&#39;</span><span class="p">,</span> 
+                      <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Antall_biler&#39;</span><span class="p">)</span>
+
+<span class="c1"># Visualisering med Seaborn</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_long</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Bilmerker&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Antall_biler&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Aldersgruppe&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fordeling av biler i ulike aldersgrupper per bilmerke&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Antall biler&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Bilmerker&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Daniel\AppData\Local\Temp\ipykernel_3596\2035652873.py:12: FutureWarning: 
+
+The `ci` parameter is deprecated. Use `errorbar=None` for the same effect.
+
+  sns.barplot(data=df_long, x=&#39;Bilmerker&#39;, y=&#39;Antall_biler&#39;, hue=&#39;Aldersgruppe&#39;, ci=None)
+</pre></div>
+</div>
+<img alt="../../_images/cb6defacd9c5d38ee34b26c5385f5f4a8bfaceeb460e43c053a69da5af03abf6.png" src="../../_images/cb6defacd9c5d38ee34b26c5385f5f4a8bfaceeb460e43c053a69da5af03abf6.png" />
+</div>
+</div>
+</section>
+<section id="mer-visualiseringer">
+<h2>Mer visualiseringer<a class="headerlink" href="#mer-visualiseringer" title="Link to this heading">#</a></h2>
+<p>Vi velger å se på bilmerker med høyest prosentandel vrakede biler, og i synkende rekkefølge - da blir det systematisk og fint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sorter bilmerkene etter prosentandel vrakede biler</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df_bil</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Personbiler vraket mot pant (prosent av bestanden)&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_sorted</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Bilmerker&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Personbiler vraket mot pant (prosent av bestanden)&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bilmerker med høyest prosentandel vrakede biler&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Prosentandel vrakede biler&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Bilmerker&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Daniel\AppData\Local\Temp\ipykernel_3596\689958637.py:5: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(data=df_sorted, x=&#39;Bilmerker&#39;, y=&#39;Personbiler vraket mot pant (prosent av bestanden)&#39;, palette=&#39;viridis&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/fec8b16b5c69076c9f6010b322b4ba640db83a10c7812c205831289b3d82279e.png" src="../../_images/fec8b16b5c69076c9f6010b322b4ba640db83a10c7812c205831289b3d82279e.png" />
+</div>
+</div>
+</section>
+<section id="heatmap">
+<h2>Heatmap<a class="headerlink" href="#heatmap" title="Link to this heading">#</a></h2>
+<p>Vi velger å se på korrelasjon mellom numeriske variabler</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Velg numeriske kolonner for korrelasjon</span>
+<span class="n">corr_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gjennomsnittsalder ved vraking (år)&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;Personbilbestand 31. desember&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;Personbiler vraket mot pant&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;Personbiler vraket mot pant (prosent av bestanden)&#39;</span><span class="p">]</span>
+
+<span class="c1"># Beregn korrelasjonen</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df_bil</span><span class="p">[</span><span class="n">corr_columns</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Plot korrelasjonsmatrise med Seaborn</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Korrelasjon mellom numeriske variabler&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2219eaa126203f6c92445f48c6070e03fe41c701348b1a0aabdc2e6c12ab49a7.png" src="../../_images/2219eaa126203f6c92445f48c6070e03fe41c701348b1a0aabdc2e6c12ab49a7.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Seminar 7.2 - <strong>Seaborn</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon">Introduksjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-seaborn">Hvorfor <em>Seaborn</em>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgaver">Seminaroppgaver</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#datasett-for-seminar">Datasett for seminar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1a">Oppgave 1a</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1b">Oppgave 1b</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1c">Oppgave 1c</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-sier-dette-oss"><strong>Hva sier dette oss?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1d">Oppgave 1d</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1e">Oppgave 1e</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2"><strong>Oppgave 2</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-informasjon-om-datasettet">Grunnleggende informasjon om datasettet</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ser-etter-manglende-verdier">Ser etter manglende verdier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualiseringer">Visualiseringer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mer-visualiseringer">Mer visualiseringer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

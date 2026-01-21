@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 2 - Python Basics &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02/Seminar2-PythonBasics-LF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02/Seminar2-PythonBasics-LF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/02/Seminar2-PythonBasics-LF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 2 - Python Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Seminar 2 - Python Basics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-variabeltyper-og-typekonvertering">📌 Oppgave 1: Variabeltyper og typekonvertering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-bruk-av-f-strings">📌 Oppgave 2: Bruk av f-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-en-enkel-kalkulator">📌 Oppgave 3: En enkel kalkulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-sjekk-om-et-tall-er-oddetall-eller-partall">📌 Oppgave 4: Sjekk om et tall er oddetall eller partall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-oppgave-hvordan-ville-du-lagd-en-kode-som-sjekka-om-tallet-er-et-primtall-eller-ikke">Ekstra oppgave: Hvordan ville du lagd en kode som sjekka om tallet er et primtall eller ikke?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-konverter-mellom-datatyper">📌 Oppgave 5: Konverter mellom datatyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-bruk-av-eksponenter">📌 Oppgave 6: Bruk av eksponenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-beregn-merverdiavgift-mva">📌 Oppgave 7: Beregn merverdiavgift (MVA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-valutakonvertering">📌 Oppgave 8: Valutakonvertering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-lonnsberegning-med-skatt">📌 Oppgave 9: Lønnsberegning med skatt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-renteinntekter-pa-bankinnskudd">📌 Oppgave 10: Renteinntekter på bankinnskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-nedbetaling-av-lan">📌 Oppgave 11: Nedbetaling av lån</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-made-it">You made it! 🚀🚀🚀</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-2-python-basics">
+<h1><strong>Seminar 2 - Python Basics</strong><a class="headerlink" href="#seminar-2-python-basics" title="Link to this heading">#</a></h1>
+<p>For å bygge en god grunnmur i Python, trenger vi å <em>Python Basics</em> på plass. Samtidig, vil kuntig intelligens for å hjelpe til med å skrive kode, ikke være like mye til hjelp uten basis-kunnskapene.
+Dette seminaret vil ha fokus på variabeltyper og det vi gikk igjennom i forelesning 2.</p>
+<p>Disse oppgavene er tiltenkt seminar - som trening på basiskunnskaper.. Dette er ikke arbeidskrav, men god trening til å forstå basic konsepter.</p>
+<p>Øv på å bruke Google, forelesningsnotater og pseudokode for å løse oppgaven.</p>
+<p>Disse oppgavene gir en kort introduksjon til noen helt grunnleggende Python-konsepter. Lykke til! 🚀</p>
+<section id="oppgave-1-variabeltyper-og-typekonvertering">
+<h2>📌 Oppgave 1: Variabeltyper og typekonvertering<a class="headerlink" href="#oppgave-1-variabeltyper-og-typekonvertering" title="Link to this heading">#</a></h2>
+<p>Opprett tre variabler:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">navn</span></code> (streng),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alder</span></code> (heltall),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">høyde</span></code> (flyttall).</p></li>
+</ul>
+<p>Skriv ut verdiene og deres typer. Deretter konverter alder til en flyttall og høyde til en streng, og skriv ut de nye typene.
+Kommentarer gjør koden mer forståelig for deg selv og andre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer variabler ut i fra oppgaveteksten</span>
+<span class="n">navn</span> <span class="o">=</span> <span class="s2">&quot;Anna&quot;</span>
+<span class="n">alder</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">høyde</span> <span class="o">=</span> <span class="mf">1.68</span>
+
+<span class="c1"># Skriv ut verdiene og typene</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Navn: </span><span class="si">{</span><span class="n">navn</span><span class="si">}</span><span class="s2">, type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">navn</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Alder: </span><span class="si">{</span><span class="n">alder</span><span class="si">}</span><span class="s2">, type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">alder</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Høyde: </span><span class="si">{</span><span class="n">høyde</span><span class="si">}</span><span class="s2">, type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">høyde</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Navn: Anna, type: &lt;class &#39;str&#39;&gt;
+Alder: 25, type: &lt;class &#39;int&#39;&gt;
+Høyde: 1.68, type: &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-2-bruk-av-f-strings">
+<h2>📌 Oppgave 2: Bruk av f-strings<a class="headerlink" href="#oppgave-2-bruk-av-f-strings" title="Link to this heading">#</a></h2>
+<p>Bruk en f-string til å skrive ut en setning der du kombinerer en streng (<code class="docutils literal notranslate"><span class="pre">navn</span></code>), et heltall (<code class="docutils literal notranslate"><span class="pre">alder</span></code>) og et flyttall (<code class="docutils literal notranslate"><span class="pre">høyde</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer variabler</span>
+<span class="n">navn</span> <span class="o">=</span> <span class="s2">&quot;Lars&quot;</span>
+<span class="n">alder</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">høyde</span> <span class="o">=</span> <span class="mf">1.82</span>
+
+<span class="c1"># Bruk f-string for å lage en setning</span>
+<span class="n">setning</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hei, jeg heter </span><span class="si">{</span><span class="n">navn</span><span class="si">}</span><span class="s2">, er </span><span class="si">{</span><span class="n">alder</span><span class="si">}</span><span class="s2"> år gammel og </span><span class="si">{</span><span class="n">høyde</span><span class="si">}</span><span class="s2"> meter høy.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">setning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, jeg heter Lars, er 30 år gammel og 1.82 meter høy.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3-en-enkel-kalkulator">
+<h2>📌 Oppgave 3: En enkel kalkulator<a class="headerlink" href="#oppgave-3-en-enkel-kalkulator" title="Link to this heading">#</a></h2>
+<p>Lag to variabler, <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code>, og utfør følgende operasjoner:</p>
+<ul class="simple">
+<li><p>Summen av <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>Differansen mellom <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>Produktet av <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> delt på <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+</ul>
+<p>Skriv ut resultatene på en ryddig måte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer variablene x og y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># Utfør beregninger</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Summen av </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er </span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Differansen mellom </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er </span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Produktet av </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> og </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er </span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> delt på </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> er </span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen av 12 og 4 er 16
+Differansen mellom 12 og 4 er 8
+Produktet av 12 og 4 er 48
+12 delt på 4 er 3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4-sjekk-om-et-tall-er-oddetall-eller-partall">
+<h2>📌 Oppgave 4: Sjekk om et tall er oddetall eller partall<a class="headerlink" href="#oppgave-4-sjekk-om-et-tall-er-oddetall-eller-partall" title="Link to this heading">#</a></h2>
+<p>Lag en variabel <code class="docutils literal notranslate"><span class="pre">tall</span></code>. Bruk en boolsk sjekk (vha <code class="docutils literal notranslate"><span class="pre">%</span></code>) for å avgjøre om <code class="docutils literal notranslate"><span class="pre">tall</span></code> er partall eller oddetall, og skriv ut et output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer et tall - f.eks. 17 som vi vet er et oddetall</span>
+<span class="n">tall</span> <span class="o">=</span> <span class="mi">17</span>
+
+<span class="c1"># Sjekk om tallet er partall eller oddetall</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> er et partall.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> er et oddetall.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17 er et oddetall.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ekstra-oppgave-hvordan-ville-du-lagd-en-kode-som-sjekka-om-tallet-er-et-primtall-eller-ikke">
+<h3>Ekstra oppgave: Hvordan ville du lagd en kode som sjekka om tallet er et primtall eller ikke?<a class="headerlink" href="#ekstra-oppgave-hvordan-ville-du-lagd-en-kode-som-sjekka-om-tallet-er-et-primtall-eller-ikke" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="oppgave-5-konverter-mellom-datatyper">
+<h2>📌 Oppgave 5: Konverter mellom datatyper<a class="headerlink" href="#oppgave-5-konverter-mellom-datatyper" title="Link to this heading">#</a></h2>
+<p>Definer en variabel <code class="docutils literal notranslate"><span class="pre">x</span></code> som en streng med tall, for eksempel <code class="docutils literal notranslate"><span class="pre">&quot;42&quot;</span></code>.</p>
+<ul class="simple">
+<li><p>Konverter <code class="docutils literal notranslate"><span class="pre">x</span></code> til et heltall (<code class="docutils literal notranslate"><span class="pre">int</span></code>) og legg til <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+<li><p>Konverter <code class="docutils literal notranslate"><span class="pre">x</span></code> til et flyttall (<code class="docutils literal notranslate"><span class="pre">float</span></code>) og multipliser med <code class="docutils literal notranslate"><span class="pre">2.5</span></code>.</p></li>
+</ul>
+<p>Skriv ut resultatene og sjekk datatypene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer en streng med tall</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+
+<span class="c1"># Konverter til int og legg til 10</span>
+<span class="n">x_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> som heltall + 10: </span><span class="si">{</span><span class="n">x_int</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="si">}</span><span class="s2">, type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x_int</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Konverter til float og multipliser med 2.5</span>
+<span class="n">x_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> som flyttall * 2.5: </span><span class="si">{</span><span class="n">x_float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.5</span><span class="si">}</span><span class="s2">, type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x_float</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42 som heltall + 10: 52, type: &lt;class &#39;int&#39;&gt;
+42 som flyttall * 2.5: 105.0, type: &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6-bruk-av-eksponenter">
+<h2>📌 Oppgave 6: Bruk av eksponenter<a class="headerlink" href="#oppgave-6-bruk-av-eksponenter" title="Link to this heading">#</a></h2>
+<p>Lag en variabel <code class="docutils literal notranslate"><span class="pre">tall</span></code>, og bruk eksponentoperatoren (<code class="docutils literal notranslate"><span class="pre">**</span></code>) for å:</p>
+<ul class="simple">
+<li><p>Heve <code class="docutils literal notranslate"><span class="pre">tall</span></code> i andre potens</p></li>
+<li><p>Beregne kvadratroten av <code class="docutils literal notranslate"><span class="pre">tall</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer et tall - her velger vi 9 som eksempel</span>
+<span class="n">tall</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="c1"># Beregn potens og kvadratrot</span>
+<span class="n">kvadrat</span> <span class="o">=</span> <span class="n">tall</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">kvadratrot</span> <span class="o">=</span> <span class="n">tall</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="c1"># Skriv ut resultatene</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> i andre potens er </span><span class="si">{</span><span class="n">kvadrat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kvadratroten av </span><span class="si">{</span><span class="n">tall</span><span class="si">}</span><span class="s2"> er </span><span class="si">{</span><span class="n">kvadratrot</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 i andre potens er 81
+Kvadratroten av 9 er 3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-7-beregn-merverdiavgift-mva">
+<h2>📌 Oppgave 7: Beregn merverdiavgift (MVA)<a class="headerlink" href="#oppgave-7-beregn-merverdiavgift-mva" title="Link to this heading">#</a></h2>
+<p>Et produkt koster <span class="math notranslate nohighlight">\(800\)</span> kr ekskl. MVA.
+MVA-satsen er <span class="math notranslate nohighlight">\(25\)</span>%.</p>
+<ul class="simple">
+<li><p>Beregn hvor mye MVA utgjør.</p></li>
+<li><p>Beregn totalprisen inkl. MVA.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer pris og MVA-sats i henhold til oppgavebeskrivelsen</span>
+<span class="n">pris_eks_mva</span> <span class="o">=</span> <span class="mi">800</span>     <span class="c1"># i norske kroner</span>
+<span class="n">mva_sats</span> <span class="o">=</span> <span class="mf">0.25</span>        <span class="c1"># mva prosent</span>
+
+<span class="c1"># Beregn MVA og totalpris</span>
+<span class="n">mva_beløp</span> <span class="o">=</span> <span class="n">pris_eks_mva</span> <span class="o">*</span> <span class="n">mva_sats</span>
+<span class="n">totalpris</span> <span class="o">=</span> <span class="n">pris_eks_mva</span> <span class="o">+</span> <span class="n">mva_beløp</span>
+
+<span class="c1"># Skriv ut resultatene</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MVA utgjør: </span><span class="si">{</span><span class="n">mva_beløp</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Totalpris inkl. MVA: </span><span class="si">{</span><span class="n">totalpris</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MVA utgjør: 200.0 kr
+Totalpris inkl. MVA: 1000.0 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-8-valutakonvertering">
+<h2>📌 Oppgave 8: Valutakonvertering<a class="headerlink" href="#oppgave-8-valutakonvertering" title="Link to this heading">#</a></h2>
+<p>Du skal veksle <span class="math notranslate nohighlight">\(5000\)</span> norske kroner (NOK) til euro (EUR).
+Kursen er <span class="math notranslate nohighlight">\(1\)</span> EUR = <span class="math notranslate nohighlight">\(11.5\)</span> NOK.</p>
+<ul class="simple">
+<li><p>Hvor mange euro får du?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer beløp og valutakurs</span>
+<span class="n">nok</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">eur_kurs</span> <span class="o">=</span> <span class="mf">11.5</span>
+
+<span class="c1"># Konverter til euro</span>
+<span class="n">eur</span> <span class="o">=</span> <span class="n">nok</span> <span class="o">/</span> <span class="n">eur_kurs</span>
+
+<span class="c1"># Skriv ut resultatet, og runder av svaret til å inneholde 2 desimaler</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nok</span><span class="si">}</span><span class="s2"> NOK tilsvarer </span><span class="si">{</span><span class="n">eur</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000 NOK tilsvarer 434.78 EUR
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-9-lonnsberegning-med-skatt">
+<h2>📌 Oppgave 9: Lønnsberegning med skatt<a class="headerlink" href="#oppgave-9-lonnsberegning-med-skatt" title="Link to this heading">#</a></h2>
+<p>En ansatt tjener <span class="math notranslate nohighlight">\(50\;000\)</span> kr per måned, men må betale <span class="math notranslate nohighlight">\(35\)</span>% i skatt.</p>
+<ul class="simple">
+<li><p>Hvor mye sitter personen igjen med etter skatt?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer lønn og skattesats i henhold til oppgaven</span>
+<span class="n">brutto_lønn</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">skatt_prosent</span> <span class="o">=</span> <span class="mi">35</span>
+
+<span class="c1"># Beregn skatt og nettolønn</span>
+<span class="n">skatt</span> <span class="o">=</span> <span class="n">brutto_lønn</span> <span class="o">*</span> <span class="p">(</span><span class="n">skatt_prosent</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">netto_lønn</span> <span class="o">=</span> <span class="n">brutto_lønn</span> <span class="o">-</span> <span class="n">skatt</span>
+
+<span class="c1"># Skriv ut resultatene</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bruttolønn: </span><span class="si">{</span><span class="n">brutto_lønn</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skatt: </span><span class="si">{</span><span class="n">skatt</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nettolønn etter skatt: </span><span class="si">{</span><span class="n">netto_lønn</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bruttolønn: 50000 kr
+Skatt: 17500.0 kr
+Nettolønn etter skatt: 32500.0 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-10-renteinntekter-pa-bankinnskudd">
+<h2>📌 Oppgave 10: Renteinntekter på bankinnskudd<a class="headerlink" href="#oppgave-10-renteinntekter-pa-bankinnskudd" title="Link to this heading">#</a></h2>
+<p>Du setter <span class="math notranslate nohighlight">\(20\;000\)</span> kr i banken med en årlig rente på <span class="math notranslate nohighlight">\(3\)</span>%.</p>
+<ul class="simple">
+<li><p>Hvor mye har du på kontoen etter <span class="math notranslate nohighlight">\(1\)</span> år?</p></li>
+</ul>
+<p>Skriv et program som løser dette problemet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer startbeløp og rente</span>
+<span class="n">startbeløp</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">rente_prosent</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Beregn saldo etter ett år</span>
+<span class="n">saldo_etter_1_år</span> <span class="o">=</span> <span class="n">startbeløp</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rente_prosent</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Skriv ut resultatet</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saldo etter 1 år: </span><span class="si">{</span><span class="n">saldo_etter_1_år</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saldo etter 1 år: 20600.00 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-11-nedbetaling-av-lan">
+<h2>📌 Oppgave 11: Nedbetaling av lån<a class="headerlink" href="#oppgave-11-nedbetaling-av-lan" title="Link to this heading">#</a></h2>
+<p>Du tar opp et lån på <span class="math notranslate nohighlight">\(300\;000\)</span> kr med en rente på <span class="math notranslate nohighlight">\(5\)</span>% per år.
+Du betaler <span class="math notranslate nohighlight">\(50\;000\)</span> kr per år.</p>
+<ul class="simple">
+<li><p>Hvor mye gjeld har du igjen etter ett år?</p></li>
+</ul>
+<p>Skriv et program som tar inn disse verdien som variabler og løser oppgaven.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer lån, rente og årlig nedbetaling</span>
+<span class="n">gjeld</span> <span class="o">=</span> <span class="mi">300000</span>
+<span class="n">rente_prosent</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">årlig_nedbetaling</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="c1"># Beregn gjeld etter ett år</span>
+<span class="n">gjeld_etter_rente</span> <span class="o">=</span> <span class="n">gjeld</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rente_prosent</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>       <span class="c1"># Lånet vokser med renter</span>
+<span class="n">gjeld_etter_1_år</span> <span class="o">=</span> <span class="n">gjeld_etter_rente</span> <span class="o">-</span> <span class="n">årlig_nedbetaling</span>    <span class="c1"># Trekk fra nedbetaling</span>
+
+<span class="c1"># Skriv ut resultatet</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gjeld etter 1 år: </span><span class="si">{</span><span class="n">gjeld_etter_1_år</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjeld etter 1 år: 265000.00 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="you-made-it">
+<h1>You made it! 🚀🚀🚀<a class="headerlink" href="#you-made-it" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Seminar 2 - Python Basics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-variabeltyper-og-typekonvertering">📌 Oppgave 1: Variabeltyper og typekonvertering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-bruk-av-f-strings">📌 Oppgave 2: Bruk av f-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-en-enkel-kalkulator">📌 Oppgave 3: En enkel kalkulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-sjekk-om-et-tall-er-oddetall-eller-partall">📌 Oppgave 4: Sjekk om et tall er oddetall eller partall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-oppgave-hvordan-ville-du-lagd-en-kode-som-sjekka-om-tallet-er-et-primtall-eller-ikke">Ekstra oppgave: Hvordan ville du lagd en kode som sjekka om tallet er et primtall eller ikke?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-konverter-mellom-datatyper">📌 Oppgave 5: Konverter mellom datatyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6-bruk-av-eksponenter">📌 Oppgave 6: Bruk av eksponenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-7-beregn-merverdiavgift-mva">📌 Oppgave 7: Beregn merverdiavgift (MVA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-8-valutakonvertering">📌 Oppgave 8: Valutakonvertering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-9-lonnsberegning-med-skatt">📌 Oppgave 9: Lønnsberegning med skatt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-renteinntekter-pa-bankinnskudd">📌 Oppgave 10: Renteinntekter på bankinnskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-nedbetaling-av-lan">📌 Oppgave 11: Nedbetaling av lån</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-made-it">You made it! 🚀🚀🚀</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

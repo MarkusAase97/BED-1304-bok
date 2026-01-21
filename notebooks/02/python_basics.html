@@ -1,0 +1,1815 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2 - Python basics &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02/python_basics';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3 - Funksjoner" href="../03/funksjoner.html" />
+    <link rel="prev" title="1 - Introduksjon til kurset" href="../01/introduksjon.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02/python_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/02/python_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2 - Python basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2 - Python basics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmeringssprak">Programmeringsspråk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gode-programmeringsvaner">Gode programmeringsvaner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabler">Variabler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bool-sann-usann"><code class="docutils literal notranslate"><span class="pre">bool</span></code>(Sann/usann)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-heltall"><code class="docutils literal notranslate"><span class="pre">int</span></code> (heltall)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float-desimaltall"><code class="docutils literal notranslate"><span class="pre">float</span></code> (desimaltall)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regning-med-float">Regning med <code class="docutils literal notranslate"><span class="pre">float</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#str-tekst"><code class="docutils literal notranslate"><span class="pre">str</span></code> (tekst)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforselstegn-for-strenger">Anførselstegn for strenger</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d">Hipphipp du er ferdig med disse oppgavene :D</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-basics">
+<h1>2 - Python basics<a class="headerlink" href="#python-basics" title="Link to this heading">#</a></h1>
+<section id="programmeringssprak">
+<h2>Programmeringsspråk<a class="headerlink" href="#programmeringssprak" title="Link to this heading">#</a></h2>
+<p>Python, som de fleste andre programmeringsspråk, er basert på engelsk språk. Det er naturlig, siden engelsk er det overlegent største andrespråket i verden og de fleste programmeringsspråk har blitt utviklet i USA (her er Python et unntak, da nederlenderen Guido van Rossum er bak Python).</p>
+<p>Uansett, engelsk er dominerende og av samme grunn bør all kode i utgangspunktet skrives på engelsk. Kode bør kunne deles globalt, og da bør den skrives på et språk flest mulig forstår. Får man denne vanen inn tidlig, vil den følge din ferd som programmerer.</p>
+<p>Men selv om koden er engelsk, så er ofte brukergrensesnittet på lokalt språk. Du har kanskje norsk som språk i nettleseren din, men bortsett fra navnene i menyene er all kode på engelsk.</p>
+<p>I dette kurset skal vi gjøre det på tilsvarende måte. All kode skal i hovedsak skrives på engelsk. Printing (og kommentarer) kan imidlertid gjøres på norsk, slik som dette:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># La oss lage et enkelt program</span>
+<span class="n">my_sentence</span> <span class="o">=</span> <span class="s2">&quot;Her er det lov å skrive norsk, for dette skal ut til skjermen!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_sentence</span><span class="p">)</span>
+
+<span class="c1"># La oss skrive en ny setning</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Jeg heter Ola Nordmann&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Her er det lov å skrive norsk, for dette skal ut til skjermen!
+Jeg heter Ola Nordmann
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg merke til den første setningen i programmet, <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">La</span> <span class="pre">oss</span> <span class="pre">lage</span> <span class="pre">et</span> <span class="pre">enkelt</span> <span class="pre">program</span></code>. Hashtaggen (<em>emneknagg</em>) <code class="docutils literal notranslate"><span class="pre">#</span></code> først, angir at denne linjen ikke skal oppfattes som en del av programmet. Python overser dermed denne setningen. Denne funksjonen finnes, slik at vi kan <em>dokumentere</em> koden. Det vil si at vi skriver inn i koden hva som skjer.</p>
+<p>Program blir ofte veldig fort veldig komplekse og uoversiktlige. Uten noen forklaring blir det fort vanskelig eller uoverkommelig for andre å forstå hva du har tenkt. Da blir det veldig vanskelig for andre å komme inn eller ta over prosjektet ditt. Det er også enklere for deg selv å gå tilbake og lese din egen kode, om du har vært flink å dokumentere den med kommentarer.</p>
+</section>
+<section id="gode-programmeringsvaner">
+<h2>Gode programmeringsvaner<a class="headerlink" href="#gode-programmeringsvaner" title="Link to this heading">#</a></h2>
+<p>For å gjøre koden så godt leselig som mulig for andre, er det noen prinsipper som bør følges. Det er lite hensiktsmessig å gå detaljert inn på disse nå, før vi har lært litt mer, men vi tar med de generelle prinsippene som skaperen av Python, Guido van Rossum har laget, som du kan kikke tilbake på etterhvert som du lærer mer:</p>
+<ol class="arabic simple">
+<li><p>Pen er bedre enn stygt.</p></li>
+<li><p>Eksplisitt er bedre enn implisitt.</p></li>
+<li><p>Enkelt er bedre enn komplekst.</p></li>
+<li><p>Komplekst er bedre enn komplisert.</p></li>
+<li><p>Flat er bedre enn nøstet.</p></li>
+<li><p>Luftig er bedre enn tett.</p></li>
+<li><p>Leselighet betyr noe.</p></li>
+<li><p>Spesialtifeller er ikke spesielle nok til å bryte regelene.
+Selv om praktiske hensyn slår renhet.</p></li>
+<li><p>Feil bør aldri passere i det stille,
+med mindre de er eksplisitt dempet.</p></li>
+<li><p>Når du møter tvilstilfeller, ikke fall for fristelsen å gjette.</p></li>
+<li><p>Det bør være én og helst bare én åpenbar måte å gjøre det på,
+selv om den måten kanskje ikke er åpenbar umiddelbart for de som ikke er Nederelendere</p></li>
+<li><p>Nå er bedre aldri,
+selv om aldri ofte er bedre enn <em>akkurat</em> nå.</p></li>
+<li><p>Om implementeringen er vanskelig å forstå, så er det en dårlig idé.</p></li>
+<li><p>Om implementeringen er lett å forstå, så er det en god idé.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">namespaces</span></code> er en fantastisk idé, – la oss gjøre mer av det!</p></li>
+</ol>
+</section>
+<section id="variabler">
+<h2>Variabler<a class="headerlink" href="#variabler" title="Link to this heading">#</a></h2>
+<p>Variablene i Python kan være ulike objekter som i alle andre programmeringsspråk, og typen objekt defineres av hva du setter variabelen til. Det er vanlig å definere stort sett alle variabler med små bokstaver i Python. Kun unntaksvis brukes store bokstaver.</p>
+<p>Du kan ikke bruke mellomrom i variabelnavn. Det vil oppfattes som flere ulike navn. For eksempel er <code class="docutils literal notranslate"><span class="pre">number_of_apples</span></code>  tillatt men ikke “number of apples”. Vi bruker også kun engelske bokstaver, selv om norske fungerer. <code class="docutils literal notranslate"><span class="pre">aintail_æpla</span></code> kan altså brukes, men anbefales ikke.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Her er det flere, ulike variabler</span>
+
+<span class="c1"># Heltall</span>
+<span class="n">variable_a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Desimaltall</span>
+<span class="n">variable_b</span> <span class="o">=</span> <span class="mf">2.5678</span>
+
+<span class="c1"># Sant/usant</span>
+<span class="n">variable_c</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Tekst</span>
+<span class="n">variable_d</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bool-sann-usann">
+<h2><code class="docutils literal notranslate"><span class="pre">bool</span></code>(Sann/usann)<a class="headerlink" href="#bool-sann-usann" title="Link to this heading">#</a></h2>
+<p>Den enkleste variabelen i Python er den binære typen “bool”. Den kan ta to verdier, <code class="docutils literal notranslate"><span class="pre">True</span></code> eller <code class="docutils literal notranslate"><span class="pre">False</span></code> (sant eller usant). Denne variabelen brukes mest i sammenhenger der vi skal teste om et vilkår er oppfylt eller ikke. Da bruker vi <code class="docutils literal notranslate"><span class="pre">if</span></code>-setninger, som vi skal komme tilbake til.</p>
+<p>Vi kan sjekke hvilken type en variabel er med funksjonen type(). Under får vi bekreftet <code class="docutils literal notranslate"><span class="pre">apple_is_tasty</span></code> er en boolsk variabel.</p>
+<section id="eksempel-3">
+<h3>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel på bool-variabel</span>
+<span class="n">apple_is_tasty</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">apple_is_tasty</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Printer verdien til &#39;apple_is_tasty&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">apple_is_tasty</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg merke til hva som skjer her: Første linje er bare en kommentar, som nevnt tidligere. I andre linjer <em>setter</em> vi variabelen <code class="docutils literal notranslate"><span class="pre">apple_is_tasty</span></code> lik verdien <code class="docutils literal notranslate"><span class="pre">True</span></code>. Det er på denne måten vi definerer variabler i Python. Når vi har satt en variable på denne måten, bestemmer det hvilken <code class="docutils literal notranslate"><span class="pre">type</span></code> variabel det er.</p>
+<p>Det er ikke alltid at variabelen settes rett før vi skal bruke den. Er det et stort program kan variabelen ha vært satt på en helt annen plass i programmet. I så fall er det nyttig å vise hvilken type variabel <code class="docutils literal notranslate"><span class="pre">apple_is_tasty</span></code> representerer. Siden den er satt til verdien <code class="docutils literal notranslate"><span class="pre">True</span></code> (sant), er det en <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<p>Når vi kjører et kodefelt i Jupyter, får vi resultatet av den siste setningen skrevet ut til skjermen, etter kodefeltet. Om du har kjørt koden, vil du se at det står <code class="docutils literal notranslate"><span class="pre">bool</span></code>der. Det er fordi funksjonen <code class="docutils literal notranslate"><span class="pre">type()</span></code> står i siste linje, og den returnerer hvilken type <code class="docutils literal notranslate"><span class="pre">apple_is_tasty</span></code> er.</p>
+<p>I neste kodeblokk kjører vi funksjonen <code class="docutils literal notranslate"><span class="pre">print()</span></code> som rett og slett bare skriver ut hvilken <em>verdi</em> variabelen har (dette tilfelle <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+</section>
+</section>
+<section id="int-heltall">
+<h2><code class="docutils literal notranslate"><span class="pre">int</span></code> (heltall)<a class="headerlink" href="#int-heltall" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> betyr <em>integer</em> (heltall på norsk), og naturlig nok, representerer hele tall i Python. Under ser vi at Python tolker <code class="docutils literal notranslate"><span class="pre">8</span></code> som et heltall:</p>
+<section id="eksempel-4">
+<h3>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heltall/integer eksempel</span>
+
+<span class="n">number_of_apples</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">number_of_apples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan konvertere <code class="docutils literal notranslate"><span class="pre">int</span></code> til <code class="docutils literal notranslate"><span class="pre">bool</span></code> og <code class="docutils literal notranslate"><span class="pre">bool</span></code> til <code class="docutils literal notranslate"><span class="pre">int</span></code> ved å bruke disse som funksjoner slik som dette:</p>
+</section>
+<section id="eksempel-5">
+<h3>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gjøre om variabletype</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">apple_is_tasty</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">8.00</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1"> er av typen </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Nå gjør vi om &#39;number&#39;</span>
+<span class="n">number_two</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number_two</span><span class="si">}</span><span class="s1"> er av typen </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">number_two</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0 er av typen &lt;class &#39;float&#39;&gt;
+8 er av typen &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Over ser vi at vi startet med tallet <code class="docutils literal notranslate"><span class="pre">8.00</span></code>, som vi ser er av typen <code class="docutils literal notranslate"><span class="pre">float</span></code>, så brukte vi funksjonen <code class="docutils literal notranslate"><span class="pre">int()</span></code> til å gjøre om <code class="docutils literal notranslate"><span class="pre">number</span></code> (som var lik <code class="docutils literal notranslate"><span class="pre">8.00</span></code>) til heltallet <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legger merke til at i python så tilsvarer 1 <code class="docutils literal notranslate"><span class="pre">True</span></code> og 0 tilsvarer <code class="docutils literal notranslate"><span class="pre">False</span></code>, slik at</p>
+</section>
+<section id="eksempel-6">
+<h3>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span><span class="o">*</span><span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span><span class="o">*</span><span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="float-desimaltall">
+<h2><code class="docutils literal notranslate"><span class="pre">float</span></code> (desimaltall)<a class="headerlink" href="#float-desimaltall" title="Link to this heading">#</a></h2>
+<p>Regning gjøres vanligvis med desimaltall, eller “floating point” som det kalles av på fagspråket.  I python heter derfor denne variabeltypen  <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p>Om for eksempel 11 skal tolkes som et heltall, gir vi beskjed til Python om at det er et desimaltall ved å skrive det med én desimal. Alle programmeringsspråk, inkludert Python, bruker punktum som desimaltegn.</p>
+<section id="eksempel-7">
+<h3>Eksempel 7:<a class="headerlink" href="#eksempel-7" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Floating point (float), altså desimaltall</span>
+
+<span class="n">apple_price</span> <span class="o">=</span> <span class="mf">11.0</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">apple_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple_price</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">apple_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg merke til de to ulike kodeblokkene over - <strong>hva er forskjellen her?</strong></p>
+<p>Navnet “floating point”, eller <strong>flyttall</strong> på norsk, kommer av at alle flyttall har eksakt like mange siffer, men desimaltegnet kan flyttes slik at <code class="docutils literal notranslate"><span class="pre">float</span></code> kan representere et svært stort spenn av verdier. Det største flyttallet er én med 308 nuller etter. Desimaltegnet flyttes enkelt fordi at <code class="docutils literal notranslate"><span class="pre">float</span></code> egentlig er på “vitenskapelig form” (se under), selv om det ofte vises som vanlig tall. For eksempel så kan vi skrive tallet 102 på vitenskapelig form, men Python spytter det ut på et format vi enklere kan forstå</p>
+</section>
+<section id="eksempel-8">
+<h3>Eksempel 8:<a class="headerlink" href="#eksempel-8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insane_apple_price</span> <span class="o">=</span> <span class="mf">1.02e+2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">insane_apple_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>102.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vitenskapelig form <code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> er en kombinasjon av et heltall (<code class="docutils literal notranslate"><span class="pre">1</span></code>), desimaler (<code class="docutils literal notranslate"><span class="pre">.02</span></code>) og hvilken potens av 10 tallet skal multipliseres med (<code class="docutils literal notranslate"><span class="pre">e+2</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> betyr altså at <span class="math notranslate nohighlight">\(1.02\)</span> skal multipliseres med  <span class="math notranslate nohighlight">\(10^{2}=100\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> betyr dermed <span class="math notranslate nohighlight">\(1.02\cdot 10^{2}=102\)</span>. På samme kan <span class="math notranslate nohighlight">\(0.0102\)</span> skrives <code class="docutils literal notranslate"><span class="pre">1.02e-2</span></code>,  eller  <span class="math notranslate nohighlight">\(1.02\cdot 10^{-2}=102\)</span>.</p>
+<p>Legg også merke til at funksjonen <code class="docutils literal notranslate"><span class="pre">print()</span></code>er brukt her. Det er ofte bedre å printe eksplisitt med printfunksjonen. Dersom det du ønsker å se ikke står sist i koden er det også nødvendig å bruke <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<p>Her er et eksemple med et lite flyttall:</p>
+</section>
+<section id="eksempel-9">
+<h3>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">really_cheap_apple_price</span> <span class="o">=</span> <span class="mf">1.02e-2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">really_cheap_apple_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0102
+</pre></div>
+</div>
+</div>
+</div>
+<p>Når vi skriver ut resultatet får vi det altså ut som <code class="docutils literal notranslate"><span class="pre">102.0</span></code> eller <code class="docutils literal notranslate"><span class="pre">0.0102</span></code> i stedet for det vitenskapelige flyttallformatet. Det er fordi Python skjønner at <code class="docutils literal notranslate"><span class="pre">1.02e+2</span></code> og  <code class="docutils literal notranslate"><span class="pre">1.02e-2</span></code> ikke ser så pent ut for oss. Python formaterer derfor tallet til et mer lesbart format før det skrives ut.</p>
+<p>Det er enkelt å regne med både <code class="docutils literal notranslate"><span class="pre">float</span></code> og  <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+</section>
+<section id="eksempel-10">
+<h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">apple_price</span><span class="o">*</span><span class="n">number_of_apples</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88
+</pre></div>
+</div>
+</div>
+</div>
+<p>Heldigvis spiller det liten rolle om noe er <code class="docutils literal notranslate"><span class="pre">int</span></code> eller <code class="docutils literal notranslate"><span class="pre">float</span></code> når du skal regne. I de fleste andre programmeringsspråk får du et nytt heltall når du deler et heltall på et annet. I Python gir dette et desimaltall:</p>
+</section>
+<section id="eksempel-11">
+<h3>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_persons</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">apple_per_person</span>  <span class="o">=</span> <span class="n">number_of_apples</span><span class="o">/</span><span class="n">number_of_persons</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">apple_per_person</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">/</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regning-med-float">
+<h2>Regning med <code class="docutils literal notranslate"><span class="pre">float</span></code><a class="headerlink" href="#regning-med-float" title="Link to this heading">#</a></h2>
+<p>For de fire regneartene fungerer <code class="docutils literal notranslate"><span class="pre">float</span></code> slik vi har lært på barneskolen:</p>
+<section id="eksempel-12">
+<h3>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+-1
+6
+0.6666666666666666
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ofte har vi imidlertid bruk for å opphøye et tall i et annet. Om vi for eksempel vil vite hva <span class="math notranslate nohighlight">\(2\cdot2\cdot2\)</span> er, så kan vi istedet skrive <span class="math notranslate nohighlight">\(2^3\)</span>. Dette kalles en <em>potens</em> med 2 som <em>grunntall</em> og 3 som <em>eksponent</em>. I python utføres denne operasjonen med dobbelt gange-tegn <code class="docutils literal notranslate"><span class="pre">**</span></code>. Dette er ulikt endel andre programmeringsspråk, der <em>cirkumfleks</em>-symbolet <code class="docutils literal notranslate"><span class="pre">^</span></code> ofte brukes.</p>
+<p>Slik regner du med potens i Python:</p>
+</section>
+<section id="eksempel-13">
+<h3>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="str-tekst">
+<h3><code class="docutils literal notranslate"><span class="pre">str</span></code> (tekst)<a class="headerlink" href="#str-tekst" title="Link to this heading">#</a></h3>
+<p>Tekst kalles “streng” på dataspråket, eller “string” på engelsk. Typen som representerer tekst heter derfor <code class="docutils literal notranslate"><span class="pre">str</span></code>. Vi forteller Python at dette er en tekst ved å sette anførselstegn rundt. Her er et eksempel på en streng:</p>
+</section>
+<section id="eksempel-14">
+<h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># string:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Dette er en streng (dvs tekst)&quot;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Det er enkelt å sette sammen <code class="docutils literal notranslate"><span class="pre">string</span></code> og andre variabler i Python. Det er flere måter å gjøre det på, men vi skal bruke en metode som er ganske ny i Python. Fra og med versjon 3.6 kom noe som kalles “f-strings” som gir oss en veldig enkel måte å blandet tekst og andre variabler. Her er et eksempel:</p>
+</section>
+<section id="eksempel-15">
+<h3>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Det er </span><span class="si">{</span><span class="n">apple_is_tasty</span><span class="si">}</span><span class="s2"> at jeg synes epler smaker godt.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det er True at jeg synes epler smaker godt.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg merke til f’en før det første anførselstegnet. Den angir at dette er en f-streng og at alt som er inne i klammeparenteser {} skal omformateres til <code class="docutils literal notranslate"><span class="pre">string</span></code> og tas med i teksten.</p>
+<p>Et alternativ er å bruke <code class="docutils literal notranslate"><span class="pre">+</span></code>-tegnet. Det går nemlig an å summere tekst i Python:</p>
+</section>
+<section id="eksempel-16">
+<h3>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Jeg &quot;</span><span class="o">+</span><span class="s2">&quot;gikk &quot;</span><span class="o">+</span><span class="s2">&quot;derfor &quot;</span><span class="o">+</span><span class="s2">&quot;på &quot;</span><span class="o">+</span><span class="s2">&quot;butikken &quot;</span><span class="o">+</span><span class="s2">&quot;for &quot;</span><span class="o">+</span><span class="s2">&quot;å &quot;</span><span class="o">+</span><span class="s2">&quot;kjøpe&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jeg gikk derfor på butikken for å kjøpe&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Men det går ikke an å summere tekst og andre variabler, da skjønner ikke Python hva du ønsker å oppnå</p>
+</section>
+<section id="eksempel-17">
+<h3>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Jeg gikk derfor på butikken for å kjøpe &quot;</span> <span class="o">+</span> <span class="n">number_of_apples</span> <span class="o">+</span> <span class="s2">&quot; epler. &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;Jeg gikk derfor på butikken for å kjøpe &quot;</span> <span class="o">+</span> <span class="n">number_of_apples</span> <span class="o">+</span> <span class="s2">&quot; epler. &quot;</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Du må i så fall omformatere tallet <code class="docutils literal notranslate"><span class="pre">number_of_apples</span></code> til streng:</p>
+</section>
+<section id="eksempel-18">
+<h3>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Jeg gikk derfor på butikken for å kjøpe &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number_of_apples</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; epler.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jeg gikk derfor på butikken for å kjøpe 8 epler.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Derfor er det langt enklere å bruke f-strings. Dersom tekststrengen er for lang for én linje, kan du sette flere tekstrenger etter hverandre på hver sin linje, slik som dette:</p>
+</section>
+<section id="eksempel-19">
+<h3>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Det er </span><span class="si">{</span><span class="n">apple_is_tasty</span><span class="si">}</span><span class="s2"> at jeg synes epler smaker godt. </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg gikk derfor på butikken for å kjøpe </span><span class="si">{</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> epler. </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Innehaveren gav meg en vanvittig pris. Hun skulle ha </span><span class="si">{</span><span class="n">insane_apple_price</span><span class="si">}</span><span class="s2"> kroner per eple. </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg fortalte henne at det var helt uaktuelt, og foreslo </span><span class="si">{</span><span class="n">really_cheap_apple_price</span><span class="si">}</span><span class="s2"> kroner. </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Hun avslo, men vi ble til sist enig om </span><span class="si">{</span><span class="n">apple_price</span><span class="si">}</span><span class="s2"> kroner.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg betalte hennet til sammen </span><span class="si">{</span><span class="n">apple_price</span><span class="o">*</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> kroner og dro hjem. </span><span class="se">\n\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;På veien traff jeg </span><span class="si">{</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem. </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Det ble </span><span class="si">{</span><span class="n">number_of_apples</span><span class="o">/</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> epler per person.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det er True at jeg synes epler smaker godt. 
+Jeg gikk derfor på butikken for å kjøpe 8 epler. 
+Innehaveren gav meg en vanvittig pris. Hun skulle ha 102.0 kroner per eple. 
+Jeg fortalte henne at det var helt uaktuelt, og foreslo 0.0102 kroner. 
+Hun avslo, men vi ble til sist enig om 11 kroner.
+Jeg betalte hennet til sammen 88 kroner og dro hjem. 
+
+På veien traff jeg 5 venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem. 
+Det ble 1.6 epler per person.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merk at setningene må stå inne i en parentes, for eksempel som argument i en funksjon som over, for at Python skal forstå at de skal settes sammen til én setning. Legg også merke til <code class="docutils literal notranslate"><span class="pre">\n</span></code>på slutten av hver delsetning. Denne indikerer at det skal være linjeskift etter hver delsetning.</p>
+</section>
+</section>
+<section id="anforselstegn-for-strenger">
+<h2>Anførselstegn for strenger<a class="headerlink" href="#anforselstegn-for-strenger" title="Link to this heading">#</a></h2>
+<p>Det finnes tre forskjellige typer tegn for å markere at noe er tekst i Python. Disse er apostrof <code class="docutils literal notranslate"><span class="pre">'</span></code>, anførselstegn <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> og trippel anførselstegn <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>. Rollen til de to første typene er å enkelt kunne bruke anførselstegn inne i teksten:</p>
+<section id="eksempel-20">
+<h3>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Jeg gikk derfor på butikken for å &#39;kjøpe&#39; epler.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Jeg gikk derfor på butikken for å &quot;kjøpe&quot; epler.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jeg gikk derfor på butikken for å &#39;kjøpe&#39; epler.
+Jeg gikk derfor på butikken for å &quot;kjøpe&quot; epler.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trippel anførselstegn <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> brukes når du vil ha tekst over flere linjer, for eksempel</p>
+</section>
+<section id="eksempel-21">
+<h3>Eksempel 21:<a class="headerlink" href="#eksempel-21" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Det er </span><span class="si">{</span><span class="n">apple_is_tasty</span><span class="si">}</span><span class="s2"> at jeg synes epler smaker godt.</span>
+<span class="s2">Jeg gikk derfor på butikken for å kjøpe </span><span class="si">{</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> epler.</span>
+<span class="s2">Innehaveren gav meg en vanvittig pris. Hun skulle ha </span><span class="si">{</span><span class="n">insane_apple_price</span><span class="si">}</span><span class="s2"> kroner per eple.</span>
+<span class="s2">Jeg fortalte henne at det var helt uaktuelt, og foreslo </span><span class="si">{</span><span class="n">really_cheap_apple_price</span><span class="si">}</span><span class="s2"> kroner.</span>
+<span class="s2">Hun avslo, men vi ble til sist enige om </span><span class="si">{</span><span class="n">apple_price</span><span class="si">}</span><span class="s2"> kroner.</span>
+<span class="s2">Jeg betalte hennet til sammen </span><span class="si">{</span><span class="n">apple_price</span><span class="o">*</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> kroner og dro hjem.</span>
+
+<span class="s2">På veien traff jeg </span><span class="si">{</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem.</span>
+<span class="s2">Det ble </span><span class="si">{</span><span class="n">number_of_apples</span><span class="o">/</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> epler per person.&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det er True at jeg synes epler smaker godt.
+Jeg gikk derfor på butikken for å kjøpe 8 epler.
+Innehaveren gav meg en vanvittig pris. Hun skulle ha 102.0 kroner per eple.
+Jeg fortalte henne at det var helt uaktuelt, og foreslo 0.0102 kroner.
+Hun avslo, men vi ble til sist enige om 11 kroner.
+Jeg betalte hennet til sammen 88 kroner og dro hjem.
+
+På veien traff jeg 5 venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem.
+Det ble 1.6 epler per person.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternativt kan du sette hver setning på linje etterhverandre med egne enkel anførselstegn, som i Eksempel 219, men da må alle setningene befinne seg inne i en parentes.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgaver">
+<h1>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h1>
+<p>Nedenfor her vil dere finne flere oppgaver som gjør seg godt for å bli kjent med de ulike variabelene vi har nevnt.</p>
+<section id="oppgave-1">
+<h2>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Link to this heading">#</a></h2>
+<p>Bruk koden i Eksempel 19, men fjern <code class="docutils literal notranslate"><span class="pre">\n</span></code> og se hva som skjer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Det er </span><span class="si">{</span><span class="n">apple_is_tasty</span><span class="si">}</span><span class="s2"> at jeg synes epler smaker godt. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg gikk derfor på butikken for å kjøpe </span><span class="si">{</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> epler. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Innehaveren gav meg en vanvittig pris. Hun skulle ha </span><span class="si">{</span><span class="n">insane_apple_price</span><span class="si">}</span><span class="s2"> kroner per eple. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg fortalte henne at det var helt uaktuelt, og foreslo </span><span class="si">{</span><span class="n">really_cheap_apple_price</span><span class="si">}</span><span class="s2"> kroner. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Hun avslo, men vi ble til sist enig om </span><span class="si">{</span><span class="n">apple_price</span><span class="si">}</span><span class="s2"> kroner. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Jeg betalte hennet til sammen </span><span class="si">{</span><span class="n">apple_price</span><span class="o">*</span><span class="n">number_of_apples</span><span class="si">}</span><span class="s2"> kroner og dro hjem. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;På veien traff jeg </span><span class="si">{</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Det ble </span><span class="si">{</span><span class="n">number_of_apples</span><span class="o">/</span><span class="n">number_of_persons</span><span class="si">}</span><span class="s2"> epler per person.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det er True at jeg synes epler smaker godt. Jeg gikk derfor på butikken for å kjøpe 8 epler. Innehaveren gav meg en vanvittig pris. Hun skulle ha 102.0 kroner per eple. Jeg fortalte henne at det var helt uaktuelt, og foreslo 0.0102 kroner. Hun avslo, men vi ble til sist enig om 11 kroner. Jeg betalte hennet til sammen 88 kroner og dro hjem. På veien traff jeg 5 venner. Jeg hadde ikke noe annet valg enn å dele eplene mine med dem. Det ble 1.6 epler per person.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hva-skjer-nar-vi-fjerner-n">
+<h3>🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?<a class="headerlink" href="#hva-skjer-nar-vi-fjerner-n" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code> betyr linjeskift, så når vi fjerner det, blir all teksten skrevet ut på én lang linje i stedet for å være pent formatert på flere linjer.</p></li>
+<li><p>Det blir altså mye vanskeligere å lese outputtet.</p></li>
+</ul>
+</section>
+</section>
+<section id="oppgave-2">
+<h2>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h2>
+<p>Lag variabler som du putter inn i en historie som i Eksempel 19</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Her kan man gjøre akkurat det samme men fjerne variablene, og sette inn dine nye.</span>
+
+<span class="c1"># Definerer variabler</span>
+<span class="n">navn</span> <span class="o">=</span> <span class="s2">&quot;Ola&quot;</span>
+<span class="n">sted</span> <span class="o">=</span> <span class="s2">&quot;parken&quot;</span>
+<span class="n">antall_venner</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">aktivitet</span> <span class="o">=</span> <span class="s2">&quot;spilte fotball&quot;</span>
+<span class="n">værtype</span> <span class="o">=</span> <span class="s2">&quot;solfylt&quot;</span>
+<span class="n">snack</span> <span class="o">=</span> <span class="s2">&quot;is&quot;</span>
+<span class="n">pris_per_is</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">totalpris</span> <span class="o">=</span> <span class="n">antall_venner</span> <span class="o">*</span> <span class="n">pris_per_is</span>
+
+<span class="c1"># Skriver ut historien med variablene, hvor vi bruker \n for linjeskift</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;En dag dro </span><span class="si">{</span><span class="n">navn</span><span class="si">}</span><span class="s2"> til </span><span class="si">{</span><span class="n">sted</span><span class="si">}</span><span class="s2"> fordi det var en </span><span class="si">{</span><span class="n">værtype</span><span class="si">}</span><span class="s2"> dag.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Sammen med </span><span class="si">{</span><span class="n">antall_venner</span><span class="si">}</span><span class="s2"> venner </span><span class="si">{</span><span class="n">aktivitet</span><span class="si">}</span><span class="s2"> de i flere timer.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Etterpå ble de sultne og bestemte seg for å kjøpe </span><span class="si">{</span><span class="n">snack</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Hver </span><span class="si">{</span><span class="n">snack</span><span class="si">}</span><span class="s2"> kostet </span><span class="si">{</span><span class="n">pris_per_is</span><span class="si">}</span><span class="s2"> kroner, så til sammen betalte de </span><span class="si">{</span><span class="n">totalpris</span><span class="si">}</span><span class="s2"> kroner.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Det var en flott dag i </span><span class="si">{</span><span class="n">sted</span><span class="si">}</span><span class="s2">!&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>En dag dro Ola til parken fordi det var en solfylt dag.
+Sammen med 3 venner spilte fotball de i flere timer.
+Etterpå ble de sultne og bestemte seg for å kjøpe is.
+Hver is kostet 25 kroner, så til sammen betalte de 75 kroner.
+Det var en flott dag i parken!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hva-har-vi-gjort">
+<h3>🔍 Hva har vi gjort?<a class="headerlink" href="#hva-har-vi-gjort" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Variablene lagrer informasjon som kan endres til andre verdier senere.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f&quot;&quot;</span></code> brukes for å sette variabler inn i en streng.</p></li>
+<li><p>Koden lager en enkel historie som kan tilpasses ved å endre variablene.</p></li>
+</ul>
+<p>🚀 Nå kan du endre slik du måtte ønske selv!</p>
+</section>
+</section>
+<section id="oppgave-3">
+<h2>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h2>
+<p>a) Hvilke variabler kan brukes sammen med multiplikasjonsoperatoren <code class="docutils literal notranslate"><span class="pre">*</span></code>?
+prøv for eksempel <code class="docutils literal notranslate"><span class="pre">&quot;hei&quot;*2.0</span></code> og <code class="docutils literal notranslate"><span class="pre">True*2.0</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gyldige kombinasjoner</span>
+
+<span class="c1"># Tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># 10  (int * int)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># 10.0  (float * int)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>    <span class="c1"># 10.0  (int * float)</span>
+
+<span class="c1"># Streng</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hei&quot;</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># &quot;heihei&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># &quot;abcabcabc&quot;</span>
+
+<span class="c1"># Boolean</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># 2  (True tolkes som 1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># 0  (False tolkes som 0)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+10.0
+10.0
+heihei
+abcabcabc
+2
+0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugyldige kombinasjoner</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hei&quot;</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Ugyldige kombinasjoner</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hei&quot;</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>  
+
+<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Obs:</strong> her feilet noe. Men les feilmeldingen, altså det som står etter <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> - hva sier denne oss?</p>
+<p>b) Hvilke variabler kan brukes sammen med addisjonsoperatoren <code class="docutils literal notranslate"><span class="pre">+</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gyldige operasjoner med tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>      <span class="c1"># 8  (int + int)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">4.5</span> <span class="o">+</span> <span class="mf">2.5</span><span class="p">)</span>  <span class="c1"># 7.0  (float + float)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mf">2.3</span><span class="p">)</span>   <span class="c1"># 12.3  (int + float)</span>
+
+<span class="c1"># Gyldige operasjoner med tekst</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei, &quot;</span> <span class="o">+</span> <span class="s2">&quot;verden!&quot;</span><span class="p">)</span>  <span class="c1"># &quot;Hei, verden!&quot;</span>
+<span class="n">navn</span> <span class="o">=</span> <span class="s2">&quot;Ola&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei, &quot;</span> <span class="o">+</span> <span class="n">navn</span><span class="p">)</span>  <span class="c1"># &quot;Hei, Ola&quot;</span>
+
+<span class="c1"># Kan også så slammen lister (men det skal vi ser mer på senere)</span>
+<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>  <span class="c1"># [1, 2, 3, 4, 5, 6]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+7.0
+12.3
+Hei, verden!
+Hei, Ola
+[1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugyldig bruk av +</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alder: &quot;</span> <span class="o">+</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Ugyldig bruk av +</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alder: &quot;</span> <span class="o">+</span> <span class="mi">25</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Løsningen for å kjøre eksempelet over er å gjøre om <code class="docutils literal notranslate"><span class="pre">int</span></code> til <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alder: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>  <span class="c1"># &quot;Alder: 25&quot;</span>
+</pre></div>
+</div>
+<p><strong>Prøv dette selv.</strong></p>
+<p>🚀 Konklusjon: <code class="docutils literal notranslate"><span class="pre">+</span></code> fungerer med tall, strenger, lister og tupler, men ikke på tvers av inkompatible typer.</p>
+<p>c) Hvilke variabler kan brukes sammen med divisjonsoperatoren <code class="docutils literal notranslate"><span class="pre">/</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gyldige operasjoner</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 5.0 (int / int gir float)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">9.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># 4.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>     <span class="c1"># 3.3333333333333335</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="kc">True</span><span class="p">)</span>   <span class="c1"># 10.0 (10 / 1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+4.5
+3.3333333333333335
+10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugyldige operasjoner</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">/</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># ❌ Feil: Division by zero!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Ugyldige operasjoner</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">/</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># ❌ Feil: Division by zero!</span>
+
+<span class="ne">ZeroDivisionError</span>: float division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for /: &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># ❌ Feil</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">37</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># ❌ Feil</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>d) Hvilke variabler kan brukes sammen med subtraksjonsoperatoren <code class="docutils literal notranslate"><span class="pre">-</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gyldige operasjoner</span>
+
+<span class="c1"># Vanlig subtraksjon</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">7.5</span> <span class="o">-</span> <span class="mf">2.2</span><span class="p">)</span>  <span class="c1"># 5.3</span>
+
+<span class="c1"># Husk at True = 1 og False = 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="kc">True</span><span class="p">)</span>   <span class="c1"># 9 (10 - 1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">5.5</span> <span class="o">-</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># 5.5 (5.5 - 0)</span>
+
+<span class="c1"># Kan gjøre om negative tall til positive, og omvendt</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># -10</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+5.3
+9
+5.5
+-10
+5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugyldig</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span> <span class="o">-</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">39</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Ugyldig</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span> <span class="o">-</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>  
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4">
+<h2>Oppgave 4<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h2>
+<p>a) Forsøk med prøving og feiling å finne det størst mulige <code class="docutils literal notranslate"><span class="pre">float</span></code>-tallet som ikke blir <code class="docutils literal notranslate"><span class="pre">inf</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette er ved hjelp av en løkke, for å se største verdi ved å doble tallet 1, doble det igjen, og igjen og igjen så langt det går før det blir inf (&quot;uendelig&quot; for PC/MAC-en).</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">):</span>  <span class="c1"># Så lenge det ikke blir &quot;inf&quot;, fortsett å doble</span>
+    <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Siste gyldige verdi før &quot;inf&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.98846567431158e+307
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kjører dere denne kodeblokken ser dere den høyeste verdien vi kan ha i python.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7976931348623157e+308
+</pre></div>
+</div>
+</div>
+</div>
+<p>🚀 Konklusjon:
+Det største <code class="docutils literal notranslate"><span class="pre">float</span></code>-tallet i Python er omtrent <span class="math notranslate nohighlight">\(1.7976931348623157 × 10^{308}\)</span>.
+Alt større enn dette blir <code class="docutils literal notranslate"><span class="pre">inf</span></code>.</p>
+<p>b) Forsøk med prøving og feiling å finne <code class="docutils literal notranslate"><span class="pre">float</span></code>-tallet nærmest null som ikke blir <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>  
+<span class="k">while</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Så lenge verdien ikke blir 0.0, fortsett å halvere</span>
+    <span class="n">x</span> <span class="o">/=</span> <span class="mi">2</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Siste gyldige verdi før den blir 0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5e-324
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-5">
+<h2>Oppgave 5<a class="headerlink" href="#oppgave-5" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Hva er hensikten med en boolsk variabel?</p></li>
+</ol>
+<p>Svar: En boolsk variabel brukes til å lagre en sannhetsverdi: enten <code class="docutils literal notranslate"><span class="pre">True</span></code> eller <code class="docutils literal notranslate"><span class="pre">False</span></code>. Det er nyttige i programmering for å si noe om man skal gjøre ditt eller datt, betingelser, løkker og andre logiske operasjoner. Dette vil vi bruke mye senere i kurset.</p>
+<ol class="arabic simple" start="2">
+<li><p>Hvordan kan du konvertere:</p>
+<ul class="simple">
+<li><p>en boolsk verdi til en heltall verdi i Python? \n</p></li>
+<li><p>et heltall til en streng i Python?</p></li>
+<li><p>et flyttall til et heltall i Python?</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konvertere boolsk verdi til heltall</span>
+<span class="n">bool_verdi</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">heltall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bool_verdi</span><span class="p">)</span>  <span class="c1"># Dette gir 1</span>
+<span class="n">heltall</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heltall</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">streng</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">heltall</span><span class="p">)</span>  <span class="c1"># Dette gir &#39;42&#39;</span>
+<span class="n">streng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;42&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flyttall</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">heltall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">flyttall</span><span class="p">)</span>  <span class="c1"># Dette gir 3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Hvorfor bruker vi f-strings i Python, og hvordan bruker du dem for å kombinere tekst og variabler?
+f-strings er nyttige fordi det gjør det svært enkelt å kombinere ulike variabeltyper med tekst, på en pen og oversiktlig måte, uten å trenge å konvertere variablene først.</p></li>
+</ol>
+<p><strong>Hvorfor bruke f-strings?</strong></p>
+<ul class="simple">
+<li><p><strong>Lesbarhet</strong>: F-strings gjør koden mer lesbar og enklere å forstå, fordi de lar deg inkludere variabler direkte i strengene.</p></li>
+<li><p><strong>Effektivitet</strong>: F-strings er raskere enn andre metoder for strengformatering som <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> og <code class="docutils literal notranslate"><span class="pre">%</span></code>-operatoren.</p></li>
+<li><p><strong>Enkelhet</strong>: De tillater at du kan inkludere variabler og uttrykk direkte i strengen uten å måtte gjøre ekstra konverteringer eller bruke spesielle syntaksmetoder.</p></li>
+</ul>
+<p>For å bruke en f-string, setter du et “f” foran en streng og bruker krøllparenteser <code class="docutils literal notranslate"><span class="pre">{}</span></code> for å plassere variablene eller uttrykkene du ønsker å inkludere i strengen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel</span>
+<span class="n">navn</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">alder</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">melding</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hei, jeg heter </span><span class="si">{</span><span class="n">navn</span><span class="si">}</span><span class="s2"> og jeg er </span><span class="si">{</span><span class="n">alder</span><span class="si">}</span><span class="s2"> år gammel.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">melding</span><span class="p">)</span>
+<span class="c1"># Output: Hei, jeg heter Alice og jeg er 25 år gammel.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, jeg heter Alice og jeg er 25 år gammel.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Hvordan representerer du desimaltall i Python, og hva er spesielt med hvordan de lagres i minnet?</p></li>
+</ol>
+<p>Desimaltall i Python er flyttall, som er en tallrekke med 16 tall og et desimaltegn (“.”) etterfulgt av “1e-xxx”/”1e+xxx”, som bestemmer hva tallet skal multipliseres med. xxx angir hvor mange ganger 10 skal opphøyes, så 1e-2 er for eksempel 0.01 og 2e+2 er 200.</p>
+<p>I Python representeres desimaltall som <strong>flyttall</strong> (eller <strong>floats</strong>), som er tall med en desimaldel. Disse er i utgangspunktet lagret ved hjelp av <strong>standard flyttallsformatet IEEE 754</strong> som brukes til å representere desimaltall på en binær måte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>  <span class="c1"># 3.14</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># 0.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1e-2</span>  <span class="c1"># 1 * 10^-2, som er 0.01</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2e+2</span>  <span class="c1"># 2 * 10^2, som er 200</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spesielt-med-hvordan-desimaltall-lagres-i-minnet">
+<h2><strong>Spesielt med hvordan desimaltall lagres i minnet</strong><a class="headerlink" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Flyttallsrepresentasjon (IEEE 754)</strong>:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Flyttall i Python lagres i henhold til <strong>IEEE 754-standard</strong>. Dette betyr at de består av tre deler:</p>
+<ul>
+<li><p><strong>Signifikant (mantissa)</strong>: Den faktiske verdien som skal lagres.</p></li>
+<li><p><strong>Eksponent</strong>: Hvor mange ganger tallet skal multipliseres med 10.</p></li>
+<li><p><strong>Fortegn</strong>: Om tallet er positivt eller negativt.
+Denne representasjonen tillater lagring av både veldig store og veldig små tall, men den har også noen <strong>begrensninger</strong>.</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Presisjonsproblemer</strong>:</p></li>
+</ol>
+<p>Flyttall kan ikke alltid representere desimaltall nøyaktig i binær form. Dette kan føre til små avrundingsfeil i beregningene. For eksempel er verdien <code class="docutils literal notranslate"><span class="pre">0.1</span></code> ikke representert eksakt i binær form, så når du jobber med flyttall kan du oppleve små unøyaktigheter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Se på output av denne kodeblokken!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># Runder av til 0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Hva betyr det å heve et tall til en potens, og hvordan utfører du denne operasjonen i Python?</p></li>
+</ol>
+<p>Å heve et tall i en potens betyr å gange tallet med seg selv et angit antall ganger. Til dette brukes <code class="docutils literal notranslate"><span class="pre">**</span></code>. For eksempel er <code class="docutils literal notranslate"><span class="pre">10**2=10*10</span></code> og <code class="docutils literal notranslate"><span class="pre">100**0.5</span> <span class="pre">=</span> <span class="pre">10</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>  <span class="c1"># Output: 100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="mf">10e+2</span> <span class="c1"># Det samme som 10 x 10^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6">
+<h2>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Skriv en Python-kode som definerer variablene: name, age, og city med dine egne detaljer. Bruk deretter en f-string for å skrive en setning som kombinerer disse detaljene.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Lag en kalkulator ved å definere to variabler <code class="docutils literal notranslate"><span class="pre">x</span></code> og <code class="docutils literal notranslate"><span class="pre">y</span></code>først. Koden skal viser summen, differansen, produktet, forholdet og <code class="docutils literal notranslate"><span class="pre">x</span></code> i potens av <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Bruk boolske verdier for å avgjøre om et tall er oddetall eller partall, og skriv ut resultatet for tallet 15.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Skriv en kode som definerer to variabler <code class="docutils literal notranslate"><span class="pre">var_type</span></code> og <code class="docutils literal notranslate"><span class="pre">x</span></code>. Du skal sette <code class="docutils literal notranslate"><span class="pre">var_type</span></code> til en datatype og <code class="docutils literal notranslate"><span class="pre">x</span></code> til en verdi, for eksempel slik som under. Koden skal konvertere <code class="docutils literal notranslate"><span class="pre">x</span></code> til datatypen angitt av <code class="docutils literal notranslate"><span class="pre">var_type</span></code>, og printe ut type og verdi før og etter konverering. Forsøkt så med ulike verdier for <code class="docutils literal notranslate"><span class="pre">x</span></code> og ulike datatyper i <code class="docutils literal notranslate"><span class="pre">var_type</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer variablene</span>
+<span class="n">var_type</span> <span class="o">=</span> <span class="nb">float</span>  <span class="c1"># Eksempel: ønsket datatype er float</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;123.45&quot;</span>  <span class="c1"># Eksempel: verdien er en streng</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hipphipp-du-er-ferdig-med-disse-oppgavene-d">
+<h2>Hipphipp du er ferdig med disse oppgavene :D<a class="headerlink" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../01/introduksjon.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1 - Introduksjon til kurset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../03/funksjoner.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3 - Funksjoner</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2 - Python basics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmeringssprak">Programmeringsspråk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gode-programmeringsvaner">Gode programmeringsvaner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabler">Variabler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bool-sann-usann"><code class="docutils literal notranslate"><span class="pre">bool</span></code>(Sann/usann)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-heltall"><code class="docutils literal notranslate"><span class="pre">int</span></code> (heltall)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float-desimaltall"><code class="docutils literal notranslate"><span class="pre">float</span></code> (desimaltall)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regning-med-float">Regning med <code class="docutils literal notranslate"><span class="pre">float</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#str-tekst"><code class="docutils literal notranslate"><span class="pre">str</span></code> (tekst)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforselstegn-for-strenger">Anførselstegn for strenger</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1">Oppgave 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-skjer-nar-vi-fjerner-n">🔍 Hva skjer når vi fjerner <code class="docutils literal notranslate"><span class="pre">\n</span></code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-har-vi-gjort">🔍 Hva har vi gjort?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">Oppgave 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5">Oppgave 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spesielt-med-hvordan-desimaltall-lagres-i-minnet"><strong>Spesielt med hvordan desimaltall lagres i minnet</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-6">Oppgave 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipphipp-du-er-ferdig-med-disse-oppgavene-d">Hipphipp du er ferdig med disse oppgavene :D</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

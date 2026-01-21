@@ -1,0 +1,1468 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8 - SymPy &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/09/sympy';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9 - Simulering" href="../10/simulering.html" />
+    <link rel="prev" title="7 - Seaborn" href="../08/seaborn.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/09/sympy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/09/sympy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>8 - SymPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8 - SymPy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-optimal-mengde-arbeidskraft">Eksempel med optimal mengde arbeidskraft</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-tilbud-og-ettersporsel">Eksempel med tilbud og etterspørsel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-22">Eksempel 22:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-23">Eksempel 23:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-24">Eksempel 24:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-25">Eksempel 25:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-26">Eksempel 26:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-27">Eksempel 27:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-28">Eksempel 28:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lose-flere-ligninger-med-flere-ukjente">Løse flere ligninger med flere ukjente</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-29">Eksempel 29:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-30">Eksempel 30</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver"><strong>Oppgaver</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-sympy">Oppgave 1 - SymPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-los-likningssett">1a) Løs likningssett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-los-likningssett">1b) Løs likningssett</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-deriver-uttrykket">2a) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deriver-uttrykket">2b) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deriver-uttrykket">2c) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-deriver-uttrykket">2d) Deriver uttrykket</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-produktregelen">3a) produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-produktregelen">3b) produktregelen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-kjerneregel">Oppgave 4 - Kjerneregel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-lag-funksjonen">4a) Lag funksjonen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-test-funksjonen">4b) Test funksjonen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-derivasjon-av-logaritme">Oppgave 5 - Derivasjon av logaritme</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5a">Oppgave 5a</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sympy">
+<h1>8 - SymPy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h1>
+<p>Sympy er en veldig nyttig pakke innenfor økonomi og samfunnsøkonomi. Med den kan vi regne analytisk, det vil si med symboler. I samfunnsøkonomi bruker vi mye matematikk som denne pakken kan hjelpe oss med. Vi starter med et eksempel på utregning av profittmaksimum:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksempel-med-optimal-mengde-arbeidskraft">
+<h1>Eksempel med optimal mengde arbeidskraft<a class="headerlink" href="#eksempel-med-optimal-mengde-arbeidskraft" title="Link to this heading">#</a></h1>
+<p>Anta at du er bedriftsleder, og lurer på hvor mange medarbeidere du skal ansette. For en gitt mengde arbeidskraft produseres</p>
+<section id="eksempel-1">
+<h2>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f returnerer hvor mye som produseres. </span>
+<span class="c1"># a er produktivitet til de ansatte</span>
+<span class="c1"># L er antall ansatte</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">60</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code> definerer produktiviteten til de ansatte. Desto høyere <code class="docutils literal notranslate"><span class="pre">a</span></code> er, desto mer produktive er de ansatte.
+<code class="docutils literal notranslate"><span class="pre">L</span></code> er antall ansatte.</p>
+<p>Vi kan plotte denne funksjonen:</p>
+</section>
+<section id="eksempel-2">
+<h2>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Arbeidskraft&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Produksjon&#39;</span><span class="p">)</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8257269972b540603d5da9e7f5faa0b096b4fee839ec5b071ef3c54b2c6f9605.png" src="../../_images/8257269972b540603d5da9e7f5faa0b096b4fee839ec5b071ef3c54b2c6f9605.png" />
+</div>
+</div>
+<p>Som vi ser er produktiviteten avtakende, kurven stiger mindre utover i diagrammet. Det er fordi <code class="docutils literal notranslate"><span class="pre">a</span></code> er mindre enn én. (Forsøk med andre tall for <code class="docutils literal notranslate"><span class="pre">a</span></code>!)</p>
+<p>Når produktfunksjonen er definert, kan vi definere fortjenesten til bedriften, eller “profittfunksjonen” som vi gjerne kaller det i samfunnsøkonomi. La oss si at bedriften betaler hver arbeider <code class="docutils literal notranslate"><span class="pre">w</span></code> kroner, og kapital er <code class="docutils literal notranslate"><span class="pre">K</span></code>.</p>
+<p>Fortjenesten er pris ganger solgt mengde, <code class="docutils literal notranslate"><span class="pre">p*f(L,a)</span></code> og kostnadene er lønnskostnader <code class="docutils literal notranslate"><span class="pre">w*L</span></code> og kapital <code class="docutils literal notranslate"><span class="pre">K</span></code>. Profittfunksjonen blir da</p>
+</section>
+<section id="eksempel-3">
+<h2>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># L er arbeidskraft</span>
+<span class="c1"># a er produktivitet</span>
+<span class="c1"># w er lønn</span>
+<span class="c1"># p er pris på varen</span>
+<span class="c1"># K er kapital/investering for oppstart</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="n">K</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La oss se på den grafisk. Dersom prisen per enhet er hundre kroner, lønna er 2 500 per dag og bedriften trengte 300 000 i kapital, så ser profittfunksjonen slik ut:</p>
+</section>
+<section id="eksempel-4">
+<h2>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Lager plottet</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;kroner&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Antall ansatte&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Plotting av kostnader, inntekter og profitt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">profit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">300000</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fortjeneste&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b1b589b131c6034ded2677790106cd45e1a90d22140cdd25600314552d6751e1.png" src="../../_images/b1b589b131c6034ded2677790106cd45e1a90d22140cdd25600314552d6751e1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Her plotter vi uten investering for oppstart</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">profit2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">L</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">profit2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uten investering&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf4a051685364d192b2309ab2901f2f5515ac32631503708feddfa3e14df96a7.png" src="../../_images/cf4a051685364d192b2309ab2901f2f5515ac32631503708feddfa3e14df96a7.png" />
+</div>
+</div>
+<p>Vi bruker metoden med <code class="docutils literal notranslate"><span class="pre">fig,ax=plt.subplots()</span></code>, siden vi skal bygge på denne grafen.</p>
+<p>Vi skal nå begynne å bruke sympy. Det første vi må gjøre er å definere hvilke symboler som skal behandles analytisk (altså som symboler og ikke flyttall). Det gjør vi slik:</p>
+</section>
+<section id="eksempel-5">
+<h2>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;L a w p K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Med symbolene definert, vil nå vår profittfunksjon vises analytisk når vi bruker de definere symbolene:</p>
+</section>
+<section id="eksempel-6">
+<h2>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - K - L w + 60 L^{a} p\]</div>
+</div>
+</div>
+<p>Vi ønsker å finne ut for hvilken arbeidskraft fortjenesten er størst. Det er det høyeste punktet i figuren fra Eksempel 3. På dette punktet har profittfunksjonen ingen stigning, slik at den deriverte er null. For å finne dette punktet må vi først finne den <em>deriverte</em>. Det gjør vi i sympy med funksjonen <code class="docutils literal notranslate"><span class="pre">diff()</span></code>. Den tar to argumenter. Det første er funksjonen, det andre er den variabel vi ønsker å derivere med hensyn til.</p>
+<p>Som vi ser av figuren i Eksempel 3, så har vi arbeidskraft <code class="docutils literal notranslate"><span class="pre">L</span></code> langs x-aksen, så det er denne variabelen vi ønsker å derivere med hensyn til. Den deriverte av <code class="docutils literal notranslate"><span class="pre">profit()</span></code> med hensyn til <code class="docutils literal notranslate"><span class="pre">L</span></code> er dermed:</p>
+</section>
+<section id="eksempel-7">
+<h2>Eksempel 7:<a class="headerlink" href="#eksempel-7" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_profit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
+<span class="n">d_profit</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - w + \frac{60 L^{a} a p}{L}\]</div>
+</div>
+</div>
+<p>For å finne punktet der denne deriverte er null, setter vi opp en ligning der den deriverte er null, og løser for den <code class="docutils literal notranslate"><span class="pre">L</span></code> som tilfredstiller ligningen. En slik ligning kalles “førsteordensbetingelse”, eller “first order condition” på engelsk. Vi forkorter den derfor til “foc”:</p>
+</section>
+<section id="eksempel-8">
+<h2>Eksempel 8:<a class="headerlink" href="#eksempel-8" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foc</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">d_profit</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">foc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - w + \frac{60 L^{a} a p}{L} = 0\]</div>
+</div>
+</div>
+<p>Vi kan nå løse førsteordensbetingelsen med funksjonen <code class="docutils literal notranslate"><span class="pre">solve</span></code>, som ligger i modulen <code class="docutils literal notranslate"><span class="pre">solvers</span></code>i sympy:</p>
+</section>
+<section id="eksempel-9">
+<h2>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy.solvers</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve</span>
+
+<span class="n">L_max</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">foc</span><span class="p">,</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">L_max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}\]</div>
+</div>
+</div>
+<p>Legg merke til at resultatet ligger i en liste med lengde 1, så vi må hente ut element 0 i listen for å vise resultatet. Vi kan finne hva den analytiske verdien er i maksimum ved å sette <code class="docutils literal notranslate"><span class="pre">L_max</span></code>inn i profittfunksjonen:</p>
+</section>
+<section id="eksempel-10">
+<h2>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profit_max</span> <span class="o">=</span> <span class="n">profit</span><span class="p">(</span><span class="n">L_max</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="n">profit_max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - K + 60 p \left(\left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}\right)^{a} - w \left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}\]</div>
+</div>
+</div>
+<p>Vi kan nå beregne de nummeriske verdiene ved å sette inn noen passende tall for de ukjente symbolene. Vi prøver med 0.9 for produktivitet <code class="docutils literal notranslate"><span class="pre">a</span></code>, 2500 for lønn <code class="docutils literal notranslate"><span class="pre">w</span></code>, 100 for pris <code class="docutils literal notranslate"><span class="pre">p</span></code> og 300000 for kapital <code class="docutils literal notranslate"><span class="pre">K</span></code>. Vi forteller sympy om at vi ønsker å bruke dise verdiene ved å lage et oppslag der hvert av symbolene er nøkkel til hver av de nummeriske verdiene:</p>
+</section>
+<section id="eksempel-11">
+<h2>Eksempel 11:<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span><span class="mi">2500</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">K</span><span class="p">:</span><span class="mi">300000</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan nå finne nummerisk hvor mye arbeidskraft som trengs for å oppnå maksimal fortjeneste:</p>
+</section>
+<section id="eksempel-12">
+<h2>Eksempel 12:<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L_max</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">num_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2210.73919720734\]</div>
+</div>
+</div>
+<p>Om vi nå legger dette tallet inn for symbol <code class="docutils literal notranslate"><span class="pre">L</span></code>, kan vi finne hvor stor fortjenesten er i dette punktet. Vi starter med å legge inn verdien for L som gir maksimal fortjeneste:</p>
+</section>
+<section id="eksempel-13">
+<h2>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_dict</span><span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="o">=</span> <span class="n">L_max</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">num_dict</span><span class="p">)</span>
+<span class="n">num_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{a: 0.9, w: 2500, p: 100, K: 300000, L: 2210.73919720734}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Med det oppdaterte oppslaget blir fortjenesten</p>
+</section>
+<section id="eksempel-14">
+<h2>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profit_max_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">profit</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">num_dict</span><span class="p">))</span>
+<span class="n">profit_max_num</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>314094.22144648153
+</pre></div>
+</div>
+</div>
+</div>
+<p>Med modulene <code class="docutils literal notranslate"><span class="pre">display</span></code>og <code class="docutils literal notranslate"><span class="pre">Markdown</span></code>fra <code class="docutils literal notranslate"><span class="pre">IPython</span></code> (pakken som driver Jupyter), kan vi sette dette in i en pen tabell:</p>
+</section>
+<section id="eksempel-15">
+<h2>Eksempel 15:<a class="headerlink" href="#eksempel-15" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
+
+<span class="n">tbl</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">|                                 | Desimalverdi                             |  Analytisk verdi              | </span>
+<span class="s2">| :-------------------------------| :----------------------------------------| :-----------------------------| </span>
+<span class="s2">| Optimal mengde arbeidskraft:     | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">num_dict</span><span class="p">[</span><span class="n">L</span><span class="p">]),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$         |$</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">L_max</span><span class="p">)</span><span class="si">}</span><span class="s2">$            | </span>
+<span class="s2">| Maksimal profitt                | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">profit_max_num</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$    |$</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">profit_max</span><span class="p">)</span><span class="si">}</span><span class="s2">$       | </span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">tbl</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>|                                 | Desimalverdi                             |  Analytisk verdi              |
+| :——————————-| :—————————————-| :—————————–|
+| Optimal mengde arbeidskraft:     | $2210.7$         |$\left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}$            |
+| Maksimal profitt                | $314094.2$    |$- K + 60 p \left(\left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}\right)^{a} - w \left(\frac{60 a p}{w}\right)^{- \frac{1}{a - 1}}$       |</p>
+</div>
+</div>
+<p>La oss nå plotte løsningen. Vi plotter her følgende, i rekkefølge:</p>
+<ol class="arabic simple">
+<li><p>Den opprinnelige profittfunksjonen</p></li>
+<li><p>Den horisontale tangenten som tangerer i maksimumspunktet</p></li>
+<li><p>En vertikal linje som viser mengden arbeidskraft i optimum.</p></li>
+</ol>
+<p>Legg merke til at vi legger inn verdiene vi har definert i <code class="docutils literal notranslate"><span class="pre">num_dict</span></code> inn i profittfunksjonen. Generelt er det en god idé i programmering å “hardkode” tall minst mulig. Definer det heller tallet som en variabel eller element i en <code class="docutils literal notranslate"><span class="pre">dict</span></code>og referer til det senere.</p>
+</section>
+<section id="eksempel-16">
+<h2>Eksempel 16:<a class="headerlink" href="#eksempel-16" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+        <span class="n">profit_max_num</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;tangent&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">L_max</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">num_dict</span><span class="p">)),</span> 
+          <span class="o">-</span><span class="mi">300000</span><span class="p">,</span> 
+          <span class="n">profit_max_num</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span>
+          <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span>
+          <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span>
+          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;optimum&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1a07fb9f663d1a6d97ec55fa065b7a47e2071b4726bbd4ec198931804389a970.png" src="../../_images/1a07fb9f663d1a6d97ec55fa065b7a47e2071b4726bbd4ec198931804389a970.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksempel-med-tilbud-og-ettersporsel">
+<h1>Eksempel med tilbud og etterspørsel<a class="headerlink" href="#eksempel-med-tilbud-og-ettersporsel" title="Link to this heading">#</a></h1>
+<p>I forelesning 7 definerte vi disse tilbuds og etterspørselsfunksjonene:</p>
+<section id="eksempel-17">
+<h2>Eksempel 17:<a class="headerlink" href="#eksempel-17" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">supply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">250</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3000</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Og vi tegnet dem slik:</p>
+</section>
+<section id="eksempel-18">
+<h2>Eksempel 18:<a class="headerlink" href="#eksempel-18" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Får hundre punkter mellom 1 og 100</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># PLotter</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pris&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Enheter&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Plotter funksjonen supply</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">supply</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plotter funksjonen demand</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">demand</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+
+<span class="c1"># Legger til legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5019d0e9ad7377853f941beb54383416e2f08c604f806004d523f07ebd4137c2.png" src="../../_images/5019d0e9ad7377853f941beb54383416e2f08c604f806004d523f07ebd4137c2.png" />
+</div>
+</div>
+<p>Vi løste da likevekten grafisk, ved å se sånn cirka hvor tilbud er lik etterspørsel. Med sympy kan vi la python regne ut dette, og konsument og produsentoverskudd. Vi gjør dette ved å definere mengde <code class="docutils literal notranslate"><span class="pre">x</span></code> som en eksogen variabel (variabel som bestemmes utenfor modellen), og sette opp ligningen vi trenger, altså at tilbud skal være lik etterspørsel:</p>
+</section>
+<section id="eksempel-19">
+<h2>Eksempel 19:<a class="headerlink" href="#eksempel-19" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">eq_cond</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">eq_cond</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{3000}{x + 100} = 0.004 x^{2}\]</div>
+</div>
+</div>
+<p>Vi kan nå løse dette med solve fra sympy, som i forrige eksempel:</p>
+</section>
+<section id="eksempel-20">
+<h2>Eksempel 20:<a class="headerlink" href="#eksempel-20" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq_cond</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 67.0125415064549\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_eq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[67.0125415064549,
+ -83.5062707532274 - 64.9510401355397*I,
+ -83.5062707532274 + 64.9510401355397*I]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bare én av disse løsningene er gyldige. De to siste i listen <code class="docutils literal notranslate"><span class="pre">x_eq</span></code>er såkalte “imaginære tall”, det ser vi av <code class="docutils literal notranslate"><span class="pre">I</span></code>’en. Vi går ikke lenger inn på hva dette er her, men nøyer oss med å si at en likevekt ikke kan være et imaginært tall. Løsningen er altså <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>. Vi kan sette denne inn i enten tilbuds eller etterspørselfunksjonen for å få likevektsprisen</p>
+</section>
+<section id="eksempel-21">
+<h2>Eksempel 21:<a class="headerlink" href="#eksempel-21" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_eq</span> <span class="o">=</span> <span class="n">demand</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Likevektspris er </span><span class="si">{</span><span class="n">p_eq</span><span class="si">}</span>
+<span class="s2">Likevektskvantum er </span><span class="si">{</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likevektspris er 17.9627228766173
+Likevektskvantum er 67.0125415064549
+</pre></div>
+</div>
+</div>
+</div>
+<p>Etterspørselskurven kan ses på som en rekke med konsumenter med ulik betalingsvilje i fallende rekkefølge. Alle konsumentene som betaler <code class="docutils literal notranslate"><span class="pre">p_eq</span></code> har dermed et overskudd som er lik differansen mellom <code class="docutils literal notranslate"><span class="pre">p_eq</span></code> og konsumentens punkt på etterspørselskurven. Summen av alle konsumentenes overskudd kalles konsumentoverskuddet. Dette kan illustreres ved å legge  et skravert område til figuren over</p>
+</section>
+<section id="eksempel-22">
+<h2>Eksempel 22:<a class="headerlink" href="#eksempel-22" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">float</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="nb">float</span><span class="p">(</span><span class="n">p_eq</span><span class="p">),</span><span class="n">demand</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;pink&quot;</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Konsumentoverskudd&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7b58c619ca6557483e05ecced0314414cac9b8f14def902240b901c524b34605.png" src="../../_images/7b58c619ca6557483e05ecced0314414cac9b8f14def902240b901c524b34605.png" />
+</div>
+</div>
+<p>Akkurat som at vi kan regnet ut skjæringspunktet med sympy, så kan vi regne ut det skraverte konsumentoverskuddet. Vi bruker da det vi har lært i matematikkurset; arealet under en funksjon er integralet til funksjonen. Vi skal finne arealet under etterspørselsfunksjonen <code class="docutils literal notranslate"><span class="pre">demand(x)</span></code>, men kun ned til prisen <code class="docutils literal notranslate"><span class="pre">p_eq</span></code>, så vi integrer differansen <code class="docutils literal notranslate"><span class="pre">demand(x)-p_eq</span></code>. Dette gjør vi for alle omsatte enheter, altså frem til omsatt kvantum <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>.</p>
+<p>Vi skal altså integrere  <code class="docutils literal notranslate"><span class="pre">demand(x)-p_eq</span></code> i intervalet 0 til <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>. Det kan vi gjøre i sympy slik:</p>
+</section>
+<section id="eksempel-23">
+<h2>Eksempel 23:<a class="headerlink" href="#eksempel-23" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">consumer_surplus</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">p_eq</span><span class="p">),(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">consumer_surplus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 334.968455011534\]</div>
+</div>
+</div>
+<p>På samme måte er <em>produsentoverskuddet</em> arealet over tilbuskurven, opp til prisen, altså det gule området i figuren under</p>
+</section>
+<section id="eksempel-24">
+<h2>Eksempel 24:<a class="headerlink" href="#eksempel-24" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">supply</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">p_eq</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Produsentoverskudd&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x_eq[0]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/22207d47a9749068faf2ef8c576398136f15119a72fb63b45efcc470e1449ea4.png" src="../../_images/22207d47a9749068faf2ef8c576398136f15119a72fb63b45efcc470e1449ea4.png" />
+</div>
+</div>
+<p>Vi kan regne ut dette område også, som altså er integralet av differansen mellom prisen og tilbudskruven, frem til  <code class="docutils literal notranslate"><span class="pre">x_eq[0]</span></code>.</p>
+</section>
+<section id="eksempel-25">
+<h2>Eksempel 25:<a class="headerlink" href="#eksempel-25" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">producer_surplus</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">p_eq</span><span class="o">-</span><span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">producer_surplus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 802.485141558844\]</div>
+</div>
+</div>
+<p>Summen av produsentoverskuddet og konsumentoversdkuddet kalles “velferdsgevinsten”. Vi kan finne den ved å legge sammen konsument- og produsentoverskudd:</p>
+</section>
+<section id="eksempel-26">
+<h2>Eksempel 26:<a class="headerlink" href="#eksempel-26" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">producer_surplus</span> <span class="o">+</span> <span class="n">consumer_surplus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1137.45359657038\]</div>
+</div>
+</div>
+<p>Eller ved å ta integralet av differansen mellom etterspørsel og tilbud:</p>
+</section>
+<section id="eksempel-27">
+<h2>Eksempel 27:<a class="headerlink" href="#eksempel-27" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welfare_surplus</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">demand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">supply</span><span class="p">(</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">welfare_surplus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1137.45359657038\]</div>
+</div>
+</div>
+<p>Vi kan nå lage en tabell som oppsumerer resultatene:</p>
+</section>
+<section id="eksempel-28">
+<h2>Eksempel 28:<a class="headerlink" href="#eksempel-28" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tbl</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">|                     | Verdi                                    |</span>
+<span class="s2">| :-------------------| :----------------------------------------|</span>
+<span class="s2">| Solgt mengde:       | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$           |</span>
+<span class="s2">| Pris:               | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_eq</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$              |</span>
+<span class="s2">| Verdiskapning:      | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">welfare_surplus</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$  |</span>
+<span class="s2">| Konsumentoverskudd: | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">consumer_surplus</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$ | </span>
+<span class="s2">| Produsentoverskudd: | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">producer_surplus</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$ | </span>
+<span class="s2">| Velferdsgevinst:    | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">welfare_surplus</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">$   | </span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">tbl</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>|                     | Verdi                                    |
+| :——————-| :—————————————-|
+| Solgt mengde:       | $67.0$           |
+| Pris:               | $18.0$              |
+| Verdiskapning:      | $1137.5$  |
+| Konsumentoverskudd: | $335.0$ |
+| Produsentoverskudd: | $802.5$ |
+| Velferdsgevinst:    | $1137.5$   |</p>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lose-flere-ligninger-med-flere-ukjente">
+<h1>Løse flere ligninger med flere ukjente<a class="headerlink" href="#lose-flere-ligninger-med-flere-ukjente" title="Link to this heading">#</a></h1>
+<p>I eksempel 20 hadde vi én ligning med én ukjent. Det er imidlertid enkelt å løse flere ligninger med flere ukjente. Forskjellen er bare at når det er flere ligninger, så setter vi hver av disse inn i en liste. Som dere vet må det være akkurat like mange ukjente som ligninger, så vi må også sette akkurat like mange variabler inn i en annen liste. Disse to listene utgjør så argumentene i <code class="docutils literal notranslate"><span class="pre">solve()</span></code> funksjonen. La oss ta et eksempel. Vi begynner med å definere to lister med henholdsvis tre variabler og tre ligninger:</p>
+<section id="eksempel-29">
+<h2>Eksempel 29:<a class="headerlink" href="#eksempel-29" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y z&quot;</span><span class="p">)</span>
+<span class="n">symbols</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+<span class="n">equations</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">15</span><span class="o">*</span><span class="n">y</span><span class="o">-</span><span class="mi">14</span><span class="o">*</span><span class="n">z</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">),</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">11</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">6</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">7</span><span class="o">*</span><span class="n">z</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi setter så disse to listene inn i <code class="docutils literal notranslate"><span class="pre">solve()</span></code> akkurat som om det var én ligning og én ukjent, og finner svaret:</p>
+</section>
+<section id="eksempel-30">
+<h2>Eksempel 30<a class="headerlink" href="#eksempel-30" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span><span class="n">symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{x: 3868/1463, y: -6/77, z: 1139/1463}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgaver">
+<h1><strong>Oppgaver</strong><a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1-sympy">
+<h1>Oppgave 1 - SymPy<a class="headerlink" href="#oppgave-1-sympy" title="Link to this heading">#</a></h1>
+<p>Her skal dere løse matematikkoppgaver med Sympy, og bruke fordelene som programmering gir til å løse oppgavene så effektivt som mulig. I stedet for å løse hver oppgave individuelt, skal dere derfor lage funksjoner som tar uttrykkene som argumenter, og så løse hver oppgave.</p>
+<section id="a-los-likningssett">
+<h2>1a) Løs likningssett<a class="headerlink" href="#a-los-likningssett" title="Link to this heading">#</a></h2>
+<p>Løs ligningssettet</p>
+<div class="math notranslate nohighlight">
+\[xy^2 -x = 0\]</div>
+<div class="math notranslate nohighlight">
+\[x+y^2 = 16\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-los-likningssett">
+<h2>1b) Løs likningssett<a class="headerlink" href="#b-los-likningssett" title="Link to this heading">#</a></h2>
+<p>Løs ligningssettet</p>
+<div class="math notranslate nohighlight">
+\[xy^2 + y^2 = 100\]</div>
+<div class="math notranslate nohighlight">
+\[x^2y - 36y = 0\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-2">
+<h1>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Link to this heading">#</a></h1>
+<p>Nå skal dere derivere ved hjelp av SymPy.</p>
+<section id="a-deriver-uttrykket">
+<h2>2a) Deriver uttrykket<a class="headerlink" href="#a-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x^5\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-deriver-uttrykket">
+<h2>2b) Deriver uttrykket<a class="headerlink" href="#b-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x + 12\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-deriver-uttrykket">
+<h2>2c) Deriver uttrykket<a class="headerlink" href="#c-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x^3 + \frac{1}{x}\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-deriver-uttrykket">
+<h2>2d) Deriver uttrykket<a class="headerlink" href="#d-deriver-uttrykket" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[f(x) = x(x^2+2x-3)\]</div>
+<p>ved hjelp av SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-3">
+<h1>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Link to this heading">#</a></h1>
+<p>Nå skal dere derivere ved hjelp av produktregelen.</p>
+<p>Produktregelen (derivasjon av et produkt) sier at for funksjonene <span class="math notranslate nohighlight">\(f(x)\)</span> og <span class="math notranslate nohighlight">\(g(x)\)</span> gjelder.</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx}[f(x)g(x)] = f^{\prime}(x)g(x) + f(x)g^{\prime}(x)\]</div>
+<section id="a-produktregelen">
+<h2>3a) produktregelen<a class="headerlink" href="#a-produktregelen" title="Link to this heading">#</a></h2>
+<p>Deriver uttrykket <span class="math notranslate nohighlight">\(h(x)\)</span> hvor</p>
+<div class="math notranslate nohighlight">
+\[h(x) = f(x)g(x)\]</div>
+<p>og <span class="math notranslate nohighlight">\(f(x) = x^4\)</span> og <span class="math notranslate nohighlight">\(g(x) = x^5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-produktregelen">
+<h2>3b) produktregelen<a class="headerlink" href="#b-produktregelen" title="Link to this heading">#</a></h2>
+<p>Deriver uttrykket <span class="math notranslate nohighlight">\(h(x)\)</span> hvor</p>
+<div class="math notranslate nohighlight">
+\[h(x) = \frac{x^3-2x}{x^2-1}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-4-kjerneregel">
+<h1>Oppgave 4 - Kjerneregel<a class="headerlink" href="#oppgave-4-kjerneregel" title="Link to this heading">#</a></h1>
+<section id="a-lag-funksjonen">
+<h2>4a) Lag funksjonen<a class="headerlink" href="#a-lag-funksjonen" title="Link to this heading">#</a></h2>
+<p>Lag en funksjon <code class="docutils literal notranslate"><span class="pre">f_deriv_chain(f,</span> <span class="pre">g)</span></code> som bruker kjerneregelen til å derivere et uttrykk av typen <span class="math notranslate nohighlight">\(f\left(g(x)\right)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Har du for eksempel et uttrykk <span class="math notranslate nohighlight">\(\sqrt{(3x-1)}\)</span>, så er <span class="math notranslate nohighlight">\(f(y) = \sqrt{y}\)</span> og <span class="math notranslate nohighlight">\(g(x) = 3x-1\)</span>. Funksjonen skal da returnere <span class="math notranslate nohighlight">\(f'\left(g(x)\right) \cdot g'(x)= \frac{1}{2}\frac{1}{\sqrt{(3x-1)}} \cdot 3\)</span></p>
+<p>Husk å bytt ut <span class="math notranslate nohighlight">\(y\)</span> med <span class="math notranslate nohighlight">\(g(x)\)</span> (i dette tilfelle ) før svaret returneres.</p>
+</section>
+<section id="b-test-funksjonen">
+<h2>4b) Test funksjonen<a class="headerlink" href="#b-test-funksjonen" title="Link to this heading">#</a></h2>
+<p>Test funksjonen på funksjonen
+$<span class="math notranslate nohighlight">\(f(x) = \sqrt{2x^2 + 5}\)</span><span class="math notranslate nohighlight">\(
+og 
+\)</span><span class="math notranslate nohighlight">\(f(x) = \left(x^3 + 6x\right)^5\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-5-derivasjon-av-logaritme">
+<h1>Oppgave 5 - Derivasjon av logaritme<a class="headerlink" href="#oppgave-5-derivasjon-av-logaritme" title="Link to this heading">#</a></h1>
+<section id="oppgave-5a">
+<h2>Oppgave 5a<a class="headerlink" href="#oppgave-5a" title="Link to this heading">#</a></h2>
+<p>Finn <span class="math notranslate nohighlight">\(f^{\prime}(x)\)</span> av funksjonene
+$<span class="math notranslate nohighlight">\(f(x) = ln 5x\)</span><span class="math notranslate nohighlight">\(
+og 
+\)</span><span class="math notranslate nohighlight">\(f(x) = e^{-2x}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../08/seaborn.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7 - Seaborn</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../10/simulering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">9 - Simulering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8 - SymPy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-optimal-mengde-arbeidskraft">Eksempel med optimal mengde arbeidskraft</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-15">Eksempel 15:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-16">Eksempel 16:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-tilbud-og-ettersporsel">Eksempel med tilbud og etterspørsel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-17">Eksempel 17:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-18">Eksempel 18:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-19">Eksempel 19:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-20">Eksempel 20:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-21">Eksempel 21:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-22">Eksempel 22:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-23">Eksempel 23:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-24">Eksempel 24:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-25">Eksempel 25:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-26">Eksempel 26:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-27">Eksempel 27:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-28">Eksempel 28:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lose-flere-ligninger-med-flere-ukjente">Løse flere ligninger med flere ukjente</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-29">Eksempel 29:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-30">Eksempel 30</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver"><strong>Oppgaver</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-sympy">Oppgave 1 - SymPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-los-likningssett">1a) Løs likningssett</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-los-likningssett">1b) Løs likningssett</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2">Oppgave 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-deriver-uttrykket">2a) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deriver-uttrykket">2b) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deriver-uttrykket">2c) Deriver uttrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-deriver-uttrykket">2d) Deriver uttrykket</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3">Oppgave 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-produktregelen">3a) produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-produktregelen">3b) produktregelen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-kjerneregel">Oppgave 4 - Kjerneregel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-lag-funksjonen">4a) Lag funksjonen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-test-funksjonen">4b) Test funksjonen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-derivasjon-av-logaritme">Oppgave 5 - Derivasjon av logaritme</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5a">Oppgave 5a</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

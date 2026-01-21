@@ -1,0 +1,2585 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt; Forrige | Neste&gt; &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/10/9 - simuleringLF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/10/9 - simuleringLF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/10/9 - simuleringLF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>< Forrige     |     <span style="color:lightgrey">Neste></span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span class="xref myst">&lt; Forrige</span>     |     <span style="color:lightgrey">Neste&gt;</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-kombinasjon-av-alt">Simulering – Kombinasjon av “alt” 🧠</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-simulering"><strong>Introduksjon til simulering</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1-rentes-rente-kraften-i-repetisjon">Eksempel 1: Rentes rente – Kraften i repetisjon</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2-iterativ-modellering-aksjekursen-random-walk"><strong>Eksempel 2: Iterativ Modellering - Aksjekursen (Random Walk)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3-while-lokke-for-simulering-av-aksjekurs">Eksempel 3: While-løkke for simulering av aksjekurs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kraften-av-simulering">Kraften av simulering 📊 📈 📉</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-av-aksjekurs">Simulering av aksjekurs 💹</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-av-stokastisk-tilfeldig-bevegelse-forklaring-av-koden-fra-eksempel-4">Simulering av stokastisk/tilfeldig bevegelse - forklaring av koden fra eksempel 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-fungerer-simuleringen">🔹 Hvordan fungerer simuleringen?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forklaring-av-kode">🔹 Forklaring av kode:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisk-plott">Dynamisk plott 📉</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viktig-a-merke-seg">🔹 Viktig å merke seg:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#legge-til-litt-effekter">Legge til litt effekter 🔄</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisk-optimering">🔢 Numerisk optimering</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-gjor-vi-i-dette-eksemplet">Hva gjør vi i dette eksemplet?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-simulering">Monte Carlo-simulering 🖥️ 🎲 📊</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruke-monte-carlo-simulering">🔹 Hvorfor bruke Monte Carlo-simulering?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sa-lager-vi-en-funksjon-som-lager-en-inntektssti-income-path-for-et-gitt-antall-ars-inntekt-dette-kalles-en-sti-path-fordi-dagens-inntekt-er-avhengig-av-garsdagen-dagens-situasjon-er-altsa-avhengig-av-hvilken-sti-inntekten-har-fulgt-i-alle-tidligere-ar"><strong>Så lager vi en funksjon som lager en “inntektssti” (income path) for et gitt antall års inntekt. Dette kalles en “sti”/”path” fordi dagens inntekt er avhengig av gårsdagen. Dagens situasjon er altså avhengig av hvilken sti inntekten har fulgt i alle tidligere år.</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-kan-na-lage-en-funksjon-som-simulerer-et-gitt-antall-inntektsstier-gitt-ved-num-simulations"><strong>Vi kan nå lage en funksjon som simulerer et gitt antall inntektsstier gitt ved <code class="docutils literal notranslate"><span class="pre">num_simulations</span></code>:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-kan-na-plotte-fordelingen-for-a-fa-et-inntrykk-av-fordelingen-til-inntekten-i-avslutningsaret"><strong>Vi kan nå plotte fordelingen, for å få et inntrykk av fordelingen til inntekten i avslutningsåret:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-visualisering-plotte-flere-inntektsstier"><strong>Ekstra visualisering: Plotte flere inntektsstier</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-ekstra-ikke-pensum-men-kjekt-a-vite-om"><strong>Ekstra-Ekstra IKKE PENSUM, MEN KJEKT Å VITE OM</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-simulering-av-aksjekurs">Oppgave 1 - 📈 Simulering av aksjekurs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-simulering-av-bedriftens-overskudd">Oppgave 2 - 🏢 Simulering av bedriftens overskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-simulering-av-lanekostnader">Oppgave 3 - 💰 Simulering av lånekostnader</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-simulering-av-lagerstyring-og-ettersporsel">Oppgave 4 - 📦 Simulering av lagerstyring og etterspørsel</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-simuleringer">Oppgave 5 - Simuleringer 💰🎲💰</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case">Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-1">Oppgave 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-2">Oppgave 5.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span class="xref myst">&lt; Forrige</span>     |     <span style="color:lightgrey">Neste&gt;</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="forrige-neste">
+<h1><a class="reference internal" href="#8%20-%20sympy.ipynb"><span class="xref myst">&lt; Forrige</span></a>     |     <span style="color:lightgrey">Neste&gt;</span><a class="headerlink" href="#forrige-neste" title="Link to this heading">#</a></h1>
+<p><span style="color:#9bb1d4;font-size:30px;font-weight:900"> 9 - Simuleringer </span></p>
+</section>
+<section id="simulering-kombinasjon-av-alt">
+<h1>Simulering – Kombinasjon av “alt” 🧠<a class="headerlink" href="#simulering-kombinasjon-av-alt" title="Link to this heading">#</a></h1>
+<p>Simulering er et kraftig verktøy fordi det kombinerer nesten <strong>alle konseptene</strong> vi har dekket i kurset til nå.</p>
+<p><strong>Hvorfor simulering er viktig:</strong></p>
+<ul class="simple">
+<li><p><strong>Variabler, Funksjoner &amp; Lister/Dictionaries:</strong> Brukes til å definere input, lagre data og bygge de logiske stegene i modellen (f.eks. rente, startkapital, priser).</p></li>
+<li><p><strong>Løkker (<code class="docutils literal notranslate"><span class="pre">for</span></code>/<code class="docutils literal notranslate"><span class="pre">while</span></code>):</strong> Løkker er selve <em>kjernen</em> i simulering, da de repeterer prosessen tusenvis av ganger.</p></li>
+<li><p><strong>NumPy:</strong> Essensielt for å håndtere tilfeldigheter (<code class="docutils literal notranslate"><span class="pre">np.random</span></code>) og for raske, <strong>vektoriserte</strong> beregninger på store datamengder.</p></li>
+<li><p><strong>Pandas:</strong> Nødvendig for å organisere, strukturere og analysere de tusenvis av simuleringsresultatene på en effektiv måte.</p></li>
+<li><p><strong>Matplotlib:</strong> Brukes for å visualisere resultatene (f.eks. som et histogram) og si noe om modellen vår. Ved å visualisere data, får vi ofte bedre innsikt i hva som faktisk foregår.</p></li>
+</ul>
+<p>Simulering tvinger deg til å <strong>integrere</strong> disse verktøyene for å løse realistiske økonomiske problemer, som omhandler tema som usikkerhet og risiko.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduksjon-til-simulering">
+<h1><strong>Introduksjon til simulering</strong><a class="headerlink" href="#introduksjon-til-simulering" title="Link to this heading">#</a></h1>
+<p>Løkker er grunnsteinen i simulering. En simulering er en metode for å etterligne den virkelige verden ved å repetere en prosess mange ganger. Dette lar oss estimere usikre utfall, spesielt i finans og økonomi.</p>
+<p>Vi starter med å repetere for-løkken, ettersom den brukes til å repetere en handling et fast antall ganger.</p>
+<section id="eksempel-1-rentes-rente-kraften-i-repetisjon">
+<h2>Eksempel 1: Rentes rente – Kraften i repetisjon<a class="headerlink" href="#eksempel-1-rentes-rente-kraften-i-repetisjon" title="Link to this heading">#</a></h2>
+<p>Et sentralt økonomisk konsept er renters rente. Vi bruker en enkel <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke til å spore veksten i en investering over tid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Startparametere</span>
+<span class="n">startkapital</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Startbeløp i kroner</span>
+<span class="n">årlig_rente</span> <span class="o">=</span> <span class="mf">0.05</span>   <span class="c1"># 5% årlig rente</span>
+<span class="n">antall_år</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Variabel for å holde styr på kapitalen</span>
+<span class="n">kapital</span> <span class="o">=</span> <span class="n">startkapital</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kapital ved start (År 0): </span><span class="si">{</span><span class="n">kapital</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Bruk en for-løkke til å simulere veksten år for år</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">antall_år</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Oppdater kapitalen: Kapital = Gammel_Kapital * (1 + Rente)</span>
+    <span class="n">kapital</span> <span class="o">=</span> <span class="n">kapital</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">årlig_rente</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kapital ved slutten av år </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">kapital</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kapital ved start (År 0): 10,000.00 kr
+Kapital ved slutten av år 1: 10,500.00 kr
+Kapital ved slutten av år 2: 11,025.00 kr
+Kapital ved slutten av år 3: 11,576.25 kr
+Kapital ved slutten av år 4: 12,155.06 kr
+Kapital ved slutten av år 5: 12,762.82 kr
+Kapital ved slutten av år 6: 13,400.96 kr
+Kapital ved slutten av år 7: 14,071.00 kr
+Kapital ved slutten av år 8: 14,774.55 kr
+Kapital ved slutten av år 9: 15,513.28 kr
+Kapital ved slutten av år 10: 16,288.95 kr
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksempel-2-iterativ-modellering-aksjekursen-random-walk">
+<h1><strong>Eksempel 2: Iterativ Modellering - Aksjekursen (Random Walk)</strong><a class="headerlink" href="#eksempel-2-iterativ-modellering-aksjekursen-random-walk" title="Link to this heading">#</a></h1>
+<p>Vi skal nå bygge en enkel simulering av en aksjekurs ved hjelp av konseptet Random Walk (<em>tilfeldig gange</em> på dårlig oversatt norsk), der prisen i morgen er avhengig av prisen i dag pluss en tilfeldig endring.</p>
+<p>Dette viser hvordan en simulering bygges steg for steg (iterativt).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># 1. Startparametere</span>
+<span class="n">start_pris</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">antall_dager</span> <span class="o">=</span> <span class="mi">252</span> <span class="c1"># Antall handelsdager i et år</span>
+<span class="n">daglig_volatilitet</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># Standardavvik for daglig endring (1%)</span>
+
+<span class="c1"># Lister for å lagre resultatene</span>
+<span class="n">prisutvikling</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_pris</span><span class="p">]</span>
+<span class="n">dager</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 2. Simuler prisutviklingen</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">antall_dager</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Generer en tilfeldig daglig endring (normalfordeling er ofte brukt) - mean=0, std=daglig_volatilitet</span>
+    <span class="n">endring</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">daglig_volatilitet</span><span class="p">)</span>
+    
+    <span class="c1"># Ny pris = Gammel pris * (1 + Endring)</span>
+    <span class="n">ny_pris</span> <span class="o">=</span> <span class="n">prisutvikling</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">endring</span><span class="p">)</span>
+    
+    <span class="c1"># Lagre dataen</span>
+    <span class="n">prisutvikling</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ny_pris</span><span class="p">)</span>
+    <span class="n">dager</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># 3. Visualiser resultatet</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dager</span><span class="p">,</span> <span class="n">prisutvikling</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulert Aksjekurs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulert Aksjekurs (Random Walk) over </span><span class="si">{</span><span class="n">antall_dager</span><span class="si">}</span><span class="s2"> dager&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dager&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Pris (kr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/955cadde6fec09fa3436d3284c815e050374727e66b4251fc708c7adf7e71365.png" src="../../_images/955cadde6fec09fa3436d3284c815e050374727e66b4251fc708c7adf7e71365.png" />
+</div>
+</div>
+<p>Plottet over vil vise forskjellig utfall for hver gang du kjører cellen. Det er fordi prisen avhenger av tidligere pris, med en tilfeldig komponent!</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksempel-3-while-lokke-for-simulering-av-aksjekurs">
+<h1>Eksempel 3: While-løkke for simulering av aksjekurs<a class="headerlink" href="#eksempel-3-while-lokke-for-simulering-av-aksjekurs" title="Link to this heading">#</a></h1>
+<p>En <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke er en løkke som fortsetter inntil en betingelse er oppfylt. I eksempelet under ser vi at det genereres nye tilfeldige aksjekurser så lenge kursen er under 125 kroner .</p>
+<p>Aksjen skal bevege seg tilfeldig. For å få til det bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">rand</span></code> fra <code class="docutils literal notranslate"><span class="pre">random</span></code>-modulen i numpy.  <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> gir et tilfeldig tall mellom null og én, så ved å multiplisere <code class="docutils literal notranslate"><span class="pre">(np.random.rand()-0.5)</span></code> med 40, får vi et tilfeldig tall mellom -20 og 20.</p>
+<section id="eksempel-3">
+<h2>Eksempel 3:<a class="headerlink" href="#eksempel-3" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">while</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">125</span><span class="p">:</span>  
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+116.74560057583646
+96.9516069361915
+89.99400343779685
+86.70327403956992
+95.25378492749317
+115.17072793532644
+110.03382847220543
+121.55004995180886
+135.10220334609906
+</pre></div>
+</div>
+</div>
+</div>
+<p>Legg spesielt merke til <code class="docutils literal notranslate"><span class="pre">y+=dy</span></code> over. Denne operasjonen legger <code class="docutils literal notranslate"><span class="pre">dy</span></code> til <code class="docutils literal notranslate"><span class="pre">y</span></code>, og tilsvarer altså <code class="docutils literal notranslate"><span class="pre">y=y+dy</span></code>. De aller fleste programmeringsspråk støtter <code class="docutils literal notranslate"><span class="pre">+=</span></code>-operatoren.</p>
+<p>Legg også merke til at vi kan sette flere variabler samtidig, ved å skille både variablene og verdiene med like mange kommaer, <code class="docutils literal notranslate"><span class="pre">dy,y=0,100</span></code></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kraften-av-simulering">
+<h1>Kraften av simulering 📊 📈 📉<a class="headerlink" href="#kraften-av-simulering" title="Link to this heading">#</a></h1>
+<p>Simuleringer brukes i økonomi for å modellere usikkerhet, teste hypoteser og analysere sannsynlige utfall.<br />
+I denne notatboken skal vi utforske hvordan vi kan bruke Python til å simulere økonomiske problemstillinger ved hjelp av tilfeldige tall og statistiske teknikker.</p>
+<p>Vi vil se på:</p>
+<ul class="simple">
+<li><p>Generering av tilfeldige tall</p></li>
+<li><p>Monte Carlo-simuleringer</p></li>
+<li><p>Simulering av økonomiske prosesser, som prisutvikling og risikoanalyse</p></li>
+</ul>
+<p>Løkker kan brukes til mye, så la oss se på et eksempel på simulering.</p>
+<p>Simulering vil si å trekke tilfeldige tall for å se hvordan en modell opptrer under usikkerhet.</p>
+<section id="simulering-av-aksjekurs">
+<h2>Simulering av aksjekurs 💹<a class="headerlink" href="#simulering-av-aksjekurs" title="Link to this heading">#</a></h2>
+<p>I denne simuleringen antar vi at en aksjekurs starter på 100 kr og beveger seg tilfeldig over tid.<br />
+Vi observerer aksjen hvert sjette minutt, eller én tidel (0.1) av en time. Tiden øker dermed med 0.1 i hver periode.</p>
+<p>For å tegne opp stien til aksjekursen, lager vi først lister for x- og y-verdiene, og så legger vi til elementer i hver av listene med <code class="docutils literal notranslate"><span class="pre">append</span></code>-funksjonen til listeobjektene, før listen plottes som en graf. Kjør koden flere ganger, for å se ulike simuleringer.</p>
+<section id="eksempel-4">
+<h3>Eksempel 4:<a class="headerlink" href="#eksempel-4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+
+<span class="c1"># Oppretter en figur og akse med en størrelse på 20x10 tommer</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Setter begrensninger for y- og x-aksen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">])</span>            <span class="c1"># Y-aksen går fra 0 til 250</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>             <span class="c1"># X-aksen går fra 0 til 20</span>
+
+<span class="c1"># Initierer med en rekke verdier (x = 0, y = 100, dy = 0)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="c1"># Lager tomme lister som vil lagre x- og y-posisjoner gjennom løkka</span>
+<span class="n">ypath</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xpath</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># While-løkka kjører så lenge x &lt; 25, og for hvert steg økes x med 0.1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mf">0.1</span>            <span class="c1"># Øker x med 0.1 for hvert steg</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>             <span class="c1"># Legger til dy til y-posisjonen (endrer y basert på dy)</span>
+    
+    <span class="c1"># Oppdaterer dy med en ny tilfeldig verdi som varierer mellom -20 og 20.</span>
+    <span class="c1"># np.random.rand() gir en tilfeldig verdi mellom 0 og 1, </span>
+    <span class="c1"># så 40 * (np.random.rand() - 0.5) gir et tilfeldig tall mellom -20 og 20.</span>
+    <span class="c1"># Dette gir y-posisjonen en tilfeldig variasjon ved hvert steg.</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Legger til de nye x- og y-verdiene i listene xpath og ypath</span>
+    <span class="n">xpath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ypath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plotter banen for y-verdiene som funksjon av x, med etiketten &#39;YARA&#39; (eksempel på et selskap)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpath</span><span class="p">,</span> <span class="n">ypath</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;YARA&#39;</span><span class="p">)</span>
+
+<span class="c1"># Legger til en legende (forklaring) øverst til venstre på plottet</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Viser plottet</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/081b2460ce3f7394ca41e8cbd2d308d8f5d5f22558a2390cbd5841d8944ed60f.png" src="../../_images/081b2460ce3f7394ca41e8cbd2d308d8f5d5f22558a2390cbd5841d8944ed60f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="simulering-av-stokastisk-tilfeldig-bevegelse-forklaring-av-koden-fra-eksempel-4">
+<h2>Simulering av stokastisk/tilfeldig bevegelse - forklaring av koden fra eksempel 4<a class="headerlink" href="#simulering-av-stokastisk-tilfeldig-bevegelse-forklaring-av-koden-fra-eksempel-4" title="Link to this heading">#</a></h2>
+<p>Denne koden simulerer en tilfeldig bevegelse over tid, som kan brukes til å modellere aksjekurser eller andre økonomiske prosesser med usikkerhet.</p>
+<section id="hvordan-fungerer-simuleringen">
+<h3>🔹 Hvordan fungerer simuleringen?<a class="headerlink" href="#hvordan-fungerer-simuleringen" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Vi starter med en initial verdi <strong>y = 100</strong> og en tilfeldig endring <strong>dy</strong>.</p></li>
+<li><p>Hver iterasjon øker <strong>x</strong> med <strong>0.1</strong>, og <strong>y</strong> justeres med en tilfeldig verdi.</p></li>
+<li><p><strong>dy</strong> oppdateres tilfeldig mellom <strong>-20 og 20</strong>, slik at vi får en tilfeldig variasjon i y-posisjonen.</p></li>
+<li><p>Bevegelsen plottes som en kurve, og resultatet viser hvordan verdien utvikler seg over tid.</p></li>
+</ul>
+</section>
+<section id="forklaring-av-kode">
+<h3>🔹 Forklaring av kode:<a class="headerlink" href="#forklaring-av-kode" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ax.set_ylim([0,250])</span></code></strong> og <strong><code class="docutils literal notranslate"><span class="pre">ax.set_xlim([0,20])</span></code></strong> setter grensene for x- og y-aksen.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">25:</span></code></strong> sørger for at simuleringen kjører til x når 25.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">dy</span> <span class="pre">=</span> <span class="pre">40</span> <span class="pre">*</span> <span class="pre">(np.random.rand()</span> <span class="pre">-</span> <span class="pre">0.5)</span></code></strong> genererer en tilfeldig endring mellom -20 og 20.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ax.plot(xpath,</span> <span class="pre">ypath,</span> <span class="pre">label='YARA')</span></code></strong> tegner banen for den simulerte bevegelsen.</p></li>
+</ul>
+<p>Kjør koden flere ganger for å se hvordan den tilfeldige bevegelsen varierer!</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dynamisk-plott">
+<h1>Dynamisk plott 📉<a class="headerlink" href="#dynamisk-plott" title="Link to this heading">#</a></h1>
+<p>Om vi ønsker å formidle kunnskap, er det av og til nyttig med dynamiske plott. Altså plott som endrer seg mens du ser på dem. Vi kan gjøre det ved å rykke inn de to siste setningene fra Eksempel 4.</p>
+<p>Det er disse setningene som lager plottet. Ved å rykke dem inn, plottes figuren i hver iterasjon.</p>
+<section id="viktig-a-merke-seg">
+<h2>🔹 Viktig å merke seg:<a class="headerlink" href="#viktig-a-merke-seg" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Uten <strong><code class="docutils literal notranslate"><span class="pre">clear_output(wait=True)</span></code></strong>, ville vi sett <strong>25 separate figurer</strong> i stedet for én dynamisk oppdatering.</p></li>
+<li><p>I tillegg, så legger vi til at y-verdien ikke kan bli mindre enn <span class="math notranslate nohighlight">\(0\)</span>. Det gjør vi her <strong><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">25</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">&gt;=0</span></code></strong>.</p></li>
+</ul>
+<p>Kjør koden i Eksempel 5 og se hvordan den simulerte bevegelsen utvikler seg i sanntid!</p>
+<section id="eksempel-5">
+<h3>Eksempel 5:<a class="headerlink" href="#eksempel-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">ypath</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xpath</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">25</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mf">0.1</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">xpath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ypath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="c1"># Ved å plassere plot-funksjonen inne i løkka, sørger vi for at den plottes ved hver iterasjon</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpath</span><span class="p">,</span> <span class="n">ypath</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;YARA&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    
+    <span class="c1"># Jupyter viser som standard bare siste utsagn, så vi må legge til dette</span>
+    <span class="c1"># for å plotte på hver iterasjon</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    
+    <span class="c1"># Sørger for at plottet og utdataene blir slettet hver gang:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+    <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4126c1907f58769d2eadbd715d225d57a6694eeb9019c5f2958c114a722e35aa.png" src="../../_images/4126c1907f58769d2eadbd715d225d57a6694eeb9019c5f2958c114a722e35aa.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="legge-til-litt-effekter">
+<h1>Legge til litt effekter 🔄<a class="headerlink" href="#legge-til-litt-effekter" title="Link to this heading">#</a></h1>
+<p>Det er også gøy med litt effekter når vi skal formidle noe, bare det ikke blir så mye at det drar oppmerksomheten bort fra det vi skal formidle. I denne simuleringen er det veldig fristende å lage en lite rød prikk som “leder” aksjekursen videre. Vi skal også legge til en liten tekst som forteller hva aksjekursen er:</p>
+<section id="eksempel-6">
+<h2>Eksempel 6:<a class="headerlink" href="#eksempel-6" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">ypath</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">xpath</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">25</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mf">0.1</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+    <span class="n">xpath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ypath</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="c1"># Ved å plassere plot-funksjonen inne i løkka, sørger vi for at den plottes ved hver iterasjon</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpath</span><span class="p">,</span><span class="n">ypath</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;YARA&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    
+    <span class="c1"># Lager den rød prikken</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">Ellipse</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mf">0.25</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    
+    <span class="c1"># Lager teksten ved siden av den røde prikken</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;NOK </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Jupyter viser kun siste utsagn som standard, så vi må legge til dette</span>
+    <span class="c1"># for å plotte ved hver iterasjon</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    
+    <span class="c1"># Sørger for at plottet og utdataene blir slettet hver gang, og det ser ut som plottet oppdateres</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">])</span>
+    <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Ved å plassere plot-funksjonen inne i løkka, sørger vi for at den plottes ved hver iterasjon</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpath</span><span class="p">,</span><span class="n">ypath</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;YARA&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># Lager den rød prikken</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">c</span><span class="o">=</span><span class="n">Ellipse</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mf">0.25</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\axes\_axes.py:318,</span> in <span class="ni">Axes.legend</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">extra_args</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;legend only accepts two non-keyword arguments&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">318</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="n">mlegend</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">_remove_method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove_legend</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\_api\deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\legend.py:583,</span> in <span class="ni">Legend.__init__</span><span class="nt">(self, parent, handles, labels, loc, numpoints, markerscale, markerfirst, reverse, scatterpoints, scatteryoffsets, prop, fontsize, labelcolor, borderpad, labelspacing, handlelength, handleheight, handletextpad, borderaxespad, columnspacing, ncols, mode, fancybox, shadow, title, title_fontsize, framealpha, edgecolor, facecolor, bbox_to_anchor, bbox_transform, frameon, handler_map, title_fontproperties, alignment, ncol, draggable)</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span> <span class="o">=</span> <span class="n">alignment</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span> <span class="c1"># init with null renderer</span>
+<span class="ne">--&gt; </span><span class="mi">583</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_legend_box</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">markerfirst</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loc_used_default</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_loc</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\legend.py:897,</span> in <span class="ni">Legend._init_legend_box</span><span class="nt">(self, handles, labels, markerfirst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span> <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columnspacing</span> <span class="o">*</span> <span class="n">fontsize</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span> <span class="bp">self</span><span class="o">.</span><span class="n">_legend_handle_box</span> <span class="o">=</span> <span class="n">HPacker</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>                                   <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;baseline&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">895</span>                                   <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>                                   <span class="n">children</span><span class="o">=</span><span class="n">columnbox</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">897</span> <span class="bp">self</span><span class="o">.</span><span class="n">_legend_title_box</span> <span class="o">=</span> <span class="n">TextArea</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">898</span> <span class="bp">self</span><span class="o">.</span><span class="n">_legend_box</span> <span class="o">=</span> <span class="n">VPacker</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">borderpad</span> <span class="o">*</span> <span class="n">fontsize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span>                            <span class="n">sep</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">labelspacing</span> <span class="o">*</span> <span class="n">fontsize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>                            <span class="n">align</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>                            <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_legend_title_box</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span>                                      <span class="bp">self</span><span class="o">.</span><span class="n">_legend_handle_box</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">903</span> <span class="bp">self</span><span class="o">.</span><span class="n">_legend_box</span><span class="o">.</span><span class="n">set_figure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\_api\deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\offsetbox.py:740,</span> in <span class="ni">TextArea.__init__</span><span class="nt">(self, s, textprops, multilinebaseline)</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">740</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset_transform</span> <span class="o">=</span> <span class="n">mtransforms</span><span class="o">.</span><span class="n">Affine2D</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseline_transform</span> <span class="o">=</span> <span class="n">mtransforms</span><span class="o">.</span><span class="n">Affine2D</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">set_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_transform</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>                          <span class="bp">self</span><span class="o">.</span><span class="n">_baseline_transform</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\transforms.py:1895,</span> in <span class="ni">Affine2D.__init__</span><span class="nt">(self, matrix, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1892</span> <span class="k">if</span> <span class="n">matrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1893</span>     <span class="c1"># A bit faster than np.identity(3).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1894</span>     <span class="n">matrix</span> <span class="o">=</span> <span class="n">IdentityTransform</span><span class="o">.</span><span class="n">_mtx</span>
+<span class="ne">-&gt; </span><span class="mi">1895</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mtx</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1896</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalid</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="numerisk-optimering">
+<h1>🔢 Numerisk optimering<a class="headerlink" href="#numerisk-optimering" title="Link to this heading">#</a></h1>
+<p>Tidligere har vi funnet maksverdien av funksjoner ved å bruke <strong>Sympy</strong> til å derivere en funksjon, sette den lik null og løse for <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Men hva om det er vanskelig å finne den optimale løsningen analytisk? (Noe det ofte kan være!)</p>
+<p>I slike tilfeller kan vi bruke <strong>numerisk optimering</strong>, der vi evaluerer objektfunksjonen (det vi ønsker å maksimere) for mange ulike verdier og velger den beste.</p>
+<section id="hva-gjor-vi-i-dette-eksemplet">
+<h2>Hva gjør vi i dette eksemplet?<a class="headerlink" href="#hva-gjor-vi-i-dette-eksemplet" title="Link to this heading">#</a></h2>
+<p>Vi ser på en bedrift som selger <span class="math notranslate nohighlight">\(Q\)</span> enheter av en vare til pris <span class="math notranslate nohighlight">\(p\)</span>, med en kostnad per enhet <span class="math notranslate nohighlight">\(C\)</span>.<br />
+Bedriftens <strong>fortjeneste</strong> (profit) er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[p \cdot Q - C \cdot Q\]</div>
+<p>Vi bruker numeriske metoder for å finne verdien av <span class="math notranslate nohighlight">\(Q\)</span> som maksimerer fortjenesten.</p>
+<p>Videre, antar vi at etterspørselfunksjonen (som bestemmer <span class="math notranslate nohighlight">\(Q\)</span>) er definert slik:</p>
+<div class="math notranslate nohighlight">
+\[100 - p\]</div>
+<p>Selv om vi i dette tilfellet enkelt kan finne maksimum analytisk med <strong>Sympy</strong>, kan vi bruke dette eksempelet for å sjekke at den numeriske løsningen er korrekt.</p>
+<p>Numerisk optimering er nyttig når:</p>
+<ul class="simple">
+<li><p>Funksjonen er <strong>komplisert</strong> og vanskelig å derivere.</p></li>
+<li><p>Vi har <strong>diskrete verdier</strong> der derivasjon ikke er praktisk.</p></li>
+<li><p>Vi ønsker å <strong>visualisere hvordan løsningen varierer</strong> over et bredt spekter av verdier.</p></li>
+</ul>
+<p>La oss nå implementere dette i Python i eksemplene under!</p>
+</section>
+<section id="eksempel-7">
+<h2>Eksempel 7:<a class="headerlink" href="#eksempel-7" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer fortjenestefunksjonen, som avhenger av en etterspørsel.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">profit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Beregner profitt gitt pris p og kostnad per enhet C.&quot;&quot;&quot;</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">demand</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">C</span> <span class="o">*</span> <span class="n">Q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q bestemmes av en etterspørselfunksjon.</p>
+<section id="eksempel-8">
+<h3>Eksempel 8<a class="headerlink" href="#eksempel-8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer etterspørselfunksjonen</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returnerer antall enheter solgt gitt en pris p.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan nå finne optimum numerisk, altså tallverdiene (optimal pris og hva maksimal profitt er ved denne optimale prisen.)</p>
+</section>
+<section id="eksempel-9">
+<h3>Eksempel 9:<a class="headerlink" href="#eksempel-9" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_optimal_price</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Finner optimal pris i prisintervallet (start, end)&quot;&quot;&quot;</span>
+    <span class="n">max_profit</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span>
+    <span class="n">optimal_price</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+    
+    <span class="c1"># Itererer over pris-intervallet (start, end)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
+        <span class="n">current_profit</span> <span class="o">=</span> <span class="n">profit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">current_profit</span> <span class="o">&gt;</span> <span class="n">max_profit</span><span class="p">:</span>
+            <span class="c1"># Hvis &#39;profit&#39; går over &#39;current profit&#39;, så lagrer vi den nye &#39;profit&#39; og pris</span>
+            <span class="n">max_profit</span> <span class="o">=</span> <span class="n">current_profit</span>
+            <span class="n">optimal_price</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="k">return</span> <span class="n">optimal_price</span><span class="p">,</span> <span class="n">max_profit</span>
+
+
+<span class="n">cost</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">start_price</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end_price</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">optimal_price</span><span class="p">,</span> <span class="n">max_profit</span> <span class="o">=</span> <span class="n">find_optimal_price</span><span class="p">(</span><span class="n">start_price</span><span class="p">,</span> <span class="n">end_price</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal pris: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">optimal_price</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maksimal profitt ved optimal pris: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">max_profit</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal pris: 52.45 kr
+Maksimal profitt ved optimal pris: 2256.25 kr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Vi visualiserer profit funksjonen over - for å se om resultatet virker rimelig ###</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="c1"># Kostnad per enhet ost, start_price og end_price (du kan justere denne verdien)</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">start_price</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end_price</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Lag en array med pris (p) verdier fra 0 til 100</span>
+<span class="n">p_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start_price</span><span class="p">,</span> <span class="n">end_price</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Beregn profitt for hver pris-verdi (p)</span>
+<span class="n">profit_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">profit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_values</span><span class="p">]</span>
+
+<span class="c1"># Plotter profittfunksjonen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">profit_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Profitt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Profitt som funksjon av pris&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Pris (p)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Profitt&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>  <span class="c1"># Setter y-aksen fra 0 til 3000</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c1"># Setter x-aksen fra 0 til 150</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">optimal_price</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;p = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">optimal_price</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e5b2208ed2a5325973d58946071089deff0c8747680181f6bd9f4442b3a350f4.png" src="../../_images/e5b2208ed2a5325973d58946071089deff0c8747680181f6bd9f4442b3a350f4.png" />
+</div>
+</div>
+<p>Det ser ut som at optimal prisen på drøye <span class="math notranslate nohighlight">\(52\)</span> passer godt til å være optimalpris!</p>
+<p>Vi kan verifisere dette enda en gang, ved hjelp av <code class="docutils literal notranslate"><span class="pre">SymPy</span></code>.</p>
+</section>
+<section id="eksempel-10">
+<h3>Eksempel 10:<a class="headerlink" href="#eksempel-10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="c1"># Definerer variabelen p (pris)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="c1"># Kostnad C er satt til 30</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Etterspørselsfunksjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">p</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">profit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Beregner profitt gitt pris p og kostnad per enhet C.&quot;&quot;&quot;</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">demand</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">C</span> <span class="o">*</span> <span class="n">Q</span>
+
+<span class="c1"># Deriverer profittfunksjonen med hensyn til p</span>
+<span class="n">profit_derivative</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">profit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">C</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Finn den optimale p-verdien ved å løse ligningen profit_derivative = 0</span>
+<span class="n">optimal_p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">profit_derivative</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Viser den optimale prisen</span>
+<span class="n">optimal_p_value</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">optimal_p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">optimal_p_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 52.5\]</div>
+</div>
+</div>
+<p>Her ser vi at SymPy gir at svaret er <span class="math notranslate nohighlight">\(52.5\)</span> kr, mens simulering gjorde at vi fikk <span class="math notranslate nohighlight">\(52.45 \approx 52.5\)</span> kr. Som viser styrken til begge metodene.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-simulering">
+<h1>Monte Carlo-simulering 🖥️ 🎲 📊<a class="headerlink" href="#monte-carlo-simulering" title="Link to this heading">#</a></h1>
+<p>Monte Carlo-simulering er en metode for å estimere resultater ved hjelp av tilfeldige prøver.<br />
+Denne teknikken er spesielt nyttig når det er <strong>usikkerhet</strong> i dataene eller <strong>mange mulige utfall</strong>.</p>
+<section id="hvorfor-bruke-monte-carlo-simulering">
+<h2>🔹 Hvorfor bruke Monte Carlo-simulering?<a class="headerlink" href="#hvorfor-bruke-monte-carlo-simulering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Mange økonomiske prosesser, som <strong>investeringer og lønnsvekst</strong>, er usikre.</p></li>
+<li><p>Deterministiske modeller fanger <strong>ikke opp tilfeldigheter</strong>, noe Monte Carlo-simulering gjør.</p></li>
+<li><p>Vi kan bruke denne teknikken for å lage <strong>sannsynlighetsfordelinger</strong> og forutsi mulige utfall.</p></li>
+</ul>
+<p>I dette eksempelet ser vi på <strong>inntektsutvikling</strong> over tid, hvor inntekten hvert år avhenger av fjoråret.</p>
+<ul class="simple">
+<li><p><strong>Vi starter med en gitt inntekt</strong> og antar en årlig vekstrate (én prosent).</p></li>
+<li><p><strong>Hvert år legges en tilfeldig variasjon til</strong>, som representerer usikkerhet.</p></li>
+<li><p>Vi kjører simuleringen mange ganger for å se hvordan inntekten utvikler seg over tid.</p></li>
+</ul>
+<p>Vi starter med å definere en funksjon som beregner neste års inntekt, basert på fjoråret og et tilfeldig bidrag:</p>
+<section id="eksempel-11">
+<h3>Eksempel 11<a class="headerlink" href="#eksempel-11" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_income</span><span class="p">(</span><span class="n">last_year_income</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">):</span>
+    <span class="c1"># Tilfeldig vekst basert på normalfordeling</span>
+    <span class="n">random_growth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">volatility</span><span class="p">)</span>
+    
+    <span class="c1"># Total vekst er forventet vekst pluss tilfeldig vekst</span>
+    <span class="n">growth</span> <span class="o">=</span>  <span class="n">growth_rate</span> <span class="o">+</span> <span class="n">random_growth</span>
+    
+    <span class="c1"># Beregn årets inntekt</span>
+    <span class="n">income</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">last_year_income</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">growth</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">income</span>
+
+<span class="c1"># Her antar vi at fjorårets lønn er 600.000kr, med 5% forventet inntektsøkning og 2% usikkerhet</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hvis fjorårets lønn er 600.000 kr, så er årets lønn </span><span class="si">{</span><span class="n">calc_income</span><span class="p">(</span><span class="mi">600000</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">)</span><span class="si">}</span><span class="s1">, hvis vi har 5% forventet lønnsøkning og 2% usikkerhet.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hvis fjorårets lønn er 600.000 kr, så er årets lønn 636247, hvis vi har 5% forventet lønnsøkning og 2% usikkerhet.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sa-lager-vi-en-funksjon-som-lager-en-inntektssti-income-path-for-et-gitt-antall-ars-inntekt-dette-kalles-en-sti-path-fordi-dagens-inntekt-er-avhengig-av-garsdagen-dagens-situasjon-er-altsa-avhengig-av-hvilken-sti-inntekten-har-fulgt-i-alle-tidligere-ar">
+<h3><strong>Så lager vi en funksjon som lager en “inntektssti” (income path) for et gitt antall års inntekt. Dette kalles en “sti”/”path” fordi dagens inntekt er avhengig av gårsdagen. Dagens situasjon er altså avhengig av hvilken sti inntekten har fulgt i alle tidligere år.</strong><a class="headerlink" href="#sa-lager-vi-en-funksjon-som-lager-en-inntektssti-income-path-for-et-gitt-antall-ars-inntekt-dette-kalles-en-sti-path-fordi-dagens-inntekt-er-avhengig-av-garsdagen-dagens-situasjon-er-altsa-avhengig-av-hvilken-sti-inntekten-har-fulgt-i-alle-tidligere-ar" title="Link to this heading">#</a></h3>
+</section>
+<section id="eksempel-12">
+<h3>Eksempel 12<a class="headerlink" href="#eksempel-12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">income_path</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">initial_income</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">):</span>
+    
+    <span class="n">incomes</span> <span class="o">=</span> <span class="p">[</span><span class="n">initial_income</span><span class="p">]</span>
+    
+    <span class="c1"># Simulerer en &quot;inntektssti&quot; over et gitt antall år</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">years</span><span class="p">):</span>
+
+        <span class="c1"># Beregner inntekt for året</span>
+        <span class="n">income</span> <span class="o">=</span> <span class="n">calc_income</span><span class="p">(</span><span class="n">incomes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">)</span>
+
+        <span class="c1"># Legger til inntekten i listen</span>
+        <span class="n">incomes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">income</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">incomes</span>
+
+<span class="c1">#regner ut for fem år frem i tid:</span>
+<span class="n">income_path</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">600000</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[600000, 649976, 681904, 705020, 732480, 776129]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vi-kan-na-lage-en-funksjon-som-simulerer-et-gitt-antall-inntektsstier-gitt-ved-num-simulations">
+<h3><strong>Vi kan nå lage en funksjon som simulerer et gitt antall inntektsstier gitt ved <code class="docutils literal notranslate"><span class="pre">num_simulations</span></code>:</strong><a class="headerlink" href="#vi-kan-na-lage-en-funksjon-som-simulerer-et-gitt-antall-inntektsstier-gitt-ved-num-simulations" title="Link to this heading">#</a></h3>
+</section>
+<section id="eksempel-13">
+<h3>Eksempel 13:<a class="headerlink" href="#eksempel-13" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_income</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">initial_income</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">,</span> <span class="n">num_simulations</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returnerer en 2D-array med simulerte inntekter for hvert år.&quot;&quot;&quot;</span>
+    <span class="c1"># Starter med en tom liste, hvor vi skal fylle på med tall</span>
+    <span class="n">all_incomes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+        <span class="c1"># Legger til &quot;the path&quot; til variabelesn &#39;all_incomes&#39;</span>
+        <span class="n">incomes</span> <span class="o">=</span> <span class="n">income_path</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">initial_income</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">)</span>
+        <span class="n">all_incomes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">incomes</span><span class="p">)</span>
+
+    <span class="c1"># Setter inn i pandas DataFrame for å få en visuelt, finere tabell</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_incomes</span><span class="p">)</span>
+
+<span class="c1"># Simulerer 5 forskjellige inntektsbaner over 5 år</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">simulate_income</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">600000</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>600000</td>
+      <td>639012</td>
+      <td>662817</td>
+      <td>698854</td>
+      <td>723306</td>
+      <td>781880</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>600000</td>
+      <td>641676</td>
+      <td>675236</td>
+      <td>695176</td>
+      <td>739695</td>
+      <td>774867</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>600000</td>
+      <td>631258</td>
+      <td>665001</td>
+      <td>699709</td>
+      <td>747058</td>
+      <td>807029</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>600000</td>
+      <td>620496</td>
+      <td>650218</td>
+      <td>678557</td>
+      <td>696956</td>
+      <td>748948</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>600000</td>
+      <td>637744</td>
+      <td>683133</td>
+      <td>726643</td>
+      <td>768397</td>
+      <td>806878</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="vi-kan-na-plotte-fordelingen-for-a-fa-et-inntrykk-av-fordelingen-til-inntekten-i-avslutningsaret">
+<h3><strong>Vi kan nå plotte fordelingen, for å få et inntrykk av fordelingen til inntekten i avslutningsåret:</strong><a class="headerlink" href="#vi-kan-na-plotte-fordelingen-for-a-fa-et-inntrykk-av-fordelingen-til-inntekten-i-avslutningsaret" title="Link to this heading">#</a></h3>
+</section>
+<section id="eksempel-14">
+<h3>Eksempel 14:<a class="headerlink" href="#eksempel-14" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parametere</span>
+<span class="n">initial_income</span> <span class="o">=</span> <span class="mi">600000</span>   <span class="c1"># Start-inntekt</span>
+<span class="n">growth_rate</span> <span class="o">=</span> <span class="mf">0.03</span>        <span class="c1"># Forventet lønnsvekst (prosent)</span>
+<span class="n">volatility</span> <span class="o">=</span> <span class="mf">0.02</span>         <span class="c1"># Volatilitet (usikkerhet)</span>
+<span class="n">years</span> <span class="o">=</span> <span class="mi">30</span>                <span class="c1"># Antall år</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">1000</span>    <span class="c1"># Antall simuleringer</span>
+
+<span class="n">simulated_incomes</span> <span class="o">=</span> <span class="n">simulate_income</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">initial_income</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">,</span> <span class="n">volatility</span><span class="p">,</span> <span class="n">num_simulations</span><span class="p">)</span>
+
+<span class="c1"># plotting the final income</span>
+<span class="n">final_year_incomes</span> <span class="o">=</span> <span class="n">simulated_incomes</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">final_year_incomes</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusjon av simulerte inntekter etter 30 år&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Inntekt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Antall simuleringer&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bea593ccfb53c23f8239415efc2c27bf691af77d09ff7afc7f14fd049b86e07d.png" src="../../_images/bea593ccfb53c23f8239415efc2c27bf691af77d09ff7afc7f14fd049b86e07d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="ekstra-visualisering-plotte-flere-inntektsstier">
+<h2><strong>Ekstra visualisering: Plotte flere inntektsstier</strong><a class="headerlink" href="#ekstra-visualisering-plotte-flere-inntektsstier" title="Link to this heading">#</a></h2>
+<p>Eksempel 14 (rett over), viser distribusjon (fordelingen) av simulerte inntekter etter <span class="math notranslate nohighlight">\(30\)</span> år - hvor startinntekten var på <span class="math notranslate nohighlight">\(600 \; 000\)</span> kr.</p>
+<p>For å vise hvordan ulike simuleringer utvikler seg over tid, kan vi legge til en graf som viser hvordan inntektsbanene utviklet seg.</p>
+<p>Eksempel 15:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>  <span class="c1"># Plotter de 1000 inntektsstiene fra over</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">simulated_incomes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulerte inntektsbaner over tid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;År&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Inntekt (MNOK)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4b346ed01e824cc88650f6c6a04d8a5978aed987449208131203e0919751d856.png" src="../../_images/4b346ed01e824cc88650f6c6a04d8a5978aed987449208131203e0919751d856.png" />
+</div>
+</div>
+</section>
+<section id="ekstra-ekstra-ikke-pensum-men-kjekt-a-vite-om">
+<h2><strong>Ekstra-Ekstra IKKE PENSUM, MEN KJEKT Å VITE OM</strong><a class="headerlink" href="#ekstra-ekstra-ikke-pensum-men-kjekt-a-vite-om" title="Link to this heading">#</a></h2>
+<p>Vi kan lage flotte plots, ved hjelp av noe som heter Plotly. Se kodeblokken under, for eksempel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+
+<span class="c1"># Assuming simulated_incomes is already defined</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="c1"># Lager en loop som går igjennom de 10 første simulerte inntekts-path&#39;ene</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2023</span><span class="p">)),</span>  <span class="c1"># Årstall fra 2005 til 2022</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">simulated_incomes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># Customize line width if needed</span>
+        <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Set the opacity for the lines</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Inntektssti nr. </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># Only label the first line</span>
+    <span class="p">))</span>
+
+<span class="c1"># Oppdater layout</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Simulerte inntektsbaner over tid&quot;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;År&quot;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Inntekt (MNOK)&quot;</span><span class="p">,</span>
+    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Vis figuren</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgaver">
+<h1>Oppgaver<a class="headerlink" href="#oppgaver" title="Link to this heading">#</a></h1>
+<section id="oppgave-1-simulering-av-aksjekurs">
+<h2>Oppgave 1 - 📈 Simulering av aksjekurs<a class="headerlink" href="#oppgave-1-simulering-av-aksjekurs" title="Link to this heading">#</a></h2>
+<p>En aksjekurs beveger seg tilfeldig over tid. Vi antar at aksjen starter på <strong>100 kroner</strong> og endrer seg tilfeldig for hver tidsperiode.</p>
+<ul class="simple">
+<li><p><strong>Lag en simulering av aksjekursen over 100 dager</strong></p></li>
+<li><p>Hver dag endrer aksjekursen seg med en tilfeldig verdi mellom -3% og +3%</p></li>
+<li><p>Plott kursutviklingen</p></li>
+</ul>
+<p><em>Tips: Bruk en for-løkke og lagre verdiene i en liste!</em></p>
+<p>Bruk denne: <code class="docutils literal notranslate"><span class="pre">np.random.uniform(-0.03,</span> <span class="pre">0.03)</span></code></p>
+<p>Den gir tilfeldig tall mellom <span class="math notranslate nohighlight">\(-0.03\)</span> og <span class="math notranslate nohighlight">\(0.03\)</span>.</p>
+<p>Koden kan gjerne starte noe ala dette:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parametere</span>
+<span class="n">days</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">price</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price</span><span class="p">]</span>
+
+<span class="c1"># Fortsett koden under - simulering og plotting</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">days</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># Parametere</span>
+<span class="n">price</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span>
+
+<span class="k">for</span> <span class="n">dog</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">days</span><span class="p">):</span> <span class="c1"># Simulerer aksjekursen over tid</span>
+    <span class="n">endring</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># Tilfeldig endring mellom x og y</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">endring</span><span class="p">)</span>
+    <span class="n">prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="c1"># Legger til hva som skal være her</span>
+    
+<span class="c1"># Plotter aksjekursen</span>
+<span class="n">days_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">days</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># +1  for å få med den siste</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days_liste</span><span class="p">,</span> <span class="n">prices</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulert aksjekurs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dager&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Kurs (kr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8e3fb79b6e09e7db7313038e72e13404e647537672bfcc9b340bfef2cddc8c6.png" src="../../_images/c8e3fb79b6e09e7db7313038e72e13404e647537672bfcc9b340bfef2cddc8c6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parametere</span>
+<span class="n">days</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">price</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price</span><span class="p">]</span>
+
+<span class="c1"># Simulerer aksjekursen over tid</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">days</span><span class="p">):</span>
+    <span class="n">price</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">)</span>  <span class="c1"># Tilfeldig endring mellom -3% og +3%</span>
+    <span class="n">prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>
+
+<span class="c1"># Plotter aksjekursen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulert aksjekurs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dager&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Kurs (kr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/161f6568e308647d6ca4e009120ad287ffebbb1093073a994297911e1b7e8466.png" src="../../_images/161f6568e308647d6ca4e009120ad287ffebbb1093073a994297911e1b7e8466.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[100,
+ 100.33475774367784,
+ 98.2475134539049,
+ 96.80503533962404,
+ 96.04217291245949,
+ 93.56925404061845,
+ 92.97441142767772,
+ 93.2008081400488,
+ 93.14656857214408,
+ 92.7695925655548,
+ 95.22822563083238,
+ 97.3770094652943,
+ 96.71048095749305,
+ 97.36798857033827,
+ 99.42832859079289,
+ 101.52941752498157,
+ 99.8080366437896,
+ 99.20690185961942,
+ 100.17329030237362,
+ 99.54035657290488,
+ 100.69523010409726,
+ 100.75449686996329,
+ 101.88697091444185,
+ 101.09814263096443,
+ 102.42739411301443,
+ 102.41349383434384,
+ 103.75181497526188,
+ 103.86305111440925,
+ 100.99581909166395,
+ 101.43139073574778,
+ 101.51619755878946,
+ 103.5416741865807,
+ 106.07827259660459,
+ 108.66466093248037,
+ 106.79401623312918,
+ 107.20201095056817,
+ 105.50262964397078,
+ 108.2948851633671,
+ 106.06306920211313,
+ 107.15806582806943,
+ 106.15311853439367,
+ 105.98550017614596,
+ 106.72981702274726,
+ 108.61733866749431,
+ 108.11317432036255,
+ 107.09472530362262,
+ 108.88572845869808,
+ 106.28989073082471,
+ 109.04036951739077,
+ 106.90965123933543,
+ 104.85139385953268,
+ 104.5264891282905,
+ 103.67067132101381,
+ 102.5126695550428,
+ 104.03066272344189,
+ 101.2061056813364,
+ 103.49851897601148,
+ 100.95463754253858,
+ 100.60299552412046,
+ 103.23008621548802,
+ 103.75927253590396,
+ 105.68291402445881,
+ 108.74206350625259,
+ 108.6192853098592,
+ 106.54886207164515,
+ 105.2924431421974,
+ 102.29032795181487,
+ 104.61073074514081,
+ 103.34128191471252,
+ 105.33351709281528,
+ 107.2926596874064,
+ 106.68082275293912,
+ 106.79274579656432,
+ 107.31113649886677,
+ 104.57184004450517,
+ 106.67888310653753,
+ 108.72342345472,
+ 110.7965149400701,
+ 113.3706897582316,
+ 112.10407045928136,
+ 113.46520427265978,
+ 114.94412279692234,
+ 113.2298921092731,
+ 113.33246893185677,
+ 116.23581489974536,
+ 112.80111403115552,
+ 113.83799287686173,
+ 116.84129046291135,
+ 117.50759173987254,
+ 118.47049659761143,
+ 115.8828683524361,
+ 117.88315768388404,
+ 117.02182677540952,
+ 113.95544402114686,
+ 111.19861689086729,
+ 109.2494553528573,
+ 106.58302699655641,
+ 108.0468357959928,
+ 107.58571018855011,
+ 109.09395387666335,
+ 107.48862023846918]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profittliste</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">hund</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">650</span><span class="p">)</span>  <span class="c1"># Antall solgte enheter</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>  <span class="c1"># Pris per enhet</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">9000</span><span class="p">)</span>  <span class="c1"># Kostnad per enhet</span>
+    
+    <span class="n">profitt</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">p</span> <span class="o">-</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">C</span>  <span class="c1"># Overskuddsformel</span>
+    <span class="n">profittliste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">profitt</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">profittliste</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8553bc5d9824293e46390d53b645e391d2a94d0f83e6d057f4ab2721f70377c.png" src="../../_images/c8553bc5d9824293e46390d53b645e391d2a94d0f83e6d057f4ab2721f70377c.png" />
+</div>
+</div>
+</section>
+<section id="oppgave-2-simulering-av-bedriftens-overskudd">
+<h2>Oppgave 2 - 🏢 Simulering av bedriftens overskudd<a class="headerlink" href="#oppgave-2-simulering-av-bedriftens-overskudd" title="Link to this heading">#</a></h2>
+<p>En bedrift selger <strong>Q</strong> produkter til pris <strong>p</strong>, og produksjonskostnaden per enhet er <strong>C</strong>.<br />
+Overskuddet beregnes som:</p>
+<p><span class="math notranslate nohighlight">\(\text{Overskudd} = Q \cdot p - Q \cdot C\)</span></p>
+<p><strong>Lag en simulering der</strong>:</p>
+<ul class="simple">
+<li><p><strong>Q</strong> varierer mellom 900 og 1100</p></li>
+<li><p><strong>p</strong> varierer mellom 90 og 110</p></li>
+<li><p><strong>C</strong> varierer mellom 50 og 70</p></li>
+</ul>
+<ul class="simple">
+<li><p>Kjør simuleringen <strong>1000 ganger</strong></p></li>
+<li><p>Plott histogram av overskuddet</p></li>
+</ul>
+<p><em>Tips: Bruk numpy for å generere tilfeldige verdier!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Simulering av bedriftens overskudd</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">profits</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1100</span><span class="p">)</span>  <span class="c1"># Antall solgte enheter</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">110</span><span class="p">)</span>  <span class="c1"># Pris per enhet</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>  <span class="c1"># Kostnad per enhet</span>
+    
+    <span class="n">profit</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">p</span> <span class="o">-</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">C</span>  <span class="c1"># Overskuddsformel</span>
+    <span class="n">profits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">profit</span><span class="p">)</span>
+
+<span class="c1"># Plotter histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">profits</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fordeling av bedriftens overskudd&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Overskudd (kr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Antall simuleringer&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ee0d59adf49e9d43f110c69751c55605483aec7c43e5025174afc86ff5a6c96d.png" src="../../_images/ee0d59adf49e9d43f110c69751c55605483aec7c43e5025174afc86ff5a6c96d.png" />
+</div>
+</div>
+</section>
+<section id="oppgave-3-simulering-av-lanekostnader">
+<h2>Oppgave 3 - 💰 Simulering av lånekostnader<a class="headerlink" href="#oppgave-3-simulering-av-lanekostnader" title="Link to this heading">#</a></h2>
+<p>Du tar opp et boliglån på <strong>2 000 000 kr</strong>. Renten er i utgangspunktet <strong>3%</strong>, men den varierer tilfeldig mellom <strong>2% og 5%</strong> hvert år.</p>
+<ul class="simple">
+<li><p><strong>Simuler utviklingen i lånekostnader over 30 år</strong></p></li>
+<li><p>Beregn den totale rentekostnaden etter 30 år</p></li>
+<li><p>Kjør simuleringen <strong>500 ganger</strong>, og plott fordelingen av totale rentekostnader</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+
+<span class="c1"># Funksjon for å simulere renteutvikling</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_loan</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">principal</span><span class="o">=</span><span class="mi">2_000_000</span><span class="p">,</span> <span class="n">base_rate</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">min_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">max_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="n">total_interest</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">years</span><span class="p">):</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">min_rate</span><span class="p">,</span> <span class="n">max_rate</span><span class="p">)</span>
+        <span class="n">interest</span> <span class="o">=</span> <span class="n">principal</span> <span class="o">*</span> <span class="n">rate</span>
+        <span class="n">total_interest</span> <span class="o">+=</span> <span class="n">interest</span>
+    <span class="k">return</span> <span class="n">total_interest</span>
+
+<span class="c1"># Kjører simuleringen 500 ganger</span>
+<span class="n">loan_costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">simulate_loan</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">)]</span>
+
+<span class="c1"># Plotter histogram over totale rentekostnader</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">loan_costs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fordeling av totale rentekostnader over 30 år&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Totale renter (kr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Antall simuleringer&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f7c3086413d39d643720c3f4513273a3d33f5ea50e0b54732d0d6d203c413f2d.png" src="../../_images/f7c3086413d39d643720c3f4513273a3d33f5ea50e0b54732d0d6d203c413f2d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loan_costs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2040167.7686414858,
+ 2060257.4483721796,
+ 2017701.5868212036,
+ 2120130.8486199463,
+ 2083907.7841752314,
+ 2029032.9758539032,
+ 1948972.4657487446,
+ 2251412.6292613824,
+ 2123528.731587053,
+ 1928945.916283545,
+ 2152371.859656531,
+ 2068163.3917723862,
+ 1991073.8919521878,
+ 2088279.07900689,
+ 2193448.5564466245,
+ 2178875.1038094666,
+ 2249452.551196668,
+ 2163575.607132641,
+ 1957557.4822715954,
+ 2201804.9082292747,
+ 2164289.1562040043,
+ 2083736.480180442,
+ 2110844.499585816,
+ 2065548.921394738,
+ 1969285.4428476386,
+ 2103394.8087374815,
+ 1903329.456676612,
+ 2035318.1508076617,
+ 2197501.131424448,
+ 2103536.301448471,
+ 1968892.1997927427,
+ 2220109.0079313777,
+ 2082691.0597647477,
+ 2061885.551525239,
+ 2142439.0374858244,
+ 1847197.4251691904,
+ 2031023.6834775312,
+ 2065120.423878317,
+ 2109285.1854839115,
+ 2102788.860411584,
+ 2048546.2889607155,
+ 2168930.1535458774,
+ 2109569.3906586356,
+ 2091632.7199349168,
+ 2180755.457244966,
+ 2030121.637421969,
+ 2068275.5084858788,
+ 1943129.0041813964,
+ 2175887.888321383,
+ 1879176.9501318226,
+ 2046168.4596160748,
+ 2137094.920757093,
+ 2156378.948666419,
+ 2075894.6372879879,
+ 2106405.2697545746,
+ 1977691.629962911,
+ 2044244.0380056622,
+ 2018965.2158599568,
+ 1915764.17096623,
+ 2058081.2378192989,
+ 2078579.074754408,
+ 2057117.7592978883,
+ 2153307.897471422,
+ 2078329.4241508697,
+ 2129428.7777824905,
+ 2323270.2565453504,
+ 2157287.1166048856,
+ 2033363.707431528,
+ 1985541.4611344459,
+ 2197333.3867110135,
+ 2167483.683148906,
+ 2106509.36577469,
+ 2181617.181039208,
+ 1985365.8555068932,
+ 1993705.7160597865,
+ 2069674.2779457858,
+ 2168315.309913198,
+ 2063611.3718853272,
+ 2226441.0581225306,
+ 2004494.7979896022,
+ 2189698.304058733,
+ 2093664.3040722418,
+ 1959413.7195533693,
+ 2097805.6945231487,
+ 2135203.285842392,
+ 2029700.7546034148,
+ 2130797.2737136264,
+ 2136220.4306099825,
+ 2227607.4003771357,
+ 2216117.7216358297,
+ 2166358.7257181164,
+ 2098959.460328751,
+ 2080986.4121884934,
+ 2107425.505749349,
+ 2205578.4881359637,
+ 1968115.43309483,
+ 2229485.9321372253,
+ 2176066.8963030158,
+ 2101532.7413486545,
+ 2154431.9577164515,
+ 2050303.914759951,
+ 2088529.1487292524,
+ 2201828.930595162,
+ 2034312.9140017831,
+ 1943779.6882532744,
+ 2031387.0632950987,
+ 2158699.03098783,
+ 2109776.897643602,
+ 1990691.6625133161,
+ 2113306.5584107344,
+ 2044431.5263841655,
+ 2044171.130824511,
+ 2176390.3516618125,
+ 2179479.7314032097,
+ 1944733.5755393894,
+ 2123485.1475820197,
+ 2003696.3875936172,
+ 2135430.5809297343,
+ 2031148.7308238505,
+ 2145171.615673804,
+ 2035809.4762490164,
+ 2049929.2398871058,
+ 2172975.1262285174,
+ 2177631.529804627,
+ 2172202.9107304867,
+ 2117494.454832479,
+ 2110491.5780064156,
+ 2043739.7581188204,
+ 2050783.279568331,
+ 2086437.7009952299,
+ 2131419.028194558,
+ 1958135.553876845,
+ 2059194.6077819043,
+ 2117863.826507366,
+ 2101482.7256216374,
+ 2096944.5679830746,
+ 2133395.557432846,
+ 2107534.482346409,
+ 2047863.8563958905,
+ 2055531.2240657054,
+ 2062158.4050106087,
+ 2095634.2708027244,
+ 2205108.280840422,
+ 2149696.400220441,
+ 2057472.5084911748,
+ 2211945.017911257,
+ 2146008.600568484,
+ 2084058.215867989,
+ 2202938.2526507927,
+ 2139094.2666229387,
+ 2176291.5812251447,
+ 2067123.5725405551,
+ 1801851.0581876924,
+ 2000462.696674148,
+ 2206881.5538240224,
+ 2062434.8145791485,
+ 2152993.176231419,
+ 2279610.1822127355,
+ 2125387.9425558285,
+ 2052763.5001904643,
+ 2038095.0387235193,
+ 2077036.8994329867,
+ 2125037.6402218905,
+ 1998172.758409612,
+ 2002558.8993387334,
+ 2001561.8208042122,
+ 2126658.3103405735,
+ 2036846.0795894943,
+ 2071699.0298484247,
+ 2050044.457118878,
+ 2164700.1365732495,
+ 2206215.787231798,
+ 2254317.6518570026,
+ 2080231.3645342514,
+ 2025869.609673527,
+ 2069638.107378611,
+ 2142709.771805742,
+ 2152447.0765808597,
+ 2197321.240253423,
+ 2104926.705125765,
+ 2170444.6738482444,
+ 2071882.7060959807,
+ 2252650.648965118,
+ 2101923.506852037,
+ 1966912.0216291463,
+ 2047969.5462862689,
+ 2146243.6961227357,
+ 2013804.990632321,
+ 2075889.4639105112,
+ 2039165.099646554,
+ 2152817.446374048,
+ 2004630.380098169,
+ 2231907.48817706,
+ 2124446.385541954,
+ 2008570.6380938508,
+ 2079297.6734181424,
+ 2024424.744469713,
+ 2185350.702189931,
+ 2202977.620052074,
+ 2173414.1404153407,
+ 2066836.994246921,
+ 2121395.996483216,
+ 2123313.2495752173,
+ 2082052.6698267248,
+ 2098421.928342759,
+ 1922564.2533929492,
+ 1960946.3886384382,
+ 2055239.1412623264,
+ 2028175.8066629465,
+ 2131803.629882672,
+ 1994388.2818040964,
+ 2221587.817988246,
+ 1929321.233844826,
+ 2270035.7572945007,
+ 1951470.8652838166,
+ 1966922.1788382945,
+ 2160993.821059182,
+ 2043737.6155103738,
+ 2187821.7738193707,
+ 2106719.5855299886,
+ 1909851.294396919,
+ 2005030.3766802927,
+ 2060539.3581268704,
+ 1986841.866073451,
+ 1983317.171818476,
+ 2189756.2574088564,
+ 1895902.7887169279,
+ 2073980.6346711777,
+ 2115548.6089446284,
+ 2064156.0033389912,
+ 2018414.982565478,
+ 2176869.557766777,
+ 2005405.0432361749,
+ 2077664.8442942097,
+ 2166509.2297297833,
+ 2120021.3130238773,
+ 1996404.9238714504,
+ 1972712.6923649057,
+ 2170308.2514527366,
+ 2292557.045941646,
+ 2134623.4424357773,
+ 2153666.506950995,
+ 2133709.081778183,
+ 1978228.1368701898,
+ 2041287.864875347,
+ 2207935.9550480284,
+ 2135352.9689407824,
+ 2115954.977427364,
+ 1992770.8845993837,
+ 2007699.4843235803,
+ 2020070.3050175107,
+ 2150031.915000671,
+ 2239687.0725763603,
+ 2138113.825753869,
+ 2132162.6400262774,
+ 2049950.3189467147,
+ 2002505.4107025743,
+ 2130112.452335668,
+ 2117245.176866496,
+ 1992893.7569373257,
+ 2200228.252914543,
+ 2150371.6821888215,
+ 2111205.330495617,
+ 2267825.733125002,
+ 2083320.7102909107,
+ 2168124.3945657327,
+ 2147457.692562823,
+ 2022218.4647154182,
+ 2098590.465637404,
+ 2088183.5535202455,
+ 2159115.017442224,
+ 2056148.7348626154,
+ 2038604.0560841514,
+ 2075652.900013607,
+ 2207938.7391231754,
+ 2199041.8381441287,
+ 2061677.8140859713,
+ 2050956.5797265512,
+ 2036000.1606385717,
+ 2146065.625949896,
+ 2203045.471960408,
+ 1989983.7725651907,
+ 2150116.266792965,
+ 2051508.6918852539,
+ 2168908.765651301,
+ 2036393.8228685427,
+ 2083847.1474445788,
+ 2056649.5617149093,
+ 2131481.3786555817,
+ 1989953.847820502,
+ 2169537.0160342418,
+ 2112416.544419871,
+ 2027503.747607838,
+ 2112449.3401202094,
+ 2051051.8176132229,
+ 2052330.0642023203,
+ 2072428.9654559519,
+ 2060882.2057133028,
+ 2102117.315140641,
+ 1949058.983377644,
+ 2140742.313808713,
+ 2204842.3455144214,
+ 2209197.3945556846,
+ 1968495.0911609542,
+ 2204995.3204964064,
+ 2194599.6300840853,
+ 2103990.2856140127,
+ 2078156.5428414766,
+ 2072349.2422404503,
+ 2086451.5484497792,
+ 2205458.817805662,
+ 2191808.199594353,
+ 2043034.6465289812,
+ 2173546.446566839,
+ 2089286.3280928354,
+ 2100783.737478867,
+ 2181604.9526163125,
+ 2077422.5260804817,
+ 2085888.9270838208,
+ 2043634.8691709077,
+ 1971944.3482595903,
+ 2108946.4393137884,
+ 2031099.2029882427,
+ 2134932.0063545424,
+ 2036334.039268279,
+ 2208845.3992133196,
+ 2041610.5087260897,
+ 2162993.9506934006,
+ 1905626.897436502,
+ 2163690.4541971628,
+ 2000698.784874718,
+ 2101267.6021113796,
+ 1955014.858801322,
+ 2122492.8931643795,
+ 1968223.2438760244,
+ 1938516.7152628945,
+ 2197446.081030855,
+ 2037434.3030312858,
+ 2047117.8779711162,
+ 2132270.596190789,
+ 1996138.9008047371,
+ 2116557.848555088,
+ 2012545.5828099453,
+ 2019021.0443052303,
+ 2033704.2265810017,
+ 2256507.724769255,
+ 2125024.074878153,
+ 1918907.788321077,
+ 2143085.0600807876,
+ 2030510.5170956752,
+ 2123550.556384873,
+ 2217650.0030460074,
+ 2071392.722140049,
+ 2177253.6738459705,
+ 1951005.7200077483,
+ 2285981.9630427235,
+ 2283089.902204461,
+ 2013167.464357209,
+ 1985505.7292692529,
+ 1974392.859062375,
+ 2105223.755258687,
+ 2027287.9336592616,
+ 1981489.082062038,
+ 2284204.0218346654,
+ 2055385.3123723976,
+ 1936862.7767126036,
+ 2150305.511656986,
+ 2252300.5385310063,
+ 2116274.7472228585,
+ 2001226.2533772558,
+ 2015028.0538036423,
+ 2104262.8779844576,
+ 1952580.01097377,
+ 2099309.0184052247,
+ 2178512.5584947653,
+ 2184741.999765816,
+ 2008639.4740835389,
+ 2152150.35120623,
+ 2141771.21254191,
+ 1975254.4375926193,
+ 2180222.198353921,
+ 2283258.703940339,
+ 2169965.1530465037,
+ 2060679.102734243,
+ 2095064.1651756454,
+ 2393756.2535574664,
+ 2242184.1470991,
+ 2180227.9785022386,
+ 2167965.5134109585,
+ 2287703.801463579,
+ 2077412.2344468916,
+ 2006795.649514934,
+ 1973572.8862448141,
+ 2239062.3303737896,
+ 2099244.6113116764,
+ 2227028.457769477,
+ 2231001.9161353367,
+ 2122677.5977631607,
+ 2076381.3213671215,
+ 2074635.6010764602,
+ 2152918.8413676787,
+ 2188916.07396362,
+ 2275682.160913753,
+ 2220090.0408753846,
+ 2073722.3095892172,
+ 2146178.075953245,
+ 2238956.562290339,
+ 2038952.5203217089,
+ 2030486.9925947634,
+ 1830829.7234100576,
+ 2152201.7270466588,
+ 2149505.9940189454,
+ 2153117.9668129124,
+ 2098634.084317718,
+ 2120812.7271845005,
+ 2141702.3988907835,
+ 2125576.895094023,
+ 2069854.824994045,
+ 2083011.4408007762,
+ 2094639.1605783098,
+ 2063694.1449938638,
+ 2000995.7152323339,
+ 1985897.9018557859,
+ 2130705.721793567,
+ 1964452.5418734278,
+ 2091406.9297326163,
+ 2179074.3801657087,
+ 2026176.808921195,
+ 2241032.989116332,
+ 2289149.3513927963,
+ 2075318.2052658517,
+ 1966105.5203726348,
+ 1912958.3413859508,
+ 2095135.6895110242,
+ 2067193.4089964256,
+ 2130958.7054682514,
+ 2155439.446116105,
+ 2206930.2901909933,
+ 2104944.6351582855,
+ 2003850.2268848564,
+ 2164250.5029249,
+ 2222172.86615674,
+ 2033876.9911064566,
+ 2114622.936658357,
+ 2101389.122676933,
+ 2184155.4358443753,
+ 1942966.51991233,
+ 2213948.423693859,
+ 2183252.361160474,
+ 2149758.4902703026,
+ 2179526.459029729,
+ 2214001.6033078344,
+ 2007276.1512147295,
+ 2269977.296239411,
+ 2257009.9254520754,
+ 2132927.8790525147,
+ 2024909.55086975,
+ 2064868.8064286658,
+ 2134677.5633127526,
+ 2080196.0235145192,
+ 2075979.605725671,
+ 2164058.629749616,
+ 2054785.834146654,
+ 2267466.19974012,
+ 2030699.386125443,
+ 2114377.569016576,
+ 2072590.8136368513,
+ 2100074.581043523,
+ 2105585.6517988266,
+ 2092090.6035174602,
+ 2213674.1778092026,
+ 2123137.658902508,
+ 2204347.033343965,
+ 2063195.514289209,
+ 2159102.5872720038,
+ 2072727.579582409,
+ 2086461.1460359762,
+ 2214882.825954297,
+ 2091326.203781188,
+ 2147894.5552777513,
+ 2108739.3779820404,
+ 2182394.8176974785,
+ 2069217.4451853544,
+ 2160866.452810491,
+ 2175418.141533142,
+ 2129899.9203272006,
+ 2186048.7488285364,
+ 2043090.572236999,
+ 1970156.661458856,
+ 2113981.230034473,
+ 1933267.5215539692,
+ 2098734.8325416506,
+ 2257531.0150127183,
+ 2137443.835354806,
+ 2226914.2122156112,
+ 2353081.7157593244,
+ 1977960.0758936007,
+ 2159202.7593190316,
+ 2037408.0062882053,
+ 2190422.807934003]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
+
+<span class="n">years</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">principal</span> <span class="o">=</span> <span class="mi">2000000</span>
+<span class="n">min_rate</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">max_rate</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_loan</span><span class="p">():</span>
+    <span class="n">total_interest</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">alle_år</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">years</span><span class="p">):</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">min_rate</span><span class="p">,</span> <span class="n">max_rate</span><span class="p">)</span>
+        <span class="n">interest</span> <span class="o">=</span> <span class="n">principal</span> <span class="o">*</span> <span class="n">rate</span>
+        <span class="n">total_interest</span> <span class="o">+=</span> <span class="n">interest</span>
+    <span class="k">return</span> <span class="n">total_interest</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simuler_uten_list_comp</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">antall_simuleringer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulate_loan</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="n">lanekostnader</span> <span class="o">=</span> <span class="n">simuler_uten_list_comp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lanekostnader</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f9df87ec4a18eba3859c5402cb149679c624dec94fd16b8fb0779085932afbcc.png" src="../../_images/f9df87ec4a18eba3859c5402cb149679c624dec94fd16b8fb0779085932afbcc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simuler_uten_list_comp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2087954.3419491425, 2286289.447780201]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4-simulering-av-lagerstyring-og-ettersporsel">
+<h2>Oppgave 4 - 📦 Simulering av lagerstyring og etterspørsel<a class="headerlink" href="#oppgave-4-simulering-av-lagerstyring-og-ettersporsel" title="Link to this heading">#</a></h2>
+<p>Et selskap håndterer en vare med en ukentlig etterspørsel som varierer mellom <strong>80 og 120 enheter</strong>.<br />
+De bestiller varer hver uke basert på en prognose, men <strong>det er alltid en usikkerhet på ±10% i etterspørselen</strong>.</p>
+<ul class="simple">
+<li><p><strong>Simuler lagerbeholdning over 52 uker</strong></p></li>
+<li><p>Start med et lager på <strong>500 enheter</strong></p></li>
+<li><p>Hvis lageret går under <strong>100 enheter</strong>, bestilles <strong>200 nye enheter</strong></p></li>
+<li><p>Plott utviklingen i lagerbeholdning over tid</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lagerstyring simulering</span>
+<span class="n">weeks</span> <span class="o">=</span> <span class="mi">52</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">stock_levels</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">uke</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weeks</span><span class="p">):</span>
+    <span class="n">demand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>  <span class="c1"># Ukentlig etterspørsel</span>
+    <span class="n">demand</span> <span class="o">+=</span> <span class="n">demand</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Usikkerhet på ±10%</span>
+    
+    <span class="n">stock</span> <span class="o">-=</span> <span class="n">demand</span>  <span class="c1"># Trekk fra etterspørsel</span>
+    
+    <span class="k">if</span> <span class="n">stock</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># Hvis lageret blir for lavt, bestill mer</span>
+        <span class="n">stock</span> <span class="o">+=</span> <span class="mi">200</span>
+    
+    <span class="n">stock_levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+
+<span class="c1"># Plot lagerbeholdning over tid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_levels</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lagerbeholdning over 52 uker&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Uker&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Antall enheter på lager&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ec3f8ce937c00e5ec7568f3ff3003fec2d3ca295ad647ec5bec24be0036b1d1c.png" src="../../_images/ec3f8ce937c00e5ec7568f3ff3003fec2d3ca295ad647ec5bec24be0036b1d1c.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-5-simuleringer">
+<h1>Oppgave 5 - Simuleringer 💰🎲💰<a class="headerlink" href="#oppgave-5-simuleringer" title="Link to this heading">#</a></h1>
+<p>Du er på tur med vennegjengen din på casino i Monaco, og spiller et (fiktivt) terningspill.</p>
+<p>Du vet at en vanlig terning følger en <span class="math notranslate nohighlight">\(\textit{diskret uniform fordeling}\)</span>, hvor det er like stor sannsynlighet for hvert <span class="math notranslate nohighlight">\(\textit{utfall}\)</span> (altså om terningen viser <span class="math notranslate nohighlight">\(1, \; 2, \; 3, \; 4, \; 5\)</span> eller <span class="math notranslate nohighlight">\(6\)</span>).</p>
+<p>I statistikk, snakker vi ofte om <span class="math notranslate nohighlight">\(\textit{forventningsverdi}\)</span> (skrives <span class="math notranslate nohighlight">\(E[X]\)</span>), som sier noe om hva vi forventer en tilfeldig variabel <span class="math notranslate nohighlight">\(X\)</span> vil være. For diskret problemer er det definert som
+$<span class="math notranslate nohighlight">\(E[X] = \sum_{i=1}^{n}x_i \cdot P(X=x_i)\)</span>$</p>
+<p>hvor <span class="math notranslate nohighlight">\(x_i\)</span> er verdien av terningen, og <span class="math notranslate nohighlight">\(P(X=x_i)\)</span> er sannsynligheten for å få verdien <span class="math notranslate nohighlight">\(x_i\)</span> på et kast. Vi vet at <span class="math notranslate nohighlight">\(n=6\)</span>, ettersom det er <span class="math notranslate nohighlight">\(6\)</span> ulike utfall av en terning. Da kan vi skrive det ut slik:
+$<span class="math notranslate nohighlight">\(E[X] = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \cdots + 6 \cdot \frac{1}{6}\)</span>$</p>
+<p>regner vi ut dette ser vi at vi får <span class="math notranslate nohighlight">\(E[X] =3.5\)</span>. Dermed er forventningsverdien til en terning lik <span class="math notranslate nohighlight">\(3.5\)</span>.</p>
+<section id="case">
+<h2>Case<a class="headerlink" href="#case" title="Link to this heading">#</a></h2>
+<p>I dette fiktive terningsspillet i Monaco skal man trille to terninger, samtidig. Man vinner spillet hvis summen av de to terningene er <em>over eller lik</em> <span class="math notranslate nohighlight">\(9\)</span>.
+Du kommer på at du kan simulere utfall ved hjelp av Python og Numpy.</p>
+</section>
+<section id="oppgave-5-1">
+<h2>Oppgave 5.1<a class="headerlink" href="#oppgave-5-1" title="Link to this heading">#</a></h2>
+<p>Bruk simulering, til å finne ut sannsynligheten for at du triller to treninger med sum <span class="math notranslate nohighlight">\(\textbf{over eller lik}\)</span> <span class="math notranslate nohighlight">\(9\)</span>.</p>
+<ul class="simple">
+<li><p>Visualiser utfallene ved bruk av et histogram.</p></li>
+<li><p>Antall simuleringer skal dere velge selv, men kommenter hvorfor dere velger som dere gjør.</p></li>
+<li><p>Under er et lite kodehint for hva dere kan ta i bruk.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># Mulige bibliotek for oppgaven.</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+        <span class="c1"># Du kan få bruk for funksjonen (hvor argumentene må spesifiseres i henhold til oppgaven). Hvor low = inkludert, high = ekskludert.</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="oppgave-5-2">
+<h2>Oppgave 5.2<a class="headerlink" href="#oppgave-5-2" title="Link to this heading">#</a></h2>
+<p>Finn ut hvor mange kast av to terninger må du ta (<span class="math notranslate nohighlight">\(n\)</span>) for at sannsynligheten for å få en sum over eller lik <span class="math notranslate nohighlight">\(9\)</span> minst én gang er over <span class="math notranslate nohighlight">\(90\)</span>%.</p>
+<p>Hint - formelen for å finne sannsynligheten for at summen er over eller lik 9, minst én gang er gitt som følgende:
+$<span class="math notranslate nohighlight">\(P(\text{summen} \geq 9 \text{ minst én gang}) = 1 - \left(P(\text{summen} &lt; 9)\right)^n\)</span>$</p>
+<p>hvor <span class="math notranslate nohighlight">\(P\left(\text{summen} &lt; 9\right)\)</span> kan finnes fra simuleringen over.</p>
+<p>Bruk <code class="docutils literal notranslate"><span class="pre">sympy</span></code> for å løse dette problemet, og si hvor mange ganger (<span class="math notranslate nohighlight">\(n\)</span>) vi må trille terningen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 5.1</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Antall simuleringer</span>
+<span class="n">sims</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="c1"># Simulere kast med to terninger</span>
+<span class="n">terning1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sims</span><span class="p">)</span>
+<span class="n">terning2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sims</span><span class="p">)</span>
+
+<span class="c1"># Beregn summen av de to terningene for hver simulering</span>
+<span class="n">sum_terninger</span> <span class="o">=</span> <span class="n">terning1</span> <span class="o">+</span> <span class="n">terning2</span>
+
+<span class="c1"># Beregn sannsynligheten for at summen er over 9</span>
+<span class="n">antall_vinn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sum_terninger</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">sannsynlighet_vinn</span> <span class="o">=</span> <span class="n">antall_vinn</span> <span class="o">/</span> <span class="n">sims</span>
+
+<span class="c1"># Visualiser resultatene</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sum_terninger</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fordeling av summene av to terningkast&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sum av to terninger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frekvens&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print resultatene</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sannsynligheten for at summen av to terninger er over eller lik 9: </span><span class="si">{</span><span class="n">sannsynlighet_vinn</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4d826bdeb6f3dbc0657c927f518b0e10c1fc6b67f65fb3eeb5140ee438d88e27.png" src="../../_images/4d826bdeb6f3dbc0657c927f518b0e10c1fc6b67f65fb3eeb5140ee438d88e27.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sannsynligheten for at summen av to terninger er over eller lik 9: 0.2779
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 5.2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># Definer variabelen som representerer summen av terningkastene</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+
+<span class="c1"># Sannsynligheten for at summen er under 9 (fra simulering i oppgave 2.1):</span>
+<span class="n">P_under_9</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sannsynlighet_vinn</span>
+
+<span class="c1"># Vi ønsker å løse følgende likning for n:</span>
+<span class="c1"># 1 - (P_under_9)^n = 0.9</span>
+<span class="n">likning</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">P_under_9</span><span class="p">)</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="mf">0.9</span>
+
+<span class="c1"># Løs likningen for n</span>
+<span class="n">løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">likning</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Vi runder opp svaret, da hvis det er 7,09 --&gt; må det minst være 8 kast for å få 90% eller høyere sannsynlighet. I tillegg, gir ikke 7,09 kast mening og må avrundes.</span>
+<span class="n">round_up_answer</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">løsning</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Printer svaret</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Antall kast n må være minst: </span><span class="si">{</span><span class="n">round_up_answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antall kast n må være minst: 8
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3><a class="reference internal" href="#6%20-%20pandas%2C%20filtrering%2C%20logikk%20og%20betingelser.ipynb"><span class="xref myst">&lt; Forrige</span></a>     |     <span style="color:lightgrey">Neste&gt;</span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span class="xref myst">&lt; Forrige</span>     |     <span style="color:lightgrey">Neste&gt;</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-kombinasjon-av-alt">Simulering – Kombinasjon av “alt” 🧠</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-simulering"><strong>Introduksjon til simulering</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1-rentes-rente-kraften-i-repetisjon">Eksempel 1: Rentes rente – Kraften i repetisjon</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2-iterativ-modellering-aksjekursen-random-walk"><strong>Eksempel 2: Iterativ Modellering - Aksjekursen (Random Walk)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3-while-lokke-for-simulering-av-aksjekurs">Eksempel 3: While-løkke for simulering av aksjekurs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kraften-av-simulering">Kraften av simulering 📊 📈 📉</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-av-aksjekurs">Simulering av aksjekurs 💹</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4">Eksempel 4:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulering-av-stokastisk-tilfeldig-bevegelse-forklaring-av-koden-fra-eksempel-4">Simulering av stokastisk/tilfeldig bevegelse - forklaring av koden fra eksempel 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-fungerer-simuleringen">🔹 Hvordan fungerer simuleringen?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forklaring-av-kode">🔹 Forklaring av kode:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisk-plott">Dynamisk plott 📉</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viktig-a-merke-seg">🔹 Viktig å merke seg:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5">Eksempel 5:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#legge-til-litt-effekter">Legge til litt effekter 🔄</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6">Eksempel 6:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisk-optimering">🔢 Numerisk optimering</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-gjor-vi-i-dette-eksemplet">Hva gjør vi i dette eksemplet?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7">Eksempel 7:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-8">Eksempel 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-9">Eksempel 9:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-10">Eksempel 10:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-simulering">Monte Carlo-simulering 🖥️ 🎲 📊</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruke-monte-carlo-simulering">🔹 Hvorfor bruke Monte Carlo-simulering?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-11">Eksempel 11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sa-lager-vi-en-funksjon-som-lager-en-inntektssti-income-path-for-et-gitt-antall-ars-inntekt-dette-kalles-en-sti-path-fordi-dagens-inntekt-er-avhengig-av-garsdagen-dagens-situasjon-er-altsa-avhengig-av-hvilken-sti-inntekten-har-fulgt-i-alle-tidligere-ar"><strong>Så lager vi en funksjon som lager en “inntektssti” (income path) for et gitt antall års inntekt. Dette kalles en “sti”/”path” fordi dagens inntekt er avhengig av gårsdagen. Dagens situasjon er altså avhengig av hvilken sti inntekten har fulgt i alle tidligere år.</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-12">Eksempel 12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-kan-na-lage-en-funksjon-som-simulerer-et-gitt-antall-inntektsstier-gitt-ved-num-simulations"><strong>Vi kan nå lage en funksjon som simulerer et gitt antall inntektsstier gitt ved <code class="docutils literal notranslate"><span class="pre">num_simulations</span></code>:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-13">Eksempel 13:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-kan-na-plotte-fordelingen-for-a-fa-et-inntrykk-av-fordelingen-til-inntekten-i-avslutningsaret"><strong>Vi kan nå plotte fordelingen, for å få et inntrykk av fordelingen til inntekten i avslutningsåret:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-14">Eksempel 14:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-visualisering-plotte-flere-inntektsstier"><strong>Ekstra visualisering: Plotte flere inntektsstier</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-ekstra-ikke-pensum-men-kjekt-a-vite-om"><strong>Ekstra-Ekstra IKKE PENSUM, MEN KJEKT Å VITE OM</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgaver">Oppgaver</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-simulering-av-aksjekurs">Oppgave 1 - 📈 Simulering av aksjekurs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-simulering-av-bedriftens-overskudd">Oppgave 2 - 🏢 Simulering av bedriftens overskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-simulering-av-lanekostnader">Oppgave 3 - 💰 Simulering av lånekostnader</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-simulering-av-lagerstyring-og-ettersporsel">Oppgave 4 - 📦 Simulering av lagerstyring og etterspørsel</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-simuleringer">Oppgave 5 - Simuleringer 💰🎲💰</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case">Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-1">Oppgave 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-2">Oppgave 5.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span class="xref myst">&lt; Forrige</span>     |     <span style="color:lightgrey">Neste&gt;</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

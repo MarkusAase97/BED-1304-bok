@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 8 - 📐 🧮 SymPy 📏 🔢 &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/09/Seminar8_SymPyLF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/09/Seminar8_SymPyLF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/09/Seminar8_SymPyLF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 8 -  📐 🧮 SymPy 📏 🔢</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Seminar 8 -  📐 🧮 <strong>SymPy</strong> 📏 🔢</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon">Introduksjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-sympy">Hvorfor <em>SymPy</em>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgaver">Seminaroppgaver</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-tilbud-og-ettersporsel">✏️ Oppgave 1 - Tilbud og etterspørsel</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-visualisering-av-likevekt">✏️ Oppgave 2 - Visualisering av likevekt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-jobbe-med-matematiske-uttrykk">✏️ Oppgave 3 - Jobbe med matematiske uttrykk.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3a-ekspandere-uttrykk">Oppgave 3a - ekspandere uttrykk.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3b-faktorisere-uttrykk">Oppgave 3b - faktorisere uttrykk</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">✏️ Oppgave 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-1">Oppgave 4.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-2">Oppgave 4.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-3">Oppgave 4.3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentarer-til-oppgave-4-3"><strong>Kommentarer til Oppgave 4.3</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-8-sympy">
+<h1>Seminar 8 -  📐 🧮 <strong>SymPy</strong> 📏 🔢<a class="headerlink" href="#seminar-8-sympy" title="Link to this heading">#</a></h1>
+<section id="introduksjon">
+<h2>Introduksjon<a class="headerlink" href="#introduksjon" title="Link to this heading">#</a></h2>
+<p>Til nå har vi jobbet med fundamentale prinsipper i Python, inkludert:</p>
+<ul class="simple">
+<li><p><strong>Variabler og funksjoner</strong></p></li>
+<li><p><strong>Lister og datastrukturer</strong></p></li>
+<li><p><strong>NumPy</strong> (numeriske beregninger)</p></li>
+<li><p><strong>Pandas</strong> (databehandling)</p></li>
+<li><p><strong>Matplotlib &amp; Seaborn</strong> (visualisering)</p></li>
+</ul>
+<p>Visualisering er viktig for egen forståelse og for å kunne kommunisere funn til andre. Som samfunnsøkonomer og økonomer jobber vi ofte i tverrfaglige team hvor matematiske funksjoner spiller en sentral rolle. Derfor må vi kunne forenkle uttrykk, derivere funksjoner for å finne optimum, og trekke innsikt fra matematiske modeller. Derfor kan ofte SymPy være en god pakke å bruke sammen med visualiseringer fra SeaBorn eller Matplotlib.</p>
+</section>
+<section id="hvorfor-sympy">
+<h2>Hvorfor <em>SymPy</em>?<a class="headerlink" href="#hvorfor-sympy" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sympy.org/en/index.html"><em>SymPy</em></a> er et kraftig Python-bibliotek for symbolsk matematikk. Det gjør det mulig å:</p>
+<ul class="simple">
+<li><p>Forenkle matematiske uttrykk</p></li>
+<li><p>Utføre derivasjon og integrasjon</p></li>
+<li><p>Løse ligninger</p></li>
+<li><p>Og mye, mye mer</p></li>
+</ul>
+<p>Å ha kjennskap til <em>SymPy</em> kan være svært nyttig for økonomer som arbeider med modellering og analyse.</p>
+</section>
+<section id="seminaroppgaver">
+<h2>Seminaroppgaver<a class="headerlink" href="#seminaroppgaver" title="Link to this heading">#</a></h2>
+<p>Disse oppgavene er laget for å gi deg trening i å jobbe med funksjoner og trekke innsikt av disse, ved hjelp av verktøy som SymPy. <strong>Dette er ikke arbeidskrav</strong>, men en svært god forberedelse til eksamen.</p>
+<p>Bruk <strong>Google, forelesningsnotater og pseudokode</strong> aktivt for å løse oppgavene.</p>
+<p>🚀 <em>Lykke til!</em></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1-tilbud-og-ettersporsel">
+<h1>✏️ Oppgave 1 - Tilbud og etterspørsel<a class="headerlink" href="#oppgave-1-tilbud-og-ettersporsel" title="Link to this heading">#</a></h1>
+<p>La oss se på et marked der etterspørselen (<span class="math notranslate nohighlight">\(D\)</span>) og tilbudet (<span class="math notranslate nohighlight">\(S\)</span>) for et produkt er gitt ved følgende funksjoner:</p>
+<ul class="simple">
+<li><p><strong>Etterspørsel:</strong> <span class="math notranslate nohighlight">\(D(p) = 100 - 2p\)</span></p></li>
+<li><p><strong>Tilbud:</strong> <span class="math notranslate nohighlight">\(S(p) = 3p - 20\)</span></p></li>
+</ul>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span> er prisen på produktet i kroner, og <span class="math notranslate nohighlight">\(D(p)\)</span> og <span class="math notranslate nohighlight">\(S(p)\)</span> representerer henholdsvis mengden som etterspørres og tilbys ved prisen <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><strong>Finn likeveksprisen <span class="math notranslate nohighlight">\(p\)</span>, der tilbudet er lik etterspørselen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi skal finne der D(p) = S(p).</span>
+<span class="c1"># Altså 100 - 2p = 3p - 20</span>
+
+<span class="c1">### Løsningsforslag ###</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="c1"># Definerer variabelen vår p (pris)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definerer etterspørsel- og tilbudsfunksjonene</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">p</span>
+<span class="n">S</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="mi">20</span>
+
+<span class="c1"># Løser ligningen D(p) = S(p)</span>
+<span class="n">likevekt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">D</span> <span class="o">-</span> <span class="n">S</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Svaret</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Det er likevekt når prisen </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1"> er lik </span><span class="si">{</span><span class="n">likevekt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det er likevekt når prisen p er lik 24!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-2-visualisering-av-likevekt">
+<h1>✏️ Oppgave 2 - Visualisering av likevekt<a class="headerlink" href="#oppgave-2-visualisering-av-likevekt" title="Link to this heading">#</a></h1>
+<p>I oppgave 1 fant du likevektsprisen <span class="math notranslate nohighlight">\(p\)</span> der tilbud og etterspørselen er like. Nå skal du lage en graf som viser:</p>
+<ol class="arabic simple">
+<li><p>Tilbudskurven <span class="math notranslate nohighlight">\(S(p)\)</span></p></li>
+<li><p>Etterspørselskurven <span class="math notranslate nohighlight">\(D(p)\)</span></p></li>
+<li><p>Likevektsprisen <span class="math notranslate nohighlight">\(p\)</span>, og hva den korresponderende mengden som etterspørres/tilbys ved prisen <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ol>
+<p><strong>Hint:</strong> Her kan du få bruk for både NumPy og Matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Definer funksjonene for etterspørsel og tilbud</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">D</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">p</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">S</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="mi">20</span>
+
+<span class="c1"># Lage et utvalg av priser fra 0 til 50</span>
+<span class="n">p_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Beregn etterspørsel og tilbud</span>
+<span class="n">D_values</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
+<span class="n">S_values</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
+
+<span class="c1"># Finn likevektspunktet (fra oppgave 1, der D = S)</span>
+<span class="c1"># Vi finner at likevekt er p = 24</span>
+<span class="n">p_eq</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="n">q_eq</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">p_eq</span><span class="p">)</span>  <span class="c1"># eller S(p_eq) - begge gir samme resultat</span>
+
+<span class="c1"># Plotte kurvene</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">D_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Etterspørsel D(p) = 100 - 2p&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">S_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Tilbud S(p) = 3p - 20&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># Markere likevektspunktet på plottet</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">p_eq</span><span class="p">,</span> <span class="n">q_eq</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">p_eq</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">q_eq</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Likevekt: p=</span><span class="si">{</span><span class="n">p_eq</span><span class="si">}</span><span class="s1">, q=</span><span class="si">{</span><span class="n">q_eq</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+<span class="c1"># Akser og titler</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Pris (p)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mengde (q)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Marked: Etterspørsel og Tilbud&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Vise grafen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c75defdd172d95df171f172f709783d611a3e04744ff8a7e0d0e11692f079188.png" src="../../_images/c75defdd172d95df171f172f709783d611a3e04744ff8a7e0d0e11692f079188.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-3-jobbe-med-matematiske-uttrykk">
+<h1>✏️ Oppgave 3 - Jobbe med matematiske uttrykk.<a class="headerlink" href="#oppgave-3-jobbe-med-matematiske-uttrykk" title="Link to this heading">#</a></h1>
+<p>I SymPy må vi initialisere symboler, det gjør vi f.eks. slik</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="oppgave-3a-ekspandere-uttrykk">
+<h2>Oppgave 3a - ekspandere uttrykk.<a class="headerlink" href="#oppgave-3a-ekspandere-uttrykk" title="Link to this heading">#</a></h2>
+<p>SymPy har en funksjon som kalles <code class="docutils literal notranslate"><span class="pre">expand(ditt_uttrykk)</span></code>. Bruk denne til å utvide uttrykket <span class="math notranslate nohighlight">\((x+y)^2\)</span> til <span class="math notranslate nohighlight">\(x^2 + 2xy + y^2\)</span> (første kvadratsetning).</p>
+<p>Kjør dette først:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">expand</span><span class="p">,</span> <span class="n">factor</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">expand</span><span class="p">,</span> <span class="n">factor</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y z&#39;</span><span class="p">)</span>
+
+<span class="c1"># Skriver uttrykket vårt</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">new_expr</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+<span class="n">new_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x y + y^{2}\]</div>
+</div>
+</div>
+<p>Vips - da var det gjort!</p>
+</section>
+<section id="oppgave-3b-faktorisere-uttrykk">
+<h2>Oppgave 3b - faktorisere uttrykk<a class="headerlink" href="#oppgave-3b-faktorisere-uttrykk" title="Link to this heading">#</a></h2>
+<p>Nå har du akkurat lagd et uttrykk, som er det utvidede <em>versjonen</em> av <span class="math notranslate nohighlight">\((x+y)^2\)</span>. Faktoriser dette, og se at du får det du begynte med.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">new_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x + y\right)^{2}\]</div>
+</div>
+</div>
+<p>Vips - tilbake til start!</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-4">
+<h1>✏️ Oppgave 4<a class="headerlink" href="#oppgave-4" title="Link to this heading">#</a></h1>
+<p>I denne oppgaven skal vi se på Cobb-Douglas funksjonen, den ser slik ut
+$<span class="math notranslate nohighlight">\(f(K, L) = A \cdot K^{\alpha} \cdot L^{\beta}\)</span>$
+hvor,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> er total produksjon</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> er mengden kapital (for eksempel maskiner, utstyr, bygninger)</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> er mengden arbeidskraft (antall arbeidere eller arbeidstimer)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> er et mål på produktivitet</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> og <span class="math notranslate nohighlight">\(\beta\)</span> er eksponenter som viser elastisiteten til henholdsvis kapital og arbeidskraft. De representerer hvor stor andel av produksjonen som kommer fra kapital og arbeidskraft.</p></li>
+</ul>
+<p>Typisk er at <span class="math notranslate nohighlight">\(\alpha + \beta = 1\)</span>, som som indikerer konstante skalautbytter. Dette betyr at hvis du fordobler både kapital og arbeidskraft, vil produksjonen også fordobles.</p>
+<section id="oppgave-4-1">
+<h2>Oppgave 4.1<a class="headerlink" href="#oppgave-4-1" title="Link to this heading">#</a></h2>
+<p>I økonomi og økonometri er <strong>Cobb-Douglas</strong> sin produksjonsfunksjon ofte brukt, og i denne deloppgaven skal du lage en funksjon som definerer Cobb-Douglas funksjonen, hvor vi setter <span class="math notranslate nohighlight">\(A=1\)</span>, <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> og <span class="math notranslate nohighlight">\(\beta = 0.5\)</span>.</p>
+</section>
+<section id="oppgave-4-2">
+<h2>Oppgave 4.2<a class="headerlink" href="#oppgave-4-2" title="Link to this heading">#</a></h2>
+<p>Bruk SymPy til å finne den partiell deriverte av Cobb-Douglas funksjonen (med hensyn på <span class="math notranslate nohighlight">\(K\)</span>), dette kaller vi gjerne <em>marginale produkt av kapital (MPK)</em>.</p>
+<p>Kommenter hva resultatet er. Ser vi noe spesielt med MPK i forhold til Cobb-Douglas funksjonen?</p>
+<p>Bruk funksjonen du definerte i oppgave 3.1.</p>
+</section>
+<section id="oppgave-4-3">
+<h2>Oppgave 4.3<a class="headerlink" href="#oppgave-4-3" title="Link to this heading">#</a></h2>
+<p>Hvis vi holder <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span> og <span class="math notranslate nohighlight">\(\beta\)</span> konstant. Hvordan utvikler MPK seg, hvis <span class="math notranslate nohighlight">\(K\)</span> øker?</p>
+<p>Velg selv en passende måte å presentere dette på. Beskriv hva dette betyr for den totale produksjonen til Cobb-Douglas funksjonen, <span class="math notranslate nohighlight">\(f(K, L)\)</span>.</p>
+<p>Du bestemmer selv verdiene på <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span> og <span class="math notranslate nohighlight">\(\beta\)</span> (men sørg for <span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>, <span class="math notranslate nohighlight">\(0 &lt; \beta &lt; 1\)</span> og <span class="math notranslate nohighlight">\(\alpha + \beta =1\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 4.1 </span>
+
+<span class="c1"># Definerer Cobb-Douglas-produksjonsfunksjonen, etter oppgavetekstens beskrivelse</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">**</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">L</span> <span class="o">**</span> <span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 4.2 </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="c1"># Definer symboler for kapital (K), arbeidskraft (L), og konstanter A, alpha, beta</span>
+<span class="n">K</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K L&#39;</span><span class="p">)</span>
+<span class="n">A</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A alpha beta&#39;</span><span class="p">)</span>
+
+<span class="c1"># Finn partielle deriverte med hensyn til kapital (K)</span>
+<span class="n">dY_dK</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">),</span> <span class="n">K</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Den partielle deriverte med hensyn på K er:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">dY_dK</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Den partielle deriverte med hensyn på K er:
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{A K^{\alpha} L^{\beta} \alpha}{K}\]</div>
+</div>
+</div>
+<p>Hvis vi kalles Cobb-Douglas funksjonen for <span class="math notranslate nohighlight">\(f(K, L)\)</span>, og så ser vi på den partiell-deriverte av Cobb-Douglas funksjonen, også kalt MLP, som vi fant over ser vi at:</p>
+<div class="math notranslate nohighlight">
+\[MPK = \frac{AK^{\alpha}L^{\beta}\alpha}{K}\]</div>
+<p>kan skrives som</p>
+<div class="math notranslate nohighlight">
+\[MPK = \alpha \cdot \frac{f(K, L)}{K}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 4.3 </span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Definerer en funksjon for MPK basert på derivert av Cobb-Douglas</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">MPK</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="n">beta</span><span class="p">)</span><span class="o">/</span><span class="n">K</span>
+
+<span class="c1"># Verdier for K</span>
+<span class="n">K_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Beregn MPK for hver verdi av K</span>
+<span class="n">MPK_values</span> <span class="o">=</span> <span class="n">MPK</span><span class="p">(</span><span class="n">K_values</span><span class="p">)</span>
+
+<span class="c1"># Plotter MPK som funksjon av K</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_values</span><span class="p">,</span> <span class="n">MPK_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MPK (marginalprodukt av kapital)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Utviklingen av MPK når K øker&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Kapital (K)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;MPK&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0481d72a6693d35d254d64b29f0a4d3a0e9f1fa4edf911815561852804028e7e.png" src="../../_images/0481d72a6693d35d254d64b29f0a4d3a0e9f1fa4edf911815561852804028e7e.png" />
+</div>
+</div>
+<section id="kommentarer-til-oppgave-4-3">
+<h3><strong>Kommentarer til Oppgave 4.3</strong><a class="headerlink" href="#kommentarer-til-oppgave-4-3" title="Link to this heading">#</a></h3>
+<p>Her har vi plottet <span class="math notranslate nohighlight">\(MPK\)</span>, som en funksjon av kapital <span class="math notranslate nohighlight">\(K\)</span>. At MPK, den partiell-deriverte av <span class="math notranslate nohighlight">\(f(K, L)\)</span> (med hensyn på <span class="math notranslate nohighlight">\(K\)</span>), alltid er positiv betyr at produksjonen <span class="math notranslate nohighlight">\(f\)</span> alltid vil øke når kapitalmengden <span class="math notranslate nohighlight">\(K\)</span> øker. Gitt at vi holder alle andre variabler konstante, altså <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span> og <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>Selv om marginalproduktet av kapital avtar når <span class="math notranslate nohighlight">\(K\)</span> øker (som plottet over viser), vil det aldri bli negativt. Skal vi tolke dette i en mer økonomisk forståelse av produksjon, kan man si at i en typisk produksjonsprosess vil mer kapital (som f.eks. maskiner, teknologi osv.) bidra til økt produksjon, men etter hvert vil denne økningen ha mindre og mindre effekt.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Seminar 8 -  📐 🧮 <strong>SymPy</strong> 📏 🔢</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon">Introduksjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-sympy">Hvorfor <em>SymPy</em>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgaver">Seminaroppgaver</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1-tilbud-og-ettersporsel">✏️ Oppgave 1 - Tilbud og etterspørsel</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2-visualisering-av-likevekt">✏️ Oppgave 2 - Visualisering av likevekt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3-jobbe-med-matematiske-uttrykk">✏️ Oppgave 3 - Jobbe med matematiske uttrykk.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3a-ekspandere-uttrykk">Oppgave 3a - ekspandere uttrykk.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3b-faktorisere-uttrykk">Oppgave 3b - faktorisere uttrykk</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4">✏️ Oppgave 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-1">Oppgave 4.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-2">Oppgave 4.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-4-3">Oppgave 4.3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentarer-til-oppgave-4-3"><strong>Kommentarer til Oppgave 4.3</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

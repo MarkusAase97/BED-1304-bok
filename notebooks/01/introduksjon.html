@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1 - Introduksjon til kurset &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/01/introduksjon';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2 - Python basics" href="../02/python_basics.html" />
+    <link rel="prev" title="Bed-1304 Python-lab" href="../00/intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../03/funksjoner.html">3 - Funksjoner</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00/knowledge_test.html">Kunnskapstest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/01/introduksjon.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/01/introduksjon.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1 - Introduksjon til kurset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1 - Introduksjon til kurset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#om-kurset"><strong>Om kurset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-laerer-du"><strong>Hva lærer du</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pensumbok"><strong>Pensumbok</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undervisning"><strong>Undervisning</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seminar"><strong>Seminar</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksamen"><strong>Eksamen</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-faget-hvorfor-python">Introduksjon til faget - <em>Hvorfor python?</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmeringssprak">Programmeringsspråk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lav-og-hoynivasprak">Lav- og høynivåspråk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innrykk-og-linjeskift">Innrykk og linjeskift</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nedlastning-av-python-og-visual-studio-code"><strong>Nedlastning av Python og Visual Studio Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-python">1. Installere Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac"><strong>Mac:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-visual-studio-code">2. Installere Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apne-visual-studio-code">3. Åpne Visual Studio Code</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-jupyter-notebook">Hva er Jupyter Notebook?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-og-hvorfor-det-er-viktig"><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dersom-det-ikke-kom-noe-tydelig-feilmelding-sa-kan-du-prove-koden-under">Dersom det ikke kom noe tydelig feilmelding så kan du prøve koden under.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativ-mate-a-laste-ned-pakker-pa">Alternativ måte å laste ned pakker på</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forelesningsnotatene-hvor-er-de">Forelesningsnotatene - hvor er de?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manuell-nedlastning"><strong>Manuell nedlastning</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativ-henting-av-forelesningsnotatene-nb-valgfritt-ikke-obligatorisk"><strong>Alternativ henting av forelesningsnotatene (NB: Valgfritt, ikke obligatorisk)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-git">1. Installere git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hente-kursmateriell-fra-github">2. Hente kursmateriell fra Github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempelkode">Eksempelkode</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-din-forste-linje-med-kode">1. Print din første linje med kode 🖥️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-som-kalkulator">2. Python som kalkulator 🐍</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagre-og-bruke-variabler">Lagre og bruke variabler 🔢</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sjekk-om-et-tall-er-partall-eller-oddetall-dette-vil-vi-ga-igjennom-i-kapittel-6-logikk-og-lokker">3. Sjekk om et tall er partall eller oddetall 🔍. Dette vil vi gå igjennom i kapittel 6 - Logikk og løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjenta-noe-flere-ganger">Gjenta noe flere ganger 🔄</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-en-enkel-funksjon">4. Lag en enkel funksjon ⚙️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#na-har-vi-sett-noen-eksempler-samt-fatt-lastet-ned-python-og-fatt-jupyter-notebook-oppe-a-ga-voila">Nå har vi sett noen eksempler, samt fått lastet ned Python og fått Jupyter NoteBook oppe å gå! <em>Voila</em>!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduksjon-til-kurset">
+<h1>1 - Introduksjon til kurset<a class="headerlink" href="#introduksjon-til-kurset" title="Link to this heading">#</a></h1>
+<section id="om-kurset">
+<h2><strong>Om kurset</strong><a class="headerlink" href="#om-kurset" title="Link to this heading">#</a></h2>
+<p>Python-lab (BED-1504/BED-1304) er et kurs som omhandler grunnleggende programmeringsferdigheter i Python. Samtidig vil det være forankret mot økonomiske problemstillinger, særlig mot studenter som studerer samfunnsøkonomi, økonomi og adminstrasjon og lignende. Det vil være en fordel om du har jobbet med programmering før, hvis ikke - så skal dette gå helt fint. I løpet av dette kurset skal dere få grunnleggende ferdigheter i programmering i Python, og hvordan dere kan behandle data til noe meningsfylt.</p>
+<p>Dette blir artig!</p>
+<p><em>“Data is the new oil!”</em> - Clive Humby (2006)</p>
+</section>
+<section id="hva-laerer-du">
+<h2><strong>Hva lærer du</strong><a class="headerlink" href="#hva-laerer-du" title="Link to this heading">#</a></h2>
+<p>Studenten lærer å sette opp, løse og visualisere matematiske modeller ved hjelp av Python-kode. Studenter lærer også grunnleggende teknikker inne informasjonsteknologi, som datastrukturer, typer av data, visualisering og anvende dette mot økonomiske problemstillinger. Kurset går parallelt med matematikk undervisning, og tar opp noen av de samme temaene. Det er derfor fordelaktig å ta disse emnene i samme semester.</p>
+<p>For mer informasjon om kurset, se UiT sin læringsutbyttebeskrivelse (<a class="reference external" href="https://uit.no/utdanning/emner/emne/874303/bed-1304?ar=2025&amp;amp;semester=H">Lenke</a>)</p>
+<section id="pensumbok">
+<h3><strong>Pensumbok</strong><a class="headerlink" href="#pensumbok" title="Link to this heading">#</a></h3>
+<p>I dette kurset har vi ikke pensumbok. Det er først og fremst fordi det ikke er skrevet noen <strong>norsk</strong> bok om Python og økonomi. Derfor er det lagd spesifikke Jupyter Notebooks for kurset, som ligger på GitHub-siden til faget. (<strong>PS:</strong> Vi vil lære hva Jupyter Notebook og GitHub er seinere!)</p>
+<p>All informasjon om arbeidskrav, forelesninger og eksamen finner du enkelt på <a class="reference external" href="https://uit-bed-1304-h25.github.io/index.html">GitHub-siden</a> til faget.</p>
+</section>
+<section id="undervisning">
+<h3><strong>Undervisning</strong><a class="headerlink" href="#undervisning" title="Link to this heading">#</a></h3>
+<p><em>Grunnkurs i informasjonsteknologi og databehandling for økonomer</em> vil ha flere forelesninger gjennom semesteret. Likevel vil det være fokus på koding og problemløsning i forelesning, da vi vil i stor grad benytte <em>omvendt undervisning</em>, altså at det er lagd video-forelesninger som skal sees før de fysiske øktene. Dette gir studentene mulighet/fleksibilitet til å se ting i eget tempo. Likevel, er videoene ikke en erstatning av fysisk forelesning, da det vil gås igjennom mer pensum i de fysiske forelesningene.</p>
+</section>
+<section id="seminar">
+<h3><strong>Seminar</strong><a class="headerlink" href="#seminar" title="Link to this heading">#</a></h3>
+<p>I tillegg til forelesninger, arrangeres det flere seminarer gjennom semesteret. Disse er tiltenkt for å jobbe med seminaroppgaver, eksamensøving og samarbeid. Husk at læring er en tung, krevende prosess - men å lære sammen med andre, er en fornøyelig prosess.</p>
+</section>
+<section id="eksamen">
+<h3><strong>Eksamen</strong><a class="headerlink" href="#eksamen" title="Link to this heading">#</a></h3>
+<p>Det er en skriftlig, digital skole eksamen som teller 100% på slutten av året. Karakter A-E (F er stryk).</p>
+<p>I løpet av semesteret vil dere få utdelt 50 oppgaver, hvor 10 av disse kommer på eksamen. (OBS: endre tall her)</p>
+<p>Ingen kontinuasjonseksamen.</p>
+</section>
+</section>
+<section id="introduksjon-til-faget-hvorfor-python">
+<h2>Introduksjon til faget - <em>Hvorfor python?</em><a class="headerlink" href="#introduksjon-til-faget-hvorfor-python" title="Link to this heading">#</a></h2>
+<p>R og python er to av de ledende programmeringsspråkene i dag. Begge har sine fordeler og ulemper, når det gjelder anvendelser innen økonomi-faget.</p>
+<p>I motsetning til R, er Python et “ordentlig” programmeringsspråk i den forstand at du kan skape objekter og klasser. R er et enklere språk med mindre muligheter når det gjelder programmering, men har til gjengjeld et langt større utvalg pakker innenfor statistikk og økonometri. For statistisk analyse er derfor R ofte foretrukket, men dersom du skal gjøre noe litt annet enn det som tilbys i R-pakker, er det en fordel med et mer avansert programmeringsspråk som Python.</p>
+<p>En annen fordel med Python, er at det tar større og større plass i arbeidsmarkedet og er svært godt dokumentert på internett. Python har også mange andre fordeler. De viktigste er at det er:</p>
+<ul class="simple">
+<li><p>Enkelt, intuitivt og lett og forstå</p></li>
+<li><p>Det er svært effektvit om en bruker de rette pakkene (numpy, pandas, matplotlib, …)</p></li>
+<li><p>Det er et “ekte” programmeringsspråk der man kan skape objekter og klasser (dette er ikke noe vi lærer om i dette kurset)</p></li>
+<li><p>stort utvalg av pakker (dog betydelig færre enn R innenfor statistikk og økonometri)</p></li>
+</ul>
+</section>
+<section id="programmeringssprak">
+<h2>Programmeringsspråk<a class="headerlink" href="#programmeringssprak" title="Link to this heading">#</a></h2>
+<p>Da de første datamaskinene kom på 40-tallet, måtte brukerne gi maskinene instruksjoner i form av maskinkode. Datamaskiner er binære og forstår kun to tegn; 1 og 0, det vil si “av” og “på”. Brukeren måtte derfor forklare maskinen hva den skulle gjøre ved å skrive ned problemet som en lang rekke enere og nuller. Det ble raskt klart at dette var en ekstremt krevende oppgave. Programmeringsspråk ble derfor funnet opp for at mennesker skulle kunne gi instruksjoner til datamaskiner på en forståelig måte.</p>
+<p>Stort sett alle programmeringsspråk henter syntaksen fra engelsk. Koden oversettes så til maskinspråk, noe som kalles å “kompilere” (“compile” på engelsk). Datamaskinen kan så behandle den kompilerte maskinkoden.</p>
+</section>
+<section id="lav-og-hoynivasprak">
+<h2>Lav- og høynivåspråk<a class="headerlink" href="#lav-og-hoynivasprak" title="Link to this heading">#</a></h2>
+<p>Programmeringsspråk deles inn i høynivå- og lavnivåspråk. Forskjellen på høy- og lavnivå er hvor mye støtte språket gir til brukeren. Slik støtte gjør det enklere å programmere, men er kostbart fordi det gir en mindre effektiv kode.</p>
+<p>Lavnivåspråk er gir svært effektiv og rask kode, men er mer krevende og mindre intuitive å programmere. C++ er et hybridspråk, som har både høynivå- og lavnivåegenskaper. Eksemplet under skriver ut tallene 0 til og med 4:</p>
+<section id="eksempel-1">
+<h3>Eksempel 1:<a class="headerlink" href="#eksempel-1" title="Link to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    for (int i = 0; i &lt; 5; i++) {
+      std::cout &lt;&lt; i &lt;&lt; &quot;\n&quot;;
+    }
+</pre></div>
+</div>
+<p>Vi kan sammenligne dette med tilsvarende kode i Python, som er et høynivåspråk:</p>
+</section>
+<section id="eksempel-2">
+<h3>Eksempel 2:<a class="headerlink" href="#eksempel-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Om du har åpnet denne filen i Jupyter notebook (se under for instruksjoner), kan du kjøre Pythonkoden (de ‘cellene’ hvor det står Python nede i høyre hjørne) ved å trykke SHIFT+ENTER.</p>
+<p>Vi ser at Python-koden er langt enklere, og har en syntaks som ligner mer på vanlig engelsk. Generelt er Python et svært intuitivt språk som er enkelt å programmere i. Språket ble funnet opp av Guido van Rossum i 1989 og er i dag verdens mest populære programmeringsspråk rangert ut fra googlesøk.</p>
+<p>Selv om Python er er et høynivåspråk, er det svært effektivt på grunn av et stort antall bibliotek hvor mye er skrevet direkte i C eller C++. Ett slik bibliotek heter “Numpy”, og har svært effektive metoder for matriseoperasjoner. “Pandas” er et svært effektivt bibliotek for databehandling, og “Statsmodels” er et kraftfullt verktøy for dataanalyse. Alt dette - ser vi mer på senere i kurset.</p>
+</section>
+</section>
+<section id="innrykk-og-linjeskift">
+<h2>Innrykk og linjeskift<a class="headerlink" href="#innrykk-og-linjeskift" title="Link to this heading">#</a></h2>
+<p>Én ting som gjør det enklere å programmere i Python enn andre språk kan du allerede se av det lille eksemplet over. De fleste språk bruker ulike typer parenteser for å markere at noe tilhører en bestemt operasjon. Operasjonen over er en <em>løkke</em>, og vi ser fra Eksempel 1 at C++ bruker {} for å markere hva som er en del av løkken. I Python markeres tilhørighet til løkken med innrykk. Vi ser i Eksempel 1 at <code class="docutils literal notranslate"><span class="pre">print(i)</span></code> tilhører løkken fordi denne setningen er rykket ett hakk inn.</p>
+<p>Det har etterhvert etablert seg som god skikk og bruk innen programmering å ha et innrykk for kode som tilhører en operasjon. Vi ser det av Eksempel 1, der innholdet i løkken også er rykket inn. Forskjellen mellom C og Python er imidlertid at i C har hverken linjeskift eller innrykk noen som helst betydning for hvordan koden fungerer. Eksempel 1 kunne like gjerne vært skrevet på en linje som <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">5;</span> <span class="pre">i++)</span> <span class="pre">{std::cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">i</span> <span class="pre">&lt;&lt;</span> <span class="pre">&quot;\n&quot;;}</span></code>, og det ville fungert like bra.</p>
+<p>I Python markeres imidlertid linjeskift et skille mellom setninger, og innrykk markere hva som tilhører hva. Det gir en kode som er enklere å lese og mer intuitiv.</p>
+</section>
+<section id="nedlastning-av-python-og-visual-studio-code">
+<h2><strong>Nedlastning av Python og Visual Studio Code</strong><a class="headerlink" href="#nedlastning-av-python-og-visual-studio-code" title="Link to this heading">#</a></h2>
+</section>
+<section id="installere-python">
+<h2>1. Installere Python<a class="headerlink" href="#installere-python" title="Link to this heading">#</a></h2>
+<section id="windows">
+<h3><strong>Windows:</strong><a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<p>På noen systemer er det tilstrekkelig at du skriver <code class="docutils literal notranslate"><span class="pre">python</span></code> i kommandovinduet. Om ikke det fungerer, gjør slik:</p>
+<ol class="arabic simple">
+<li><p>Gå til <a class="reference external" href="https://www.python.org/downloads/">installasjonssiden</a> og last ned</p></li>
+<li><p>Installer for alle brukere (krever admin login) og <strong>hak av for å legge til “PATH”</strong>.</p></li>
+</ol>
+</section>
+<section id="mac">
+<h3><strong>Mac:</strong><a class="headerlink" href="#mac" title="Link to this heading">#</a></h3>
+<p>Gå til <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
+<p>Last ned nyeste versjon til MacOS.</p>
+</section>
+<section id="tips">
+<h3>Tips:<a class="headerlink" href="#tips" title="Link to this heading">#</a></h3>
+<p>Last ned nyeste versjon av Python til PC/Mac’en deres.</p>
+</section>
+</section>
+<section id="installere-visual-studio-code">
+<h2>2. Installere Visual Studio Code<a class="headerlink" href="#installere-visual-studio-code" title="Link to this heading">#</a></h2>
+<p>I dette kurset skal vi jobbe med Jupyter Notebooks, og da er <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> et glimrende verktøy.</p>
+<p>Dere finner nedlastning for både Mac og Windows på nettsiden <a class="reference external" href="https://code.visualstudio.com/">her</a>!</p>
+</section>
+<section id="apne-visual-studio-code">
+<h2>3. Åpne Visual Studio Code<a class="headerlink" href="#apne-visual-studio-code" title="Link to this heading">#</a></h2>
+<p>Visual Studio Code, forkortes ofte bare til VSCode.</p>
+<p>Når dere har lastet ned programmet, gjør følgende:</p>
+<ul class="simple">
+<li><p>Åpne programmet og finn <strong>Extensions</strong> på venstresiden av applikasjonen.</p></li>
+<li><p>Her skal dere finne <strong>Jupyter</strong> og trykk “<em>Install</em>”.</p></li>
+<li><p>Deretter finner dere <strong>Python</strong> (også i <strong>Extensions</strong>) og trykker “<em>Install</em>”.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hva-er-jupyter-notebook">
+<h1>Hva er Jupyter Notebook?<a class="headerlink" href="#hva-er-jupyter-notebook" title="Link to this heading">#</a></h1>
+<p>Jupyter Notebook er et interaktivt verktøy for å skrive og kjøre kode, spesielt populært innen dataanalyse, maskinlæring og vitenskapelig databehandling. Det kombinerer kode, tekst, visualiseringer og resultater i én enkelt fil, noe som gjør det enklere å dele og dokumentere prosjekter.</p>
+<p>I Visual Studio Code (VSCode) er Jupyter Notebook spesielt nyttig for Python-brukere på grunn av flere integrerte funksjoner.</p>
+<p>Hvorfor bruke Jupyter Notebook i VSCode?</p>
+<ul class="simple">
+<li><p><strong>Integrert kode og dokumentasjon</strong>: Kombiner Python-kode med tekst, visualiseringer og ligninger i ett dokument.</p></li>
+<li><p><strong>Sømløs Python-integrasjon</strong>: Med VSCode’s Python-utvidelse kan du enkelt kjøre, feilsøke og utvikle Python-kode i Jupyter Notebook-format.</p></li>
+<li><p><strong>Kraftig interaktiv utvikling</strong>: Kjør celler individuelt, slik at du kan teste deler av koden uten å kjøre hele programmet på nytt.</p></li>
+<li><p><strong>Masse støtte for utvidelser</strong>: VSCode støtter en rekke utvidelser som forbedrer Jupyter-opplevelsen med autfullføring, feilsøking, og Git-integrasjon.</p></li>
+<li><p><strong>Samarbeid og deling</strong> : Det er enkelt å dele Jupyter Notebook-filer på GitHub, slik at andre kan se koden, visualiseringene og resultatene dine i samme dokument.</p></li>
+</ul>
+<p>Jupyter Notebook i VSCode gjør det effektivt å utvikle og analysere data i et velkjent IDE-miljø med mange funksjoner for profesjonell utvikling.</p>
+<section id="pip-og-hvorfor-det-er-viktig">
+<h2><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!<a class="headerlink" href="#pip-og-hvorfor-det-er-viktig" title="Link to this heading">#</a></h2>
+<p>I dette kurset vil vi bruke kommandoen <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">XXX</span></code> hvor <code class="docutils literal notranslate"><span class="pre">XXX</span></code> er et bibliotek. Bibliotek brukes mye i Python, og kan sees på som pakker man henter ut, for å gjøre spesifikke kommandoer.</p>
+<p>For å kunne kjøre <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span></code> trenger dere å laste ned <code class="docutils literal notranslate"><span class="pre">!pip</span></code> på PC/Mac’en deres.</p>
+<p>Det kan dere gjøre - ved å <em>kjøre</em> de tre neste kodeblokkene under her. Det kan dere enkelt gjøre ved å trykke <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">ENTER</span></code> når dere har trykke på cellen!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span><span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--upgrade
+<span class="o">%</span><span class="k">pip</span> install --upgrade pip
+<span class="o">%</span><span class="k">pip</span> install numpy
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ved feilmelding så kan kodeblokkene under prøves men da må # tegnene fjernes for at de skal kjøres</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!python -m ensurepip --upgrade</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dersom det kom en feilmelding her så kan disse prøves</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!python3 -m ensurepip --upgrade</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dette kan også prøves</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span>
+<span class="c1"># !python get-pip.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dersom-det-ikke-kom-noe-tydelig-feilmelding-sa-kan-du-prove-koden-under">
+<h3>Dersom det ikke kom noe tydelig feilmelding så kan du prøve koden under.<a class="headerlink" href="#dersom-det-ikke-kom-noe-tydelig-feilmelding-sa-kan-du-prove-koden-under" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install numpy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Evt denne dersom %pip ikke funker</span>
+<span class="c1">#!pip install numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="alternativ-mate-a-laste-ned-pakker-pa">
+<h1>Alternativ måte å laste ned pakker på<a class="headerlink" href="#alternativ-mate-a-laste-ned-pakker-pa" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Øverst i Jupyter NoteBook vil dere kunne se <strong>Terminal</strong> - finn <strong>New Terminal</strong> og trykk der.</p></li>
+<li><p>Da åpner det seg et vindu hvor det står noe som:</p></li>
+</ol>
+<div class="highlight-terminal notranslate"><div class="highlight"><pre><span></span>(base) din_pc_eller_mac ~ % 
+</pre></div>
+</div>
+<p>Så skriver dere</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="n">din_pc_eller_mac</span> <span class="o">~</span> <span class="o">%</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+</pre></div>
+</div>
+<p>men her uten “!”, slik vi gjorde over.</p>
+<p>Dette er bare to ulike måter å laste inn pakker på. Gjør det du føler for!</p>
+<section id="forelesningsnotatene-hvor-er-de">
+<h2>Forelesningsnotatene - hvor er de?<a class="headerlink" href="#forelesningsnotatene-hvor-er-de" title="Link to this heading">#</a></h2>
+<section id="manuell-nedlastning">
+<h3><strong>Manuell nedlastning</strong><a class="headerlink" href="#manuell-nedlastning" title="Link to this heading">#</a></h3>
+<p>Forelesningene vil dere finne her (Insert github-lenke til notebooks).
+De kan dere laste ned manuelt inne fra GitHub.</p>
+<p>For å gjøre dette:</p>
+<ol class="arabic simple">
+<li><p>Gå til repositoriet hvor <strong>.ipynb</strong>-filene ligger,.</p></li>
+<li><p>Klipp på ønsket fil.</p></li>
+<li><p>Oppe til høyre trykk på <strong>Download</strong>.</p></li>
+</ol>
+</section>
+<section id="alternativ-henting-av-forelesningsnotatene-nb-valgfritt-ikke-obligatorisk">
+<h3><strong>Alternativ henting av forelesningsnotatene (NB: Valgfritt, ikke obligatorisk)</strong><a class="headerlink" href="#alternativ-henting-av-forelesningsnotatene-nb-valgfritt-ikke-obligatorisk" title="Link to this heading">#</a></h3>
+<p>Dere kan også bruke et utviklerverktøy for å hente forelesningsnotatene, men dette er ikke et krav. Dere som går økonomi og administrasjon vil ikke bruke det like mye som dere på samfunnsøkonomi vil bruke <code class="docutils literal notranslate"><span class="pre">git</span></code> en del. Da kan dere følge denne oppskriften.</p>
+</section>
+<section id="installere-git">
+<h3>1. Installere git<a class="headerlink" href="#installere-git" title="Link to this heading">#</a></h3>
+<p><strong>Windows:</strong></p>
+<ol class="arabic simple">
+<li><p>Gå til <a class="reference external" href="https://git-scm.com/downloads">installasjonsiden for git</a></p></li>
+<li><p>Last ned versjonen for Windows.</p></li>
+<li><p>Installer Git og velg <strong>insatller for alle brukere</strong> (krever administratorrettigheter).</p></li>
+</ol>
+<p><strong>Mac:</strong></p>
+<ol class="arabic simple">
+<li><p>Åpne <strong>Terminal</strong>.</p></li>
+<li><p>Skriv inn følgende kommando og trykk <strong>Enter</strong>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Du blir spurt om du vil installere utviklerverktøy. Takk <strong>ja</strong>, og installer:-)</p></li>
+</ol>
+<ul class="simple">
+<li><p>(<em>Hvis det ikke funker</em>: Last ned Git fra <a class="reference external" href="https://git-scm.com/downloads">installasjonsiden for git</a> manuelt.)</p></li>
+</ul>
+</section>
+<section id="hente-kursmateriell-fra-github">
+<h3>2. Hente kursmateriell fra Github<a class="headerlink" href="#hente-kursmateriell-fra-github" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Åpne <strong>Kommandovindu (Windows) eller terminal (Mac)</strong>.</p></li>
+</ol>
+<p><strong>Windows:</strong> For å hente filene til Jupyter  åpner du kommanovinduet på nytt, men denne gangen UTEN Å HØYREKLIKKE, siden du nå skal arbeidet på ditt hjemmeområde.</p>
+<p><strong>Mac:</strong> Trenger ikke gjør det Windows-brukere må gjøre her.
+2. Naviger til katalogen der du ønsker å lagre kursmateriellet.</p>
+<ul class="simple">
+<li><p>For eksempel, hvis du vil lagre det på <strong>Desktop</strong>, skriv:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Desktop</span>
+</pre></div>
+</div>
+<p>Da har du <em>gått inn i mappa</em> hvor Desktop er.</p>
+<ol class="arabic simple" start="3">
+<li><p>Opprett en <strong>mappe</strong> for kursmateriellet:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">bed</span><span class="o">-</span><span class="mi">1504</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Gå inn i den <strong>nye mappen</strong> <em>bed-1304</em> (eller <em>bed-1504</em> for nettversjon):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">bed</span><span class="o">-</span><span class="mi">1304</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Last ned</strong> alt kursinnhold og kursnotatene ved å klone selve GitHub-repositoriet:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uit</span><span class="o">-</span><span class="n">bed</span><span class="o">-</span><span class="mi">1304</span><span class="o">-</span><span class="n">h25</span><span class="o">/</span><span class="n">uit</span><span class="o">-</span><span class="n">bed</span><span class="o">-</span><span class="mi">1304</span><span class="o">-</span><span class="n">h25</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Her finner dere selve notebooks’ene på GitHub:
+<a class="reference external" href="https://github.com/uit-bed-1304-h25/uit-bed-1304-h25.github.io/tree/main/notebooks">Forelesningsnotatene som Jupyter Notebook</a></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksempelkode">
+<h1>Eksempelkode<a class="headerlink" href="#eksempelkode" title="Link to this heading">#</a></h1>
+<section id="print-din-forste-linje-med-kode">
+<h2>1. Print din første linje med kode 🖥️<a class="headerlink" href="#print-din-forste-linje-med-kode" title="Link to this heading">#</a></h2>
+<p>Python bruker <code class="docutils literal notranslate"><span class="pre">print()</span></code> for å vise tekst. Prøv å skriv dette:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei, verden!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dette vil skrive ut teksten:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Hei</span><span class="p">,</span> <span class="n">verden</span><span class="err">!</span>
+</pre></div>
+</div>
+<p>Prøv selv i kodeblokken under:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv å print din egen setning</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="python-som-kalkulator">
+<h2>2. Python som kalkulator 🐍<a class="headerlink" href="#python-som-kalkulator" title="Link to this heading">#</a></h2>
+<p>Python kan brukes som en kalkulator! Dette vil forklares nærmere i neste kapittel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vil skrive ut tallet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Prøv selv i kodeblokken under:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv python som en kalkulator selv</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<section id="lagre-og-bruke-variabler">
+<h3>Lagre og bruke variabler 🔢<a class="headerlink" href="#lagre-og-bruke-variabler" title="Link to this heading">#</a></h3>
+<p>Vi kan også be Python lagre, og huske variabler - som man kan benytte seg av senere.</p>
+<p>Prøv å skriv følgende kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Multiplikasjon av x og y gir:&quot;</span><span class="p">,</span> <span class="n">resultat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Det vil da gi ut:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Multiplikasjon</span> <span class="n">av</span> <span class="n">x</span> <span class="n">og</span> <span class="n">y</span> <span class="n">gir</span><span class="p">:</span> <span class="mi">40</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv å lag ditt eget eksempel selv</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x_pluss_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">x_ganger_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">x_opphøyd_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_pluss_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_ganger_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_opphøyd_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+15
+125
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x + y = &quot;</span><span class="p">,</span> <span class="n">x_pluss_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x * y = &quot;</span><span class="p">,</span> <span class="n">x_ganger_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x ** y = &quot;</span><span class="p">,</span> <span class="n">x_opphøyd_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x + y =  8
+x * y =  15
+x ** y =  125
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sjekk-om-et-tall-er-partall-eller-oddetall-dette-vil-vi-ga-igjennom-i-kapittel-6-logikk-og-lokker">
+<h2>3. Sjekk om et tall er partall eller oddetall 🔍. Dette vil vi gå igjennom i kapittel 6 - Logikk og løkker<a class="headerlink" href="#sjekk-om-et-tall-er-partall-eller-oddetall-dette-vil-vi-ga-igjennom-i-kapittel-6-logikk-og-lokker" title="Link to this heading">#</a></h2>
+<p>Modulus (<code class="docutils literal notranslate"><span class="pre">%</span></code>) returnerer resten av en divisjon. Fra matematikken lærte vi først deling ved heltall og ingen desimaler så 17 // 5 så ville vi sett hvor mange ganger går 5 opp i 17, og der er 3, men vi har jo “resten” altså <span class="math notranslate nohighlight">\(17 \% 5\)</span> gir resten 2.</p>
+<p><span class="math notranslate nohighlight">\(a\mod b = r\)</span> hvor <span class="math notranslate nohighlight">\(a = b\cdot q + r\)</span>, <span class="math notranslate nohighlight">\(q\)</span> er et heltall og resten <span class="math notranslate nohighlight">\(r\)</span> er <span class="math notranslate nohighlight">\(0 \leq r &lt; b\)</span>.</p>
+<p>Så hvis vi har 8 modulus 2. <span class="math notranslate nohighlight">\(8 \% 2 = 0\)</span> fordi <span class="math notranslate nohighlight">\(8 = 2\cdot4 + 0\)</span>.</p>
+<p>Ved et oddetall har vi <span class="math notranslate nohighlight">\(9 \% 2 = 1\)</span> fordi <span class="math notranslate nohighlight">\(9 = 2\cdot4 + 1\)</span>.</p>
+<p>Bruk modulus (<code class="docutils literal notranslate"><span class="pre">%</span></code>) for å sjekke om et tall er partall:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">tall</span> <span class="o">=</span> <span class="mi">7</span>
+
+    <span class="k">if</span> <span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tall</span><span class="p">,</span> <span class="s2">&quot;er et partall.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tall</span><span class="p">,</span> <span class="s2">&quot;er et oddetall.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Her sjekker vi da om tallet “Hvis tall” delt på 2 har “resten” som er lik 0, så er det et partall, ellers er det et oddetall.
+De 2 likhets tegnene (<code class="docutils literal notranslate"><span class="pre">==</span></code>) er “Is equals to” så 0. Siden dette er “if” eller hvis, så vil den printe ut “er et partall” hvis betingelsen “Resten er lik 0” er sann. Etter dette så ser dere “else” altså “hvis ikke” resten er 0, så vil den printe ut “er et oddetall”.</p>
+<p>Dette vil vi gå igjennom i kapittel 6 - Logikk og løkker.</p>
+<p>Det vil da gi tilbake:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="mi">7</span> <span class="n">er</span> <span class="n">et</span> <span class="n">oddetall</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv selv da vel! :D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="gjenta-noe-flere-ganger">
+<h3>Gjenta noe flere ganger 🔄<a class="headerlink" href="#gjenta-noe-flere-ganger" title="Link to this heading">#</a></h3>
+<p>I kapittel 6 vil si se at for-løkker(for loops) kan brukes til å repetere handlinger:</p>
+<p>Denne “i” kalles en løkkevariabel, og bokstaven i brukes ofte fordi ordet “indeks” eller “iterasjon” begynner med “i”. Denne vil dere også se i matematikken under summasjon og produktnotasjon.</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^{n} x_i = x_1 + x_2 + x_3 + \ldots + x_n
+\]</div>
+<p>Det koden her da vil gjøre er å se “range(1,5)” (som betyr tallene 1, 2, 3 og 4) og skrive ut “Dette er linje” etterfulgt av verdien av “i” frem til den når slutten. Dette kan virke forvirrende i starten, men det vil gi mer mening etterhvert som vi kommer lengere i kurset</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dette er linje&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Dette</span> <span class="n">er</span> <span class="n">linje</span> <span class="mi">1</span>  
+    <span class="n">Dette</span> <span class="n">er</span> <span class="n">linje</span> <span class="mi">2</span>  
+    <span class="n">Dette</span> <span class="n">er</span> <span class="n">linje</span> <span class="mi">3</span>  
+    <span class="n">Dette</span> <span class="n">er</span> <span class="n">linje</span> <span class="mi">4</span>  
+    <span class="n">Dette</span> <span class="n">er</span> <span class="n">linje</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Her legger vi merke til at den teller fra <span class="math notranslate nohighlight">\(i=1\)</span>, <span class="math notranslate nohighlight">\(i=2\)</span>, <span class="math notranslate nohighlight">\(i=3\)</span> og <span class="math notranslate nohighlight">\(i=4\)</span> - men ikke <span class="math notranslate nohighlight">\(i=5\)</span>. Det er fordi for-løkker fungerer slik, at de tar <em>opp til, men ikke inkludert</em> det siste tallet i parantesen etter <code class="docutils literal notranslate"><span class="pre">range(x,</span> <span class="pre">x)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv selv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lag-en-enkel-funksjon">
+<h2>4. Lag en enkel funksjon ⚙️<a class="headerlink" href="#lag-en-enkel-funksjon" title="Link to this heading">#</a></h2>
+<p>I kapittel 3 Funksjoner så vil dere lære hvordan man definerer og bruker funksjoner i Python. Funksjoner er en måte å pakke inn kode på, slik at den kan gjenbrukes flere steder i programmet.</p>
+<p>Funksjoner gjør koden gjenbrukbar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">hils</span><span class="p">(</span><span class="n">navn</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei,&quot;</span><span class="p">,</span> <span class="n">navn</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+
+    <span class="n">hils</span><span class="p">(</span><span class="s2">&quot;Anna&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Hei</span><span class="p">,</span> <span class="n">Anna</span> <span class="err">!</span>
+</pre></div>
+</div>
+<p>Legg merke til hvordan koden er skrevet, med <em>innrykk</em>, <em>tødler</em> og paranteser.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prøv selv</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tall_pluss_tall</span><span class="p">(</span><span class="n">tall1</span><span class="p">,</span> <span class="n">tall2</span><span class="p">):</span> <span class="c1">#Vi regner ut summen av to tall</span>
+    <span class="k">return</span> <span class="n">tall1</span> <span class="o">+</span> <span class="n">tall2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tall_pluss_tall</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvis vi vil se på det summe tegnet for summen av en rekke tall. For eksempel, hvis vi ønsker å summere tallene fra 1 til n(vi velger selv), kan vi skrive det som:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^{n} x_i = x_1 + x_2 + x_3 + \ldots + x_n
+\]</div>
+<p>Så hvis vi har høyden til Per, Pål og Kari, kan vi skrive dette som:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^{3} h_i = h_1 + h_2 + h_3
+\]</div>
+<p>Den lille “i”en forteller oss person 1, person 2 og person 3.</p>
+<p>I kode kan vi da skrive dette som en funksjon</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summen_av_hoyder</span><span class="p">(</span><span class="n">hoyder</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">hoyder</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summen_av_hoyder</span><span class="p">(</span><span class="n">person1</span><span class="p">,</span> <span class="n">person2</span><span class="p">,</span> <span class="n">person3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">person1</span> <span class="o">+</span> <span class="n">person2</span> <span class="o">+</span> <span class="n">person3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summen_av_hoyder</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span> <span class="c1">#Printer ut summen av høydene til 3 personer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>510
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hoyder_med_for_i</span><span class="p">(</span><span class="n">hoyder</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Dette er bare eksempel og vil først være relvant i senere kapittel </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hoyder</span><span class="p">)):</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">hoyder</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ved 3 personer så har vi total høyde: &quot;</span><span class="p">,</span><span class="n">hoyder_med_for_i</span><span class="p">([</span><span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">160</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ved 5 personer så har vi total høyde: &quot;</span><span class="p">,</span><span class="n">hoyder_med_for_i</span><span class="p">([</span><span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">185</span><span class="p">]))</span> <span class="c1">#her legger vi til 2 til</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ved 3 personer så har vi total høyde:  510
+Ved 5 personer så har vi total høyde:  870
+</pre></div>
+</div>
+</div>
+</div>
+<section id="na-har-vi-sett-noen-eksempler-samt-fatt-lastet-ned-python-og-fatt-jupyter-notebook-oppe-a-ga-voila">
+<h3>Nå har vi sett noen eksempler, samt fått lastet ned Python og fått Jupyter NoteBook oppe å gå! <em>Voila</em>!<a class="headerlink" href="#na-har-vi-sett-noen-eksempler-samt-fatt-lastet-ned-python-og-fatt-jupyter-notebook-oppe-a-ga-voila" title="Link to this heading">#</a></h3>
+<p>Hvis dere ikke klarte alle oppgavene, så er det helt greit! I løpet av de neste kapittelene så går vi mer inn i hva og hvordan det brukes, før det blir lettere å se “hvorfor” det er nyttig.</p>
+<p>Hvis dere har spørsmål eller trenger hjelp underveis, ikke nøl med å spørre! Seminarlederne tar gjerne i mot spørsmål i seminar og på epost!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../00/intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bed-1304 Python-lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../02/python_basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2 - Python basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1 - Introduksjon til kurset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#om-kurset"><strong>Om kurset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-laerer-du"><strong>Hva lærer du</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pensumbok"><strong>Pensumbok</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undervisning"><strong>Undervisning</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seminar"><strong>Seminar</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksamen"><strong>Eksamen</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduksjon-til-faget-hvorfor-python">Introduksjon til faget - <em>Hvorfor python?</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmeringssprak">Programmeringsspråk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lav-og-hoynivasprak">Lav- og høynivåspråk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innrykk-og-linjeskift">Innrykk og linjeskift</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nedlastning-av-python-og-visual-studio-code"><strong>Nedlastning av Python og Visual Studio Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-python">1. Installere Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac"><strong>Mac:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-visual-studio-code">2. Installere Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apne-visual-studio-code">3. Åpne Visual Studio Code</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-jupyter-notebook">Hva er Jupyter Notebook?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-og-hvorfor-det-er-viktig"><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dersom-det-ikke-kom-noe-tydelig-feilmelding-sa-kan-du-prove-koden-under">Dersom det ikke kom noe tydelig feilmelding så kan du prøve koden under.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativ-mate-a-laste-ned-pakker-pa">Alternativ måte å laste ned pakker på</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forelesningsnotatene-hvor-er-de">Forelesningsnotatene - hvor er de?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manuell-nedlastning"><strong>Manuell nedlastning</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativ-henting-av-forelesningsnotatene-nb-valgfritt-ikke-obligatorisk"><strong>Alternativ henting av forelesningsnotatene (NB: Valgfritt, ikke obligatorisk)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-git">1. Installere git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hente-kursmateriell-fra-github">2. Hente kursmateriell fra Github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempelkode">Eksempelkode</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-din-forste-linje-med-kode">1. Print din første linje med kode 🖥️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-som-kalkulator">2. Python som kalkulator 🐍</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagre-og-bruke-variabler">Lagre og bruke variabler 🔢</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sjekk-om-et-tall-er-partall-eller-oddetall-dette-vil-vi-ga-igjennom-i-kapittel-6-logikk-og-lokker">3. Sjekk om et tall er partall eller oddetall 🔍. Dette vil vi gå igjennom i kapittel 6 - Logikk og løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjenta-noe-flere-ganger">Gjenta noe flere ganger 🔄</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-en-enkel-funksjon">4. Lag en enkel funksjon ⚙️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#na-har-vi-sett-noen-eksempler-samt-fatt-lastet-ned-python-og-fatt-jupyter-notebook-oppe-a-ga-voila">Nå har vi sett noen eksempler, samt fått lastet ned Python og fått Jupyter NoteBook oppe å gå! <em>Voila</em>!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Markus J. Aase, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

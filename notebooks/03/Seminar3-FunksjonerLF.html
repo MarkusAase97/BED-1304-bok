@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seminar 3 - Funksjoner (løsningsforslag) &#8212; Bed-1304 Python-lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03/Seminar3-FunksjonerLF';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/py.png" class="logo__image only-light" alt="Bed-1304 Python-lab - Home"/>
+    <script>document.write(`<img src="../../_static/py.png" class="logo__image only-dark" alt="Bed-1304 Python-lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00/intro.html">
+                    Bed-1304 Python-lab
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/introduksjon.html">1 - Introduksjon til kurset</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02/python_basics.html">2 - Python basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="funksjoner.html">3 - funksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/lister_oppslag_numpy.html">4 - Lister, oppslag og numpy</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05/pandas_og_databehandling.html">5 - Pandas og databehandling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/logikk_loops.html">6 - Logikk og løkker</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07/matplotlib.html">7 - Matplotlib</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08/seaborn.html">7 - Seaborn</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09/sympy.html">8 - SymPy</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10/simulering.html">9 - Simulering</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursesside/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03/Seminar3-FunksjonerLF.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/03/Seminar3-FunksjonerLF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Seminar 3 - Funksjoner (løsningsforslag)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Seminar 3 - Funksjoner (løsningsforslag)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1a">Oppgave 1a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1b">Oppgave 1b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1c">Oppgave 1c</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2a">Oppgave 2a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2b">Oppgave 2b</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#det-kan-vaere-fint-a-vise-studentene-folgende">Det kan være fint å vise studentene følgende</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3a">Oppgave 3a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3b">Oppgave 3b</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seminar-3-funksjoner-losningsforslag">
+<h1><strong>Seminar 3 - Funksjoner (løsningsforslag)</strong><a class="headerlink" href="#seminar-3-funksjoner-losningsforslag" title="Link to this heading">#</a></h1>
+<p>For å bygge en god grunnmur i Python, trenger vi å kunne lage våre egne funksjoner. Heldigvis er Python et fleksibelt programmeringsspråk og gjør at vi kan lage funksjoner på mange ulike vis.</p>
+<p>Disse oppgavene er tiltenkt seminar - som trening på funksjoner.</p>
+<p>Øv på å bruke Google, forelesningsnotater og pseudokode for å løse oppgaven.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-1a">
+<h1>Oppgave 1a<a class="headerlink" href="#oppgave-1a" title="Link to this heading">#</a></h1>
+<p><em>Nåverdi</em> (eng: <em>present value</em>) er viktig i økonomi, og bruke til å beregne verdien i dag av en fremtidig sum penger. Formelen er
+$<span class="math notranslate nohighlight">\(PV = \frac{FV}{(1+r)^n}\)</span>$</p>
+<p>Der:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(FV\)</span> er fremtidig verdi (Future Value)</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> er rente per periode</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> er antall perioder</p></li>
+</ul>
+<p><strong>Oppgave</strong>: Lag en funksjon <code class="docutils literal notranslate"><span class="pre">present_value(fv,</span> <span class="pre">r,</span> <span class="pre">n)</span></code> som tar inn de tre parameterne og returnerer nåverdien. Test funksjonen for noen vilkårlige verdier.</p>
+<section id="oppgave-1b">
+<h2>Oppgave 1b<a class="headerlink" href="#oppgave-1b" title="Link to this heading">#</a></h2>
+<p>Return on Investment (ROI) er en måling som brukes til å evaluere effektiviteten av en investering. Formelen er:</p>
+<div class="math notranslate nohighlight">
+\[𝑅𝑂𝐼 = \frac{\text{(Gevinst fra investering)\; - \; \text{(Kostnad ved investering)}}}{\text{(Kostnad ved investering)}}\]</div>
+<p><strong>Oppgave</strong>: Lag en funksjon <code class="docutils literal notranslate"><span class="pre">roi(gain,</span> <span class="pre">cost)</span></code> som beregner ROI. Test funksjonen for noen vilkårlige verdier.</p>
+</section>
+<section id="oppgave-1c">
+<h2>Oppgave 1c<a class="headerlink" href="#oppgave-1c" title="Link to this heading">#</a></h2>
+<p>Den gjennomsnittlige årlige avkastningen (Compound Annual Growth Rate, CAGR) brukes til å måle avkastningen på en investering over tid, med tanke på effekten av rentesrente. Formelen er:</p>
+<div class="math notranslate nohighlight">
+\[\text{CAGR} = \left(\frac{\text{EV}}{\text{BV}} \right)^{\frac{1}{n}} - 1\]</div>
+<p>Der:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(EV\)</span> er sluttverdien (Ending Value)</p></li>
+<li><p><span class="math notranslate nohighlight">\(BV\)</span> er startverdien (Beginning Value)</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> er antall år</p></li>
+</ul>
+<p><strong>Oppgave</strong>: Lag en funksjon <code class="docutils literal notranslate"><span class="pre">cagr(ev,</span> <span class="pre">bv,</span> <span class="pre">n)</span></code> som beregner CAGR.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løsningsforslag 1a</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">present_value</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">pv</span> <span class="o">=</span> <span class="n">fv</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">pv</span>
+
+<span class="c1"># Test av funksjonen med noen eksempler</span>
+<span class="n">fremtidig_verdi</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># 10 000 kr</span>
+<span class="n">rente</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># 5% rente per år</span>
+<span class="n">antall_år</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 5 år</span>
+
+<span class="n">resultat</span> <span class="o">=</span> <span class="n">present_value</span><span class="p">(</span><span class="n">fremtidig_verdi</span><span class="p">,</span> <span class="n">rente</span><span class="p">,</span> <span class="n">antall_år</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nåverdien av </span><span class="si">{</span><span class="n">fremtidig_verdi</span><span class="si">}</span><span class="s2"> kr om </span><span class="si">{</span><span class="n">antall_år</span><span class="si">}</span><span class="s2"> år med </span><span class="si">{</span><span class="n">rente</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">% rente er: </span><span class="si">{</span><span class="n">resultat</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nåverdien av 10000 kr om 5 år med 5.0% rente er: 7835.26 kr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løsningsforslag 1b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">roi</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">gain</span> <span class="o">-</span> <span class="n">cost</span><span class="p">)</span> <span class="o">/</span> <span class="n">cost</span>
+
+<span class="c1"># Test funksjonen med et eksempel</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="mi">15000</span>  <span class="c1"># Gevinst fra investering</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Kostnad ved investering</span>
+
+<span class="n">roi_value</span> <span class="o">=</span> <span class="n">roi</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Avkastning på investering: </span><span class="si">{</span><span class="n">roi_value</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Avkastning på investering: 50.00%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løsningsforslag 1c</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cagr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="n">bv</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ev</span> <span class="o">/</span> <span class="n">bv</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Test funksjonen med et eksempel</span>
+<span class="n">ev</span> <span class="o">=</span> <span class="mi">15000</span>  <span class="c1"># Sluttverdi</span>
+<span class="n">bv</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Startverdi</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># Antall år</span>
+
+<span class="n">cagr_value</span> <span class="o">=</span> <span class="n">cagr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="n">bv</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gjennomsnittlig årlig avkastning (CAGR): </span><span class="si">{</span><span class="n">cagr_value</span><span class="si">:</span><span class="s2">.3%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjennomsnittlig årlig avkastning (CAGR): 8.447%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-2a">
+<h1>Oppgave 2a<a class="headerlink" href="#oppgave-2a" title="Link to this heading">#</a></h1>
+<p>Lag en funksjon som lager en liste med <span class="math notranslate nohighlight">\(n\)</span> <strong>tilfeldige</strong> verdier mellom <span class="math notranslate nohighlight">\(1\)</span> og <span class="math notranslate nohighlight">\(k\)</span>. Funksjonen skal altså ha <span class="math notranslate nohighlight">\(2\)</span> parameter (<span class="math notranslate nohighlight">\(n\)</span> og <span class="math notranslate nohighlight">\(k\)</span>).
+Her vil du få bruk for biblioteket ‘random’, det henter du ved å skrive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</pre></div>
+</div>
+<p>Test funksjonen for <span class="math notranslate nohighlight">\(n = 15\)</span> og <span class="math notranslate nohighlight">\(k=50\)</span>.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Skriv pseudo-kode før du går igang.</p></li>
+<li><p>Sjekk først hva og hvordan <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">10))</span></code> fungerer.</p></li>
+<li><p>Man kan bruke for-løkke og <code class="docutils literal notranslate"><span class="pre">append</span></code> funksjonen for å få dette til.</p></li>
+<li><p>Google er din venn.</p></li>
+</ul>
+<section id="oppgave-2b">
+<h2>Oppgave 2b<a class="headerlink" href="#oppgave-2b" title="Link to this heading">#</a></h2>
+<p>Lag en funksjon som som itererer gjennom en liste (som du lager med funksjonen fra oppgave 2a) - og sjekker om verdiene i lista er større eller lik enn en verdi <span class="math notranslate nohighlight">\(b\)</span>. Hvis den er større, legg tallet i en ny liste. Returner denne lista.</p>
+<p>Lag en funksjon med tre parametere (<span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(n\)</span> og <span class="math notranslate nohighlight">\(k\)</span>) og test funksjonen.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Her skal du lage en funksjon som bruker funksjonen fra 2a <strong>inne</strong> i funksjonen.</p></li>
+<li><p>Husk å lag pseudo-kode, før du setter igang.</p></li>
+<li><p>Man kan bruke for-løkke og <code class="docutils literal notranslate"><span class="pre">append</span></code> funksjonen for å få dette til.</p></li>
+<li><p>Søk også opp hvordan <code class="docutils literal notranslate"><span class="pre">if</span></code> og <code class="docutils literal notranslate"><span class="pre">else</span></code> fungerer i Python.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 2a løsningsforslag</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_random_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">random_list</span> <span class="o">=</span> <span class="p">[]</span>                                <span class="c1"># Definerer en tom liste</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>                         <span class="c1"># Lager en liste av lengde n, slik oppgaven ba om</span>
+        <span class="n">random_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>    <span class="c1"># Bruker innebygde funksjonen &#39;append&#39; til å legge til et tilfeldig tall mellom 1 og k. Bruker også random biblioteket.</span>
+    
+    <span class="k">return</span> <span class="n">random_list</span>
+
+<span class="n">generate_random_list</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># Teste funksjonen for n = 15 og k = 50</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[36, 28, 30, 12, 1, 20, 28, 24, 24, 35, 11, 6, 8, 12, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oppgave 2b løsningsforslag</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bigger_or_not</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">random_list</span> <span class="o">=</span> <span class="n">generate_random_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>   <span class="c1"># Bruker funksjonen fra forrige oppgave til å generer en liste med tilfeldige tall.</span>
+    <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>                              <span class="c1"># Ny, tom liste.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">random_list</span><span class="p">:</span>                      <span class="c1"># for-løkk</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">:</span>                             <span class="c1"># Sjekker om i er større eller lik b</span>
+            <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_list</span>
+
+<span class="n">bigger_or_not</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># Eksempel-test - sjekker om n = 15 tilfeldige verdier mellom 1 og k = 50, er større eller lik 25.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[41, 37, 30, 43, 42, 27, 38, 38, 39, 42]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="det-kan-vaere-fint-a-vise-studentene-folgende">
+<h1>Det kan være fint å vise studentene følgende<a class="headerlink" href="#det-kan-vaere-fint-a-vise-studentene-folgende" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># Sette random seed - for å få samme &quot;tilfeldige&quot; verdi hver gang</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Generere random tall</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># Generates a random integer between 1 and 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>        <span class="c1"># Generates a random float between 0 and 1</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="oppgave-3a">
+<h1>Oppgave 3a<a class="headerlink" href="#oppgave-3a" title="Link to this heading">#</a></h1>
+<p>Du er samfunnsøkonom å undersøker hvor mange pasienter en fastlege kan ta i løpet av en dag.
+Lag en funksjon med fire argumenter <code class="docutils literal notranslate"><span class="pre">consultation_schedule(number_of_patients,</span> <span class="pre">consultation_time,</span> <span class="pre">hours_per_day,</span> <span class="pre">days_per_week)</span></code></p>
+<p>Funksjonen skal printe ut tekst og utregnete variabler som hvor mange pasienter legen kan ta per dag. Hvor mange arbeidsdager det tar å fullføre alle pasientene, og hvor mange pasienter legen kan ta i uka.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">number_of_patients</span></code>: antall pasienter totalt (velg en eksempelverdi selv).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consultation_time</span></code>: hvor lang tid en konsultasjon tar (f.eks. 0.5 timer).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hours_per_day</span></code>: en variabel som er hvor mange arbeidstimer legen har per dag (som vanligvis er 7.5).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">days_per_week</span></code>: en variabel som er antall arbeidsdager i uka (som er vanligvis 5).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løsningsforslag 3a</span>
+
+<span class="n">number_of_patients</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Antall pasienter som skal behandles</span>
+<span class="n">consultation_time</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Konsultasjonstid per pasient i timer</span>
+<span class="n">hours_per_day</span> <span class="o">=</span> <span class="mf">7.5</span>       <span class="c1"># Antall arbeidstimer per dag</span>
+<span class="n">days_per_week</span> <span class="o">=</span> <span class="mi">5</span>         <span class="c1"># Antall arbeidsdager i uken</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">consultation_schedule</span><span class="p">(</span><span class="n">number_of_patients</span><span class="p">,</span> <span class="n">consultation_time</span><span class="p">,</span> <span class="n">hours_per_day</span><span class="p">,</span> <span class="n">days_per_week</span><span class="p">):</span>
+    <span class="c1"># Beregn hvor mange pasienter legen kan se per dag</span>
+    <span class="n">patients_per_day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hours_per_day</span> <span class="o">/</span> <span class="n">consultation_time</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bruker vi </span><span class="si">{</span><span class="n">consultation_time</span><span class="si">}</span><span class="s1"> timer per konsultasjon - legen kan ta </span><span class="si">{</span><span class="n">patients_per_day</span><span class="si">}</span><span class="s1"> pasienter per dag. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Beregn hvor mange dager det tar å behandle alle pasientene</span>
+    <span class="n">days_to_complete</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">number_of_patients</span> <span class="o">/</span> <span class="n">patients_per_day</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Det tar </span><span class="si">{</span><span class="n">days_to_complete</span><span class="si">}</span><span class="s1"> dager å fullføre konsultasjon for </span><span class="si">{</span><span class="n">number_of_patients</span><span class="si">}</span><span class="s1"> pasienter.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Beregn hvor mange pasienter legen kan se på en uke</span>
+    <span class="n">patients_per_week</span> <span class="o">=</span> <span class="n">patients_per_day</span> <span class="o">*</span> <span class="n">days_per_week</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Legen kan se </span><span class="si">{</span><span class="n">patients_per_week</span><span class="si">}</span><span class="s1"> patienter på en uke med </span><span class="si">{</span><span class="n">days_per_week</span><span class="si">}</span><span class="s1"> arbeidsdager.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Test funksjonen</span>
+<span class="n">consultation_schedule</span><span class="p">(</span><span class="n">number_of_patients</span><span class="p">,</span> <span class="n">consultation_time</span><span class="p">,</span> <span class="n">hours_per_day</span><span class="p">,</span> <span class="n">days_per_week</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bruker vi 0.5 timer per konsultasjon - legen kan ta 15 pasienter per dag. 
+
+Det tar 6.67 dager å fullføre konsultasjon for 100 pasienter.
+Legen kan se 75 patienter på en uke med 5 arbeidsdager.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="oppgave-3b">
+<h2>Oppgave 3b<a class="headerlink" href="#oppgave-3b" title="Link to this heading">#</a></h2>
+<p>Lag en ny versjon av funksjonen over, som tar inn ett ekstra argument <code class="docutils literal notranslate"><span class="pre">percent_sickleave</span></code>, som er hvor mange prosent sykemelding legen har. F.eks. 40% sykemelding, eller 60% - gjør slik at funksjonen tar hensyn til det.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_patients</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Antall pasienter som skal behandles</span>
+<span class="n">consultation_time</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Konsultasjonstid per pasient i timer</span>
+<span class="n">hours_per_day</span> <span class="o">=</span> <span class="mf">7.5</span>  <span class="c1"># Antall arbeidstimer per dag</span>
+<span class="n">days_per_week</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Antall arbeidsdager i uken</span>
+<span class="n">percent_sickleave</span> <span class="o">=</span> <span class="mi">40</span>  <span class="c1"># Sykemeldingsprosent (f.eks. 40%)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">consultation_schedule</span><span class="p">(</span><span class="n">number_of_patients</span><span class="p">,</span> <span class="n">consultation_time</span><span class="p">,</span> <span class="n">hours_per_day</span><span class="p">,</span> <span class="n">days_per_week</span><span class="p">,</span> <span class="n">percent_sickleave</span><span class="p">):</span>
+    <span class="c1"># Juster arbeidstiden basert på sykemeldingsprosent</span>
+    <span class="n">effective_hours_per_day</span> <span class="o">=</span> <span class="n">hours_per_day</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">percent_sickleave</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="c1"># Beregn hvor mange pasienter legen kan se per dag</span>
+    <span class="n">patients_per_day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">effective_hours_per_day</span> <span class="o">/</span> <span class="n">consultation_time</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Med </span><span class="si">{</span><span class="n">percent_sickleave</span><span class="si">}</span><span class="s1">% sykemelding, kan legen se </span><span class="si">{</span><span class="n">patients_per_day</span><span class="si">}</span><span class="s1"> pasienter per dag. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Beregn hvor mange dager det tar å behandle alle pasientene</span>
+    <span class="n">days_to_complete</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number_of_patients</span> <span class="o">/</span> <span class="n">patients_per_day</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Det vil ta </span><span class="si">{</span><span class="n">days_to_complete</span><span class="si">}</span><span class="s1"> dager å fullføre konsultasjon for </span><span class="si">{</span><span class="n">number_of_patients</span><span class="si">}</span><span class="s1"> pasienter.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Beregn hvor mange pasienter legen kan se på en uke</span>
+    <span class="n">patients_per_week</span> <span class="o">=</span> <span class="n">patients_per_day</span> <span class="o">*</span> <span class="n">days_per_week</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Legen kan se </span><span class="si">{</span><span class="n">patients_per_week</span><span class="si">}</span><span class="s1"> pasienter i løpet av en uke med </span><span class="si">{</span><span class="n">days_per_week</span><span class="si">}</span><span class="s1"> arbeidsdager.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Test funksjonen med sykefravær</span>
+<span class="n">consultation_schedule</span><span class="p">(</span><span class="n">number_of_patients</span><span class="p">,</span> <span class="n">consultation_time</span><span class="p">,</span> <span class="n">hours_per_day</span><span class="p">,</span> <span class="n">days_per_week</span><span class="p">,</span> <span class="n">percent_sickleave</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Med 40% sykemelding, kan legen se 9 pasienter per dag. 
+
+Det vil ta 11 dager å fullføre konsultasjon for 100 pasienter.
+Legen kan se 45 pasienter i løpet av en uke med 5 arbeidsdager.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Seminar 3 - Funksjoner (løsningsforslag)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1a">Oppgave 1a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1b">Oppgave 1b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-1c">Oppgave 1c</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2a">Oppgave 2a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-2b">Oppgave 2b</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#det-kan-vaere-fint-a-vise-studentene-folgende">Det kan være fint å vise studentene følgende</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3a">Oppgave 3a</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-3b">Oppgave 3b</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By setternoeher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
