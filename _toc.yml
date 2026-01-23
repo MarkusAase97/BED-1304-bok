@@ -18,25 +18,25 @@ chapters:
 - title: Repetisjon
     sections:
       - title: Python Basics – repetisjon
-        url: Repetisjon/PythonBasicsRepetisjon.pdf
+        url: Repetisjon/PythonBasicsRepetisjon
 
       - title: Funksjoner – repetisjon
-        url: Repetisjon/FunksjonerRepetisjon.pdf
+        url: Repetisjon/FunksjonerRepetisjon
 
       - title: Lister / NumPy – repetisjon
-        url: Repetisjon/ListerNumpyRepetisjon.pdf
+        url: Repetisjon/ListerNumpyRepetisjon
 
       - title: Pandas – repetisjon
-        url: Repetisjon/PandasRepetisjon.pdf
+        url: Repetisjon/PandasRepetisjon
 
       - title: Logikk og løkker – repetisjon
-        url: Repetisjon/LogikkRepetisjon.pdf
+        url: Repetisjon/LogikkRepetisjon
 
       - title: Matplotlib - repetisjon
-        url: Repetisjon/MatplotlibRepetisjon.pdf
+        url: Repetisjon/MatplotlibRepetisjon
       
       - title: Sympy - repetisjon
-        url: Repetisjon/Sympy.pdf
+        url: Repetisjon/Sympy
       
       - title: Simulering - repetisjon
-        url: Repetisjon/Simulering.pdf
+        url: Repetisjon/Simulering
