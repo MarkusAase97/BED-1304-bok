@@ -11,4 +11,32 @@ chapters:
   - file: notebooks/08/seaborn
   - file: notebooks/09/sympy
   - file: notebooks/10/simulering
-  - file: notebooks/00/knowledge_test
+
+- title: Kunnskapstest
+    file: notebooks/00/knowledge_test
+
+- title: Repetisjon
+    sections:
+      - title: Python Basics – repetisjon
+        url: Repetisjon/PythonBasicsRepetisjon.pdf
+
+      - title: Funksjoner – repetisjon
+        url: Repetisjon/FunksjonerRepetisjon.pdf
+
+      - title: Lister / NumPy – repetisjon
+        url: Repetisjon/ListerNumpyRepetisjon.pdf
+
+      - title: Pandas – repetisjon
+        url: Repetisjon/PandasRepetisjon.pdf
+
+      - title: Logikk og løkker – repetisjon
+        url: Repetisjon/LogikkRepetisjon.pdf
+
+      - title: Matplotlib - repetisjon
+        url: Repetisjon/MatplotlibRepetisjon.pdf
+      
+      - title: Sympy - repetisjon
+        url: Repetisjon/Sympy.pdf
+      
+      - title: Simulering - repetisjon
+        url: Repetisjon/Simulering.pdf
