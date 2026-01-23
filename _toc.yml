@@ -1,5 +1,6 @@
 format: jb-book
 root: notebooks/00/intro
+
 chapters:
   - file: notebooks/01/introduksjon
   - file: notebooks/02/python_basics
@@ -12,10 +13,10 @@ chapters:
   - file: notebooks/09/sympy
   - file: notebooks/10/simulering
 
-- title: Kunnskapstest
+  - title: Kunnskapstest
     file: notebooks/00/knowledge_test
 
-- title: Repetisjon
+  - title: Repetisjon
     sections:
       - title: Python Basics – repetisjon
         url: Repetisjon/PythonBasicsRepetisjon
@@ -32,11 +33,11 @@ chapters:
       - title: Logikk og løkker – repetisjon
         url: Repetisjon/LogikkRepetisjon
 
-      - title: Matplotlib - repetisjon
+      - title: Matplotlib – repetisjon
         url: Repetisjon/MatplotlibRepetisjon
-      
-      - title: Sympy - repetisjon
+
+      - title: Sympy – repetisjon
         url: Repetisjon/Sympy
-      
-      - title: Simulering - repetisjon
+
+      - title: Simulering – repetisjon
         url: Repetisjon/Simulering
