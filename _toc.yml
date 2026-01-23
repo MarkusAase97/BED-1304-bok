@@ -17,27 +17,28 @@ chapters:
     file: notebooks/00/knowledge_test
 
   - title: Repetisjon
+    file: Repetisjon/index
     sections:
       - title: Python Basics – repetisjon
-        url: Repetisjon/PythonBasicsRepetisjon
+        url: Repetisjon/PythonBasicsRepetisjon.pdf
 
       - title: Funksjoner – repetisjon
-        url: Repetisjon/FunksjonerRepetisjon
+        url: Repetisjon/FunksjonerRepetisjon.pdf
 
       - title: Lister / NumPy – repetisjon
-        url: Repetisjon/ListerNumpyRepetisjon
+        url: Repetisjon/ListerNumpyRepetisjon.pdf
 
       - title: Pandas – repetisjon
-        url: Repetisjon/PandasRepetisjon
+        url: Repetisjon/PandasRepetisjon.pdf
 
       - title: Logikk og løkker – repetisjon
-        url: Repetisjon/LogikkRepetisjon
+        url: Repetisjon/LogikkRepetisjon.pdf
 
       - title: Matplotlib – repetisjon
-        url: Repetisjon/MatplotlibRepetisjon
+        url: Repetisjon/MatplotlibRepetisjon.pdf
 
       - title: Sympy – repetisjon
-        url: Repetisjon/Sympy
+        url: Repetisjon/Sympy.pdf
 
       - title: Simulering – repetisjon
-        url: Repetisjon/Simulering
+        url: Repetisjon/Simulering.pdf
